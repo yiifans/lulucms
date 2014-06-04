@@ -1,91 +1,100 @@
-html,
+@import "global.css";
 body {
-	height: 100%;
-}
-
-.wrap {
-	min-height: 100%;
-	height: auto;
-	margin: 0 auto -60px;
-	padding: 0 0 60px;
-}
-
-.wrap > .container {
-    padding: 70px 15px 20px;
+  padding-top: 70px;
 }
 
 .footer {
-	height: 60px;
-	background-color: #f5f5f5;
-	border-top: 1px solid #ddd;
-	padding-top: 20px;
+  border-top: 1px solid #ddd;
+  margin-top: 30px;
+  padding-top: 15px;
+  padding-bottom: 30px;
 }
 
 .jumbotron {
-	text-align: center;
-	background-color: transparent;
+  text-align: center;
+  background-color: transparent;
 }
-
 .jumbotron .btn {
-	font-size: 21px;
-	padding: 14px 24px;
-}
-
-.not-set {
-	color: #c55;
-	font-style: italic;
+  font-size: 21px;
+  padding: 14px 24px;
 }
 
 /* add sorting icons to gridview sort links */
 a.asc:after, a.desc:after {
-	position: relative;
-	top: 1px;
-	display: inline-block;
-	font-family: 'Glyphicons Halflings';
-	font-style: normal;
-	font-weight: normal;
-	line-height: 1;
-	padding-left: 5px;
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
 }
 
-a.asc:after {
-	content: /*"\e113"*/ "\e151";
+a.asc:after  { content: /*"\e113"*/"\e151"; }
+a.desc:after { content: /*"\e114"*/"\e152"; }
+
+.sort-numerical a.asc:after { content: "\e153"; }
+.sort-numerical a.desc:after { content: "\e154"; }
+
+.sort-ordinal a.asc:after { content: "\e155"; }
+.sort-ordinal a.desc:after { content: "\e156"; }
+
+.hline{}
+.hline li{float:left;margin-left:10px;list-style-type:none;}
+
+.table{border:1px solid #dedede;}
+.table tr{height:22px;}
+.table tr th{border-left:1px solid #dedede;}
+.table tr td{border-left:1px solid #dedede;}
+
+
+.mainchannel
+{
+	width:1000px;
+	margin-bottom:10px;
+	border-bottom:1px solid #DBDBDB;
+	color:#676767;
+	overflow:hidden;
+    background:url("http://localhost/dedecms/templets/default/images/green_skin.png") repeat-x scroll 0 -188px transparent;
+	background-position: 0 -72px;
+	background-repeat: repeat-x;
+	height: 70px;
+	line-height:70px;
+}
+.mainchannel ul li{float:left;margin-left:10px;
+font: 14px/1.5 "Microsoft YaHei","Î¢ÈíÑÅºÚ","Microsoft JhengHei","ËÎÌå";
+float: left;
+height: 22px;
+margin-right: 10px;
+margin-left: -3px;
+padding-left: 10px;
 }
 
-a.desc:after {
-	content: /*"\e114"*/ "\e152";
+.mainchannel ul li a{
+	
+	color: white;
+height: 22px;
+text-decoration: none;
+display: inline-block;
+position: relative;
 }
+.container,.site-index{width:1000px;}
+.w685{width:685px;}
+.w335{width:335px;}
+.w300{width:300px;}
 
-.sort-numerical a.asc:after {
-	content: "\e153";
-}
+.main-left{width:680px;}
+.main-right{width:300px;}
 
-.sort-numerical a.desc:after {
-	content: "\e154";
-}
+.side-left{width:680px;}
+.side-right{width:320px;}
 
-.sort-ordinal a.asc:after {
-	content: "\e155";
-}
 
-.sort-ordinal a.desc:after {
-	content: "\e156";
-}
 
-.grid-view th {
-    white-space: nowrap;
-}
 
-.hint-block {
-	display: block;
-	margin-top: 5px;
-	color: #999;
-}
 
-.error-summary {
-	color: #a94442;
-	background: #fdf7f7;
-	border-left: 3px solid #eed3d7;
-	padding: 10px 20px;
-	margin: 0 0 15px 0;
-}
+
+
+
+

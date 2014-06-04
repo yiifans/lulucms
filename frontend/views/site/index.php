@@ -1,4 +1,5 @@
 <?php
+use yii\helpers\VarDumper;
 /**
  * @var yii\web\View $this
  */
@@ -6,48 +7,131 @@ $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
-    </div>
+	<div class="w685 floatl">
+		<div class="tbox border">
+			<div class="hd">
+				<h2>title</h2>
+			</div>
+			<div class="bd">
+				<ul>
+					<li>股优酷土豆：持股16.5% CEO进董事会</li>
+					<li>股优酷土豆：持股16.5% CEO进董事会</li>
+					<li>股优酷土豆：持股16.5% CEO进董事会</li>
+					<li>股优酷土豆：持股16.5% CEO进董事会</li>
+					<li>股优酷土豆：持股16.5% CEO进董事会</li>
+					<li>股优酷土豆：持股16.5% CEO进董事会</li>
+					<li>股优酷土豆：持股16.5% CEO进董事会</li>
+					<li>股优酷土豆：持股16.5% CEO进董事会</li>
+				</ul>
+			</div>
+		</div>
+	<?php
+		$index=0; 
+		foreach ($dataList as $id=>$value)
+		{
+			$channel=$this->params['cachedChannel'][$id];
+			
+			$index+=1;
+			$style=' floatl';
+			if($index%2==0)
+			{
+				$style=' floatr';
+			}
+	?>
+		<div class="tbox w335 border<?php echo $style?>">
+			<div class="hd">
+				<h2>
+				<?php 
+					if($channel['is_leaf'])
+					{
+						echo '<a href="index.php?r=content/list&chnid='.$channel['id'].'"><font color="red">'.$channel['name'].'</font></a>';
+					}
+					else
+					{
+						echo '<a href="index.php?r=content/index&chnid='.$channel['id'].'">'.$channel['name'].'</a>';
+					}
+				?>
+				</h2>
+			</div>
+			<div class="bd">
+				<ul>
+					<?php foreach ($value as $row):?>
+					<li><a href="index.php?r=content/view&id=<?php echo $row['id']?>&chnid=<?php echo $row['channel_id']?>" target="_blank"><?php echo $row['title']?></a>
+						<span class="time"><?php echo date('m-d',strtotime($row['publish_time']))?></span></li>
+					<?php endforeach;?>
+				</ul>
+			</div>
+		</div>
+	<?php 
+			if($index%2==0)
+			{
+				echo '<div class="clear"></div>';
+			}
+		}
+	?>
+	
+	</div>
+	<div class="w300 floatr">
+		<div class="tbox border">
+			<div class="hd">
+				<h2>头条</h2>
+			</div>
+			<div class="bd">
+				<ul>
+					<?php foreach ($att1DataList as $row):?>
+					<li><?php echo $row['title']?></li>
+					<?php endforeach;?>
+				</ul>
+			</div>
+		</div>
+		<div class="tbox border">
+			<div class="hd">
+				<h2>推荐</h2>
+			</div>
+			<div class="bd">
+				<ul>
+					<?php foreach ($att2DataList as $row):?>
+					<li><?php echo $row['title']?></li>
+					<?php endforeach;?>
+				</ul>
+			</div>
+		</div>
+		<div class="tbox border">
+			<div class="hd">
+				<h2>置顶</h2>
+			</div>
+			<div class="bd">
+				<ul>
+					<?php foreach ($att3DataList as $row):?>
+					<li><?php echo $row['title']?></li>
+					<?php endforeach;?>
+				</ul>
+			</div>
+		</div>
+		<div class="tbox border">
+			<div class="hd">
+				<h2>点击</h2>
+			</div>
+			<div class="bd">
+				<ul>
+					<?php foreach ($att3DataList as $row):?>
+					<li><?php echo $row['title']?></li>
+					<?php endforeach;?>
+				</ul>
+			</div>
+		</div>
+		<div class="tbox border">
+			<div class="hd">
+				<h2>最新</h2>
+			</div>
+			<div class="bd">
+				<ul>
+					<?php foreach ($att3DataList as $row):?>
+					<li><?php echo $row['title']?></li>
+					<?php endforeach;?>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
 </div>
