@@ -5,6 +5,7 @@ use common\models\User;
 use yii\base\Model;
 use Yii;
 
+
 /**
  * Signup form
  */
