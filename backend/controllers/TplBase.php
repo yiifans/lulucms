@@ -6,10 +6,11 @@ use common\models\TplCover;
 use common\models\search\TplCoverSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\VerbFilter;
-use backend\controllers\BaseBackController;
 use ts\helpers\TFileHelper;
 use backend\base\BaseBackController;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+
 /**
  * TplCoverController implements the CRUD actions for TplCover model.
  */

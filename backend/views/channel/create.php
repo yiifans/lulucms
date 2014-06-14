@@ -7,8 +7,8 @@ use yii\helpers\Html;
  * @var app\models\Catalog $model
  */
 
-$this->title = 'Create Channel';
-$this->params['breadcrumbs'][] = ['label' => 'Channel', 'url' => ['index']];
+$this->title = '新建频道';
+$this->params['breadcrumbs'][] = ['label' => '频道管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="catalog-create">
@@ -17,11 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	<?php echo $this->render('_form', [
 		'model' => $model,
-		'channelTree' => $channelTree,
+		'channelArrayTree' => $channelArrayTree,
 		'tableList' => $tableList,
-		'tplChannelList' =>$tplChannelList,
-		'tplListList'=>$tplListList,
-		'tplViewList'=>$tplViewList,
+		'channelTpls' =>$channelTpls,
+		'listTpls'=>$listTpls,
+		'detailTpls'=>$detailTpls,
 	]); ?>
 
 </div>

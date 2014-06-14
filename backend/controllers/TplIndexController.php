@@ -6,9 +6,10 @@ use common\models\TplIndex;
 use common\models\search\TplIndexSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\VerbFilter;
-use backend\controllers\BaseBackController;
-use ts\helpers\TFileHelper;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use components\LuLu;
+
 
 /**
  * TplIndexController implements the CRUD actions for TplIndex model.

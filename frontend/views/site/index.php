@@ -29,7 +29,7 @@ $this->title = 'My Yii Application';
 		$index=0; 
 		foreach ($dataList as $id=>$value)
 		{
-			$channel=$this->params['cachedChannel'][$id];
+			$channel=$this->params['cachedChannels'][$id];
 			
 			$index+=1;
 			$style=' floatl';

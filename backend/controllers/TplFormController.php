@@ -4,12 +4,11 @@ namespace backend\controllers;
 
 use common\models\TplForm;
 use common\models\search\TplFormSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\VerbFilter;
-use backend\controllers\BaseBackController;
 use common\models\TplFormCategory;
-
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use components\LuLu;
 /**
  * TplFormController implements the CRUD actions for TplForm model.
  */
@@ -76,7 +75,7 @@ class TplFormController extends TplBase
 			return $this->redirect(['index']);
 		} else {
 			$datas=TplFormCategory::findAll();
-			$tplFormCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ÇëÑ¡Ôñ']);
+			$tplFormCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ï¿½ï¿½Ñ¡ï¿½ï¿½']);
 			$tableList=$this->getTableList();
 			
 			return $this->render('create', [
@@ -109,7 +108,7 @@ class TplFormController extends TplBase
 			return $this->redirect(['index']);
 		} else {
 			$datas=TplFormCategory::findAll();
-			$tplFormCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ÇëÑ¡Ôñ']);
+			$tplFormCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ï¿½ï¿½Ñ¡ï¿½ï¿½']);
 			$tableList=$this->getTableList();
 			
 			return $this->render('update', [

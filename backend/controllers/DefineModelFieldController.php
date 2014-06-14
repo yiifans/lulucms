@@ -14,18 +14,6 @@ use backend\base\BaseBackController;
  */
 class DefineModelFieldController extends BaseBackController
 {
-	public function behaviors()
-	{
-		return [
-			'verbs' => [
-				'class' => VerbFilter::className(),
-				'actions' => [
-					'delete' => ['post'],
-				],
-			],
-		];
-	}
-
 	/**
 	 * Lists all DefineModelField models.
 	 * @return mixed

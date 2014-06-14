@@ -6,13 +6,16 @@ use Yii;
 use yii\web\Controller;
 use common\models\LoginForm;
 use backend\base\BaseBackController;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+
 class SiteController extends Controller
 {
 	public function behaviors()
 	{
 		return [
 			'access' => [
-				'class' => \yii\web\AccessControl::className(),
+				'class' => AccessControl::className(),
 				'rules' => [
 					[
 						'actions' => ['login', 'error'],

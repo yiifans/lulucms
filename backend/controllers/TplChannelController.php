@@ -6,10 +6,9 @@ use common\models\TplChannel;
 use common\models\search\TplChannelSearch;
 
 use yii\web\NotFoundHttpException;
-use yii\web\VerbFilter;
-use backend\controllers\BaseBackController;
 use common\models\TplChannelCategory;
-use ts\helpers\TFileHelper;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * TplChannelController implements the CRUD actions for TplChannel model.
@@ -72,7 +71,7 @@ class TplChannelController extends TplBase
 			return $this->redirect(['index']);
 		} else {
 			$datas=TplChannelCategory::findAll();
-			$tplCoverCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ÇëÑ¡Ôñ']);
+			$tplCoverCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ï¿½ï¿½Ñ¡ï¿½ï¿½']);
 			
 			$tableList=$this->getTableList();
 			
@@ -101,7 +100,7 @@ class TplChannelController extends TplBase
 			return $this->redirect(['index']);
 		} else {
 			$datas=TplChannelCategory::findAll();
-			$tplCoverCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ÇëÑ¡Ôñ']);
+			$tplCoverCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ï¿½ï¿½Ñ¡ï¿½ï¿½']);
 			
 			$tableList=$this->getTableList();
 			

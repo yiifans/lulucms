@@ -6,10 +6,10 @@ use common\models\TplList;
 use common\models\search\TplListSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\VerbFilter;
-use backend\controllers\BaseBackController;
 use common\models\TplListCategory;
-use ts\helpers\TFileHelper;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use components\LuLu;
 
 /**
  * TplListController implements the CRUD actions for TplList model.
@@ -73,7 +73,7 @@ class TplListController extends TplBase
 			return $this->redirect(['index']);
 		} else {
 			$datas=TplListCategory::findAll();
-			$tplListCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ÇëÑ¡Ôñ']);
+			$tplListCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ï¿½ï¿½Ñ¡ï¿½ï¿½']);
 			
 			$tableList=$this->getTableList();
 			
@@ -101,7 +101,7 @@ class TplListController extends TplBase
 			return $this->redirect(['index']);
 		} else {
 			$datas=TplListCategory::findAll();
-			$tplListCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ÇëÑ¡Ôñ']);
+			$tplListCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ï¿½ï¿½Ñ¡ï¿½ï¿½']);
 			
 			$tableList=$this->getTableList();
 			

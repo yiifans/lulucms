@@ -4,16 +4,16 @@ namespace backend\controllers;
 
 use common\models\TplCover;
 use common\models\search\TplCoverSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\VerbFilter;
-use backend\controllers\BaseBackController;
-use ts\helpers\TFileHelper;
 use backend\base\BaseBackController;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use components\LuLu;
+use components\helpers\TFileHelper;
 /**
  * TplCoverController implements the CRUD actions for TplCover model.
  */
-class TplController extends BaseBackController
+class TplController extends TplBase
 {
 	public function behaviors()
 	{
@@ -36,20 +36,18 @@ class TplController extends BaseBackController
 		$frontRoot=\Yii::getAlias('@frontend');
 		$parentDirFull=$frontRoot.'\views';
 		
-		$parentDir=$this->getGetValue('d');
-		if($parentDir=='')
-		{
-			$parentDir='.';
-		}
-		else 
-		{
-			$parentDirFull.=ltrim($parentDir,'.');
-		}
+		$parentDir=LuLu::getGetValue('d','.');
+		$parentDirFull.=ltrim($parentDir,'.');
 		
 		
 		$dirs=scandir($parentDirFull);
 		
-		return $this -> render('index',['dirs'=>$dirs,'parentDir'=>$parentDir,'parentDirFull'=>$parentDirFull]);
+		$locals = [];
+		$locals['dirs']=$dirs;
+		$locals['parentDir']=$parentDir;
+		$locals['parentDirFull']=$parentDirFull;
+		
+		return $this -> render('index',$locals);
 		
 		//echo $this->renderPartial('index');
 	}
@@ -98,17 +96,21 @@ class TplController extends BaseBackController
 		$frontRoot=\Yii::getAlias('@frontend');
 		$parentDirFull=$frontRoot.'\views';
 		
-		$file=$this->getGetValue('file');
-		$filePath=$parentDirFull.$file;
+		$parentDir=LuLu::getGetValue('d','.');
+		$parentDirFull.=ltrim($parentDir,'.');
+		
+		$file=LuLu::getGetValue('file');
+		$filePath=$parentDirFull.'\\'.$file;
 		
 		
 		
 		$model=[]; //= $this->findModel($id);
 		
 		
-		$fileContent=$this->getPostValue('FileContent');
+		$fileContent=LuLu::getPostValue('FileContent');
 		if($fileContent!=null)
 		{
+			
 			TFileHelper::writeFile($filePath, $fileContent);
 		}
 		else
@@ -116,13 +118,14 @@ class TplController extends BaseBackController
 			$fileContent = TFileHelper::readFile($filePath);
 		}
 		
+		$locals=[];
+		$locals['parentDirFull']=$parentDirFull;
+		$locals['model']=$model;
+		$locals['file']=$file;
+		$locals['content']=$fileContent;
+		$locals['isNewRecord']=false;
 		
-		return $this->render('update', [
-				'model' => $model,
-				'file'=>$file,
-				'content'=>$fileContent,
-				'isNewRecord'=>false,
-				]);
+		return $this->render('update', $locals);
 		
 	
 	}

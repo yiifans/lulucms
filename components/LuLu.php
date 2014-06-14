@@ -3,6 +3,11 @@
 namespace components;
 
 
+use yii\helpers\VarDumper;
+use Yii;
+use yii\helpers\Url;
+use yii\data\Pagination;
+
 class LuLu
 {
 	public static function getApp()
@@ -253,15 +258,13 @@ class LuLu
 
 	public static function getDataSourceFromChannel($channelId,$other=[])
 	{
-		$cachedChannel = \Yii::$app->getView()->params['cachedChannel'];
-
-		$channelId=rtrim($channelId,',');
+		$cachedChannels = LuLu::getViewParam('cachedChannels');
 
 		if(intval($channelId))
 		{
-			$channel=$cachedChannel[$channelId];
+			$channel=$cachedChannels[$channelId];
 				
-			$tableName=$channel['table_name'];
+			$tableName=$channel['table'];
 				
 			if($channel['is_leaf'])
 			{
@@ -269,7 +272,7 @@ class LuLu
 			}
 			else
 			{
-				$leafIds=rtrim($channel['leaf_ids'],',');
+				$leafIds=$channel['leaf_ids'];
 				if($leafIds=='')
 				{
 					return [];
@@ -287,13 +290,13 @@ class LuLu
 			$leafIds;
 			foreach ($channelIdArray as $id)
 			{
-				$leafIds.=$cachedChannel[$id]['leaf_ids'];
+				$leafIds.=$cachedChannels[$id]['leaf_ids'].',';
 			}
 				
 			$leafIdsArray=explode(',', rtrim($leafIds,','));
 			$leafIdsArray=array_unique($leafIdsArray);
 				
-			$tableName=$cachedChannel[$leafIdsArray[0]]['table_id'];
+			$tableName=$cachedChannels[$leafIdsArray[0]]['table'];
 			$leafIds=implode(',', $leafIdsArray);
 				
 			$sql=self::buildSql($tableName,$other,'channel_id in('.$leafIds.')');

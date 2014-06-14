@@ -68,7 +68,7 @@ class TplItemController extends TplBase
 			return $this->redirect(['index']);
 		} else {
 			$datas=TplItemCategory::findAll();
-			$tplItemCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ÇëÑ¡Ôñ']);
+			$tplItemCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'è¯·é€‰æ‹©']);
 			
 			$modelList=$this->getModelList();
 			
@@ -94,7 +94,7 @@ class TplItemController extends TplBase
 			return $this->redirect(['index']);
 		} else {
 			$datas=TplItemCategory::findAll();
-			$tplItemCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ÇëÑ¡Ôñ']);
+			$tplItemCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'è¯·é€‰æ‹©']);
 				
 			$modelList=$this->getModelList();
 			

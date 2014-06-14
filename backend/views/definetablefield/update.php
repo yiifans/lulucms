@@ -7,8 +7,8 @@ use yii\helpers\Html;
  * @var app\models\DefineTableField $model
  */
 
-$this->title = 'Update Define Table Field: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Define Table Fields', 'url' => ['index']];
+$this->title = '修改字段: ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => '字段管理', 'url' => ['index','tb'=>$table]];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

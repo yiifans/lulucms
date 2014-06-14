@@ -10,12 +10,14 @@ use yii\helpers\ArrayHelper;
  * @var common\models\TplForm $model
  */
 
-$this->title = 'Update Tpl Form: ';
-
+$this->title = '编辑模板';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tpl-form-update">
 
 <a href="/index.php?r=tpl/index">返回</a>
+<a href="index.php?r=tpl/index&d=.">返回上一层</a>
+
 	<h1><?= Html::encode($this->title) ?></h1>
 
 	<?php echo $file;?>

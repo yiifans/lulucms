@@ -49,12 +49,9 @@ class ContentController extends BaseFrontController
 	 * Lists all Channel models.
 	 * @return mixed
 	 */
-	public function actionIndex()
+	public function actionIndex($chnid)
 	{
-		
-		$chnid = LuLu::getGetValue('chnid');
-		
-		$tplChannel=$this->getTplChannel($chnid,'channel_default');
+		$channelTpl=$this->getChannelTpl($chnid);
 		
 		$channelModel=Channel::findOne($chnid);
 		
@@ -74,16 +71,14 @@ class ContentController extends BaseFrontController
 		
 		$params['currentChannel']=$channelModel;
 		
-		return $this->render($tplChannel, $params);
+		return $this->render($channelTpl, $params);
 	}
 
-	public function actionList()
+	public function actionList($chnid)
 	{
-		$chnid = LuLu::getGetValue('chnid');
-		
 		$channelModel=Channel::findOne($chnid);
 		
-		$tplList=$this->getTplList($chnid,'list_default');
+		$listTpl=$this->getListTpl($chnid);
 		
 	
 		$dataList=LuLu::getDataSourceFromChannel($chnid);
@@ -92,28 +87,27 @@ class ContentController extends BaseFrontController
 		$params['dataList']=$dataList;
 		$params['currentChannel']=$channelModel;
 		
-		return $this->render($tplList, $params);
+		return $this->render($listTpl, $params);
 	}
 	/**
 	 * Displays a single Channel model.
 	 * @param integer $id
 	 * @return mixed
 	 */
-	public function actionView($id)
+	public function actionView($chnid,$id)
 	{
-		$chnid=LuLu::getGetValue('chnid');
 		$channelModel = Channel::findOne($chnid);
 		
-		$tplView=$this->getTplView($chnid,'view_default');
+		$detailTpl=$this->getDetailTpl($chnid);
 	
-		$this->currentTableName=$channelModel->table_name;
+		$this->currentTableName=$channelModel->table;
 		$model=$this->findModel($id);
 		
 		$params=[];
 		$params['model']=$model;
 		$params['currentChannel']=$channelModel;
 		
-		return $this->render($tplView, $params);
+		return $this->render($detailTpl, $params);
 	}
 
 	/**

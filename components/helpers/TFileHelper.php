@@ -1,6 +1,7 @@
 <?php
 namespace components\helpers;
 
+use components\LuLu;
 class TFileHelper
 {
 
@@ -22,12 +23,20 @@ class TFileHelper
 		}
 		return $ret;
 	}
-
-	public static function getFile($path, $prefix = null)
+	public static function exist($path)
 	{
 		if (is_array($path))
 		{
-			$path = self::buildPath($path);
+			$path = self::buildPath($path,false);
+		}
+		LuLu::info($path);
+		return file_exists($path);
+	}
+	public static function getFiles($path, $prefix = null)
+	{
+		if (is_array($path))
+		{
+			$path = self::buildPath($path,false);
 		}
 		
 		$files = scandir($path);

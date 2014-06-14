@@ -7,8 +7,8 @@ use yii\helpers\Html;
  * @var app\models\Catalog $model
  */
 
-$this->title = 'Update Catalog: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Catalogs', 'url' => ['index']];
+$this->title = '修改频道: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => '频道管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
@@ -18,11 +18,11 @@ $this->params['breadcrumbs'][] = 'Update';
 
 	<?php echo $this->render('_form', [
 		'model' => $model,
-		'channelTree' => $channelTree,
+		'channelArrayTree' => $channelArrayTree,
 		'tableList' => $tableList,
-		'tplChannelList' =>$tplChannelList,
-		'tplListList'=>$tplListList,
-		'tplViewList'=>$tplViewList,
+		'channelTpls' =>$channelTpls,
+		'listTpls'=>$listTpls,
+		'detailTpls'=>$detailTpls,
 	]); ?>
 
 </div>

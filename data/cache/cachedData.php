@@ -1,8 +1,8 @@
 <?php
 
-$cachedChannel=[];
-require(__DIR__ . '/cachedChannel.php');
+$cachedChannels=[];
+require(__DIR__ . '/cachedChannels.php');
 
 return [
-	'cachedChannel'=>$cachedChannel,
+	'cachedChannels'=>$cachedChannels,
 ];

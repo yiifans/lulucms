@@ -20,12 +20,26 @@ use ts\helpers\TFileHelper;
 use common\models\TplChannel;
 use common\models\Channel;
 use components\base\BaseController;
-
+use components\LuLu;
+use yii\filters\VerbFilter;
 
 class BaseBackController extends BaseController
 {
-	public $cachedChannel=[];
-	public $rootChannelList=[];
+	public function behaviors()
+	{
+		return [
+		'verbs' => [
+		'class' => VerbFilter::className(),
+		'actions' => [
+		'delete' => ['post'],
+		],
+		],
+		];
+	}
+	
+	public $cachedChannels;
+	public $rootChannels;
+	public $channelArrayTree;
 	
 	public function beforeAction($action)
 	{
@@ -33,19 +47,26 @@ class BaseBackController extends BaseController
 	
 		if(parent::beforeAction($action))
 		{
-			$this->rootChannelList=Channel::findAll(['parent_id'=>0]);
-			$this->cachedChannel=\Yii::$app->params['cachedChannel'];
-			$channelTree=Channel::getChannelTree();
+			if($this->rootChannels == null)
+			{
+				$this->rootChannels = Channel::getRootChannels();
+			}
+			if($this->cachedChannels==null)
+			{
+				$this->cachedChannels=LuLu::getAppParam('cachedChannels');
+			}
+			if($this->channelArrayTree==null)
+			{
+				$this->channelArrayTree=Channel::getChannelArrayTree();
+			}
+		
 				
-			$this->setViewParam([
-					'rootChannelList' => $this->rootChannelList,
-					'cachedChannel' =>$this->cachedChannel,
-					'channelTree'=>$channelTree,
+			LuLu::setViewParam([
+					'rootChannels' => $this->rootChannels,
+					'cachedChannels' =>$this->cachedChannels,
+					'channelArrayTree'=>$this->channelArrayTree,
 					]);
-				
-			//$this->info($this->getView()->params,__METHOD__);
-				
-				
+	
 			return true;
 		}
 		return false;
@@ -53,7 +74,7 @@ class BaseBackController extends BaseController
 	
 	public function getTableName($tableId)
 	{
-		$model=DefineTable::find($tableId);
+		$model=DefineTable::findOne($tableId);
 		if($model==null)
 		{
 			return 'unknow name('.$tableId.')';

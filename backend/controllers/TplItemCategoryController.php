@@ -7,6 +7,8 @@ use common\models\search\TplItemCategorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\VerbFilter;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * TplItemCategoryController implements the CRUD actions for TplItemCategory model.

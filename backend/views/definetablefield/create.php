@@ -7,8 +7,8 @@ use yii\helpers\Html;
  * @var app\models\DefineTableField $model
  */
 
-$this->title = 'Create Define Table Field';
-$this->params['breadcrumbs'][] = ['label' => 'Define Table Fields', 'url' => ['index']];
+$this->title = '新建字段';
+$this->params['breadcrumbs'][] = ['label' => '字段管理', 'url' => ['index','tb'=>$table]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="define-table-field-create">

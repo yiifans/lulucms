@@ -9,7 +9,7 @@ use yii\grid\GridView;
  * @var app\models\search\CatalogSearch $searchModel
  */
 
-$this->title = 'Catalogs';
+$this->title = '频道管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="catalog-index">
@@ -19,27 +19,23 @@ $this->params['breadcrumbs'][] = $this->title;
 	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
 	<p>
-		<?= Html::a('Create Catalog', ['create'], ['class' => 'btn btn-success']) ?>
+		<?= Html::a('创建频道', ['create'], ['class' => 'btn btn-success']) ?>
 	</p>
-<table width="100%" class="table">
+<table class="table">
     <tr class="tb_header">
-      <th width="40px"> ID</th>
-      
-      <th width="80px"> Table Name</th>
-      <th width="40px"> level</th>
-      <th>name cn</th>
-      <th width="60px">parent id</th>
-      <th width="15%">parent ids</th>
-      <th width="15%">child ids</th>
-      <th width="15%">leaf ids</th>
-      <th width="10%">list template</th>
+      <th width="60px"> 编号</th>
+      <th width="80px">父编号</th>
+      <th width="60px"> 级别</th>
+      <th>名称</th>
+      <th width="80px"> 存储表</th>
+      <th width="10%">template</th>
       <th width="120">do</th>
     </tr>
-	<?php foreach ($dataList as $row ): ?>
+	<?php foreach ($channelArrayTree as $row ): ?>
 	<tr>
 	<td><?php echo $row['id']?></td>
+	<td><?php echo $row['parent_id']?></td>
 	
-	<td><?php echo $row['table_name']?>(<?php echo $row['table_id']?>)</td>
 	<td><?php echo $row['level']?></td>
 	<td><?php for($i=0;$i<$row['level'];$i++)
 	{
@@ -59,15 +55,17 @@ $this->params['breadcrumbs'][] = $this->title;
 	
 	?></a> 
 	</td>
-	<td><?php echo $row['parent_id']?></td>
-	<td><?php echo $row['parent_ids']?></td>
-	<td><?php echo $row['child_ids']?></td>
-	<td><?php echo $row['leaf_ids']?></td>
-	<td><?php echo $row['tpl_list']?></td>
+	<td><?php echo $row['table']?></td>
+	<td><?php if($row['is_leaf']){echo $row['list_tpl'];}else{echo $row['channel_tpl'];}?></td>
 	<td>
-		<a href="index.php?r=channel/view&id=<?php echo $row['id']?>"><span class="glyphicon glyphicon-eye-open"></span></a>
-		<a href="index.php?r=channel/update&id=<?php echo $row['id']?>"><span class="glyphicon glyphicon-pencil"></span></a>
-		<a href="index.php?r=channel/delete&id=<?php echo $row['id']?>" data-confirm="Are you sure to delete this item?" data-method="post"><span class="glyphicon glyphicon-trash"></span></a>
+		
+		<?= Html::a('编辑', ['update', 'id' => $row['id']]) ?>
+		
+		<?php echo Html::a('删除', ['delete', 'id' => $row['id']], [
+			'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
+			'data-method' => 'post',
+		]); ?>
+		
 	</td>
 	</tr>
 	<?php endforeach;?>

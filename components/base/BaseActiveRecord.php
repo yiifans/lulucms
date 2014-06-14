@@ -23,9 +23,18 @@ use yii\base\InvalidConfigException;
 class BaseActiveRecord extends ActiveRecord
 {
 
-	public static function findOne($condition, $order = null)
+	public static function findOne($condition=null, $order = null)
 	{
 		$query = static::find();
+		if($condition==null)
+		{
+			if ($order !== null)
+			{
+				$query = $query->orderBy($order);
+			}
+			return $query->one();
+		}
+		
 		if (ArrayHelper::isAssociative($condition))
 		{
 			// hash condition
@@ -58,9 +67,18 @@ class BaseActiveRecord extends ActiveRecord
 		}
 	}
 
-	public static function findAll($condition, $order = null)
+	public static function findAll($condition=null, $order = null)
 	{
 		$query = static::find();
+		if($condition==null)
+		{
+			if ($order !== null)
+			{
+				$query = $query->orderBy($order);
+			}
+			return $query->all();
+		}
+		
 		if (ArrayHelper::isAssociative($condition))
 		{
 			// hash condition

@@ -4,60 +4,35 @@ namespace backend\controllers;
 
 use common\models\DefineTableField;
 use common\models\search\DefineTableFieldSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\VerbFilter;
-
 use common\models\DefineTable;
-use yii\helpers\VarDumper;
 use yii\web\HttpException;
 use backend\base\BaseBackController;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use components\LuLu;
+
 /**
  * DefineTableFieldController implements the CRUD actions for DefineTableField model.
  */
 class DefineTableFieldController extends BaseBackController
 {
-	private $addFieldSql="ALTER TABLE  `{tablename}` ADD  `{fieldname}` {dbtype} NOT NULL ;";
+
 	
-	public function behaviors()
-	{
-		return [
-			'verbs' => [
-				'class' => VerbFilter::className(),
-				'actions' => [
-					'delete' => ['post'],
-				],
-			],
-		];
-	}
+	
 
 	/**
 	 * Lists all DefineTableField models.
 	 * @return mixed
 	 */
-	public function actionIndex()
+	public function actionIndex($tb)
 	{
-		$tableId=$this->getGetValue('tbid');
-		if($tableId==null)
-		{
-			throw new HttpException(404,'tbid is null');
-		}	
-		
-		$q=[];
-		$q['table_id']=intval($tableId);
-		
-		$dataList=DefineTableField::findAll($q);
+		$rows=DefineTableField::findAll(['table'=>$tb]);
 	
-	
-		$searchModel = new DefineTableFieldSearch;
-		$dataProvider = $searchModel->search($_GET);
-
-		return $this->render('index', [
-			'dataProvider' => $dataProvider,
-			'searchModel' => $searchModel,
-			'dataList' => $dataList,
-			'tbid' => $tableId,
-		]);
+		$locals=[];
+		$locals['table']=$tb;
+		$locals['rows']=$rows;
+		return $this->render('index', $locals);
 	}
 
 	/**
@@ -71,53 +46,40 @@ class DefineTableFieldController extends BaseBackController
 			'model' => $this->findModel($id),
 		]);
 	}
-	private function getDBType($model)
+	
+	private function getDbType($model)
 	{
-		$type=$model->type;
+		$type = $model->type;
 		if($type=="VARCHAR" || $type=="CHAR")
 		{
-			$length=$model->length;
-			if(intval($length)<=0)
-			{
-				$type.='(255)';
-			}
-			else
-			{
-				$type.='('.$length.')';
-			}
+			return $type.'('.$model->length.')';
 		}
 		return $type;
 	}
-	/**
-	 * Creates a new DefineTableField model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 * @return mixed
-	 */
-	public function actionCreate()
+	
+	
+	
+	public function actionCreate($tb)
 	{
-		$tableId=$this->getGetValue('tbid');
-		
 		$model = new DefineTableField;
 		
-		$model->table_id=$tableId;
+		$model->table=$tb;
 		
 		if ($model->load($_POST) && $model->save()) {
-			
-			$tableModel=DefineTable::find($tableId);	
 					
-			$tableName=$tableModel->name_en;			
 			$fieldName=$model->name_en;
-			$dataType=$this->getDBType($model);		
-				
-			$sql="ALTER TABLE  `".$tableName."` ADD  `".$fieldName."` ".$dataType." NOT NULL ;";
-			$this->execute($sql);
+			$dataType=$model->getFieldType();		
+			$isNull=$model->is_null;
 			
-			return $this->redirect(['index', 'tbid' => $tableId]);
+			$sql = SqlData::getAddFieldSql($tb, $fieldName,$dataType,$isNull);
+			LuLu::execute($sql);
+			
+			return $this->redirect(['index', 'tb' => $tb]);
 		} else {
-			return $this->render('create', [
-				'model' => $model,
-				'tbid' => $tableId,
-			]);
+			$locals=[];
+			$locals['table']=$tb;
+			$locals['model']=$model;
+			return $this->render('create', $locals);
 		}
 	}
 
@@ -132,36 +94,31 @@ class DefineTableFieldController extends BaseBackController
 		$model = $this->findModel($id);
 
 		if ($model->load($_POST) && $model->save()) {
-			return $this->redirect(['view', 'id' => $model->id]);
+			LuLu::info($model);
+			return $this->redirect(['index', 'tb' => $model->table]);
 		} else {
-			return $this->render('update', [
-				'model' => $model,
-			]);
+			$locals=[];
+			$locals['table']=$model['table'];
+			$locals['model']=$model;
+			return $this->render('update', $locals);
 		}
 	}
 
-	/**
-	 * Deletes an existing DefineTableField model.
-	 * If deletion is successful, the browser will be redirected to the 'index' page.
-	 * @param integer $id
-	 * @return mixed
-	 */
+	
 	public function actionDelete($id)
 	{
-		$this->findModel($id)->delete();
-		return $this->redirect(['index']);
+		$model =$this->findModel($id);
+		$model->delete();
+		
+		$sql = SqlData::getDropFieldSql($model->table, $model->name_en);
+		//LuLu::execute($sql);
+		
+		return $this->redirect(['index','tb'=>$model->table]);
 	}
 
-	/**
-	 * Finds the DefineTableField model based on its primary key value.
-	 * If the model is not found, a 404 HTTP exception will be thrown.
-	 * @param integer $id
-	 * @return DefineTableField the loaded model
-	 * @throws NotFoundHttpException if the model cannot be found
-	 */
 	protected function findModel($id)
 	{
-		if (($model = DefineTableField::find($id)) !== null) {
+		if (($model = DefineTableField::findOne($id)) !== null) {
 			return $model;
 		} else {
 			throw new NotFoundHttpException('The requested page does not exist.');

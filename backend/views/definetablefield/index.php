@@ -9,39 +9,49 @@ use yii\grid\GridView;
  * @var app\models\search\DefineTableFieldSearch $searchModel
  */
 
-$this->title = 'Table Fields';
+$this->title = '字段管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="define-table-field-index">
 
-	<h1><?= Html::encode($this->title) ?></h1>
-
-	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
 	<p>
-	<a href="index.php?r=definetablefield/create&tbid=<?php echo $tbid?>" class="btn btn-success">Create Table Field</a>
-		
+		<?= Html::a('创建字段', ['create','tb'=>$table], ['class' => 'btn btn-success']) ?>
 	</p>
+
 
 	<table width="100%" class="table">
 	    <tr class="tb_header">
-	      <th width="10%"> ID</th>
-	      <th>label</th>
-	      <th width="20%">name</th>
-	      <th width="10%">DB Type</th>
-	      <th width="10%">Length</th>
+	      <th width="20"> ID</th>
+	      <th>名称</th>
+	      <th width="150">字段</th>
+	      <th width="150">类型</th>
+	      
+	      <th width="55">可空</th>
+	      <th width="55">主表</th>
+	      <th width="120">系统字段</th>
 	      <th width="10%">do</th>
 	    </tr>
-		<?php foreach ($dataList as $row ): ?>
+		<?php foreach ($rows as $row ): ?>
 		<tr>
 		<td><?php echo $row['id']?></td>
 		<td><?php echo $row['name']?></td>
 		<td><?php echo $row['name_en']?></td>
-		<td><?php echo $row['type']?></td>
-		<td><?php echo $row['length']?></td>
+		<td><?php echo $row['fieldtype']?></td>
+		<td><?php echo $row['is_null']?></td>
+		<td><?php echo $row['is_main']?></td>
+		<td><?php echo $row['is_sys']?></td>
 		<td>
-		<a href="index.php?r=definetablefield/update&id=<?php echo $row['id']?>&tbid=<?php echo $row['table_id']?>">Edit</a>|
-		<a href="index.php?r=definetablefield/delete&id=<?php echo $row['id']?>&tbid=<?php echo $row['table_id']?>">Delete</a>|
+		<?= Html::a('编辑', ['update', 'tb' => $row->table,'id'=>$row->id]) ?>
+		<?php 
+			if(!$row['is_sys'])
+			{
+				echo Html::a('删除', ['delete', 'tb' => $row->table,'id'=>$row->id], [
+							'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
+							'data-method' => 'post',
+						]);
+			}
+		?>
+	
 		</td>
 		</tr>
 		<?php endforeach;?>

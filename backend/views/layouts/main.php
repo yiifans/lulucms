@@ -23,7 +23,7 @@ AppAsset::register($this);
 	<?php $this->beginBody() ?>
 	<?php
 		NavBar::begin([
-			'brandLabel' => 'My Company',
+			'brandLabel' => 'LuLu CMS',
 			'brandUrl' => Yii::$app->homeUrl,
 			'options' => [
 				'class' => 'navbar-inverse navbar-fixed-top',
@@ -31,13 +31,14 @@ AppAsset::register($this);
 		]);
 		$menuItems = [
 			
-			['label' => 'Home', 'url' => ['/site/index']],
-			['label' => 'Define Table', 'url' => ['/definetable/index']],
+			['label' => '首页', 'url' => ['/site/index']],
+			['label' => '模型定义', 'url' => ['/definetable/index']],
 			//['label' => 'Define Table Field', 'url' => ['/definetablefield/index']],
 			//['label' => 'Define Model', 'url' => ['/definemodel/index']],
 			//['label' => 'Define Model Field', 'url' => ['/definemodelfield/index']],
-			['label' => 'Channel', 'url' => ['/channel/index']],
-			['label' => 'Content', 'url' => ['/content/index']],
+			['label' => '频道', 'url' => ['/channel/index']],
+			['label' => '内容', 'url' => ['/content/index']],
+			['label' => '模板', 'url' => ['/tpl/index']],
 			['label' => 'Index Tpl', 'url' => ['/tplindex/index']],
 			['label' => 'Channel Tpl', 'url' => ['/tplchannel/index']],
 			['label' => 'List Tpl', 'url' => ['/tpllist/index']],

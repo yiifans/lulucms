@@ -8,6 +8,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\VerbFilter;
 use backend\controllers\BaseBackController;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * TplCoverCategoryController implements the CRUD actions for TplCoverCategory model.

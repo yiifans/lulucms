@@ -7,9 +7,9 @@ use yii\helpers\Html;
  * @var app\models\DefineTable $model
  */
 
-$this->title = 'Update Define Table: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Define Tables', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->title = '修改表: ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => '表管理', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'tb' => $model->name_en]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="define-table-update">

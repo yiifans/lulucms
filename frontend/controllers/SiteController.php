@@ -85,9 +85,9 @@ class SiteController extends BaseFrontController
 		}
 		
 		$params['dataList']=$dataList;
-		$params['att1DataList']=LuLu::getDataSource(2, 'cc',['where'=>'att1=1']);
-		$params['att2DataList']=LuLu::getDataSource(2, 'cc',['where'=>'att2=1']);
-		$params['att3DataList']=LuLu::getDataSource(2, 'cc',['where'=>'att3=1']);
+		$params['att1DataList']=LuLu::getDataSource(2, 'model_news',['where'=>'att1=1']);
+		$params['att2DataList']=LuLu::getDataSource(2, 'model_news',['where'=>'att2=1']);
+		$params['att3DataList']=LuLu::getDataSource(2, 'model_news',['where'=>'att3=1']);
 		
 		return $this->render('index',$params);
 	}

@@ -4,12 +4,11 @@ namespace backend\controllers;
 
 use common\models\TplView;
 use common\models\search\TplViewSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\VerbFilter;
-use backend\controllers\BaseBackController;
 use common\models\TplViewCategory;
-use ts\helpers\TFileHelper;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use components\LuLu;
 
 /**
  * TplViewController implements the CRUD actions for TplView model.
@@ -70,7 +69,7 @@ class TplViewController extends TplBase
 			return $this->redirect(['index']);
 		} else {
 			$datas=TplViewCategory::findAll();
-			$tplViewCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ÇëÑ¡Ôñ']);
+			$tplViewCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ï¿½ï¿½Ñ¡ï¿½ï¿½']);
 			
 			$tableList=$this->getTableList();
 			
@@ -98,7 +97,7 @@ class TplViewController extends TplBase
 			return $this->redirect(['index']);
 		} else {
 			$datas=TplViewCategory::findAll();
-			$tplViewCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ÇëÑ¡Ôñ']);
+			$tplViewCategoryList=$this->arrayMap($datas, 'id', 'name',[0=>'ï¿½ï¿½Ñ¡ï¿½ï¿½']);
 			
 			$tableList=$this->getTableList();
 			

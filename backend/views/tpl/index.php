@@ -9,82 +9,10 @@ use yii\grid\GridView;
  * @var common\models\search\TplConverSearch $searchModel
  */
 
-$this->title = 'Template Manage';
+$this->title = '模板管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tpl-index">
-
-	<h1><?= Html::encode($this->title) ?></h1>
-
-	<div class="floatl">
-	<div class="tbox">
-		<div class="hd">
-			<h2>首页模板</h2>
-		</div>
-		<div class="bd">
-			<ul>
-				<li><a href="/advanced/backend/web/index.php?r=tplindex">管理首页模板</a></li>
-				<li>aaaaa</li>
-			</ul>
-		</div>
-	</div>
-	<div class="tbox">
-		<div class="hd">
-			<h2>封面模板</h2>
-		</div>
-		<div class="bd">
-			<ul>
-				<li><a href="/advanced/backend/web/index.php?r=tplcover">管理封面模板</a></li>
-				<li>管理封面模板分类</li>
-			</ul>
-		</div>
-	</div>	
-	<div class="tbox">
-		<div class="hd">
-			<h2>列表模板</h2>
-		</div>
-		<div class="bd">
-			<ul>
-				<li><a href="/advanced/backend/web/index.php?r=tpllist">管理列表模板</a></li>
-				<li>管理列表模板分类</li>
-			</ul>
-		</div>
-	</div>	
-	<div class="tbox">
-		<div class="hd">
-			<h2>视图模板</h2>
-		</div>
-		<div class="bd">
-			<ul>
-				<li><a href="/advanced/backend/web/index.php?r=tplview">管理视图模板</a></li>
-				<li>管理视力模板分类</li>
-			</ul>
-		</div>
-	</div>	
-	<div class="tbox">
-		<div class="hd">
-			<h2>表单模板</h2>
-		</div>
-		<div class="bd">
-			<ul>
-				<li><a href="/advanced/backend/web/index.php?r=tplform">管理表单模板</a></li>
-				<li>管理表单模板分类</li>
-			</ul>
-		</div>
-	</div>	
-	<div class="tbox">
-		<div class="hd">
-			<h2>aaaaaa</h2>
-		</div>
-		<div class="bd">
-			<ul>
-				<li>aaaaa</li>
-				<li>aaaaa</li>
-			</ul>
-		</div>
-	</div>	
-	</div>
-	
 	<div class="tbox floatl">
 		<div class="bd">
 			<ul>
@@ -108,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						}
 						else 
 						{
-							$a='<a href="index.php?r=tpl/update&file='.$parentDir.'\\'.$dir.'">'.$dir.'</a>';
+							$a='<a href="index.php?r=tpl/update&d='.$parentDir.'&&file='.$dir.'">'.$dir.'</a>';
 						}
 						echo '<li>'.$a.'</li>';
 					}
@@ -116,6 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			</ul>
 		</div>
 	</div>
+	
 	
 	
 </div>

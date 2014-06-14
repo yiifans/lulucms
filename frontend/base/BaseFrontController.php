@@ -16,12 +16,13 @@ use common\models\TplView;
 use common\models\TplChannel;
 use components\base\BaseController;
 use components\LuLu;
+use components\helpers\TFileHelper;
 
 
 class BaseFrontController extends BaseController
 {
 	
-	public $cachedChannel=[];
+	public $cachedChannels=[];
 	public $rootChannelList=[];
 	
 	public function beforeAction($action)
@@ -31,13 +32,13 @@ class BaseFrontController extends BaseController
 		if(parent::beforeAction($action))
 		{
 			$this->rootChannelList=Channel::findAll(['parent_id'=>0]);
-			$this->cachedChannel=\Yii::$app->params['cachedChannel'];
-			$channelTree=Channel::getChannelTree();
+			$this->cachedChannels=\Yii::$app->params['cachedChannels'];
+			$channelArrayTree=Channel::getChannelArrayTree();
 			
 			LuLu::setViewParam([
 					'rootChannelList' => $this->rootChannelList,
-					'cachedChannel' =>$this->cachedChannel,
-					'channelTree'=>$channelTree,
+					'cachedChannels' =>$this->cachedChannels,
+					'channelArrayTree'=>$channelArrayTree,
 				]);
 			
 			//$this->info($this->getView()->params,__METHOD__);
@@ -48,42 +49,52 @@ class BaseFrontController extends BaseController
 		return false;
 	}
 	
-	public function getTplChannel($chnId,$defaultView='')
+	public function getTpl($chnId,$tplType)
 	{
-		$channelModel=$this->cachedChannel[$chnId];
-	
-		$tplChannelModel=TplChannel::findOne($channelModel['tpl_channel']);
-		if($tplChannelModel==null)
-		{
-			return $defaultView;
-		}
-		return $tplChannelModel->file_name;
-	}
-	
-	public function getTplList($chnId,$defaultView='')
-	{
-		$channelModel=$this->cachedChannel[$chnId];
+		$ret='';
 		
-		$tplListModel = TplList::findOne($channelModel['tpl_list']);
-		if($tplListModel==null)
+		$frontend = \Yii::getAlias('@frontend');
+		
+		$channelModel=$this->cachedChannels[$chnId];
+	
+		$table = $channelModel['table'];
+		$tplName = $channelModel[$tplType.'_tpl'];
+		
+		if(TFileHelper::exist([$frontend,'views','content', $table,$tplName]))
 		{
-			return $defaultView;
+			$ret = TFileHelper::buildPath([$table,$tplName],false);
 		}
-		return $tplListModel->file_name;
+		else 
+		{
+			$ret = TFileHelper::buildPath(['model_default',$tplType.'_default'],false);
+		}
+		LuLu::info($table.$ret);
+		return $ret;
 	}
 	
-	public function getTplView($chnId,$defaultView='')
+	public function getChannelTpl($chnId)
 	{
-		$channelModel=$this->cachedChannel[$chnId];
-	
-		$tplViewModel=TplView::findOne($channelModel['tpl_view']);
-		if($tplViewModel==null)
-		{
-			return $defaultView;
-		}
-		return $tplViewModel->file_name;
+		return $this->getTpl($chnId, 'channel');
 	}
 	
+	public function getListTpl($chnId)
+	{
+		return $this->getTpl($chnId, 'list');
+	}
+	
+	public function getDetailTpl($chnId)
+	{
+		return $this->getTpl($chnId, 'detail');
+	}
+	
+	public function getFormTpl($chnId,$isCreateForm=true)
+	{
+		if($isCreateForm)
+		{
+			return $this->getTpl($chnId, 'create');
+		}
+		return $this->getTpl($chnId, 'update');
+	}
 	
 	
 	

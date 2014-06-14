@@ -8,13 +8,10 @@ require_once($rootDir . '/components/base/BaseView.php');
 require_once($rootDir . '/components/base/AuthManager.php');
 
 
-// $rootDir = __DIR__ . '/../..';
 
-// require_once($rootDir . '/ts/TActiveRecord.php');
-// require_once($rootDir . '/ts/TController.php');
-// require_once($rootDir . '/ts/TModel.php');
 
 require_once($rootDir . '/components/helpers/TStringHelper.php');
+require_once($rootDir . '/components/helpers/TTimeHelper.php');
 require_once($rootDir . '/components/widgets/TBaseWidget.php');
 require_once($rootDir . '/components/widgets/TLoop.php');
 require_once($rootDir . '/components/helpers/TFileHelper.php');

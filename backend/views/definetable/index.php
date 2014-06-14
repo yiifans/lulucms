@@ -14,29 +14,30 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="define-table-index">
 
-	<h1><?= Html::encode($this->title) ?></h1>
-
-	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
 	<p>
-		<?= Html::a('Create Table', ['create'], ['class' => 'btn btn-success']) ?>
+		<?= Html::a('创建表', ['create'], ['class' => 'btn btn-success']) ?>
 	</p>
 
 	<table width="100%" class="table">
 	    <tr class="tb_header">
-	      <th width="10%"> ID</th>
-	      <th>Name</th>
+	      <th>名称</th>
+	      <th width="150px">表名</th>
+	      <th width="80px">默认表</th>
 	      <th width="20%">do</th>
 	    </tr>
-		<?php foreach ($dataList as $row ): ?>
+		<?php foreach ($rows as $row ): ?>
 		<tr>
-		<td><?php echo $row['id']?></td>
-		<td><?php echo $row['name']?>(<?php echo $row['name_en']?>)</td>
-		
+		<td><?php echo $row['name']?></td>
+		<td><?php echo $row['name_en']?></td>
+		<td><?php echo $row['is_default']?></td>
 		<td>
-		<a href="index.php?r=definetablefield/index&tbid=<?php echo $row['id']?>" target="_blank">Edit Field</a>|
-		<a href="index.php?r=definemodel/index&tbid=<?php echo $row['id']?>" target="_blank">Edit Model</a>|
-		
+		<?php echo Html::a('删除', ['delete', 'tb' => $row->name_en], [
+			'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
+			'data-method' => 'post',
+		]); ?>
+		<?= Html::a('编辑', ['update', 'tb' => $row->name_en]) ?>
+		<?= Html::a('编辑字段', ['definetablefield/index', 'tb' => $row->name_en]) ?>
+		<?= Html::a('编辑模型', ['definemodel/index', 'tb' => $row->name_en]) ?>
 		
 		</td>
 		</tr>

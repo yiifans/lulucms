@@ -28,6 +28,9 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'view' => [
+	        'class' => 'frontend\base\BaseFrontView',
+        ],
     ],
     'params' => $params,
 ];
