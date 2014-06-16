@@ -7,13 +7,12 @@ use yii\helpers\Html;
  * @var app\models\DefineTable $model
  */
 
-$this->title = 'Create Define Table';
-$this->params['breadcrumbs'][] = ['label' => 'Define Tables', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '新建模型';
+$this->addBreadcrumb('内容模型',['index']);
+$this->addBreadcrumb($this->title);
+
 ?>
 <div class="define-table-create">
-
-	<h1><?= Html::encode($this->title) ?></h1>
 
 	<?php echo $this->render('_form', [
 		'model' => $model,

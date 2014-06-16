@@ -8,9 +8,13 @@ use yii\helpers\Html;
  */
 
 $this->title = '修改字段: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => '字段管理', 'url' => ['index','tb'=>$table]];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->addBreadcrumb('内容模型',['definetable/index']);
+$this->addBreadcrumb('字段管理',['index','tb'=>$table]);
+$this->addBreadcrumb($this->title);
+
+// $this->params['breadcrumbs'][] = ['label' => '字段管理', 'url' => ['index','tb'=>$table]];
+// $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+// $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="define-table-field-update">
 

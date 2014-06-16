@@ -9,8 +9,11 @@ use yii\grid\GridView;
  * @var app\models\search\DefineTableFieldSearch $searchModel
  */
 
-$this->title = '字段管理';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '字段管理：'.$table;
+$this->addBreadcrumb('内容模型',['definetable/index']);
+$this->addBreadcrumb($this->title);
+
+// $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="define-table-field-index">
 
@@ -28,8 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	      
 	      <th width="55">可空</th>
 	      <th width="55">主表</th>
-	      <th width="120">系统字段</th>
-	      <th width="10%">do</th>
+	      <th width="80">操作</th>
 	    </tr>
 		<?php foreach ($rows as $row ): ?>
 		<tr>
@@ -39,7 +41,6 @@ $this->params['breadcrumbs'][] = $this->title;
 		<td><?php echo $row['fieldtype']?></td>
 		<td><?php echo $row['is_null']?></td>
 		<td><?php echo $row['is_main']?></td>
-		<td><?php echo $row['is_sys']?></td>
 		<td>
 		<?= Html::a('编辑', ['update', 'tb' => $row->table,'id'=>$row->id]) ?>
 		<?php 

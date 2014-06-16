@@ -17,12 +17,14 @@ use backend\base\BaseBackController;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use components\helpers\TFileHelper;
+use common\models\CacheDataManager;
 
 /**
  * ChannelController implements the CRUD actions for Channel model.
  */
 class ChannelController extends BaseBackController
 {
+	public $layout = 'left_taxonomy';
 	public function behaviors()
 	{
 		return [
@@ -98,7 +100,7 @@ class ChannelController extends BaseBackController
 			
 			$model->save();
 			
-			Channel::createCache();
+			CacheDataManager::createChannelCache();
 			
 			return $this->redirect(['index']);
 		} else {
@@ -140,7 +142,7 @@ class ChannelController extends BaseBackController
 			
 			$model->save();
 			
-			Channel::createCache();
+			CacheDataManager::createChannelCache();
 			
 			return $this->redirect(['index']);
 		} else {	
@@ -166,7 +168,8 @@ class ChannelController extends BaseBackController
 	public function actionDelete($id)
 	{
 		$this->findModel($id)->delete();
-		Channel::createCache();
+		CacheDataManager::createChannelCache();
+		
 		return $this->redirect(['index']);
 	}
 

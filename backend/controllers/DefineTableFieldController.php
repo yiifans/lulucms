@@ -11,15 +11,14 @@ use backend\base\BaseBackController;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use components\LuLu;
+use common\models\CacheDataManager;
 
 /**
  * DefineTableFieldController implements the CRUD actions for DefineTableField model.
  */
 class DefineTableFieldController extends BaseBackController
 {
-
-	
-	
+	public $layout='left_sys';
 
 	/**
 	 * Lists all DefineTableField models.
@@ -74,6 +73,7 @@ class DefineTableFieldController extends BaseBackController
 			$sql = SqlData::getAddFieldSql($tb, $fieldName,$dataType,$isNull);
 			LuLu::execute($sql);
 			
+			CacheDataManager::createFieldCache();
 			return $this->redirect(['index', 'tb' => $tb]);
 		} else {
 			$locals=[];
@@ -95,6 +95,7 @@ class DefineTableFieldController extends BaseBackController
 
 		if ($model->load($_POST) && $model->save()) {
 			LuLu::info($model);
+			CacheDataManager::createFieldCache();
 			return $this->redirect(['index', 'tb' => $model->table]);
 		} else {
 			$locals=[];
@@ -112,7 +113,7 @@ class DefineTableFieldController extends BaseBackController
 		
 		$sql = SqlData::getDropFieldSql($model->table, $model->name_en);
 		//LuLu::execute($sql);
-		
+		CacheDataManager::createFieldCache();
 		return $this->redirect(['index','tb'=>$model->table]);
 	}
 

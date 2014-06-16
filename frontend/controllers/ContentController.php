@@ -29,9 +29,6 @@ use frontend\base\BaseFrontController;
  */
 class ContentController extends BaseFrontController
 {
-	private $defaultTableName='model_news4';
-	
-	private $currentTableName='';
 	
 	public function behaviors()
 	{
@@ -45,170 +42,76 @@ class ContentController extends BaseFrontController
 		];
 	}
 
-	/**
-	 * Lists all Channel models.
-	 * @return mixed
-	 */
-	public function actionIndex($chnid)
+	public function actions()
 	{
-		$channelTpl=$this->getChannelTpl($chnid);
-		
-		$channelModel=Channel::findOne($chnid);
-		
-		$childChannelList=Channel::findAll(['parent_id'=>$chnid]);
-		
-		$dataList=[];
-		foreach ($childChannelList as $channel)
+		$chnid = LuLu::getGetValue('$chnid');
+	
+		$cachedChannels = LuLu::getAppParam('cachedChannels',[]);
+	
+		if($chnid == null||empty($chnid)||!isset($cachedChannels[$chnid]))
 		{
-			$dataList[$channel->id]=LuLu::getDataSourceFromChannel($channel->id,['limit'=>10,'order'=>'publish_time desc']);
+			return [];
 		}
 	
-		$params=[];
-		$params['dataList']=$dataList;
-		$params['att1DataList']=LuLu::getDataSourceFromChannel($chnid,['limit'=>10,'where'=>'att1=1']);
-		$params['att2DataList']=LuLu::getDataSourceFromChannel($chnid,['limit'=>10,'where'=>'att2=1']);
-		$params['att3DataList']=LuLu::getDataSourceFromChannel($chnid,['limit'=>10,'where'=>'att3=1']);
-		
-		$params['currentChannel']=$channelModel;
-		
-		return $this->render($channelTpl, $params);
-	}
-
-	public function actionList($chnid)
-	{
-		$channelModel=Channel::findOne($chnid);
-		
-		$listTpl=$this->getListTpl($chnid);
-		
+		$channel = $cachedChannels[$chnid];
+		$tableName=$channel['table'];
 	
-		$dataList=LuLu::getDataSourceFromChannel($chnid);
-		
-		$params=[];
-		$params['dataList']=$dataList;
-		$params['currentChannel']=$channelModel;
-		
-		return $this->render($listTpl, $params);
-	}
-	/**
-	 * Displays a single Channel model.
-	 * @param integer $id
-	 * @return mixed
-	 */
-	public function actionView($chnid,$id)
-	{
-		$channelModel = Channel::findOne($chnid);
-		
-		$detailTpl=$this->getDetailTpl($chnid);
-	
-		$this->currentTableName=$channelModel->table;
-		$model=$this->findModel($id);
-		
-		$params=[];
-		$params['model']=$model;
-		$params['currentChannel']=$channelModel;
-		
-		return $this->render($detailTpl, $params);
-	}
-
-	/**
-	 * Creates a new Channel model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 * @return mixed
-	 */
-	public function actionCreate()
-	{				
-		$channelId=LuLu::getGetValue('chnid');
-		if($channelId==null)
+		if(empty($tableName))
 		{
-			throw new HttpException(404,'catalog id is null');
+			return [];
 		}
-		
-		$tplFrontForm='front_form_default';
-		$tplBackForm='back_form_default';
-		
-		$channelModel=Channel::findOne($channelId);
-// 		$defineModelModel=DefineModel::find($channelModel->model_id);
-// 		if($defineModelModel->tpl_front_form)
-// 		{
-// 			$tplFrontForm=$defineModelModel->tpl_front_form;
-// 		}
-// 		if($defineModelModel->tpl_back_form)
-// 		{
-// 			$tplBackForm=$defineModelModel->tpl_back_form;
-// 		}
-		
-		
-		
-		$formName='Content';
-		
-		if ($this->hasPostValue($formName)) {
-			
-			$items=$this->getPostValue($formName);
-			//$items['catalog_id']=$channelId;
-			$columns=$items;
-			
-			$db=Yii::$app->db;
-			$command = $db->createCommand();
-			$command->insert($this->tableName, $columns);
-			$command->execute();
-			
-			return $this->redirect(['index', 'chnid' => $channelId]);
-		} else {
-			$model=[];
-			return $this->render($tplBackForm, [
-				'model' => $model,
-				'chnid' => $channelId,
-			]);
-		}
+	
+		$table = DefineTable::findOne(['name_en'=>$tableName]);
+	
+		$ret =$table->getFrontActions();
+	
+		LuLu::info($ret);
+		return $ret;
 	}
-
-	/**
-	 * Updates an existing Channel model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id
-	 * @return mixed
-	 */
-	public function actionUpdate($id)
+	
+	
+	
+	public function actionIndex($chnid=0)
 	{
-		$model = [];
-
-		if (true) {
-			return $this->redirect(['view', 'id' => 0]);
-		} else {
-			return $this->render('update', [
-				'model' => $model,
-			]);
-		}
+		$action = new frontend\actions\content\model_default\IndexAction('index',$this);
+		return $action->run($chnid);
 	}
-
-	/**
-	 * Deletes an existing Channel model.
-	 * If deletion is successful, the browser will be redirected to the 'index' page.
-	 * @param integer $id
-	 * @return mixed
-	 */
-	public function actionDelete($id)
+	
+	public function actionList($chnid=0)
 	{
-		$model=[];
-		return $this->redirect(['index']);
+		$action = new frontend\actions\content\model_default\ListAction('index',$this);
+		return $action->run($chnid);
 	}
-
-	/**
-	 * Finds the Channel model based on its primary key value.
-	 * If the model is not found, a 404 HTTP exception will be thrown.
-	 * @param integer $id
-	 * @return Channel the loaded model
-	 * @throws NotFoundHttpException if the model cannot be found
-	 */
-	protected function findModel($id)
+	
+	public function actionDetail($chnid=0)
 	{
-		$sql='select * from '.$this->currentTableName.' where id='.$id;
-		
-		$db = Yii::$app->db;
-		$command = $db->createCommand($sql);
-		return $command->queryOne();
-		
-		
+		$action = new frontend\actions\content\model_default\DetailAction('index',$this);
+		return $action->run($chnid);
 	}
+	
+	public function actionCreate($chnid)
+	{
+		$action = new frontend\actions\content\model_default\CreateAction('create',$this);
+		return $action->run($chnid);
+	}
+	
+	public function actionUpdate($chnid,$id)
+	{
+		$action = new frontend\actions\content\model_default\UpdateAction('update',$this);
+		return $action->run($chnid);
+	}
+	
+	public function actionDelete($chnid,$id)
+	{
+		$action = new frontend\actions\content\model_default\DeleteAction('delete',$this);
+		return $action->run($chnid,$id);
+	}
+	
+	public function actionOther($chnid,$id)
+	{
+		$action = new frontend\actions\content\model_default\OtherAction('other',$this);
+		return $action->run($chnid,$id);
+	}
+	
 	
 }

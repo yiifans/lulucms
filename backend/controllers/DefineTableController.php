@@ -11,6 +11,7 @@ use common\models\DefineTableField;
 use backend\base\BaseBackController;
 use components\helpers\TFileHelper;
 use components\LuLu;
+use common\models\CacheDataManager;
 
 
 /**
@@ -18,8 +19,7 @@ use components\LuLu;
  */
 class DefineTableController extends BaseBackController
 {
-	
-
+	public $layout='left_sys';
 	
 	private function addFields($tableModel)
 	{
@@ -102,7 +102,8 @@ class DefineTableController extends BaseBackController
 // 			$this->saveFile('channel_'.$tableName);
 // 			$this->saveFile('list_'.$tableName);
 // 			$this->saveFile('view_'.$tableName);
-			
+			CacheDataManager::createTableCache();
+			CacheDataManager::createFieldCache();
 			return $this->redirect(['index']);
 		} else {
 			$locals =[];
@@ -123,14 +124,9 @@ class DefineTableController extends BaseBackController
 		$model = $this->findModel($tb);
 
 		if ($model->load($_POST) && $model->save()) {
-			$oldTableName=$model->oldAttributes['name_en'];
-			$newTableName=$model->name_en;
-			if($newTableName!=$oldTableName)
-			{
-				$sql=SqlData::getRenameTableSql($oldTableName, $newTableName);		
-				LuLu::execute($sql);
-			}
 			
+			CacheDataManager::createTableCache();
+			//CacheDataManager::createFieldCache();
 			return $this->redirect(['index']);
 		} else {
 			return $this->render('update', [
@@ -138,7 +134,22 @@ class DefineTableController extends BaseBackController
 			]);
 		}
 	}
-
+	
+	public function actionAction($tb)
+	{
+		$model = $this->findModel($tb);
+	
+		if ($model->load($_POST) && $model->save()) {
+				
+			CacheDataManager::createTableCache();
+			//CacheDataManager::createFieldCache();
+			return $this->redirect(['index']);
+		} else {
+			return $this->render('action', [
+					'model' => $model,
+					]);
+		}
+	}
 	
 	public function actionDelete($tb)
 	{
@@ -149,6 +160,9 @@ class DefineTableController extends BaseBackController
 		
 		$sql=SqlData::getDropTableSql($tb);
 		LuLu::execute($sql);
+		
+		CacheDataManager::createTableCache();
+		CacheDataManager::createFieldCache();
 		
 		return $this->redirect(['index']);
 	}

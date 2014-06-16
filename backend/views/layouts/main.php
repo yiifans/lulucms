@@ -32,12 +32,13 @@ AppAsset::register($this);
 		$menuItems = [
 			
 			['label' => '首页', 'url' => ['/site/index']],
-			['label' => '模型定义', 'url' => ['/definetable/index']],
+			['label' => '设置', 'url' => ['/config/index']],
+			
 			//['label' => 'Define Table Field', 'url' => ['/definetablefield/index']],
 			//['label' => 'Define Model', 'url' => ['/definemodel/index']],
 			//['label' => 'Define Model Field', 'url' => ['/definemodelfield/index']],
-			['label' => '频道', 'url' => ['/channel/index']],
-			['label' => '内容', 'url' => ['/content/index']],
+			['label' => '分类', 'url' => ['/channel/index']],
+			['label' => '内容', 'url' => ['/content/manager']],
 			['label' => '模板', 'url' => ['/tpl/index']],
 			['label' => 'Index Tpl', 'url' => ['/tplindex/index']],
 			['label' => 'Channel Tpl', 'url' => ['/tplchannel/index']],

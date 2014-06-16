@@ -9,8 +9,10 @@ use yii\helpers\VarDumper;
 use yii\db\ActiveRecord;
 use yii\base\Model;
 use TS\TModel;
+use components\base\BaseModel;
+use components\base\BaseAction;
 
-class BaseBackModel extends TModel
+class BaseBackModel extends BaseModel
 {
 	public static function findAll($q = null)
 	{
@@ -28,7 +30,7 @@ class BaseBackModel extends TModel
 		}
 		return $query->all();
 	}
-	
+
 	public function info($var)
 	{
 		$dump=VarDumper::dumpAsString($var);

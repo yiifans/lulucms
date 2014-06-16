@@ -179,34 +179,7 @@ class DefineTableField extends BaseActiveRecord
 		return TStringHelper::parse2Array($source);
 	}
 	
-	public function getFieldHtml($isBackForm)
-	{
-		if($isBackForm)
-		{
-			$html = $this->back_form_html;
-			
-			$newFormType = $this->back_form_type;
-			$oldformType = $this->oldAttributes['back_form_type'];
-			
-			$value = $this->back_form_default;
-		}
-		else 
-		{
-			$html = $this->front_form_html;
-			
-			$newFormType = $this->front_form_type;
-			$oldformType = $this->oldAttributes['front_form_type'];
-				
-			$value = $this->front_form_default;
-		}
-		$oldformType='';
-		if($newFormType!==$oldformType)
-		{
-			$html = $this->getFieldHtmlByType($newFormType, $value,$isBackForm);
-		}
-		LuLu::info($html);
-		return $html;
-	}
+	
 	
 	public function getFieldHtmlByType($type,$value,$isBackForm)
 	{
@@ -335,6 +308,7 @@ class DefineTableField extends BaseActiveRecord
 		
 		return Html::radio($this->getTheInputName(),$value,$options);
 	}
+	
 	public function getCheckboxForm($value = null,$isBackForm=true,$appendOptions=[])
 	{
 		$value =$this->getDefaultValue($value,$isBackForm);
@@ -378,6 +352,7 @@ class DefineTableField extends BaseActiveRecord
 		
 		return Html::textInput($this->getTheInputName(),$value,$options);
 	}
+	
 	public function getFlashForm($value = null,$isBackForm=true,$appendOptions=[])
 	{
 		$value =$this->getDefaultValue($value,$isBackForm);
@@ -386,6 +361,7 @@ class DefineTableField extends BaseActiveRecord
 		
 		return Html::textInput($this->getTheInputName(),$value,$options);
 	}
+	
 	public function getFileForm($value = null,$isBackForm=true,$appendOptions=[])
 	{
 		$value =$this->getDefaultValue($value,$isBackForm);

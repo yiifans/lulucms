@@ -96,9 +96,9 @@ $formTypeArray=[
 		</tr>
 	
 		<?= $form->field($model, 'is_main')->checkBox([],false) ?>
-		
+		<!-- 
 		<?= $form->field($model, 'is_sys')->checkBox([],false) ?>
-		
+		 -->
 		<?= $form->field($model, 'sort_num')->textInput() ?>
 
 		<?= $form->field($model, 'note')->textInput(['maxlength' => 200]) ?>

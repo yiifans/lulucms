@@ -9,8 +9,9 @@ use yii\grid\GridView;
  * @var app\models\search\DefineTableSearch $searchModel
  */
 
-$this->title = 'Tables';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '内容模型';
+$this->addBreadcrumb($this->title);
+
 ?>
 <div class="define-table-index">
 
@@ -23,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	      <th>名称</th>
 	      <th width="150px">表名</th>
 	      <th width="80px">默认表</th>
-	      <th width="20%">do</th>
+	      <th width="160px">操作</th>
 	    </tr>
 		<?php foreach ($rows as $row ): ?>
 		<tr>
@@ -36,8 +37,9 @@ $this->params['breadcrumbs'][] = $this->title;
 			'data-method' => 'post',
 		]); ?>
 		<?= Html::a('编辑', ['update', 'tb' => $row->name_en]) ?>
-		<?= Html::a('编辑字段', ['definetablefield/index', 'tb' => $row->name_en]) ?>
-		<?= Html::a('编辑模型', ['definemodel/index', 'tb' => $row->name_en]) ?>
+		<?= Html::a('Action', ['action', 'tb' => $row->name_en]) ?>
+		<?= Html::a('字段', ['definetablefield/index', 'tb' => $row->name_en]) ?>
+		
 		
 		</td>
 		</tr>

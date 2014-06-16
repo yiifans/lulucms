@@ -10,7 +10,8 @@ use yii\grid\GridView;
  */
 
 $this->title = '频道管理';
-$this->params['breadcrumbs'][] = $this->title;
+$this->addBreadcrumb($this->title);
+// $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="catalog-index">
 

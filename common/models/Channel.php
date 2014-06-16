@@ -72,115 +72,123 @@ class Channel extends BaseActiveRecord
 			'detail_tpl' => '内容页模板',
 			'page_size' => '每页大小',
 			'note' => 'Note',
-			'note2' => 'Note2',
+			'note2' => 'Note2' 
 		];
 	}
-	
+
 	private $_level;
+
 	public function getLevel()
 	{
 		return $this->_level;
 	}
+
 	public function setLevel($value)
 	{
-		$this->_level=$value;
+		$this->_level = $value;
 	}
-	
+
 	public static function getRootChannels()
 	{
 		$ret = [];
 		$cachedChannels = LuLu::getAppParam('cachedChannels');
-		foreach ($cachedChannels as $channel)
+		foreach ( $cachedChannels as $channel )
 		{
-			if($channel['parent_id'] === 0)
+			if ($channel['parent_id'] === 0)
 			{
-				$ret[$channel['id']]=$channel;
+				$ret[$channel['id']] = $channel;
 			}
 		}
 		return $ret;
 	}
-	
+
 	public static function getChannelArrayTree()
 	{
 		$cachedChannels = LuLu::getAppParam('cachedChannels');
 		return $cachedChannels;
 	}
-	
-	private static function _getChannelArrayTree($parentId = 0, $level = 0)
+
+	public static function _getChannelArrayTree($parentId = 0, $level = 0)
 	{
 		$ret = [];
-	
+		
 		$dataList = Channel::findAll([
-				'parent_id' => $parentId
-				], 'sort_num desc');
-	
+				'parent_id' => $parentId 
+		], 'sort_num desc');
+		
 		if ($dataList == null || empty($dataList))
 		{
 			return $ret;
 		}
-	
-		foreach ($dataList as $key => $value)
+		
+		foreach ( $dataList as $key => $value )
 		{
 			$value->level = $level;
 			$ret[] = $value;
-	
+			
 			$temp = self::_getChannelArrayTree($value['id'], $level + 1);
 			$ret = array_merge($ret, $temp);
 		}
 		return $ret;
 	}
-	
+
 	public static function getParentIds($id)
 	{
 		$ret = [];
-	
+		
 		$current = Channel::findOne([
-				'id' => $id
-				]);
-	
+				'id' => $id 
+		]);
+		
 		$parent = Channel::findOne([
-				'id' => $current['parent_id']
-				]);
-		while ($parent != null)
+				'id' => $current['parent_id'] 
+		]);
+		while ( $parent != null )
 		{
 			array_unshift($ret, $parent->id);
-				
+			
 			$parent = Channel::findOne([
-					'id' => $parent['parent_id']
-					]);
+					'id' => $parent['parent_id'] 
+			]);
 		}
 		array_unshift($ret, 0);
 		return $ret;
 	}
-	private static function getChildrenIds($id)
+
+	public static function getChildrenIds($id)
 	{
 		$ret = [];
-	
-		$children = Channel::findAll(['parent_id'=>$id]);
-		foreach ($children as $child)
+		
+		$children = Channel::findAll([
+				'parent_id' => $id 
+		]);
+		foreach ( $children as $child )
 		{
-			$ret[]=$child['id'];
+			$ret[] = $child['id'];
 		}
 		return $ret;
 	}
-	private static function getLeafIds($id)
+
+	public static function getLeafIds($id)
 	{
 		$ret = [];
-	
+		
 		$current = Channel::findOne([
-				'id' => $id
-				]);
-	
-		if($current['is_leaf'])
+				'id' => $id 
+		]);
+		
+		if ($current['is_leaf'])
 		{
-			$ret[]=$id;
+			$ret[] = $id;
 			return $ret;
 		}
 		
-		$children = Channel::findAll(['parent_id'=>$id]);
-		if(count($children)>0)
+		$children = Channel::findAll([
+				'parent_id' => $id 
+		]);
+		if (count($children) > 0)
 		{
-			foreach ($children as $child)
+			foreach ( $children as $child )
 			{
 				$temp = Channel::getLeafIds($child['id']);
 				$ret= array_merge($ret,$temp);
@@ -191,72 +199,7 @@ class Channel extends BaseActiveRecord
 	
 
 	
-	public static function createCache()
-	{
-		$newLine="\r\n";
-		
-		$content='<?php'.$newLine;
-		$content.='$cachedChannels=[];'.$newLine;
-		
-		$dataList=self::_getChannelArrayTree(0,0);
-		
-		foreach ($dataList as $row)
-		{
-			$id = $row['id'];
-			
-			$content.='$cachedChannels['.$row['id'].']=['.$newLine;
-			
-			$content.=Channel::getCacheItem('id',$row, true);
-			$content.=Channel::getCacheItem('parent_id',$row, true);
-			$parentIds=Channel::getParentIds($id);
-			$content.=Channel::getCacheItemValue('parent_ids',implode(',', $parentIds));
-			$childrenIds=Channel::getChildrenIds($id);
-			$content.=Channel::getCacheItemValue('children_ids',implode(',', $childrenIds));
-			$leafIds=Channel::getLeafIds($id);
-			$content.=Channel::getCacheItemValue('leaf_ids',implode(',', $leafIds));
-			$content.=Channel::getCacheItem('name',$row);
-			$content.=Channel::getCacheItem('name_alias',$row);
-			$content.=Channel::getCacheItem('name_url',$row);
-			$content.=Channel::getCacheItem('redirect_url',$row);
-			$content.=Channel::getCacheItem('level',$row, true);
-			$content.=Channel::getCacheItem('is_leaf',$row,true);
-			$content.=Channel::getCacheItem('is_nav',$row, true);
-			$content.=Channel::getCacheItem('sort_num',$row, true);
-			$content.=Channel::getCacheItem('table',$row );
-			$content.=Channel::getCacheItem('channel_tpl',$row);
-			$content.=Channel::getCacheItem('list_tpl',$row);
-			$content.=Channel::getCacheItem('detail_tpl',$row);
-			$content.=Channel::getCacheItem('page_size',$row, true);
-				
-			$content.="];".$newLine;
-		}
+
 	
 	
-		$rootData = \Yii::getAlias('@data');
-	
-		TFileHelper::writeFile([$rootData,'cache','cachedChannels.php'], $content);
-	
-		return $content;
-	}
-	
-	private static function getCacheItem($name, $row, $isInt = false)
-	{
-		return self::getCacheItemValue($name, $row[$name], $isInt);
-	}
-	
-	private static function getCacheItemValue($name, $value, $isInt = false)
-	{
-		$newLine = "\r\n";
-	
-		if ($isInt)
-		{
-			$value = intval($value);
-		}
-		else
-		{
-			$value = '\'' . $value . '\'';
-		}
-	
-		return '	\'' . $name . '\' => ' . $value . ',' . $newLine;
-	}	
 }
