@@ -31,27 +31,29 @@ class BaseFrontView extends BaseView
 		return $cachedChannels;
 	}
 
-	public function buildBreadcrumbs($bondId)
+	public function buildBreadcrumbs($chnid)
 	{
 		if(!isset($this->params['breadcrumbs']))
 		{
 			$this->params['breadcrumbs']=[];
 		}
 		
+		$cachedChannels=$this->getCachedChannels();
+		LuLu::info($cachedChannels);
 		
-		$cachedBoards=$this->getCachedBoards();
-		$board=$cachedBoards[$bondId];
-		while (($parentId = $board['parent_id'])!=0)
+		$channel=$cachedChannels[$chnid];
+		
+		while (($parentId = $channel['parent_id'])!=0)
 		{
-			$breadcrumbs= ['label' => $board['name'], 'url' => ['index&boardid='.$board['id']]];
+			$breadcrumbs= ['label' => $channel['name'], 'url' => ['list','chnid'=>$channel['id']]];
 			
 			array_unshift($this->params['breadcrumbs'],$breadcrumbs);
 			//$this->params['breadcrumbs'][] = ['label' => $board['name'], 'url' => ['index&boardid='.$board['id']]];
 			
-			$board = $cachedBoards[$parentId];
+			$channel = $cachedChannels[$parentId];
 		}
 		
-		$breadcrumbs= ['label' => $board['name'], 'url' => ['board/index&boardid='.$board['id']]];
+		$breadcrumbs= ['label' => $channel['name'], 'url' => ['channel','chnid'=>$channel['id']]];
 			
 		array_unshift($this->params['breadcrumbs'],$breadcrumbs);
 	}

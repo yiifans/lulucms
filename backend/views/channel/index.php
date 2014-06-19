@@ -15,18 +15,12 @@ $this->addBreadcrumb($this->title);
 ?>
 <div class="catalog-index">
 
-	<h1><?= Html::encode($this->title) ?></h1>
-
-	<?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
 	<p>
 		<?= Html::a('创建频道', ['create'], ['class' => 'btn btn-success']) ?>
 	</p>
 <table class="table">
     <tr class="tb_header">
       <th width="60px"> 编号</th>
-      <th width="80px">父编号</th>
-      <th width="60px"> 级别</th>
       <th>名称</th>
       <th width="80px"> 存储表</th>
       <th width="10%">template</th>
@@ -35,9 +29,6 @@ $this->addBreadcrumb($this->title);
 	<?php foreach ($channelArrayTree as $row ): ?>
 	<tr>
 	<td><?php echo $row['id']?></td>
-	<td><?php echo $row['parent_id']?></td>
-	
-	<td><?php echo $row['level']?></td>
 	<td><?php for($i=0;$i<$row['level'];$i++)
 	{
 		echo '&nbsp;&nbsp;&nbsp;&nbsp;';

@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\VarDumper;
+use yii\helpers\Html;
+
 /**
  * @var yii\web\View $this
  */
@@ -44,11 +46,11 @@ $this->title = 'My Yii Application';
 				<?php 
 					if($channel['is_leaf'])
 					{
-						echo '<a href="index.php?r=content/list&chnid='.$channel['id'].'"><font color="red">'.$channel['name'].'</font></a>';
+						echo Html::a('<font color="red">'.$channel['name'].'</font>', ['content/list','chnid'=>$channel['id']]);
 					}
 					else
 					{
-						echo '<a href="index.php?r=content/index&chnid='.$channel['id'].'">'.$channel['name'].'</a>';
+						echo Html::a($channel['name'], ['content/channel','chnid'=>$channel['id']]);
 					}
 				?>
 				</h2>
@@ -56,7 +58,8 @@ $this->title = 'My Yii Application';
 			<div class="bd">
 				<ul>
 					<?php foreach ($value as $row):?>
-					<li><a href="index.php?r=content/view&id=<?php echo $row['id']?>&chnid=<?php echo $row['channel_id']?>" target="_blank"><?php echo $row['title']?></a>
+					<li>
+						<?= Html::a($row['title'], ['content/detail','chnid'=>$row['channel_id'],'id'=>$row['id']]) ?>
 						<span class="time"><?php echo date('m-d',strtotime($row['publish_time']))?></span></li>
 					<?php endforeach;?>
 				</ul>

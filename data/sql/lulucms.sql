@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 06 月 14 日 02:23
+-- 生成日期: 2014 年 06 月 19 日 00:57
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.16
 
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `model_news` (
   `source` varchar(255) DEFAULT NULL,
   `author` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- 转存表中的数据 `model_news`
@@ -128,7 +128,10 @@ INSERT INTO `model_news` (`id`, `channel_id`, `user_id`, `user_name`, `publish_t
 (7, 104, 1, 'admin', '2014-06-10 15:43:53', '2014-06-10 15:43:53', 0, 0, 0, 0, 0, 'Yii 与ThinkPHP 对比，说一下优缺点，都用过的可以进来看下 [问题点数：40分]', ',', '', '', '', '有没有既用过Yii 又用过ThinkPHP的', '有没有既用过Yii 又用过ThinkPHP的', '最近一直用ThinkPHP，但每次都听到很多人说Yii特别厉害，特别强尤其是负载能力。\r\n今天下载了Yii 1.1.14最新版，看了下，感觉文件结构比较乱。而且有很多在被引入的数组里面执行PHP。\r\n\r\n\r\n有没有既用过Yii 又用过ThinkPHP的，且对他们都比较熟悉的。\r\n谈一下他们两者的优缺点。', 'c', NULL),
 (8, 109, 1, 'admin', '2014-06-10 15:46:01', '2014-06-10 15:46:01', 0, 0, 0, 0, 0, 'Yii 关联查询问题 [问题点数：20分]', ',', '', '', '', '', '', '三张表 A B C\r\n\r\nAB是一对多\r\nBC是一对一\r\n\r\n怎么查询满足C的 最终显示 A 的记录', 'c', NULL),
 (9, 108, 1, 'admin', '2014-06-10 23:07:53', '2014-06-10 23:07:53', 0, 0, 0, 0, 0, '女人就像是一列火', ',', '', '', '', '', '', '女人就像是一列火车 她们基本都是在……………逛…………吃…………逛…………吃…………逛…………吃………… 时不时的还555555555……', 'c', NULL),
-(10, 104, 1, 'admin', '2014-06-12 14:11:11', '2014-06-12 14:11:11', 1, 3, 4, 18, 1, 'Joining with Relations ', 'i,s,,', '', '', '', '', 'ort the orders b', ' sort the orders by the customer id and the order id. also eager loading "customer"\r\n$orders = Order::find()->joinWith(''customer'')->orderBy(''customer.id, order.id'')->all();\r\n// find all orders that contain books, and eager loading "books"\r\n$orders = Order::find()->innerJoi', 'c', 'adminxxx');
+(10, 104, 1, 'admin', '2014-06-12 14:11:11', '2014-06-12 14:11:11', 1, 3, 4, 18, 1, 'Joining with Relations ', 'i,s,,', '', '', '', '', 'ort the orders b', ' sort the orders by the customer id and the order id. also eager loading "customer"\r\n$orders = Order::find()->joinWith(''customer'')->orderBy(''customer.id, order.id'')->all();\r\n// find all orders that contain books, and eager loading "books"\r\n$orders = Order::find()->innerJoi', 'c', 'adminxxx'),
+(11, 104, 1, 'admin', '2014-06-14 09:37:08', '2014-06-14 09:37:08', 1, 2, 2, 6, 0, 'bbbb', 'i,u,,', '', '', '', '', 'asdf', '', 'c', 'admin'),
+(12, 104, 1, 'admin', '2014-06-14 09:42:00', '2014-06-14 09:42:00', 1, 2, 2, 6, 0, 'bbbb', 'i,u,,', '', '', '', '', 'asdf', '', 'c', 'admin'),
+(13, 108, 1, 'admin', '2014-06-14 13:37:25', '2014-06-14 13:37:25', 2, 4, 6, 22, 0, 'gggbbb', 'i,u,,', '', '', '', '', 'aa', 'bb', 'c', 'admin');
 
 -- --------------------------------------------------------
 
@@ -168,6 +171,36 @@ CREATE TABLE IF NOT EXISTS `model_test` (
 
 DROP TABLE IF EXISTS `model_video`;
 CREATE TABLE IF NOT EXISTS `model_video` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `channel_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(80) NOT NULL,
+  `publish_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `modify_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `att1` tinyint(4) NOT NULL,
+  `att2` tinyint(4) NOT NULL,
+  `att3` tinyint(4) NOT NULL,
+  `flag` tinyint(4) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `title` varchar(128) NOT NULL,
+  `title_format` varchar(128) DEFAULT NULL,
+  `title_pic` varchar(128) DEFAULT NULL,
+  `redirect_url` varchar(128) DEFAULT NULL,
+  `keywords` varchar(128) DEFAULT NULL,
+  `sub_title` varchar(128) DEFAULT NULL,
+  `summary` varchar(512) DEFAULT NULL,
+  `content` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `model_xxx`
+--
+
+DROP TABLE IF EXISTS `model_xxx`;
+CREATE TABLE IF NOT EXISTS `model_xxx` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `channel_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -244,7 +277,7 @@ CREATE TABLE IF NOT EXISTS `yii_channel` (
   `note` varchar(80) DEFAULT NULL,
   `note2` varchar(80) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=121 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=122 ;
 
 --
 -- 转存表中的数据 `yii_channel`
@@ -259,13 +292,43 @@ INSERT INTO `yii_channel` (`id`, `parent_id`, `name`, `name_alias`, `name_url`, 
 (106, 103, '科技', '科技', '', '', 1, 0, 0, 'model_news', 'channel_default.php', 'list_default.php', 'detail_default.php', NULL, '', ''),
 (107, 103, '国内', '国内', '', '', 0, 0, 0, 'model_news', '9', '9', '8', NULL, '', ''),
 (108, 105, '环球视野', '环球视野', '', '', 1, 0, 0, 'model_news', 'channel_default.php', 'list_default.php', 'detail_default.php', NULL, '', ''),
-(109, 105, '军事', '军事', '', '', 1, 0, 0, 'model_news', '9', '9', '8', NULL, '', ''),
+(109, 105, '军事', '军事', '', '', 0, 0, 0, 'model_news', 'channel_default.php', 'list_default.php', 'detail_default.php', NULL, '', ''),
 (110, 107, '时政', '时政', '', '', 0, 0, 0, 'model_news', 'channel_default.php', 'list_default.php', 'detail_default.php', NULL, '', ''),
 (111, 107, '港澳台', '港澳台', '', '', 1, 0, 0, 'model_news', 'channel_default.php', 'list_default.php', 'detail_default.php', NULL, '', ''),
 (112, 0, '视频', '视频', '', '', 0, 0, 0, 'model_video', '7', '7', '6', NULL, '', ''),
 (118, 112, '爱情', '爱情', '', '', 1, 0, 0, 'model_video', '7', '7', '6', NULL, '', ''),
 (119, 112, '恐怖', '恐怖', '', '', 1, 0, 0, 'model_video', '7', '7', '6', NULL, '', ''),
-(120, 0, 'yyyy', 'yyyy', '', '', 1, 0, 0, 'model_news', 'channel_default.php', 'list_default.php', 'detail_default.php', NULL, '', '');
+(120, 0, 'yyyy', 'yyyy', '', '', 0, 0, 0, 'model_news', 'channel_default.php', 'list_default.php', 'detail_default.php', NULL, '', ''),
+(121, 0, '测试', '测试', '', '', 0, 0, 0, 'model_test', 'channel_default.php', 'list_default.php', 'detail_default.php', NULL, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `yii_config`
+--
+
+DROP TABLE IF EXISTS `yii_config`;
+CREATE TABLE IF NOT EXISTS `yii_config` (
+  `key` varchar(64) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `value` varchar(1024) NOT NULL,
+  `datatype` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`key`),
+  UNIQUE KEY `key` (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `yii_config`
+--
+
+INSERT INTO `yii_config` (`key`, `name`, `value`, `datatype`) VALUES
+('site_copyright', '版权信息', 'xxx', ''),
+('site_logo', '网站Logo', 'xxx', ''),
+('site_seo_description', '描述', 'xxx', ''),
+('site_seo_keywords', '关键字', 'xxx', ''),
+('site_webname', '网站名称', 'test', ''),
+('site_webroot', '网站目录', 'test', ''),
+('site_weburl', '网站url', 'test', '');
 
 -- --------------------------------------------------------
 
@@ -279,11 +342,22 @@ CREATE TABLE IF NOT EXISTS `yii_define_table` (
   `name_en` varchar(80) CHARACTER SET gbk NOT NULL,
   `description` varchar(80) CHARACTER SET gbk DEFAULT NULL,
   `is_default` tinyint(1) NOT NULL DEFAULT '0',
-  `channel_tpl` varchar(64) DEFAULT NULL,
-  `list_tpl` varchar(64) DEFAULT NULL,
-  `detail_tpl` varchar(64) DEFAULT NULL,
-  `back_form_tpl` varchar(64) DEFAULT NULL,
-  `front_form_tpl` varchar(64) DEFAULT NULL,
+  `back_action_index` tinyint(1) DEFAULT '0',
+  `back_action_create` tinyint(1) DEFAULT '0',
+  `back_action_update` tinyint(1) DEFAULT '0',
+  `back_action_delete` tinyint(1) DEFAULT '0',
+  `back_action_other` tinyint(1) DEFAULT '0',
+  `back_action_custom` varchar(512) DEFAULT NULL,
+  `front_action_channel` tinyint(1) DEFAULT '0',
+  `front_action_list` tinyint(1) DEFAULT '0',
+  `front_action_detail` tinyint(1) DEFAULT '0',
+  `front_action_search` tinyint(1) DEFAULT '0',
+  `front_action_index` tinyint(1) DEFAULT '0',
+  `front_action_create` tinyint(1) DEFAULT '0',
+  `front_action_update` tinyint(1) DEFAULT '0',
+  `front_action_delete` tinyint(1) DEFAULT '0',
+  `front_action_other` tinyint(1) DEFAULT '0',
+  `front_action_custom` varchar(512) DEFAULT NULL,
   `note` varchar(80) CHARACTER SET gbk DEFAULT NULL,
   PRIMARY KEY (`name_en`),
   UNIQUE KEY `name` (`name_en`)
@@ -293,11 +367,12 @@ CREATE TABLE IF NOT EXISTS `yii_define_table` (
 -- 转存表中的数据 `yii_define_table`
 --
 
-INSERT INTO `yii_define_table` (`name`, `name_en`, `description`, `is_default`, `channel_tpl`, `list_tpl`, `detail_tpl`, `back_form_tpl`, `front_form_tpl`, `note`) VALUES
-('下载', 'model_download', '', 0, NULL, NULL, NULL, NULL, NULL, ''),
-('新闻', 'model_news', '', 1, '', '', '', '', '', ''),
-('测试表', 'model_test', '测试表', 0, '', '', '', '', '', ''),
-('视频', 'model_video', '', 0, NULL, NULL, NULL, NULL, NULL, '');
+INSERT INTO `yii_define_table` (`name`, `name_en`, `description`, `is_default`, `back_action_index`, `back_action_create`, `back_action_update`, `back_action_delete`, `back_action_other`, `back_action_custom`, `front_action_channel`, `front_action_list`, `front_action_detail`, `front_action_search`, `front_action_index`, `front_action_create`, `front_action_update`, `front_action_delete`, `front_action_other`, `front_action_custom`, `note`) VALUES
+('下载', 'model_download', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, ''),
+('新闻', 'model_news', 'xxx', 1, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 'bbb'),
+('测试表', 'model_test', '测试表', 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', ''),
+('视频', 'model_video', 'nnn', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'nnn'),
+('xxx', 'model_xxx', 'xxx', 0, 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 'xxx');
 
 -- --------------------------------------------------------
 
@@ -339,7 +414,7 @@ CREATE TABLE IF NOT EXISTS `yii_define_table_field` (
   `back_form_html` varchar(512) DEFAULT NULL,
   `back_note` varchar(512) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=170 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=181 ;
 
 --
 -- 转存表中的数据 `yii_define_table_field`
@@ -384,8 +459,19 @@ INSERT INTO `yii_define_table_field` (`id`, `table`, `name`, `name_en`, `type`, 
 (165, 'model_test', '关键字', 'keywords', 'varchar', 128, 1, 1, 1, 8, '关键字', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
 (166, 'model_test', '副标题', 'sub_title', 'varchar', 128, 1, 1, 1, 9, '副标题', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
 (167, 'model_test', '简介', 'summary', 'varchar', 512, 1, 1, 1, 10, '简介', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
-(168, 'model_test', '内容', 'content', 'text', NULL, 1, 1, 0, 11, '内容', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
-(169, 'model_news', '作者', 'author', 'varchar', 255, 1, 0, 0, NULL, '', 1, '', '', '', 'text', '', '', '', NULL, NULL, 1, '', '', '', 'text', '', 'admin', '', NULL, NULL);
+(168, 'model_test', '内容', 'content', 'text', NULL, 0, 1, 0, 11, '内容', 1, '', '', '', 'text', '', '', '', NULL, NULL, 1, '', '', '', 'textarea', '', '', '', NULL, NULL),
+(169, 'model_news', '作者', 'author', 'varchar', 255, 1, 0, 0, NULL, '', 1, '', '', '', 'text', '', '', '', NULL, NULL, 1, '', '', '', 'text', '', 'admin', '', NULL, NULL),
+(170, 'model_xxx', '标题', 'title', 'varchar', 128, 0, 1, 1, 1, '标题', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(171, 'model_xxx', '标题格式', 'title_format', 'varchar', 128, 1, 1, 1, 2, '标题格式', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(172, 'model_xxx', '自定义属性', 'att', 'tinyint', 4, 1, 1, 1, 3, '自定义属性', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(173, 'model_xxx', '聚合标签', 'flag', 'tinyint', 4, 1, 1, 1, 4, '聚合标签', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(174, 'model_xxx', '状态', 'status', 'tinyint', 1, 1, 1, 1, 5, '状态', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(175, 'model_xxx', '标题图片', 'title_pic', 'varchar', 128, 1, 1, 1, 6, '标题图片', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(176, 'model_xxx', '转向连接', 'redirect_url', 'varchar', 128, 1, 1, 1, 7, '转向连接', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(177, 'model_xxx', '关键字', 'keywords', 'varchar', 128, 1, 1, 1, 8, '关键字', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(178, 'model_xxx', '副标题', 'sub_title', 'varchar', 128, 1, 1, 1, 9, '副标题', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(179, 'model_xxx', '简介', 'summary', 'varchar', 512, 1, 1, 1, 10, '简介', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL),
+(180, 'model_xxx', '内容', 'content', 'text', NULL, 1, 1, 0, 11, '内容', 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -414,6 +500,81 @@ CREATE TABLE IF NOT EXISTS `yii_define_table_field_meta` (
   `back_form_source` text,
   `back_form_html` varchar(80) CHARACTER SET gbk DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `yii_dict`
+--
+
+DROP TABLE IF EXISTS `yii_dict`;
+CREATE TABLE IF NOT EXISTS `yii_dict` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `value` varchar(1024) DEFAULT NULL,
+  `datatype` varchar(32) DEFAULT NULL,
+  `cache_key` varchar(64) NOT NULL,
+  `is_sys` tinyint(1) NOT NULL DEFAULT '0',
+  `sort_num` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
+
+--
+-- 转存表中的数据 `yii_dict`
+--
+
+INSERT INTO `yii_dict` (`id`, `parent_id`, `name`, `value`, `datatype`, `cache_key`, `is_sys`, `sort_num`) VALUES
+(1, 0, '内容属性', 'xxx', '', 'content_att', 0, 0),
+(2, 0, 'nn', NULL, NULL, 'nn', 0, 0),
+(5, 1, 'bb', 's', 'string', 'content_att', 0, 0),
+(6, 1, 'bb', 's', '', 'content_att', 0, 0),
+(7, 1, 'bbb', '', 'string', 'content_att', 0, 0),
+(8, 5, 'adsfasdf', '', 'string', 'content_att', 0, 0),
+(10, 8, 'nnn', 'bbbb', 'string', 'content_att', 0, 0),
+(11, 0, '内容属性名称', NULL, NULL, 'content_att_name', 0, 0),
+(12, 0, '内容属性1', NULL, NULL, 'content_att1', 0, 0),
+(13, 0, '内容属性2', NULL, NULL, 'content_att2', 0, 0),
+(14, 0, '内容属性3', NULL, NULL, 'content_att3', 0, 0),
+(15, 0, '聚合标签', NULL, NULL, 'content_flag', 0, 0),
+(16, 12, '一级头条', '1', 'int', 'content_att1', 0, 0),
+(17, 12, '二级头条', '2', 'int', 'content_att1', 0, 0),
+(18, 12, '三级头条', '3', 'int', 'content_att1', 0, 0),
+(19, 12, '四级头条', '4', 'int', 'content_att1', 0, 0),
+(20, 12, '五级头条', '5', 'int', 'content_att1', 0, 0),
+(21, 12, '六级头条', '6', 'int', 'content_att1', 0, 0),
+(22, 12, '七级头条', '7', 'int', 'content_att1', 0, 0),
+(23, 12, '八级头条', '8', 'int', 'content_att1', 0, 0),
+(24, 12, '九级头条', '9', 'int', 'content_att1', 0, 0),
+(25, 11, '内容属性1文本', '头条', 'string', 'content_att_name', 0, 0),
+(26, 11, '内容属性2文本', '推荐', 'string', 'content_att_name', 0, 0),
+(27, 11, '内容属性3文本', '置顶', 'string', 'content_att_name', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `yii_dict_category`
+--
+
+DROP TABLE IF EXISTS `yii_dict_category`;
+CREATE TABLE IF NOT EXISTS `yii_dict_category` (
+  `key` varchar(64) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `description` varchar(512) DEFAULT NULL,
+  `is_sys` tinyint(1) NOT NULL,
+  PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `yii_dict_category`
+--
+
+INSERT INTO `yii_dict_category` (`key`, `name`, `description`, `is_sys`) VALUES
+('content_att1', '内容自定义属性1值', '', 1),
+('content_att2', '内容自定义属性2值', '', 1),
+('content_att3', '内容自定义属性3值', '', 1),
+('content_atts', '内容自定义属性名称', '', 1),
+('content_flag', '内容聚合标签', '', 1);
 
 -- --------------------------------------------------------
 

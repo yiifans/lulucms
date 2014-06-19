@@ -30,14 +30,20 @@ class UpdateAction extends ContentAction
 {
 	public function run($chnid,$id)
 	{
+		$channelModel=Channel::findOne($chnid);
+		
 		$model = [];
 
 		if (true) {
-			return $this->redirect(['view', 'id' => 0]);
+			return $this->redirect(['index', 'cid' => $chnid]);
 		} else {
-			return $this->render('update', [
-				'model' => $model,
-			]);
+			$locals=[];
+			$locals['model']=$model;
+			$locals['currentChannel']=$channelModel;
+			
+			$updateTpl=$this->getTpl($chnid, 'update');
+			
+			return $this->render($updateTpl, $locals);
 		}
 	}
 	

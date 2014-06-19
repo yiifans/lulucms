@@ -28,20 +28,20 @@ use backend\actions\content\ContentAction;
  */
 class ListAction extends ContentAction
 {
-	public function run($chnid=0)
+	public function run($chnid)
 	{
 		$channelModel=Channel::findOne($chnid);
 		
-		$listTpl=$this->getListTpl($chnid);
-		
-	
 		$dataList=LuLu::getDataSourceFromChannel($chnid);
 		
-		$params=[];
-		$params['dataList']=$dataList;
-		$params['currentChannel']=$channelModel;
+		$locals=[];
+		$locals['dataList']=$dataList;
+		$locals['currentChannel']=$channelModel;
+		$locals['chnid']=$chnid;
 		
-		return $this->render($listTpl, $params);
+		$listTpl=$this->getTpl($chnid, 'list');
+		
+		return $this->render($listTpl, $locals);
 	}
 	
 }

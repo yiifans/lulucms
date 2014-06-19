@@ -4,23 +4,9 @@ namespace backend\controllers;
 
 use Yii;
 
-use common\models\search\ChannelSearch;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use common\models\Content;
-use yii\web\HttpException;
-use common\models\DefineModel;
 use common\models\DefineTable;
-use common\models\Channel;
-use common\models\TplForm;
 use backend\base\BaseBackController;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use components\LuLu;
-use common\models\DefineTableField;
-use common\contentmodels\CommonContent;
-use components\helpers\TTimeHelper;
-use backend\actions\content\model_default\Create;
 use backend;
 
 /**
@@ -57,9 +43,9 @@ class ContentController extends BaseBackController
 		return $ret;
 	}
 
-	public function actionManager($chnid=0)
+	public function actionIndex($chnid=0)
 	{
-		$action = new backend\actions\content\model_default\ManagerAction('manager',$this);
+		$action = new backend\actions\content\model_default\IndexAction('index',$this);
 		return $action->run($chnid);
 	}
 

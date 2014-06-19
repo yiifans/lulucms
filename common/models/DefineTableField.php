@@ -331,7 +331,10 @@ class DefineTableField extends BaseActiveRecord
 		$value =$this->getDefaultValue($value,$isBackForm);
 		
 		$options = $this->getTheInputOptions($isBackForm,$appendOptions);
-		
+		if(!isset($options['rows']))
+		{
+			$options['rows']=5;
+		}
 		return Html::textarea($this->getTheInputName(),$value,$options);
 	}
 	

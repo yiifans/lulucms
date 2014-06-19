@@ -30,7 +30,7 @@ class DeleteAction extends ContentAction
 {
 	public function run($chnid,$tid)
 	{	
-		return $this->redirect(['manager', 'chnid' => $chnid]);
+		return $this->redirect(['index', 'chnid' => $chnid]);
 	}
 	
 

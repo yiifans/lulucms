@@ -7,9 +7,10 @@ use yii\helpers\Html;
  * @var common\models\DictCategory $model
  */
 
-$this->title = 'Create Dict Category';
-$this->params['breadcrumbs'][] = ['label' => 'Dict Categories', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '新建分类';
+$this->addBreadcrumb('字典分类',['index']);
+$this->addBreadcrumb($this->title);
+
 ?>
 <div class="dict-category-create">
 

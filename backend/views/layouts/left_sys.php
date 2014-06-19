@@ -24,8 +24,7 @@ $this->beginContent('@app/views/layouts/main.php');
 			</div>
 			<div class="bd">
 				<ul>
-					<li><li><?= Html::a('数据字典', ['dict/index']) ?></li></li>
-					<li><li><?= Html::a('数据字典分类', ['dict-category/index']) ?></li></li>
+					<li><li><?= Html::a('数据字典', ['dict-category/index']) ?></li></li>
 				</ul>
 			</div>
 		</div>	

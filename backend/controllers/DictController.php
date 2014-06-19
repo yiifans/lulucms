@@ -9,6 +9,7 @@ use backend\base\BaseBackController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use components\LuLu;
+use common\models\DictCategory;
 
 /**
  * DictController implements the CRUD actions for Dict model.
@@ -33,12 +34,13 @@ class DictController extends BaseBackController
      * Lists all Dict models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($pid)
     {
-    	$query = Dict::find();
+    	$query = Dict::find()->where(['parent_id'=>$pid]);
        
     	$locals = LuLu::getPagedRows($query);
-    	
+    	$locals['pid']=$pid;
+    	$locals['parent'] = Dict::findOne(['id'=>$pid]);
         return $this->render('index', $locals);
     }
 
@@ -59,16 +61,22 @@ class DictController extends BaseBackController
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($pid)
     {
+    	$parentDic = $this->findModel($pid);
+    	
         $model = new Dict;
-
+		$model->parent_id=$parentDic->id;
+		$model->cache_key=$parentDic->cache_key;
+		$model->is_sys=$parentDic->is_sys;
+		
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index', 'id' => $model->id]);
+            return $this->redirect(['index', 'pid' => $pid]);
         } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        	$locals=[];
+        	$locals['parent']=$parentDic;
+        	$locals['model']=$model;
+            return $this->render('create', $locals);
         }
     }
 
@@ -82,15 +90,20 @@ class DictController extends BaseBackController
     {
         $model = $this->findModel($id);
 
+        $parentDic = $this->findModel($model->parent_id);
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index', 'id' => $model->id]);
+            return $this->redirect(['index', 'pid' => $parentDic->id]);
         } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+        	$locals=[];
+        	$locals['parent']=$parentDic;
+        	$locals['model']=$model;
+            return $this->render('update', $locals);
         }
     }
 
+   
+    
     /**
      * Deletes an existing Dict model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

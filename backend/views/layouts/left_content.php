@@ -33,7 +33,7 @@ function getBlankPrefix($count)
 						if($channel['is_leaf'])
 						{
 							$txt='<font color="red">'.$channel['name'].'</font>';
-							$txt = getBlankPrefix($channel['level']).'<a href="index.php?r=content/manager&chnid='.$channel['id'].'">'.$txt.'</a>';
+							$txt = getBlankPrefix($channel['level']).'<a href="index.php?r=content/index&chnid='.$channel['id'].'">'.$txt.'</a>';
 						}
 						else 
 						{

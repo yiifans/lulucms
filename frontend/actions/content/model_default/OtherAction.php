@@ -30,7 +30,7 @@ class OtherAction extends ContentAction
 {
 	public function run($chnid,$id)
 	{
-		return $this->redirect(['other', 'chnid' => $chnid]);
+		return $this->redirect(['index', 'chnid' => $chnid]);
 	}
 	
 	

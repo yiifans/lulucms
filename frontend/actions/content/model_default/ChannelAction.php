@@ -30,7 +30,7 @@ class ChannelAction extends ContentAction
 {
 	public function run($chnid=0)
 	{
-		$channelTpl=$this->getChannelTpl($chnid);
+		
 		
 		$channelModel=Channel::findOne($chnid);
 		
@@ -47,8 +47,9 @@ class ChannelAction extends ContentAction
 		$params['att1DataList']=LuLu::getDataSourceFromChannel($chnid,['limit'=>10,'where'=>'att1=1']);
 		$params['att2DataList']=LuLu::getDataSourceFromChannel($chnid,['limit'=>10,'where'=>'att2=1']);
 		$params['att3DataList']=LuLu::getDataSourceFromChannel($chnid,['limit'=>10,'where'=>'att3=1']);
-		
 		$params['currentChannel']=$channelModel;
+		
+		$channelTpl=$this->getTpl($chnid, 'channel');
 		
 		return $this->render($channelTpl, $params);
 	}

@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\actions\content\model_default;
+namespace frontend\actions\content\model_default;
 
 use Yii;
 
@@ -26,32 +26,21 @@ use backend\actions\content\ContentAction;
 /**
  * ChannelController implements the CRUD actions for Channel model.
  */
-class ManagerAction extends ContentAction
+class ListAction extends ContentAction
 {
 	public function run($chnid=0)
 	{
-		if($chnid===0)
-		{
-			$currentChannel=new Channel;
-			$rows=[];
-		}
-		else
-		{
-			$currentChannel=Channel::findOne($chnid);
-			$rows=LuLu::getDataSourceFromChannel($chnid);
-		}
+		$channelModel=Channel::findOne($chnid);
+	
+		$dataList=LuLu::getDataSourceFromChannel($chnid);
 		
-		$channelArrayTree=Channel::getChannelArrayTree();
+		$locals=[];
+		$locals['dataList']=$dataList;
+		$locals['currentChannel']=$channelModel;
 		
-		$locals = [];
-		$locals['rows']=$rows;
-		$locals['chnid']=$chnid;
-		$locals['channelArrayTree']=$channelArrayTree;
-		$locals['currentChannel']=$currentChannel;
+		$indexTpl=$this->getTpl($chnid, 'index');
 		
-		$tplName = $this->getTpl($chnid, 'manager');
-		
-		return $this->render($tplName, $locals);
+		return $this->render($indexTpl, $locals);
 	}
 	
 }

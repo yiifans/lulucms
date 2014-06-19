@@ -42,7 +42,7 @@ class UpdateAction extends ContentAction
 				
 			$this->saveContent($model);
 				
-			return $this->redirect(['manager', 'chnid' => $chnid]);
+			return $this->redirect(['index', 'chnid' => $chnid]);
 		} else {
 			$locals=$this->initContent($model, $currentChannel);
 

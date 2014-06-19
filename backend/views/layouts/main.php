@@ -38,7 +38,7 @@ AppAsset::register($this);
 			//['label' => 'Define Model', 'url' => ['/definemodel/index']],
 			//['label' => 'Define Model Field', 'url' => ['/definemodelfield/index']],
 			['label' => '分类', 'url' => ['/channel/index']],
-			['label' => '内容', 'url' => ['/content/manager']],
+			['label' => '内容', 'url' => ['/content/index']],
 			['label' => '模板', 'url' => ['/tpl/index']],
 			['label' => 'Index Tpl', 'url' => ['/tplindex/index']],
 			['label' => 'Channel Tpl', 'url' => ['/tplchannel/index']],

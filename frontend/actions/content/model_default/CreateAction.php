@@ -29,29 +29,11 @@ use backend\actions\content\ContentAction;
 class CreateAction extends ContentAction
 {
 	public function run($chnid)
-	{	
-	$channelId=LuLu::getGetValue('chnid');
-		if($channelId==null)
-		{
-			throw new HttpException(404,'catalog id is null');
-		}
-		
-		$tplFrontForm='front_form_default';
-		$tplBackForm='back_form_default';
-		
-		$channelModel=Channel::findOne($channelId);
-// 		$defineModelModel=DefineModel::find($channelModel->model_id);
-// 		if($defineModelModel->tpl_front_form)
-// 		{
-// 			$tplFrontForm=$defineModelModel->tpl_front_form;
-// 		}
-// 		if($defineModelModel->tpl_back_form)
-// 		{
-// 			$tplBackForm=$defineModelModel->tpl_back_form;
-// 		}
-		
-		
-		
+	{
+		$model = [];
+	
+		$channelModel=Channel::findOne($chnid);
+
 		$formName='Content';
 		
 		if ($this->hasPostValue($formName)) {
@@ -65,13 +47,16 @@ class CreateAction extends ContentAction
 			$command->insert($this->tableName, $columns);
 			$command->execute();
 			
-			return $this->redirect(['index', 'chnid' => $channelId]);
+			return $this->redirect(['index', 'chnid' => $chnid]);
 		} else {
-			$model=[];
-			return $this->render($tplBackForm, [
-				'model' => $model,
-				'chnid' => $channelId,
-			]);
+			
+			$locals = [];
+			$locals['model']=$model;
+			$locals['chnid']=$chnid;
+			
+			$createTpl=$this->getTpl($chnid, 'create');
+			
+			return $this->render($createTpl, $locals);
 		}
 	}
 	

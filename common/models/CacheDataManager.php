@@ -30,22 +30,22 @@ class CacheDataManager extends Object
 			$content.=self::getCacheItem('is_default',$row, 'bool');
 			$content.=self::getCacheItem('note',$row);
 			
-			$content.=self::getCacheItem('back_action_manager',$row );
-			$content.=self::getCacheItem('back_action_create',$row );
-			$content.=self::getCacheItem('back_action_update',$row );
-			$content.=self::getCacheItem('back_action_delete',$row );
-			$content.=self::getCacheItem('back_action_other',$row );
+			$content.=self::getCacheItem('back_action_index',$row, 'bool');
+			$content.=self::getCacheItem('back_action_create',$row , 'bool');
+			$content.=self::getCacheItem('back_action_update',$row, 'bool');
+			$content.=self::getCacheItem('back_action_delete',$row, 'bool');
+			$content.=self::getCacheItem('back_action_other',$row, 'bool');
 			$content.=self::getCacheItem('back_action_custom',$row );
 			
-			$content.=self::getCacheItem('front_action_channel',$row );
-			$content.=self::getCacheItem('front_action_list',$row );
-			$content.=self::getCacheItem('front_action_detail',$row );
-			$content.=self::getCacheItem('front_action_search',$row );
-			$content.=self::getCacheItem('front_action_manager',$row );
-			$content.=self::getCacheItem('front_action_create',$row );
-			$content.=self::getCacheItem('front_action_update',$row );
-			$content.=self::getCacheItem('front_action_delete',$row);
-			$content.=self::getCacheItem('front_action_other',$row);
+			$content.=self::getCacheItem('front_action_channel',$row, 'bool');
+			$content.=self::getCacheItem('front_action_list',$row, 'bool');
+			$content.=self::getCacheItem('front_action_detail',$row, 'bool');
+			$content.=self::getCacheItem('front_action_search',$row, 'bool');
+			$content.=self::getCacheItem('front_action_index',$row, 'bool');
+			$content.=self::getCacheItem('front_action_create',$row, 'bool');
+			$content.=self::getCacheItem('front_action_update',$row, 'bool');
+			$content.=self::getCacheItem('front_action_delete',$row, 'bool');
+			$content.=self::getCacheItem('front_action_other',$row, 'bool');
 			$content.=self::getCacheItem('front_action_custom',$row);
 				
 			$content.="];".$newLine;

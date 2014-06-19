@@ -28,20 +28,22 @@ use backend\actions\content\ContentAction;
  */
 class DetailAction extends ContentAction
 {
-	public function run($chnid=0)
+	public function run($chnid=0,$id)
 	{
 		$channelModel = Channel::findOne($chnid);
 		
-		$detailTpl=$this->getDetailTpl($chnid);
-	
 		$this->currentTableName=$channelModel->table;
+		
 		$model=$this->findModel($id);
 		
-		$params=[];
-		$params['model']=$model;
-		$params['currentChannel']=$channelModel;
+		$locals=[];
+		$locals['model']=$model;
+		$locals['currentChannel']=$channelModel;
+		$locals['chnid']=$chnid;
 		
-		return $this->render($detailTpl, $params);
+		$detailTpl=$this->getTpl($chnid, 'detail');
+		
+		return $this->render($detailTpl, $locals);
 	}
 	
 }

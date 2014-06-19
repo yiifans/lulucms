@@ -1,29 +1,15 @@
 <?php
 
-namespace backend\actions\content;
+namespace frontend\actions\content;
 
 use Yii;
 
-use common\models\search\ChannelSearch;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use common\models\Content;
-use yii\web\HttpException;
-use common\models\DefineModel;
-use common\models\DefineTable;
-use common\models\Channel;
-use common\models\TplForm;
-use backend\base\BaseBackController;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use components\LuLu;
 use common\models\DefineTableField;
 use common\contentmodels\CommonContent;
 use components\helpers\TTimeHelper;
-use components\base\BaseAction;
-use backend\base\BaseBacAction;
-use backend\base\BaseBackAction;
 use frontend\base\BaseFrontAction;
+use components\helpers\TFileHelper;
 
 /**
  * ChannelController implements the CRUD actions for Channel model.
@@ -85,24 +71,33 @@ class ContentAction extends BaseFrontAction
 	
 	}
 	
-	public function getChannelTpl($chnId)
+	public function getTpl($chnId,$tplName)
 	{
-		return $this->controller->getChannelTpl($chnId);
+		$ret = TFileHelper::buildPath(['model_default',$tplName],false);
+	
+		$cachedChannels = LuLu::getAppParam('cachedChannels');
+	
+		if(isset($cachedChannels[$chnId]))
+		{
+			$frontend = \Yii::getAlias('@frontend');
+	
+			$channelModel= $cachedChannels[$chnId];
+	
+			$table = $channelModel['table'];
+			$tplPath = TFileHelper::buildPath([$frontend,'views','content', $table,$tplName.'.php'],false);
+				
+			if(TFileHelper::exist($tplPath))
+			{
+				$ret = TFileHelper::buildPath([$table,$tplName],false);
+			}
+			else
+			{
+				LuLu::info($tplPath.' does not exist',__METHOD__);
+			}
+		}
+	
+		return $ret;
 	}
 	
-	public function getListTpl($chnId)
-	{
-		return $this->controller->getListTpl($chnId);
-	}
-	
-	public function getDetailTpl($chnId)
-	{
-		return $this->controller->getDetailTpl($chnId);
-	}
-	
-	public function getFormTpl($chnId,$isCreateForm=true)
-	{
-		return $this->controller->getFormTpl($chnId,$isCreateForm);
-	}
 	
 }

@@ -8,8 +8,8 @@ use yii\widgets\DetailView;
  * @var app\models\Catalog $model
  */
 
-$this->title = '';
-$this->params['breadcrumbs'][] = ['label' => 'Catalogs', 'url' => ['index']];
+$this->title = $model['title'];
+$this->buildBreadcrumbs($chnid);
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="catalog-view">

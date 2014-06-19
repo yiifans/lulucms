@@ -10,22 +10,36 @@ use yii\widgets\ActiveForm;
  */
 ?>
 
-<div class="dict-category-form">
+<div class="dict-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php
+    	$disabled= $model->isNewRecord? null:'disabled';
+    	$form = ActiveForm::begin([
+			'fieldConfig' => [
+				'options' => ['tag' => 'tr','class' => 'form-group'],
+				'template' => '<td class="hAlign_left padding_r10" width="150">{label}:</td><td width="300">{input}</td><td>{hint}</td><td>{error}</td>',
+	    	],
+	    ]); ?>
 
-    <?= $form->field($model, 'key')->textInput(['maxlength' => 64]) ?>
-
-    <?= $form->field($model, 'name')->textInput(['maxlength' => 64]) ?>
-
-    <?= $form->field($model, 'is_sys')->textInput() ?>
-
-    <?= $form->field($model, 'description')->textInput(['maxlength' => 512]) ?>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
+    	<table class="table">
+	
+	    <?= $form->field($model, 'name')->textInput(['maxlength' => 64]) ?>
+	
+		<?= $form->field($model, 'cache_key')->textInput(['maxlength' => 64]) ?>
+	
+	    <!-- 
+	    <?= $form->field($model, 'value')->textInput(['maxlength' => 1024]) ?>
+	    <?= $form->field($model, 'datatype')->textInput(['maxlength' => 32]) ?>
+		 -->
+	    <?= $form->field($model, 'sort_num')->textInput() ?>
+	
+	    <?= $form->field($model, 'is_sys')->checkbox([],false) ?>
+		</table>
+	    <div class="form-group">
+	        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+	    </div>
 
     <?php ActiveForm::end(); ?>
 
 </div>
+

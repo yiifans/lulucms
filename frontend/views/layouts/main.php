@@ -66,7 +66,7 @@ AppAsset::register($this);
 							}
 							else
 							{
-								echo '<li><a href="index.php?r=content/index&chnid='.$channel['id'].'">'.$channel['name'].'</a></li>';
+								echo '<li><a href="index.php?r=content/channel&chnid='.$channel['id'].'">'.$channel['name'].'</a></li>';
 							}
 						}
 					?>

@@ -107,7 +107,7 @@ class ContentAction extends BaseBackAction
 			}
 			else 
 			{
-				LuLu::info($tplPath.' does not exist',__METHOD__);
+				LuLu::info($tplPath.' does not exist in backend',__METHOD__);
 			}
 		}
 	

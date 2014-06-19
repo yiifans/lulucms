@@ -14,7 +14,7 @@ use components\helpers\TFileHelper;
  * @property string $name_en
  * @property string $description
  * @property integer $is_default
- * @property string $back_action_manager
+ * @property string $back_action_index
  * @property string $back_action_create
  * @property string $back_action_update
  * @property string $back_action_delete
@@ -24,7 +24,7 @@ use components\helpers\TFileHelper;
  * @property string $front_action_list
  * @property string $front_action_detail
  * @property string $front_action_search
- * @property string $front_action_manager
+ * @property string $front_action_index
  * @property string $front_action_create
  * @property string $front_action_update
  * @property string $front_action_delete
@@ -51,7 +51,7 @@ class DefineTable extends BaseActiveRecord
             [['name', 'name_en'], 'required'],
             [['is_default'], 'integer'],
             [['name', 'name_en', 'description', 'note'], 'string', 'max' => 80],
-            [['back_action_manager', 'back_action_create', 'back_action_update', 'back_action_delete', 'back_action_other', 'front_action_channel', 'front_action_list', 'front_action_detail','front_action_search',  'front_action_manager', 'front_action_create', 'front_action_update', 'front_action_delete', 'front_action_other'], 'string', 'max' => 64],
+            [['back_action_index', 'back_action_create', 'back_action_update', 'back_action_delete', 'back_action_other', 'front_action_channel', 'front_action_list', 'front_action_detail','front_action_search',  'front_action_index', 'front_action_create', 'front_action_update', 'front_action_delete', 'front_action_other'], 'string', 'max' => 64],
             [['back_action_custom', 'front_action_custom'], 'string', 'max' => 512],
             [['name_en'], 'unique']
         ];
@@ -67,7 +67,7 @@ class DefineTable extends BaseActiveRecord
 			'name' => '名称',
 			'description' => '简介',
 			'is_default' => '默认表',
-            'back_action_manager' => '管理信息Action',
+            'back_action_index' => '管理信息Action',
             'back_action_create' => '添加信息Action',
             'back_action_update' => '修改信息Action',
             'back_action_delete' => '删除信息Action',
@@ -77,7 +77,7 @@ class DefineTable extends BaseActiveRecord
             'front_action_list' => '列表信息Action',
             'front_action_detail' => '显示信息Action',
             'front_action_search' => '搜索信息Action',
-            'front_action_manager' => '管理信息Action',
+            'front_action_index' => '管理信息Action',
             'front_action_create' => '添加信息Action',
             'front_action_update' => '修改信息Action',
             'front_action_delete' => '删除信息Action',
@@ -98,6 +98,19 @@ class DefineTable extends BaseActiveRecord
 		return $this->getActions($this,'front');
 	}
 	
+	private static function getActionItem($table,$type,$actionId,$action)
+	{
+		$tableName  =$table['name_en'];
+		
+		if($table[$type.'_action_'.$actionId])
+		{
+			return $type.'end\actions\content\\'.$tableName.'\\'.$action;
+		}
+		else
+		{
+			return $type.'end\actions\content\model_default\\'.$action;
+		}
+	}
 	
 	public static function getActions($table, $type='back')
 	{
@@ -105,88 +118,18 @@ class DefineTable extends BaseActiveRecord
 		
 		$tableName  =$table['name_en'];
 		
-		if(!empty($table[$type.'_action_manager']))
-		{
-			$ret['manager']=$type.'end\actions\content\\'.$tableName.'\\'.$table[$type.'_action_manager'];
-		}
-		else 
-		{
-			$ret['manager']=$type.'end\actions\content\model_default\ManagerAction';
-		}
-		
-		if(!empty($table[$type.'_action_create']))
-		{
-			$ret['create']=$type.'end\actions\content\\'.$tableName.'\\'.$table[$type.'_action_create'];
-		}
-		else
-		{
-			$ret['create']=$type.'end\actions\content\model_default\CreateAction';
-		}
-		
-		if(!empty($table[$type.'_action_update']))
-		{
-			$ret['update']=$type.'end\actions\content\\'.$tableName.'\\'.$table[$type.'_action_update'];
-		}
-		else
-		{
-			$ret['update']=$type.'end\actions\content\model_default\UpdateAction';
-		}
-		
-		if(!empty($table[$type.'_action_delete']))
-		{
-			$ret['delete']=$type.'end\actions\content\\'.$tableName.'\\'.$table[$type.'_action_delete'];
-		}
-		else
-		{
-			$ret['delete']=$type.'end\actions\content\model_default\DeleteAction';
-		}
-		
-		if(!empty($table[$type.'_action_other']))
-		{
-			$ret['other']=$type.'end\actions\content\\'.$tableName.'\\'.$table[$type.'_action_other'];
-		}
-		else
-		{
-			$ret['other']=$type.'end\actions\content\model_default\OtherAction';
-		}
-		
+		$ret['index'] = DefineTable::getActionItem($table,$type,'index','IndexAction');
+		$ret['create'] = DefineTable::getActionItem($table,$type,'create','CreateAction');
+		$ret['update'] = DefineTable::getActionItem($table,$type,'update','UpdateAction');
+		$ret['delete'] = DefineTable::getActionItem($table,$type,'delete','DeleteAction');
+		$ret['other'] = DefineTable::getActionItem($table,$type,'other','OtherAction');
+	
 		if($type == 'front')
 		{
-			if(!empty($table[$type.'_action_channel']))
-			{
-				$ret['channel']=$type.'end\actions\content\\'.$tableName.'\\'.$table[$type.'_action_channel'];
-			}
-			else
-			{
-				$ret['channel']=$type.'end\actions\content\model_default\ChannelAction';
-			}
-			
-			if(!empty($table[$type.'_action_list']))
-			{
-				$ret['list']=$type.'end\actions\content\\'.$tableName.'\\'.$table[$type.'_action_list'];
-			}
-			else
-			{
-				$ret['list']=$type.'end\actions\content\model_default\ListAction';
-			}
-			
-			if(!empty($table[$type.'_action_detail']))
-			{
-				$ret['detail']=$type.'end\actions\content\\'.$tableName.'\\'.$table[$type.'_action_detail'];
-			}
-			else
-			{
-				$ret['detail']=$type.'end\actions\content\model_default\DetailAction';
-			}
-			
-			if(!empty($table[$type.'_action_search']))
-			{
-				$ret['search']=$type.'end\actions\content\\'.$tableName.'\\'.$table[$type.'_action_search'];
-			}
-			else
-			{
-				$ret['search']=$type.'end\actions\content\model_default\SearchAction';
-			}
+			$ret['channel'] = DefineTable::getActionItem($table,$type,'channel','ChannelAction');
+			$ret['list'] = DefineTable::getActionItem($table,$type,'list','ListAction');
+			$ret['detail'] = DefineTable::getActionItem($table,$type,'detail','DetailAction');
+			$ret['search'] = DefineTable::getActionItem($table,$type,'search','SearchAction');
 		}
 		
 		if(!empty($table[$type.'_action_custom']))

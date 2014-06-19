@@ -26,11 +26,11 @@ use backend\actions\content\ContentAction;
 /**
  * ChannelController implements the CRUD actions for Channel model.
  */
-class OtherAction extends ContentAction
+class SearchAction extends ContentAction
 {
 	public function run($chnid,$id)
 	{
-		return $this->redirect(['other', 'chnid' => $chnid]);
+		return $this->redirect(['index', 'chnid' => $chnid]);
 	}
 	
 	

@@ -14,9 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="catalog-create">
 
-
-点击链接加入群【Yii2.0、PHP学习交流群】：http://jq.qq.com/?_wv=1027&k=JWKgZY
-
 	<div class="content-form">
 	    <?php
 	    	$disabled= $model->isNewRecord? null:'disabled';

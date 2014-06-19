@@ -44,7 +44,7 @@ class ContentController extends BaseFrontController
 
 	public function actions()
 	{
-		$chnid = LuLu::getGetValue('$chnid');
+		$chnid = LuLu::getGetValue('chnid');
 	
 		$cachedChannels = LuLu::getAppParam('cachedChannels',[]);
 	

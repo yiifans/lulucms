@@ -7,10 +7,10 @@ use yii\helpers\Html;
  * @var common\models\DictCategory $model
  */
 
-$this->title = 'Update Dict Category: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Dict Categories', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->key]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = '修改分类：'. $model->name;
+$this->addBreadcrumb('字典分类',['index']);
+$this->addBreadcrumb($this->title);
+
 ?>
 <div class="dict-category-update">
 
