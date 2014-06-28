@@ -11,12 +11,11 @@ use yii\grid\GridView;
 
 $this->title = '频道管理';
 $this->addBreadcrumb($this->title);
-// $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="catalog-index">
 
 	<p>
-		<?= Html::a('创建频道', ['create'], ['class' => 'btn btn-success']) ?>
+		<?= Html::a('新建频道', ['create'], ['class' => 'btn btn-success']) ?>
 	</p>
 <table class="table">
     <tr class="tb_header">
@@ -24,9 +23,9 @@ $this->addBreadcrumb($this->title);
       <th>名称</th>
       <th width="80px"> 存储表</th>
       <th width="10%">template</th>
-      <th width="120">do</th>
+      <th width="150">操作</th>
     </tr>
-	<?php foreach ($channelArrayTree as $row ): ?>
+	<?php foreach ($this->channelArrayTree as $row ): ?>
 	<tr>
 	<td><?php echo $row['id']?></td>
 	<td><?php for($i=0;$i<$row['level'];$i++)
@@ -50,6 +49,13 @@ $this->addBreadcrumb($this->title);
 	<td><?php echo $row['table']?></td>
 	<td><?php if($row['is_leaf']){echo $row['list_tpl'];}else{echo $row['channel_tpl'];}?></td>
 	<td>
+		
+		<?php
+			if($row['is_leaf'])
+			{
+				echo Html::a('添加内容', ['content/create', 'chnid' => $row['id']]);
+			}	
+		 ?>
 		
 		<?= Html::a('编辑', ['update', 'id' => $row['id']]) ?>
 		

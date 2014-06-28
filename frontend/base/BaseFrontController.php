@@ -7,8 +7,6 @@ use Yii;
 use yii\web;
 use yii\web\Controller;
 use yii\helpers\VarDumper;
-
-use TS\TController;
 use common\models\Catalog;
 use common\models\Channel;
 use common\models\TplList;
@@ -17,10 +15,24 @@ use common\models\TplChannel;
 use components\base\BaseController;
 use components\LuLu;
 use components\helpers\TFileHelper;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 
 class BaseFrontController extends BaseController
 {
+	public function behaviors()
+	{
+		return [
+			'verbs' => [
+				'class' => VerbFilter::className(),
+				'actions' => [
+					'delete' => ['post'],
+				],
+			],
+		];
+	}
+	
 	
 	public $cachedChannels=[];
 	public $rootChannelList=[];

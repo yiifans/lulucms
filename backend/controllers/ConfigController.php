@@ -4,18 +4,21 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Config;
-use common\models\search\ConfigSearch;
+
 use backend\base\BaseBackController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use components\LuLu;
+use common\models\config\SiteForm;
+use common\models\config\SeoForm;
+
 
 /**
  * ConfigController implements the CRUD actions for Config model.
  */
 class ConfigController extends BaseBackController
 {
-	public $layout='left_sys';
+	
 	
     public function behaviors()
     {
@@ -29,6 +32,34 @@ class ConfigController extends BaseBackController
         ];
     }
 
+    public function actionSite()
+    {
+    	$model = new SiteForm();
+    	
+    	if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    		return $this->redirect(['index']);
+    	} else {
+    		$model->loadModel();
+    		return $this->render('site', [
+    				'model' => $model,
+    				]);
+    	}
+    }
+    
+    public function actionSeo()
+    {
+    	$model = new SeoForm();
+    	 
+    	if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    		return $this->redirect(['index']);
+    	} else {
+    		$model->loadModel();
+    		return $this->render('seo', [
+    				'model' => $model,
+    				]);
+    	}
+    }
+    
     /**
      * Lists all Config models.
      * @return mixed

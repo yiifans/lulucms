@@ -8,8 +8,12 @@ use yii\helpers\Html;
  */
 
 $this->title = '修改字典'. $model->name;
-$this->addBreadcrumb('数据字典',['index']);
-$this->addBreadcrumb($this->title);
+$this->addBreadcrumb('字典分类',['dict-category/index']);
+foreach ($parents as $item)
+{
+	$this->addBreadcrumb($item->name, ['index','pid'=>$item->id]);
+}
+$this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="dict-update">

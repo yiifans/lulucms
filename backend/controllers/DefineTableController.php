@@ -72,17 +72,6 @@ class DefineTableController extends BaseBackController
 		]);
 	}
 
-	public function saveFile($fileName)
-	{
-		$rootFrontend = \Yii::getAlias('@frontend');
-			
-		$filePath=$rootFrontend.'/views/content/'.$fileName.'.php';
-		
-		
-		TFileHelper::writeFile($filePath, '');
-	}
-	
-	
 	/**
 	 * Creates a new DefineTable model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -98,10 +87,7 @@ class DefineTableController extends BaseBackController
 			LuLu::execute($sql);
 			
 			$this->addFields($model);
-			
-// 			$this->saveFile('channel_'.$tableName);
-// 			$this->saveFile('list_'.$tableName);
-// 			$this->saveFile('view_'.$tableName);
+
 			CacheDataManager::createTableCache();
 			CacheDataManager::createFieldCache();
 			return $this->redirect(['index']);
@@ -112,19 +98,13 @@ class DefineTableController extends BaseBackController
 		}
 	}
 
-	public function createChannelTpl()
-	{
-		
-	}
-	
-	
 	
 	public function actionUpdate($tb)
 	{
 		$model = $this->findModel($tb);
-
+		$model->loadDefaultValues();
+		
 		if ($model->load($_POST) && $model->save()) {
-			
 			CacheDataManager::createTableCache();
 			//CacheDataManager::createFieldCache();
 			return $this->redirect(['index']);

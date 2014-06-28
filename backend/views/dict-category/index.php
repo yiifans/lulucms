@@ -20,8 +20,8 @@ $this->addBreadcrumb($this->title);
 	<table width="100%" class="table">
 	    <tr class="tb_header">
 	      
-	      <th >字典分类</th>
-	      <th width="180px">Key</th>
+	      <th >分类名称</th>
+	      <th width="180px">缓存Key</th>
 	      <th width="80px">是否系统</th>
 	      <th width="200">操作</th>
 	    </tr>

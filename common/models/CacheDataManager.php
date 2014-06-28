@@ -138,7 +138,7 @@ class CacheDataManager extends Object
 			$childrenIds=Channel::getChildrenIds($id);
 			$leafIds=Channel::getLeafIds($id);
 			
-			$content.='$cachedChannels['.$row['id'].']=['.$newLine;
+			$content.='$cachedChannels[\''.$row['id'].'\']=['.$newLine;
 				
 			$content.=self::getCacheItem('id',$row, 'int');
 			$content.=self::getCacheItem('parent_id',$row, 'int');
@@ -149,15 +149,15 @@ class CacheDataManager extends Object
 			$content.=self::getCacheItem('name_alias',$row);
 			$content.=self::getCacheItem('name_url',$row);
 			$content.=self::getCacheItem('redirect_url',$row);
-			$content.=self::getCacheItem('level',$row, true);
-			$content.=self::getCacheItem('is_leaf',$row,true);
-			$content.=self::getCacheItem('is_nav',$row, true);
-			$content.=self::getCacheItem('sort_num',$row, true);
+			$content.=self::getCacheItem('level',$row, 'int');
+			$content.=self::getCacheItem('is_leaf',$row,'bool');
+			$content.=self::getCacheItem('is_nav',$row, 'bool');
+			$content.=self::getCacheItem('sort_num',$row, 'int');
 			$content.=self::getCacheItem('table',$row );
 			$content.=self::getCacheItem('channel_tpl',$row);
 			$content.=self::getCacheItem('list_tpl',$row);
 			$content.=self::getCacheItem('detail_tpl',$row);
-			$content.=self::getCacheItem('page_size',$row, true);
+			$content.=self::getCacheItem('page_size',$row, 'int');
 	
 			$content.="];".$newLine;
 		}

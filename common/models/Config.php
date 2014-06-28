@@ -7,10 +7,11 @@ use Yii;
 /**
  * This is the model class for table "yii_config".
  *
- * @property string $key
+ * @property string $scope
+ * @property string $variable
  * @property string $name
  * @property string $value
- * @property string $datatype
+ * @property string $description
  */
 class Config extends \components\base\BaseActiveRecord
 {
@@ -28,11 +29,11 @@ class Config extends \components\base\BaseActiveRecord
     public function rules()
     {
         return [
-            [['key', 'name', 'value'], 'required'],
-            [['key', 'name'], 'string', 'max' => 64],
+            [['scope', 'variable', 'name'], 'required'],
+            [['scope', 'variable', 'name'], 'string', 'max' => 64],
             [['value'], 'string', 'max' => 1024],
-            [['datatype'], 'string', 'max' => 32],
-            [['key'], 'unique']
+            [['description'], 'string', 'max' => 256],
+            [['variable'], 'unique']
         ];
     }
 
@@ -42,10 +43,11 @@ class Config extends \components\base\BaseActiveRecord
     public function attributeLabels()
     {
         return [
-            'key' => 'Key',
+        	'scope' => 'Scope',
+            'variable' => '变量名',
             'name' => '名称',
             'value' => '值',
-            'datatype' => '数据类型',
+            'description' => '描述',
         ];
     }
 }

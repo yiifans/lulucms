@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
+use components\widgets\Alert;
+use yii\helpers\Url;
 
 /**
  * @var \yii\web\View $this
@@ -21,56 +23,19 @@ AppAsset::register($this);
 </head>
 <body>
 	<?php $this->beginBody() ?>
-	<?php
-		NavBar::begin([
-			'brandLabel' => 'LuLu CMS',
-			'brandUrl' => Yii::$app->homeUrl,
-			'options' => [
-				'class' => 'navbar-inverse navbar-fixed-top',
-			],
-		]);
-		$menuItems = [
-			
-			['label' => '首页', 'url' => ['/site/index']],
-			['label' => '设置', 'url' => ['/config/index']],
-			
-			//['label' => 'Define Table Field', 'url' => ['/definetablefield/index']],
-			//['label' => 'Define Model', 'url' => ['/definemodel/index']],
-			//['label' => 'Define Model Field', 'url' => ['/definemodelfield/index']],
-			['label' => '分类', 'url' => ['/channel/index']],
-			['label' => '内容', 'url' => ['/content/index']],
-			['label' => '模板', 'url' => ['/tpl/index']],
-			['label' => 'Index Tpl', 'url' => ['/tplindex/index']],
-			['label' => 'Channel Tpl', 'url' => ['/tplchannel/index']],
-			['label' => 'List Tpl', 'url' => ['/tpllist/index']],
-			['label' => 'View Tpl', 'url' => ['/tplview/index']],
-			['label' => 'Form Tpl', 'url' => ['/tplform/index']],
-		];
-		if (Yii::$app->user->isGuest) {
-			$menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-		} else {
-			$menuItems[] = ['label' => 'Logout (' . Yii::$app->user->identity->username .')' , 'url' => ['/site/logout']];
-		}
-		echo Nav::widget([
-			'options' => ['class' => 'navbar-nav navbar-right'],
-			'items' => $menuItems,
-		]);
-		NavBar::end();
-	?>
 
-	<div class="container">
-	<?= Breadcrumbs::widget([
-		'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-	]) ?>
-	<?= $content ?>
+	<div class="container" style="padding:8px;">
+		<div class="breadcrumbContainer">
+				<?= Breadcrumbs::widget([
+						'homeLink'=>false,
+					'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+				]) ?>
+			</div>
+			<?= Alert::widget() ?>
+			
+		<?php echo $content ?>
 	</div>
 
-	<footer class="footer">
-		<div class="container">
-		<p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-		<p class="pull-right"><?= Yii::powered() ?></p>
-		</div>
-	</footer>
 
 	<?php $this->endBody() ?>
 </body>

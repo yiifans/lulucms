@@ -16,13 +16,51 @@ use yii\filters\AccessControl;
 use yii\helpers\VarDumper;
 use yii\data\Pagination;
 use common\models\Board;
+use components\LuLu;
+use common\models\Channel;
 
 /**
  * Site controller
  */
 class BaseController extends Controller
 {
+	public $cachedChannels;
+	public $rootChannels;
+	public $channelArrayTree;
+	
+	public function init()
+	{
+		parent::init();
+		
+		if($this->cachedChannels==null)
+		{
+			$this->cachedChannels=LuLu::getAppParam('cachedChannels');
+		}
+		
+		if($this->rootChannels == null)
+		{
+			$this->rootChannels = Channel::getRootChannels();
+		}
+		
+		if($this->channelArrayTree==null)
+		{
+			$this->channelArrayTree=Channel::getChannelArrayTree();
+		}
+		
+	}
 
+	public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['post'],
+                ],
+            ],
+        ];
+    }
+    
 	private $_cachedRoles;
 
 	public function getCachedRoles($roleName = null)
@@ -111,29 +149,7 @@ class BaseController extends Controller
 		return $this->_cachedPermissionCategories;
 	}
 
-	private $_cachedBoards;
-
-	public function getCachedBoards()
-	{
-		if ($this->_cachedBoards == null)
-		{
-			$this->_cachedBoards = YiiForum::getAppParam('cachedBoards');
-		}
-		return $this->_cachedBoards;
-	}
-
-	public function getBoard($id, $fromCache = True)
-	{
-		if ($fromCache)
-		{
-			$cahcedBoards = $this->getCachedBoards();
-			return $cahcedBoards[$id];
-		}
-		
-		return Board::findOne([
-				'id' => $id 
-		]);
-	}
+	
 
 	public function noPermission()
 	{

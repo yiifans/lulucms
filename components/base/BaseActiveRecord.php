@@ -16,6 +16,7 @@ use yii\filters\AccessControl;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\base\InvalidConfigException;
+use components\LuLu;
 
 /**
  * Site controller
@@ -110,4 +111,36 @@ class BaseActiveRecord extends ActiveRecord
 			}
 		}
 	}
+
+	public function afterValidate()
+	{
+		$errors = $this->getErrors();
+		if(!empty($errors))
+		{
+			LuLu::info($this,'validate error:');
+		}
+		
+	}
+// 	public function beforeValidate()
+// 	{
+// 		if(parent::beforeValidate())
+// 		{
+// 			return true;
+// 		}
+// 		else 
+// 		{
+			
+// 			return false;
+// 		}
+// 	}
+
+
+
+
+
+
+
+
+
+
 }

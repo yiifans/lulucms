@@ -44,7 +44,7 @@ class DictCategory extends \components\base\BaseActiveRecord
             'key' => 'Key',
             'name' => '名称',
             'description' => '描述',
-            'is_sys' => '是否系统',
+            'is_sys' => '系统分类',
         ];
     }
 }

@@ -29,18 +29,6 @@ use frontend\base\BaseFrontController;
  */
 class ContentController extends BaseFrontController
 {
-	
-	public function behaviors()
-	{
-		return [
-			'verbs' => [
-				'class' => VerbFilter::className(),
-				'actions' => [
-					'delete' => ['post'],
-				],
-			],
-		];
-	}
 
 	public function actions()
 	{
@@ -71,45 +59,57 @@ class ContentController extends BaseFrontController
 	
 	
 	
-	public function actionIndex($chnid=0)
+	public function actionChannel($chnid=0)
 	{
-		$action = new frontend\actions\content\model_default\IndexAction('index',$this);
+		$action = new \frontend\actions\content\model_default\ChannelAction('channel',$this);
 		return $action->run($chnid);
 	}
 	
 	public function actionList($chnid=0)
 	{
-		$action = new frontend\actions\content\model_default\ListAction('index',$this);
+		$action = new \frontend\actions\content\model_default\ListAction('list',$this);
 		return $action->run($chnid);
 	}
 	
 	public function actionDetail($chnid=0)
 	{
-		$action = new frontend\actions\content\model_default\DetailAction('index',$this);
+		$action = new \frontend\actions\content\model_default\DetailAction('detail',$this);
+		return $action->run($chnid);
+	}
+	
+	public function actionSearch($chnid=0)
+	{
+		$action = new \frontend\actions\content\model_default\SearchAction('search',$this);
+		return $action->run($chnid);
+	}
+	
+	public function actionIndex($chnid=0)
+	{
+		$action = new \frontend\actions\content\model_default\IndexAction('index',$this);
 		return $action->run($chnid);
 	}
 	
 	public function actionCreate($chnid)
 	{
-		$action = new frontend\actions\content\model_default\CreateAction('create',$this);
+		$action = new \frontend\actions\content\model_default\CreateAction('create',$this);
 		return $action->run($chnid);
 	}
 	
 	public function actionUpdate($chnid,$id)
 	{
-		$action = new frontend\actions\content\model_default\UpdateAction('update',$this);
+		$action = new \frontend\actions\content\model_default\UpdateAction('update',$this);
 		return $action->run($chnid);
 	}
 	
 	public function actionDelete($chnid,$id)
 	{
-		$action = new frontend\actions\content\model_default\DeleteAction('delete',$this);
+		$action = new \frontend\actions\content\model_default\DeleteAction('delete',$this);
 		return $action->run($chnid,$id);
 	}
 	
 	public function actionOther($chnid,$id)
 	{
-		$action = new frontend\actions\content\model_default\OtherAction('other',$this);
+		$action = new \frontend\actions\content\model_default\OtherAction('other',$this);
 		return $action->run($chnid,$id);
 	}
 	

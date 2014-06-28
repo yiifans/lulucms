@@ -15,7 +15,7 @@ $this->buildBreadcrumbs($currentChannel['parent_id']);
 $this->addBreadcrumb($currentChannel['name']);
 
 ?>
-<div class="catalog-index">
+<div class="content-list">
 
 <table width="100%" class="table">
 	<?php foreach ($dataList as $row ): ?>

@@ -7,18 +7,15 @@ use yii\helpers\Html;
  * @var app\models\Catalog $model
  */
 
-$this->title = '修改频道: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => '频道管理', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = '修改频道: ' . $model->name;
+$this->addBreadcrumb('频道管理',['index']);
+$this->addBreadcrumb($this->title);
+
 ?>
 <div class="catalog-update">
 
-	<h1><?= Html::encode($this->title) ?></h1>
-
 	<?php echo $this->render('_form', [
 		'model' => $model,
-		'channelArrayTree' => $channelArrayTree,
 		'tableList' => $tableList,
 		'channelTpls' =>$channelTpls,
 		'listTpls'=>$listTpls,

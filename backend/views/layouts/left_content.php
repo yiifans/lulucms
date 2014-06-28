@@ -2,8 +2,9 @@
 
 use yii\helpers\Html;
 use components\LuLu;
+use yii\widgets\Breadcrumbs;
 
-$this->beginContent('@app/views/layouts/main.php');
+$this->beginInhritLayout('@app/views/layouts/main.php');
 
 function getBlankPrefix($count)
 {
@@ -17,40 +18,51 @@ function getBlankPrefix($count)
 
 ?>
 
-<table class="table">
-  <tr>
-    <td width="200px">
-    
-    <div class="tbox">
-		<div class="bd">
-			<ul>
-				<?php 
-					$channelArrayTree = LuLu::getAppParam('cachedChannels');
-					
-					foreach ($channelArrayTree as $channel)
-					{
-						$txt='<font color="red">';
-						if($channel['is_leaf'])
+<?php $this->beginBlock('leftMenu');?> 
+	    <div class="tbox">
+	    	<div class="hd"><h2>内容管理</h2></div>
+			<div class="bd">
+				<ul>
+					<?php 
+						$channelArrayTree = LuLu::getAppParam('cachedChannels');
+						
+						foreach ($channelArrayTree as $channel)
 						{
-							$txt='<font color="red">'.$channel['name'].'</font>';
-							$txt = getBlankPrefix($channel['level']).'<a href="index.php?r=content/index&chnid='.$channel['id'].'">'.$txt.'</a>';
+							$txt='';
+							if($channel['is_leaf'])
+							{
+								$txt = '<a href="index.php?r=content/index&chnid='.$channel['id'].'">'.$channel['name'].'</a>';
+							}
+							else 
+							{
+								$txt = $channel['name'];
+								
+							}
+							$txt = getBlankPrefix($channel['level']).$txt;
+							echo '<li>'.$txt.'</li>';
 						}
-						else 
-						{
-							$txt=$channel['name'];
-							
-						}
-						echo '<li>'.$txt.'</li>';
-					}
-				?>
-			
-			</ul>
+					?>
+				
+				</ul>
+			</div>
 		</div>
-	</div>
+		<div class="tbox">
+			<div class="hd"><h2>页面管理</h2></div>
+			<div class="bd">
+				<ul>
+					<li><?= Html::a('增加页面', ['page/create']) ?></li>
+					<li><?= Html::a('页面管理', ['page/index']) ?></li>
+				</ul>
+			</div>
+		</div>
+<?php $this->endBlock()?>
 
-    </td>
-    <td><?= $content ?></td>
-  </tr>
-</table>
+<?php echo $content ?>
 
-<?php $this->endContent();?>
+<?php $this->endInhritLayout();?>
+
+
+
+
+
+

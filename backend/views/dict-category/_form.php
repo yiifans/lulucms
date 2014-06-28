@@ -15,10 +15,7 @@ use yii\widgets\ActiveForm;
     <?php
     	$disabled= $model->isNewRecord? null:'disabled';
     	$form = ActiveForm::begin([
-			'fieldConfig' => [
-				'options' => ['tag' => 'tr','class' => 'form-group'],
-				'template' => '<td class="hAlign_left padding_r10" width="150">{label}:</td><td width="300">{input}</td><td>{hint}</td><td>{error}</td>',
-	    	],
+			'fieldConfig' => $this->getDefaultFieldConfig(),
 	    ]); ?>
 
     	<table class="table">
@@ -34,11 +31,11 @@ use yii\widgets\ActiveForm;
 	    <?= $form->field($model, 'sort_num')->textInput() ?>
 	
 	    <?= $form->field($model, 'is_sys')->checkbox([],false) ?>
+	    
+	    <?php $this->echoButtons($model); ?>
+	    
 		</table>
-	    <div class="form-group">
-	        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-	    </div>
-
+	   
     <?php ActiveForm::end(); ?>
 
 </div>

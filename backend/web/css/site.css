@@ -1,7 +1,7 @@
 @import "global.css";
 
 body {
-  padding-top: 70px;
+  
 }
 
 .footer {
@@ -41,7 +41,19 @@ a.desc:after { content: /*"\e114"*/"\e152"; }
 .sort-ordinal a.asc:after { content: "\e155"; }
 .sort-ordinal a.desc:after { content: "\e156"; }
 
-.container{width:98%;}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px 8px;
+  line-height: 1.428571429;
+  vertical-align: middle;
+  border-top: 1px solid #dddddd;
+}
+
+.container{width:100%;padding:0px;margin:0px;}
 
 .hline{}
 .hline li{float:left;margin-left:10px;list-style-type:none;}
@@ -50,3 +62,14 @@ a.desc:after { content: /*"\e114"*/"\e152"; }
 .table tr{height:22px;}
 .table tr th{border-left:1px solid #dedede;}
 .table tr td{border-left:1px solid #dedede;}
+
+
+
+
+.leftMenu{width:160px;background: whiteSmoke;vertical-align: top;}
+
+.breadcrumb{padding:0px;}
+
+.hint-block{float:left;margin-top:5px;}
+.has-error .help-block{float:left;}
+

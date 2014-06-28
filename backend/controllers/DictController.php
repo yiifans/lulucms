@@ -41,6 +41,8 @@ class DictController extends BaseBackController
     	$locals = LuLu::getPagedRows($query);
     	$locals['pid']=$pid;
     	$locals['parent'] = Dict::findOne(['id'=>$pid]);
+    	$locals['parents'] = Dict::getParents($pid);
+    	
         return $this->render('index', $locals);
     }
 
@@ -76,6 +78,7 @@ class DictController extends BaseBackController
         	$locals=[];
         	$locals['parent']=$parentDic;
         	$locals['model']=$model;
+        	$locals['parents'] = Dict::getParents($pid);
             return $this->render('create', $locals);
         }
     }
@@ -89,7 +92,8 @@ class DictController extends BaseBackController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+		$pid = $model->parent_id;
+		
         $parentDic = $this->findModel($model->parent_id);
         
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -98,6 +102,7 @@ class DictController extends BaseBackController
         	$locals=[];
         	$locals['parent']=$parentDic;
         	$locals['model']=$model;
+        	$locals['parents'] = Dict::getParents($pid);
             return $this->render('update', $locals);
         }
     }

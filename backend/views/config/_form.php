@@ -12,20 +12,26 @@ use yii\widgets\ActiveForm;
 
 <div class="config-form">
 
-    <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'key')->textInput(['maxlength' => 64]) ?>
+    <?php
+    	$disabled= $model->isNewRecord? null:'disabled';
+    	$form = ActiveForm::begin([
+			'fieldConfig' => $this->getDefaultFieldConfig(),
+	    ]); ?>
+<table class="table">
+	<?= $form->field($model, 'scope')->textInput(['maxlength' => 64]) ?>
+	
+    <?= $form->field($model, 'variable')->textInput(['maxlength' => 64]) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => 64]) ?>
 
     <?= $form->field($model, 'value')->textInput(['maxlength' => 1024]) ?>
 
-    <?= $form->field($model, 'datatype')->textInput(['maxlength' => 32]) ?>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
-
+    <?= $form->field($model, 'description')->textInput(['maxlength' => 32]) ?>
+    
+    <?php $this->echoButtons($model); ?>
+    
+</table>
+   
     <?php ActiveForm::end(); ?>
 
 </div>

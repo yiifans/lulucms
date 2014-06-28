@@ -54,7 +54,7 @@ class Dict extends \components\base\BaseActiveRecord
             'value' => '值',
             'datatype' => '数据类型',
             'cache_key' => '缓存Key',
-            'is_sys' => '是否系统字典',
+            'is_sys' => '系统字典',
             'sort_num' => '排序',
             
         ];
@@ -89,6 +89,31 @@ class Dict extends \components\base\BaseActiveRecord
     	}
     	return false;
     }
+    
+    public static function getParents($id,$fromCache=true)
+    {
+    	$ret = [];
+    
+    	$current = Dict::findOne([
+    			'id' => $id
+    			]);
+    	array_unshift($ret,$current);
+    	
+    	$parent = Dict::findOne([
+    			'id' => $current['parent_id']
+    			]);
+    	while ( $parent != null )
+    	{
+    		array_unshift($ret, $parent);
+    			
+    		$parent = Dict::findOne([
+    				'id' => $parent['parent_id']
+    				]);
+    	}
+    	
+    	return $ret;
+    }
+    
     public static function getChannelArrayTree()
     {
     	$cachedChannels = LuLu::getAppParam('cachedChannels');

@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm;
 			'id'=>'Content',
 			'fieldConfig' => [
 				'options' => ['tag' => 'tr','class' => 'form-group'],
-				'template' => '<td class="hAlign_right padding_r10" width="150px">{label}:</td><td>{input}</td><td>{hint}</td><td>{error}</td>',
+				'template' => '<td class="hAlign_right padding_r10" width="150px">{label}:</td><td>{input}</td><td>{hint}</td><td width="150px">{error}</td>',
 	    	],
 	    ]); ?>
 	 

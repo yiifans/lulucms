@@ -47,10 +47,10 @@ $cachedTables['model_news']=[
 ];
 $cachedTables['model_test']=[
 	'name_en' => 'model_test',
-	'name' => '测试表',
+	'name' => '测试表nnn',
 	'description' => '测试表',
 	'is_default' => false,
-	'note' => '',
+	'note' => 'ddd',
 	'back_action_index' => false,
 	'back_action_create' => false,
 	'back_action_update' => false,

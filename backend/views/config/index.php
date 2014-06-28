@@ -10,7 +10,7 @@ use yii\grid\GridView;
  */
 
 $this->title = '系统设置';
-$this->params['breadcrumbs'][] = $this->title;
+$this->addBreadcrumb($this->title);
 ?>
 <div class="config-index">
 
@@ -19,7 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 	<table width="100%" class="table">
 	    <tr class="tb_header">
-	      <th width="150px">Key</th>
+	      <th width="150px">Scope</th>
+	      <th width="150px">变量名</th>
 	      <th width="300px">名称</th>
 	      <th >值</th>
 	      <th width="80px">数据类型</th>
@@ -27,13 +28,14 @@ $this->params['breadcrumbs'][] = $this->title;
 	    </tr>
 		<?php foreach ($rows as $row ): ?>
 		<tr>
-		<td><?php echo $row['key']?></td>
+		<td><?php echo $row['scope']?></td>
+		<td><?php echo $row['variable']?></td>
 		<td><?php echo $row['name']?></td>
 		<td><?php echo $row['value']?></td>
-		<td><?php echo $row['datatype']?></td>
+		<td><?php echo $row['description']?></td>
 		<td>
-			<?= Html::a('编辑', ['update', 'id' => $row->key]) ?>
-			<?php echo Html::a('删除', ['delete', 'id' => $row->key], [
+			<?= Html::a('编辑', ['update', 'id' => $row->variable]) ?>
+			<?php echo Html::a('删除', ['delete', 'id' => $row->variable], [
 				'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
 				'data-method' => 'post',
 			]); ?>

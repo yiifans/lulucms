@@ -8,11 +8,12 @@ use yii\widgets\ActiveForm;
  * @var app\models\Catalog $model
  */
 
-$this->title = 'Create Content';
-$this->params['breadcrumbs'][] = ['label' => $currentChannel->name, 'url' => ['index&chnid='.$currentChannel->id]];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '修改内容';
+$this->addBreadcrumb('内容管理('.$currentChannel['name'].')',['index','chnid'=>$chnid]);
+$this->addBreadcrumb($this->title);
+
 ?>
-<div class="catalog-create">
+<div class="content-create">
 
 	<div class="content-form">
 	    <?php

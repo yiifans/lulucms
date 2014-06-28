@@ -7,6 +7,7 @@ use yii\helpers\VarDumper;
 use Yii;
 use yii\helpers\Url;
 use yii\data\Pagination;
+use components\helpers\TFileHelper;
 
 class LuLu
 {
@@ -126,6 +127,19 @@ class LuLu
 		return $default;
 	}
 	
+	public static function setFalsh($title, $message)
+	{
+		\Yii::$app->session->setFlash($title, $message);
+	}
+	
+	public static function info($var, $category = 'application')
+	{
+		$dump = VarDumper::dumpAsString($var);
+		Yii::info($category . $dump, $category);
+	}
+	
+	
+	
 	public static function getUser()
 	{
 		return Yii::$app->user;
@@ -153,16 +167,43 @@ class LuLu
 		return true;
 	}
 	
-	public static function setFalsh($title, $message)
+	public static function checkAuth($permissionName, $params = [], $allowCaching = true)
 	{
-		\Yii::$app->session->setFlash($title, $message);
+		$user = Yii::$app->user;
+		return $user->can($permissionName, $params, $allowCaching);
+	}
+
+	
+	public static function getFrontViews($model,$prefix)
+	{
+		$frontend = \Yii::getAlias('@frontend');
+	
+		return TFileHelper::getFiles([$frontend,'views',$model],$prefix);
 	}
 	
-	public static function info($var, $category = 'application')
+	public static function getBackViews($model,$prefix)
 	{
-		$dump = VarDumper::dumpAsString($var);
-		Yii::info($category . $dump, $category);
+		$backend = \Yii::getAlias('@backend');
+	
+		return TFileHelper::getFiles([$backend,'views',$model],$prefix);
 	}
+	
+	
+	public static function getDB()
+	{
+		return \Yii::$app->db;
+	}
+	
+	public static function createCommand($sql=null)
+	{
+		$db = \Yii::$app->db;
+		if($sql!==null)
+		{
+			return $db->createCommand($sql);
+		}
+		return $db->createCommand();
+	}
+	
 	
 	public static function execute($sql)
 	{
@@ -170,6 +211,14 @@ class LuLu
 		$command = $db->createCommand($sql);
 		return $command->execute();
 	}
+	
+	public static function queryAll($sql)
+	{
+		$db = \Yii::$app->db;
+		$command = $db->createCommand($sql);
+		return $command->queryAll();
+	}
+	
 	
 	public static function getPagedRows($query, $config = [])
 	{
@@ -206,141 +255,6 @@ class LuLu
 		$ret[$pagesLable] = $pages;
 	
 		return $ret;
-	}
-	
-	public static function checkAuth($permissionName, $params = [], $allowCaching = true)
-	{
-		$user = Yii::$app->user;
-		return $user->can($permissionName, $params, $allowCaching);
-	}
-
-	/*
-	 * $dataType
-	 * 0	array
-	 * 1	channel
-	 * 2	table
-	 * 10	sql
-	 * 
-	 * $dataSource
-	 * array,channel ids,table name,sql
-	 * 
-	 * $other
-	 * $other['fields']='*'
-	 * $other['where']='status=1'
-	 * $other['order']='sort_num desc'
-	 * $other['limit']='10'
-	 * 
-	 */
-	
-	
-
-	public static function getDataSource($dataType,$dataSource,$other=[])
-	{
-		$ret=[];
-		switch ($dataType)
-		{
-			case 0://array
-				return $dataSource;
-			case 1://channel
-				$ret =self::getDataSourceFromChannel($dataSource,$other);
-				break;
-			case 2://table
-				$sql=self::buildSql($dataSource,$other);
-				$ret=self::queryData($sql);
-				break;
-			case 10://sql
-				$ret=self::queryData($dataSource);
-				break;
-		}
-
-		return $ret;
-	}
-
-	public static function getDataSourceFromChannel($channelId,$other=[])
-	{
-		$cachedChannels = LuLu::getViewParam('cachedChannels');
-
-		if(intval($channelId))
-		{
-			$channel=$cachedChannels[$channelId];
-				
-			$tableName=$channel['table'];
-				
-			if($channel['is_leaf'])
-			{
-				$sql=self::buildSql($tableName,$other,'channel_id='.$channelId);
-			}
-			else
-			{
-				$leafIds=$channel['leaf_ids'];
-				if($leafIds=='')
-				{
-					return [];
-				}
-				else
-				{
-					$sql=self::buildSql($tableName,$other,'channel_id in('.$leafIds.')');
-				}
-			}
-		}
-		else
-		{
-			$channelIdArray=explode(',', $channelId);
-				
-			$leafIds;
-			foreach ($channelIdArray as $id)
-			{
-				$leafIds.=$cachedChannels[$id]['leaf_ids'].',';
-			}
-				
-			$leafIdsArray=explode(',', rtrim($leafIds,','));
-			$leafIdsArray=array_unique($leafIdsArray);
-				
-			$tableName=$cachedChannels[$leafIdsArray[0]]['table'];
-			$leafIds=implode(',', $leafIdsArray);
-				
-			$sql=self::buildSql($tableName,$other,'channel_id in('.$leafIds.')');
-		}
-
-		return self::queryData($sql);
-	}
-
-	private static  function buildSql($tableName,$other=[],$where=null)
-	{
-		$fields = isset($other['fields']) ? $other['fields'] : '*';
-		$sql = ' select '.$fields.' from '.$tableName.' where 1=1 ';
-		if($where!==null)
-		{
-			$sql.=' and '.$where;
-		}
-		if(isset($other['where']))
-		{
-			$sql.=' and '.$other['where'];
-		}
-		if(isset($other['order']))
-		{
-			$sql.=' order by '.$other['order'];
-		}
-		else 
-		{
-			$sql.=' order by publish_time desc';
-		}
-		if(isset($other['limit']))
-		{
-			$sql.=' limit 0,'.$other['limit'];
-		}
-		else 
-		{
-			$sql.=' limit 0,10';
-		}
-		return $sql;
-	}
-
-	private static function queryData($sql)
-	{
-		$db = \Yii::$app->db;
-		$command= $db->createCommand($sql);
-		return $command->queryAll();
 	}
 }
 

@@ -10,56 +10,15 @@ use common\models\User;
 use yii\web\BadRequestHttpException;
 use yii\helpers\Security;
 use common\models\Channel;
-use TS\DataSource;
 use components\LuLu;
 use frontend\base\BaseFrontController;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-use frontend\models\SignupForm;
 
+use frontend\models\SignupForm;
+use common\includes\DataSource;
 
 class SiteController extends BaseFrontController
 {
-	public function behaviors()
-	{
-		return [
-				'access' => [
-						'class' => AccessControl::className(),
-						'only' => [
-								'logout',
-								'signup'
-						],
-						'rules' => [
-								[
-										'actions' => [
-												'signup'
-										],
-										'allow' => true,
-										'roles' => [
-												'?'
-										]
-								],
-								[
-										'actions' => [
-												'logout'
-										],
-										'allow' => true,
-										'roles' => [
-												'@'
-										]
-								]
-						]
-				],
-				'verbs' => [
-						'class' => VerbFilter::className(),
-						'actions' => [
-								'logout' => [
-										'post'
-								]
-						]
-				]
-		];
-	}
+
 
 	public function actions()
 	{
@@ -81,13 +40,13 @@ class SiteController extends BaseFrontController
 		$dataList=[];
 		foreach ($rootChannel as $channel)
 		{
-			$dataList[$channel->id]=LuLu::getDataSourceFromChannel($channel->id,['limit'=>10,'order'=>'publish_time desc']);
+			$dataList[$channel->id]=DataSource::getContentByChannel($channel->id,['limit'=>10,'order'=>'publish_time desc']);
 		}
 		
 		$params['dataList']=$dataList;
-		$params['att1DataList']=LuLu::getDataSource(2, 'model_news',['where'=>'att1=1']);
-		$params['att2DataList']=LuLu::getDataSource(2, 'model_news',['where'=>'att2=1']);
-		$params['att3DataList']=LuLu::getDataSource(2, 'model_news',['where'=>'att3=1']);
+		$params['att1DataList']=DataSource::getContent(2, 'model_news',['where'=>'att1=1']);
+		$params['att2DataList']=DataSource::getContent(2, 'model_news',['where'=>'att2=1']);
+		$params['att3DataList']=DataSource::getContent(2, 'model_news',['where'=>'att3=1']);
 		
 		return $this->render('index',$params);
 	}

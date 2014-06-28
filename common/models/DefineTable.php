@@ -6,6 +6,7 @@ namespace common\models;
 use components\base\BaseActiveRecord;
 use components\helpers\TStringHelper;
 use components\helpers\TFileHelper;
+use components\LuLu;
 
 /**
  * This is the model class for table "yii_define_table".
@@ -14,21 +15,21 @@ use components\helpers\TFileHelper;
  * @property string $name_en
  * @property string $description
  * @property integer $is_default
- * @property string $back_action_index
- * @property string $back_action_create
- * @property string $back_action_update
- * @property string $back_action_delete
- * @property string $back_action_other
+ * @property boolean $back_action_index
+ * @property boolean $back_action_create
+ * @property boolean $back_action_update
+ * @property boolean $back_action_delete
+ * @property boolean $back_action_other
  * @property string $back_action_custom
- * @property string $front_action_channel
- * @property string $front_action_list
- * @property string $front_action_detail
- * @property string $front_action_search
- * @property string $front_action_index
- * @property string $front_action_create
- * @property string $front_action_update
- * @property string $front_action_delete
- * @property string $front_action_other
+ * @property boolean $front_action_channel
+ * @property boolean $front_action_list
+ * @property boolean $front_action_detail
+ * @property boolean $front_action_search
+ * @property boolean $front_action_index
+ * @property boolean $front_action_create
+ * @property boolean $front_action_update
+ * @property boolean $front_action_delete
+ * @property boolean $front_action_other
  * @property string $front_action_custom
  * @property string $note
  */
@@ -51,7 +52,7 @@ class DefineTable extends BaseActiveRecord
             [['name', 'name_en'], 'required'],
             [['is_default'], 'integer'],
             [['name', 'name_en', 'description', 'note'], 'string', 'max' => 80],
-            [['back_action_index', 'back_action_create', 'back_action_update', 'back_action_delete', 'back_action_other', 'front_action_channel', 'front_action_list', 'front_action_detail','front_action_search',  'front_action_index', 'front_action_create', 'front_action_update', 'front_action_delete', 'front_action_other'], 'string', 'max' => 64],
+            [['back_action_index', 'back_action_create', 'back_action_update', 'back_action_delete', 'back_action_other', 'front_action_channel', 'front_action_list', 'front_action_detail','front_action_search',  'front_action_index', 'front_action_create', 'front_action_update', 'front_action_delete', 'front_action_other'], 'boolean'],
             [['back_action_custom', 'front_action_custom'], 'string', 'max' => 512],
             [['name_en'], 'unique']
         ];
@@ -145,5 +146,10 @@ class DefineTable extends BaseActiveRecord
 		}
 		
 		return $ret;
+	}
+	
+	public static function getAllTables()
+	{
+		return LuLu::getAppParam('cachedTables');
 	}
 }

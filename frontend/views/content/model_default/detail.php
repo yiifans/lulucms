@@ -12,7 +12,7 @@ $this->title = $model['title'];
 $this->buildBreadcrumbs($chnid);
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="catalog-view">
+<div class="content-detail">
 
 	<h1><?= Html::encode($this->title) ?></h1>
 

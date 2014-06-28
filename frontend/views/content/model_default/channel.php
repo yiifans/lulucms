@@ -12,7 +12,7 @@ use yii\grid\GridView;
 $this->title = $currentChannel->name;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="catalog-index">
+<div class="content-channel">
 
 <?php
 	$index=0;
@@ -29,11 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
 		$index+=1;
 		if($index%2==0)
 		{
-			$style=' floatr';
+			$style=' floatRight';
 		}
 		else 
 		{
-			$style=' floatl';
+			$style=' floatLeft';
 		}
 ?>
 	<div class="tbox border <?php echo $style; ?>" style="width:49%;">

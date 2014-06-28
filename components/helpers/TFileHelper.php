@@ -23,6 +23,11 @@ class TFileHelper
 		}
 		return $ret;
 	}
+	
+	public static function isDir($path)
+	{
+		return is_dir($path);
+	}
 	public static function exist($path)
 	{
 		if (is_array($path))

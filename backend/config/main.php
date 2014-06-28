@@ -30,7 +30,7 @@ return [
             'errorAction' => 'site/error',
         ],
         'view' => [
-        	'class' => 'frontend\base\BaseFrontView',
+        	'class' => 'backend\base\BaseBackView',
         ],
     ],
     'params' => $params,

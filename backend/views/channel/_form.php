@@ -28,7 +28,7 @@ function getPrefix($count)
 // 	//array_push($parents, $var)
 // }
 $options='<option value="0">root</option>';
-foreach ($channelArrayTree as $row)
+foreach ($this->channelArrayTree as $row)
 {
 	$selected='';
 	if($model->parent_id==intval($row['id']))
@@ -49,13 +49,10 @@ foreach ($channelArrayTree as $row)
 
     <?php
     	$isLeafEnable=$model['is_leaf']?'disabled':null;
-    	$disabled = $model->isNewRecord? null:'disabled';
+    	$disabled= $model->isNewRecord? null:'disabled';
     	$form = ActiveForm::begin([
-		'fieldConfig' => [
-			'options' => ['tag' => 'tr','class' => 'form-group'],
-			'template' => '<td class="hAlign_right padding_r10">{label}:</td><td>{input}</td><td>{hint}</td><td>{error}</td>',
-    	],
-    ]); ?>
+			'fieldConfig' => $this->getDefaultFieldConfig(),
+	    ]); ?>
 		<table class="table">
 
 		<tr class="form-group field-channel-parent_id required">
@@ -67,10 +64,10 @@ foreach ($channelArrayTree as $row)
 				<?php echo $options ?>
 				</select>
 			</td>
-			<td>&nbsp;</td><td>&nbsp;</td>
+			<td>&nbsp;&nbsp;</td>
 		</tr>
 		
-		<?= $form->field($model, 'name')->textInput(['maxlength' => 120]) ?>
+		<?= $form->field($model, 'name')->textInput(['maxlength' => 120])->hint('xxx') ?>
 
 		<?= $form->field($model, 'name_alias')->textInput(['maxlength' => 120]) ?>
 
@@ -78,7 +75,7 @@ foreach ($channelArrayTree as $row)
 		
 		<?= $form->field($model, 'redirect_url')->textInput(['maxlength' => 80]) ?>
 		
-		<?= $form->field($model, 'is_leaf')->checkbox(['disabled'=>$isLeafEnable],false) ?>
+		<?= $form->field($model, 'is_leaf')->checkbox(['readonly'=>$model['is_leaf']],false) ?>
 		
 		<?= $form->field($model, 'table')->dropDownList(ArrayHelper::map($tableList,'name_en','name')) ?>
 		
@@ -98,12 +95,10 @@ foreach ($channelArrayTree as $row)
 
 		<?= $form->field($model, 'note2')->textInput(['maxlength' => 80]) ?>
 		
+		<?php $this->echoButtons($model); ?>
+		
 		</table>
 		
-		<div class="form-group">
-			<?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-		</div>
-
 	<?php ActiveForm::end(); ?>
 
 </div>

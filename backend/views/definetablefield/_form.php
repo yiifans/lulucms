@@ -53,10 +53,7 @@ $formTypeArray=[
     	$disabled= $model->isNewRecord? null:'disabled';
     	
     	 $form = ActiveForm::begin([
-		'fieldConfig' => [
-			'options' => ['tag' => 'tr','class' => 'form-group'],
-			'template' => '<td class="hAlign_right padding_r10" width="150px">{label}:</td><td>{input}</td><td>{hint}</td><td>{error}</td>',
-    	],
+		'fieldConfig' => $this->getDefaultFieldConfig(),
     ]); ?>
 		<table class="table">
 
@@ -149,12 +146,10 @@ $formTypeArray=[
 	
 	    <?= $form->field($model, 'back_note')->textarea(['rows' => 5]) ?>
     	-->
+    	
+    	<?php $this->echoButtons($model); ?>
 		</table>
-		
-		<div class="form-group">
-			<?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-		</div>
-
+	
 	<?php ActiveForm::end(); ?>
 
 </div>

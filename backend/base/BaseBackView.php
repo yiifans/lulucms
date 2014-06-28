@@ -14,6 +14,8 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use components\base\BaseView;
 use components\LuLu;
+use common\models\Channel;
+use yii\helpers\Html;
 
 
 /**
@@ -21,38 +23,24 @@ use components\LuLu;
  */
 class BaseBackView extends BaseView
 {
-	public function getCachedChannels($id=null)
+	public function getDefaultFieldConfig()
 	{
-		$cachedChannels = LuLu::getAppParam('cachedChannels');
-		if($id!==null)
-		{
-			return $cachedChannels[$id];
-		}
-		return $cachedChannels;
+		return [
+			'options' => ['tag' => 'tr','class' => 'form-group'],
+			'template' => '<td class="hAlign_left padding_r10" width="150">{label}:</td><td width="300">{input}</td><td>{hint}{error}</td>',
+		];
 	}
+	
 
-	public function buildBreadcrumbs($bondId)
+	public function echoButtons($model)
 	{
-		if(!isset($this->params['breadcrumbs']))
-		{
-			$this->params['breadcrumbs']=[];
-		}
+		$buttons = Html::submitButton($model->isNewRecord ? '确定' : '保存', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
 		
-		
-		$cachedBoards=$this->getCachedBoards();
-		$board=$cachedBoards[$bondId];
-		while (($parentId = $board['parent_id'])!=0)
-		{
-			$breadcrumbs= ['label' => $board['name'], 'url' => ['index&boardid='.$board['id']]];
-			
-			array_unshift($this->params['breadcrumbs'],$breadcrumbs);
-			//$this->params['breadcrumbs'][] = ['label' => $board['name'], 'url' => ['index&boardid='.$board['id']]];
-			
-			$board = $cachedBoards[$parentId];
-		}
-		
-		$breadcrumbs= ['label' => $board['name'], 'url' => ['board/index&boardid='.$board['id']]];
-			
-		array_unshift($this->params['breadcrumbs'],$breadcrumbs);
+		$str = '<tr class="form-group">
+					<td class="hAlign_left padding_r10" width="150">&nbsp;</td>
+					<td width="300">'.$buttons.'</td>
+					<td></td>
+				</tr>';
+		echo $str;
 	}
 }

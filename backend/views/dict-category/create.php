@@ -14,8 +14,6 @@ $this->addBreadcrumb($this->title);
 ?>
 <div class="dict-category-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>

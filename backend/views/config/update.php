@@ -8,9 +8,7 @@ use yii\helpers\Html;
  */
 
 $this->title = 'Update Config: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Configs', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->key]];
-$this->params['breadcrumbs'][] = 'Update';
+
 ?>
 <div class="config-update">
 

@@ -9,20 +9,21 @@ use yii\grid\GridView;
  * @var app\models\search\CatalogSearch $searchModel
  */
 
-$this->title = 'Content';
-$this->params['breadcrumbs'][] = $this->title;
-
+$this->title = '内容管理('.$currentChannel->name.')';
+$this->addBreadcrumb($this->title);
 
 ?>
-<div class="catalog-index">
+<div class="content-index">
 
-	<?= Html::a('新建内容', ['create', 'chnid' => $chnid], ['class' => 'btn btn-primary']) ?>(<?php echo $currentChannel->name;?>)
+	<p>
+	<?= Html::a('新建内容', ['create', 'chnid' => $chnid], ['class' => 'btn btn-success']) ?>
+	</p>
 
 <table class="table">
     <tr class="tb_header">
-      <th width="40px"> ID</th>
-      <th>title</th>
-      <th width="10%">do</th>
+      <th width="60px">编号</th>
+      <th>标题</th>
+      <th width="150px">操作</th>
     </tr>
 	<?php foreach ($rows as $row ): ?>
 	<tr>

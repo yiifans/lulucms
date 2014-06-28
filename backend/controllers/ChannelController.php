@@ -25,17 +25,7 @@ use common\models\CacheDataManager;
 class ChannelController extends BaseBackController
 {
 	public $layout = 'left_taxonomy';
-	public function behaviors()
-	{
-		return [
-			'verbs' => [
-				'class' => VerbFilter::className(),
-				'actions' => [
-					'delete' => ['post'],
-				],
-			],
-		];
-	}
+	
 
 	/**
 	 * Lists all Channel models.
@@ -44,7 +34,6 @@ class ChannelController extends BaseBackController
 	public function actionIndex()
 	{
 		$locals=[];
-		$locals['channelArrayTree']=Channel::getChannelArrayTree();
 		
 		return $this->render('index', $locals);
 	}
@@ -62,12 +51,22 @@ class ChannelController extends BaseBackController
 		]);
 	}
 
-	private function getTpl($tables,$prefix)
+	private function getTpl($prefix)
 	{
+		$ret=[];
+		
 		$frontendRoot = \Yii::getAlias('@frontend');
 		
 		$contentPath = TFileHelper::buildPath([$frontendRoot,'views','content'],false,false);
-		$ret=[];
+		
+		$fiels = TFileHelper::getFiles([$contentPath,'model_default'],$prefix);
+		foreach ($fiels as $file)
+		{
+			$ret[]=['name'=>$file,'table'=>'model_default'];
+		}
+		
+		$tables = DefineTable::getAllTables();
+		
 		foreach ($tables as $table)
 		{
 			$tableName = $table['name_en'];
@@ -85,7 +84,7 @@ class ChannelController extends BaseBackController
 		
 		return $ret;
 	}
-	
+
 	/**
 	 * Creates a new Channel model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -104,14 +103,12 @@ class ChannelController extends BaseBackController
 			
 			return $this->redirect(['index']);
 		} else {
-			$tables = $this->getTableList();
 			$locals=[];
 			$locals['model']=$model;
-			$locals['channelArrayTree']=Channel::getChannelArrayTree();
-			$locals['tableList']=$tables;
-			$locals['channelTpls']=$this->getTpl($tables, 'channel_');
-			$locals['listTpls']=$this->getTpl($tables, 'list_');
-			$locals['detailTpls']=$this->getTpl($tables, 'detail_');
+			$locals['tableList']=DefineTable::getAllTables();
+			$locals['channelTpls']=$this->getTpl('channel');
+			$locals['listTpls']=$this->getTpl('list');
+			$locals['detailTpls']=$this->getTpl('detail');
 			
 			return $this->render('create', $locals);
 		}
@@ -146,14 +143,12 @@ class ChannelController extends BaseBackController
 			
 			return $this->redirect(['index']);
 		} else {	
-			$tables = $this->getTableList();
 			$locals=[];
 			$locals['model']=$model;
-			$locals['channelArrayTree']=Channel::getChannelArrayTree();
-			$locals['tableList']=$tables;
-			$locals['channelTpls']=$this->getTpl($tables, 'channel_');
-			$locals['listTpls']=$this->getTpl($tables, 'list_');
-			$locals['detailTpls']=$this->getTpl($tables, 'detail_');
+			$locals['tableList']=DefineTable::getAllTables();
+			$locals['channelTpls']=$this->getTpl('channel');
+			$locals['listTpls']=$this->getTpl('list');
+			$locals['detailTpls']=$this->getTpl('detail');
 			
 			return $this->render('update', $locals);
 		}

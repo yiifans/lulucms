@@ -22,17 +22,7 @@ use frontend\base\BaseFrontController;
  */
 class ChannelController extends BaseFrontController
 {
-	public function behaviors()
-	{
-		return [
-			'verbs' => [
-				'class' => VerbFilter::className(),
-				'actions' => [
-					'delete' => ['post'],
-				],
-			],
-		];
-	}
+
 
 	/**
 	 * Lists all Channel models.

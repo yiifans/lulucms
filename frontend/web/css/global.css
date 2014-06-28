@@ -1,6 +1,6 @@
 * { margin: 0px; padding: 0px; }
 html,body{ height: 100%;}
-/*body { color: #666; font: 12px/18px "Î¢ÈíÑÅºÚE\8F6F\96C5\9ED1",Arial,sans-serif,"ÐÂËÎÌåB0\5B8B\4F53"; background: #F2F2F2; }*/
+/*body { color: #666; font: 12px/18px "Î¢ï¿½ï¿½ï¿½Åºï¿½E\8F6F\96C5\9ED1",Arial,sans-serif,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B0\5B8B\4F53"; background: #F2F2F2; }*/
 table { border-collapse: collapse; border-spacing: 0; border: 0; }
 p,ul,ol,li,form { list-style: none; }
 img { border: none; text-align: center; vertical-align: middle; }
@@ -13,14 +13,16 @@ a{ text-decoration: none;}
 .border{border:1px solid #D9D9D9;}
 .noborder{ border:none;}
 
-.floatl { float: left; }
-.floatr { float: right; }
+.floatLeft { float: left; }
+.floatRight { float: right; }
 
 .clear { clear: both; height: 0; line-height: 0; font-size: 0; visibility: hidden; overflow: hidden; }
 .clearfix { zoom: 1; }
 .clearfix:after { content: ""; display: block; clear: both; }
 
 .nolisttype li{list-style-type:none;}
+
+.dotLine{ border-bottom:1px dotted #B6C9E2;}
 
 .f12 { font-size: 12px; }
 .f14 { font-size: 14px; }
@@ -45,15 +47,18 @@ a{ text-decoration: none;}
 .l30 { line-height: 30px; }
 
 
+.dotDiv{}
+.dotDiv ul{border-top:1px dotted #B6C9E2; padding-top:10px;}
 
 .tbox{
 margin-bottom: 10px;  background: white;  overflow: hidden; 
 }
+.tbox .hd,.tbox .hd h2{height: 30px;line-height: 30px;}
 .tbox .hd{
-	padding: 0px 15px;  height: 30px;line-height: 30px; border-bottom:1px solid #dedede; 
+	padding: 0px 15px;border-bottom:1px solid #dedede; 
 }
 .tbox .hd h2{
-font-size: 14px;  color: #518900; float: left;margin: 0px;padding: 0px;
+font-size: 14px;color: #518900; float: left;margin: 0px;padding: 0px;
 }
 .tbox .hd h2 a{
 	color: #316301;

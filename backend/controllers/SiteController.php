@@ -55,6 +55,7 @@ class SiteController extends Controller
 		if ($model->load($_POST) && $model->login()) {
 			return $this->goBack();
 		} else {
+			$this->layout='base';
 			return $this->render('login', [
 				'model' => $model,
 			]);

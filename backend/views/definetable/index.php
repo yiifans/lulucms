@@ -16,7 +16,7 @@ $this->addBreadcrumb($this->title);
 <div class="define-table-index">
 
 	<p>
-		<?= Html::a('创建表', ['create'], ['class' => 'btn btn-success']) ?>
+		<?= Html::a('新建模型', ['create'], ['class' => 'btn btn-success']) ?>
 	</p>
 
 	<table width="100%" class="table">

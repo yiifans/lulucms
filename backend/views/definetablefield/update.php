@@ -7,8 +7,8 @@ use yii\helpers\Html;
  * @var app\models\DefineTableField $model
  */
 
-$this->title = '修改字段: ' . $model->name;
-$this->addBreadcrumb('内容模型',['definetable/index']);
+$this->title = '修改字段';
+$this->addBreadcrumb('内容模型('.$table.')',['definetable/index']);
 $this->addBreadcrumb('字段管理',['index','tb'=>$table]);
 $this->addBreadcrumb($this->title);
 

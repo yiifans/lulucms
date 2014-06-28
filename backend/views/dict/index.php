@@ -10,19 +10,18 @@ use yii\grid\GridView;
  */
 
 $this->title = '数据字典';
+$this->addBreadcrumb('字典分类',['dict-category/index']);
+foreach ($parents as $item)
+{
+	$this->addBreadcrumb($item->name, ['index','pid'=>$item->id]);
+}
 $this->params['breadcrumbs'][] = $this->title;
-
-
 ?>
 <div class="dict-index">
 
    
     <p>
-        <?= Html::a('新建', ['create','pid'=>$pid], ['class' => 'btn btn-success']) ?>
-        <?php 
-        	echo Html::a($parent->name, ['index','pid'=>$parent->parent_id]);
-        ?>
-        
+        <?= Html::a('新建字典项', ['create','pid'=>$pid], ['class' => 'btn btn-success']) ?>
     </p>
 	<table width="100%" class="table">
 	    <tr class="tb_header">
@@ -46,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		<td><?php echo $row['sort_num']?></td>
 		<td>
 			<?= Html::a('查看子项', ['index', 'pid' => $row->id]) ?>
-			<?= Html::a('添加子项', ['index', 'pid' => $row->id]) ?>
+			<?= Html::a('添加子项', ['create', 'pid' => $row->id]) ?>
 			<?= Html::a('编辑', ['update', 'id' => $row->id]) ?>
 			<?php echo Html::a('删除', ['delete', 'id' => $row->id], [
 				'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
