@@ -11,7 +11,7 @@ use backend\base\BaseBackController;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use components\LuLu;
-use common\models\CacheDataManager;
+use common\includes\CacheDataManager;
 
 /**
  * DefineTableFieldController implements the CRUD actions for DefineTableField model.

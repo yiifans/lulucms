@@ -11,7 +11,7 @@ use yii\base\InvalidConfigException;
 use yii\base\Widget;
 use components\LuLu;
 
-class InhritLayout extends Widget
+class InhritLayout extends BaseWidget
 {
 	public $viewFile;
 

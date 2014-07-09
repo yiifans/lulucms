@@ -32,11 +32,12 @@ class ListAction extends ContentAction
 	public function run($chnid)
 	{
 		$channelModel=Channel::findOne($chnid);
+		$tableName = $channelModel['table'];
 		
-		$dataList=DataSource::getContentByChannel($chnid);
+		$query =DataSource::buildContentQuery($tableName,[],'channel_id='.$chnid);
 		
-		$locals=[];
-		$locals['dataList']=$dataList;
+		$locals=LuLu::getPagedRows($query);
+		
 		$locals['currentChannel']=$channelModel;
 		$locals['chnid']=$chnid;
 		

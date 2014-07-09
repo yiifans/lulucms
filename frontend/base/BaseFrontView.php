@@ -14,6 +14,10 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use components\base\BaseView;
 use components\LuLu;
+use yii\base\Theme;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use components\helpers\TStringHelper;
 
 
 /**
@@ -21,6 +25,31 @@ use components\LuLu;
  */
 class BaseFrontView extends BaseView
 {
+	public $currentTheme='default';
+	
+	public function init()
+	{
+		$basicTheme='@app/themes/basic';
+		
+		$theme = '@app/themes/'.$this->currentTheme;
+		
+		$config = [
+            'pathMap' => [
+            	'@app/views' => [
+            		$theme,
+            		$basicTheme,
+				],
+            	'@app/modules' => $theme.'/modules',
+            	'@app/widgets' => $theme.'/widgets'
+			],
+            'baseUrl' => '@web/themes/basic',
+        ];
+		
+		$this->theme = new Theme($config);
+		
+		parent::init();
+	}
+	
 	public function getCachedChannels($id=null)
 	{
 		$cachedChannels = LuLu::getAppParam('cachedChannels');
@@ -31,6 +60,55 @@ class BaseFrontView extends BaseView
 		return $cachedChannels;
 	}
 
+	public function getChannelUrl($id,$options=[])
+	{
+		$cachedChannels = LuLu::getAppParam('cachedChannels');
+		$channel = $cachedChannels[$id];
+				
+		$actionId = $channel['is_leaf']? 'list' : 'channel';
+		
+		if($options===false)
+		{
+			return Url::to(['content/'.$actionId,'chnid'=>$id]);
+		}
+		
+		if(isset($options['title']))
+		{
+			$title = $options['title'];
+			unset($options['title']);
+		}
+		else
+		{
+			$title = $channel['name'];
+		}
+		
+		return Html::a($title,['content/'.$actionId,'chnid'=>$id],$options);
+		
+	}
+	public function getContentUrl($row,$length=0,$options=[])
+	{
+		if($options===false)
+		{
+			return Url::to(['content/detail','id'=>$row['id'],'chnid'=>$row['channel_id']]);
+		}
+		
+		if(isset($options['title']))
+		{
+			$title = $options['title'];
+			unset($options['title']);
+		}
+		else 
+		{
+			$title = $row['title'];
+		}
+		
+		if($length>1)
+		{
+			$title=TStringHelper::subStr($title,$length);
+		}
+		
+		return Html::a($title,['content/detail','id'=>$row['id'],'chnid'=>$row['channel_id']],$options);
+	}
 	public function buildBreadcrumbs($chnid)
 	{
 		if(!isset($this->params['breadcrumbs']))
@@ -45,10 +123,10 @@ class BaseFrontView extends BaseView
 		
 		while (($parentId = $channel['parent_id'])!=0)
 		{
-			$breadcrumbs= ['label' => $channel['name'], 'url' => ['list','chnid'=>$channel['id']]];
+			$actionId = $channel['is_leaf']?'list':'channel';
+			$breadcrumbs= ['label' => $channel['name'], 'url' => [$actionId,'chnid'=>$channel['id']]];
 			
 			array_unshift($this->params['breadcrumbs'],$breadcrumbs);
-			//$this->params['breadcrumbs'][] = ['label' => $board['name'], 'url' => ['index&boardid='.$board['id']]];
 			
 			$channel = $cachedChannels[$parentId];
 		}

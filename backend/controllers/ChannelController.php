@@ -14,10 +14,8 @@ use common\models\DefineTable;
 use common\models\TplList;
 use common\models\TplView;
 use backend\base\BaseBackController;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use components\helpers\TFileHelper;
-use common\models\CacheDataManager;
+use common\includes\CacheDataManager;
 
 /**
  * ChannelController implements the CRUD actions for Channel model.

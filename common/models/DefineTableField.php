@@ -341,10 +341,13 @@ class DefineTableField extends BaseActiveRecord
 	public function getEditorForm($value = null,$isBackForm=true,$appendOptions=[])
 	{
 		$value =$this->getDefaultValue($value,$isBackForm);
-	
-		$options = $this->getTheInputOptions($isBackForm,$appendOptions);
 		
-		return Html::textInput($this->getTheInputName(),$value,$options);
+		$options = $this->getTheInputOptions($isBackForm,$appendOptions);
+		if(!isset($options['rows']))
+		{
+			$options['rows']=5;
+		}
+		return Html::textarea($this->getTheInputName($options),$value,$options);
 	}
 	
 	public function getImgForm($value = null,$isBackForm=true,$appendOptions=[])
@@ -383,8 +386,13 @@ class DefineTableField extends BaseActiveRecord
 		return Html::textInput($this->getTheInputName(),$value,$options);
 	}
 	
-	private function getTheInputName()
+	private function getTheInputName($options=null)
 	{
+		if($options!==null&&isset($options['name']))
+		{
+			return $options['name'];
+		}
+		
 		$formName ='Content';
 		$attribute = $this->name_en;
 		

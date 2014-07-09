@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use components\LuLu;
 use common\models\config\SiteForm;
 use common\models\config\SeoForm;
+use common\models\config\ContentForm;
 
 
 /**
@@ -60,6 +61,19 @@ class ConfigController extends BaseBackController
     	}
     }
     
+    public function actionContent()
+    {
+    	$model = new ContentForm();
+    	 
+    	if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    		return $this->redirect(['index']);
+    	} else {
+    		$model->loadModel();
+    		return $this->render('content', [
+    				'model' => $model,
+    				]);
+    	}
+    }   
     /**
      * Lists all Config models.
      * @return mixed

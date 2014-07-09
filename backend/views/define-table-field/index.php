@@ -9,59 +9,55 @@ use yii\grid\GridView;
  * @var app\models\search\DefineTableFieldSearch $searchModel
  */
 
-$this->title = 'Define Table Fields';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '字段管理';
+$this->addBreadcrumb('内容模型('.$table.')',['definetable/index']);
+$this->addBreadcrumb($this->title);
+
+// $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="define-table-field-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+	<p>
+		<?= Html::a('新建', ['create','tb'=>$table], ['class' => 'btn btn-success']) ?>
+	</p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Define Table Field', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+	<table class="table">
+	    <tr class="tb_header">
+	      <th width="20"> ID</th>
+	      <th>名称</th>
+	      <th width="150">字段</th>
+	      <th width="150">类型</th>
+	      
+	      <th width="55">可空</th>
+	      <th width="55">主表</th>
+	      <th width="80">操作</th>
+	    </tr>
+		<?php foreach ($rows as $row ): ?>
+		<tr>
+		<td><?php echo $row['id']?></td>
+		<td><?php echo $row['name']?></td>
+		<td><?php echo $row['name_en']?></td>
+		<td><?php echo $row['fieldtype']?></td>
+		<td><?php echo $row['is_null']?></td>
+		<td><?php echo $row['is_main']?></td>
+		<td>
+		<?= Html::a('编辑', ['update', 'tb' => $row->table,'id'=>$row->id]) ?>
+		<?php 
+			if(!$row['is_sys'])
+			{
+				echo Html::a('删除', ['delete', 'tb' => $row->table,'id'=>$row->id], [
+							'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
+							'data-method' => 'post',
+						]);
+			}
+		?>
+	
+		</td>
+		</tr>
+		<?php endforeach;?>
+	</table>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'table',
-            'name',
-            'name_en',
-            'type',
-            // 'length',
-            // 'is_null',
-            // 'is_main',
-            // 'is_sys',
-            // 'sort_num',
-            // 'note',
-            // 'front_status',
-            // 'front_fun_add',
-            // 'front_fun_update',
-            // 'front_fun_show',
-            // 'front_form_type',
-            // 'front_form_option',
-            // 'front_form_default',
-            // 'front_form_source',
-            // 'front_form_html',
-            // 'front_note',
-            // 'back_status',
-            // 'back_fun_add',
-            // 'back_fun_update',
-            // 'back_fun_show',
-            // 'back_form_type',
-            // 'back_form_option',
-            // 'back_form_default',
-            // 'back_form_source',
-            // 'back_form_html',
-            // 'back_note',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+	
 
 </div>

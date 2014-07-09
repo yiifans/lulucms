@@ -18,6 +18,7 @@ use yii\helpers\Url;
 					 -->
 					<li><?= Html::a('基本信息', ['config/site'],['target'=>'mainFrame']) ?></li>
 					<li><?= Html::a('SEO设置', ['config/seo'],['target'=>'mainFrame']) ?></li>
+					
 				</ul>
 			</div>
 		</div>
@@ -38,8 +39,10 @@ use yii\helpers\Url;
 			</div>
 			<div class="bd">
 				<ul>
-					<li><?= Html::a('内容模型', ['definetable/index'],['target'=>'mainFrame']) ?></li>
-					<li><?= Html::a('新建模型', ['definetable/create'],['target'=>'mainFrame']) ?></li>
+					<li><?= Html::a('模型管理', ['define-table/index'],['target'=>'mainFrame']) ?></li>
+					<li><?= Html::a('新建模型', ['define-table/create'],['target'=>'mainFrame']) ?></li>
+					<li><?= Html::a('属性设置', ['config/content'],['target'=>'mainFrame']) ?></li>
+					<li><?= Html::a('聚合标签', ['content-flag/index'],['target'=>'mainFrame']) ?></li>
 				</ul>
 			</div>
 		</div>

@@ -29,15 +29,15 @@ $this->addBreadCrumb($this->title);
 	    </tr>
 		<?php foreach ($rows as $row ): ?>
 		<tr>
-		<td><?php echo $row['variable']?></td>
+		<td><?php echo $row['id']?></td>
 		<td><?php echo $row['name']?></td>
 		<td><?php echo $row['value']?></td>
 		<td><?php echo $row['data_type']?></td>
 		<td><?php echo $row['is_cache']?></td>
 		<td><?php echo $row['sort_num']?></td>
 		<td>
-			<?= Html::a('编辑', ['update', 'id' => $row->variable]) ?>
-			<?php echo Html::a('删除', ['delete', 'id' => $row->variable], [
+			<?= Html::a('编辑', ['update', 'id' => $row->id]) ?>
+			<?php echo Html::a('删除', ['delete', 'id' => $row->id], [
 				'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
 				'data-method' => 'post',
 			]); ?>

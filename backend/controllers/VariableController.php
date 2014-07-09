@@ -56,7 +56,7 @@ class VariableController extends BaseBackController
         	if($model->checkExist())
         	{
         		LuLu::setFalsh('warning', $model->variable.'：已经存在');
-        		$this->refresh();
+        		return $this->refresh();
         	}
         	$model->save();
             return $this->redirect(['index']);
@@ -80,17 +80,12 @@ class VariableController extends BaseBackController
         if ($model->load(Yii::$app->request->post())) {
         	if($model->checkExist())
         	{
-        		LuLu::setViewParam(['test'=>'ddddd']);
-        		
         		LuLu::setFalsh('warning', $model->variable.'：已经存在');
         		
-        		return $this->render('update', [
-        				'model' => $model,
-        				]);
-        		//return $this->refresh();
+        		return $this->refresh();
         	}
         	$model->save();
-        	//return $this->redirect(['index']);
+        	return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,

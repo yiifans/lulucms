@@ -31,8 +31,6 @@ class ChannelAction extends ContentAction
 {
 	public function run($chnid=0)
 	{
-		
-		
 		$channelModel=Channel::findOne($chnid);
 		
 		$childChannelList=Channel::findAll(['parent_id'=>$chnid]);
@@ -40,19 +38,20 @@ class ChannelAction extends ContentAction
 		$dataList=[];
 		foreach ($childChannelList as $channel)
 		{
-			$dataList[$channel->id]=DataSource::getContentByChannel($channel->id,['limit'=>10,'order'=>'publish_time desc']);
+			$dataList[$channel->id]=DataSource::getContentByChannel($channel->id,['limit'=>5]);
 		}
 	
-		$params=[];
-		$params['dataList']=$dataList;
-		$params['att1DataList']=DataSource::getContentByChannel($chnid,['limit'=>10,'where'=>'att1=1']);
-		$params['att2DataList']=DataSource::getContentByChannel($chnid,['limit'=>10,'where'=>'att2=1']);
-		$params['att3DataList']=DataSource::getContentByChannel($chnid,['limit'=>10,'where'=>'att3=1']);
-		$params['currentChannel']=$channelModel;
+		$locals=[];
+		$locals['dataList']=$dataList;
+		$locals['att1DataList']=DataSource::getContentByChannel($chnid,['limit'=>10,'where'=>'att1=1']);
+		$locals['att2DataList']=DataSource::getContentByChannel($chnid,['limit'=>10,'where'=>'att2=1']);
+		$locals['att3DataList']=DataSource::getContentByChannel($chnid,['limit'=>10,'where'=>'att3=1']);
+		$locals['currentChannel']=$channelModel;
+		$locals['chnid']=$chnid;
 		
 		$channelTpl=$this->getTpl($chnid, 'channel');
 		
-		return $this->render($channelTpl, $params);
+		return $this->render($channelTpl, $locals);
 	}
 	
 }

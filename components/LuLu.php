@@ -62,6 +62,26 @@ class LuLu
 		return $webPath;
 	}
 	
+	private static $theme = null;
+	public static function getTheme($resource=null)
+	{
+		if(self::$theme==null)
+		{
+			// todo
+			self::$theme='default';
+		}
+		if($resource==null)
+		{
+			return self::$theme;
+		}
+		return 'themes/'.self::$theme.'/'.$resource;
+	}
+	
+	public static function getThemeUrl()
+	{
+		return self::getWebUrl().'/themes/'.self::getTheme();
+	}
+	
 	public static function getAppParam($key, $defaultValue = null)
 	{
 		$params = \Yii::$app->params;
@@ -132,10 +152,22 @@ class LuLu
 		\Yii::$app->session->setFlash($title, $message);
 	}
 	
+	public static function setWarningMessage($message)
+	{
+		\Yii::$app->session->setFlash('warning',$message);
+	}
+	public static function setSuccessMessage($message)
+	{
+		\Yii::$app->session->setFlash('success',$message);
+	}
+	public static function setErrorMessage($message)
+	{
+		\Yii::$app->session->setFlash('error',$message);
+	}		
 	public static function info($var, $category = 'application')
 	{
 		$dump = VarDumper::dumpAsString($var);
-		Yii::info($category . $dump, $category);
+		Yii::info($dump, $category);
 	}
 	
 	
@@ -204,7 +236,6 @@ class LuLu
 		return $db->createCommand();
 	}
 	
-	
 	public static function execute($sql)
 	{
 		$db = \Yii::$app->db;
@@ -226,12 +257,18 @@ class LuLu
 		$pages = new Pagination([
 				'totalCount' => $countQuery->count()
 				]);
+		if (isset($config['page']))
+		{
+			$pages->setPage($config['page'], true);
+		}
+		
 		if (isset($config['pageSize']))
 		{
 			$pages->setPageSize($config['pageSize'], true);
 		}
 	
 		$rows = $query->offset($pages->offset)->limit($pages->limit);
+		
 		if (isset($config['order']))
 		{
 			$rows = $rows->orderBy($config['order']);

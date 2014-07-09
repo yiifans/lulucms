@@ -24,6 +24,7 @@ use components\base\BaseAction;
 use backend\base\BaseBacAction;
 use backend\base\BaseBackAction;
 use components\helpers\TFileHelper;
+use common\includes\ContentUtility;
 
 /**
  * ChannelController implements the CRUD actions for Channel model.
@@ -31,8 +32,6 @@ use components\helpers\TFileHelper;
 class ContentAction extends BaseBackAction
 {
 	public $currentTableName='model_news4';
-	
-	
 	
 	public function initContent($model,$currentChannel)
 	{
@@ -50,18 +49,24 @@ class ContentAction extends BaseBackAction
 	public function saveContent($model)
 	{
 		$model->removeSpecialAtt();
-			
-		LuLu::info($_POST);
-			
+		
 		$model->user_id=1;
 		$model->user_name='admin';
 		$model->publish_time=TTimeHelper::getCurrentTime();
 		$model->modify_time=TTimeHelper::getCurrentTime();
-		$model->title_format=CommonContent::getFormatValue($model->title_format);
-		$model->flag=CommonContent::getFlatValue($model->flag);
-			
-		$db=Yii::$app->db;
-		$command = $db->createCommand();
+		$model->title_format=ContentUtility::getFormatValue($model->title_format);
+		$model->flag=ContentUtility::getFlatValue($model->flag);
+		
+		if($model->views==null)
+		{
+			$model->views=0;
+		}
+		if($model->commonts==null)
+		{
+			$model->commonts=0;
+		}
+		
+		$command = LuLu::createCommand();
 		if($model->isNewRecord)
 		{
 			$command->insert($this->currentTableName, $model);
@@ -76,14 +81,15 @@ class ContentAction extends BaseBackAction
 	
 	protected function findModel($id)
 	{
-		//CommonContent::
 		$sql='select * from '.$this->currentTableName.' where id='.$id;
 	
-		$db = Yii::$app->db;
-		$command = $db->createCommand($sql);
-		return $command->queryOne();
+		return LuLu::createCommand($sql)->queryOne();
+	}
 	
-	
+	protected function updateViews($id)
+	{
+		$sql ='update '.$this->currentTableName.' set views=views+1 where id='.$id;
+		LuLu::execute($sql);
 	}
 	
 	public function getTpl($chnId,$tplName)

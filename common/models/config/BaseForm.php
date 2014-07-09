@@ -36,33 +36,36 @@ class BaseForm extends BaseModel
 		}
 	}
 	
+	protected function saveItem($name,$value)
+	{
+		$sql = "select * from yii_config where variable = '$name'";
+		$exist = LuLu::createCommand($sql)->queryOne();
+		if($exist)
+		{
+			LuLu::createCommand()
+			->update('yii_config', ['value' => $value], ['variable'=>$name])
+			->execute();
+		}
+		else
+		{
+			$columns=[];
+			$columns['scope']=$this->scope;
+			$columns['variable']=$name;
+			$columns['value']=$value;
+			$columns['description']=$name;
+		
+			LuLu::createCommand()
+			->insert('yii_config', $columns)
+			->execute();
+		}		
+	}
 	public function save()
 	{
 		$attributes = $this->getAttributes();
 		
 		foreach ($attributes as $name=>$value)
 		{
-			$sql = "select * from yii_config where variable = '$name'";
-			$exist = LuLu::createCommand($sql)->queryOne();
-			if($exist)
-			{
-				LuLu::createCommand()
-					->update('yii_config', ['value' => $value], ['variable'=>$name])
-					->execute();
-			}
-			else 
-			{
-				$columns=[];
-				$columns['scope']=$this->scope;
-				$columns['variable']=$name;
-				$columns['value']=$value;
-				$columns['description']=$name;
-				
-				LuLu::createCommand()
-					->insert('yii_config', $columns)
-					->execute();
-			}
-			
+			$this->saveItem($name, $value);
 		}
 	}
 }

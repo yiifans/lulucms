@@ -48,7 +48,7 @@ class SiteController extends BaseFrontController
 		$params['att2DataList']=DataSource::getContent(2, 'model_news',['where'=>'att2=1']);
 		$params['att3DataList']=DataSource::getContent(2, 'model_news',['where'=>'att3=1']);
 		
-		return $this->render('index',$params);
+		return $this->render('index_',$params);
 	}
 
 	

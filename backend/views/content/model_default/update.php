@@ -29,7 +29,7 @@ $this->addBreadcrumb($this->title);
 		 
 		<table class="table">
 			
-			 <?php echo $this->render('_form_common', [
+			 <?php echo $this->render('//content/_include/_base', [
 					'model' => $model,
 					'chnid'=>$chnid,
 					'currentChannel' => $currentChannel,
@@ -45,7 +45,7 @@ $this->addBreadcrumb($this->title);
 					<?php
 						$formType = empty($field['back_form_type'])?'default':$field['back_form_type'];
 						echo '('.$formType.')';
-					 	echo $this->render('_formtype/_'.$formType, ['model'=>$model, 'value'=>$model->$field['name_en'], 'field' => $field,]); 
+					 	echo $this->render('//content/_include/_forms/_'.$formType, ['model'=>$model, 'value'=>$model->$field['name_en'], 'field' => $field,]); 
 					 ?>
 				</td>
 				<td></td>

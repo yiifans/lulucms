@@ -7,17 +7,21 @@ use yii\helpers\Html;
  * @var app\models\DefineTableField $model
  */
 
-$this->title = 'Update Define Table Field: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Define Table Fields', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = '修改字段';
+$this->addBreadcrumb('内容模型('.$table.')',['definetable/index']);
+$this->addBreadcrumb('字段管理',['index','tb'=>$table]);
+$this->addBreadcrumb($this->title);
+
+// $this->params['breadcrumbs'][] = ['label' => '字段管理', 'url' => ['index','tb'=>$table]];
+// $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+// $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="define-table-field-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+	<h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+	<?php echo $this->render('_form', [
+		'model' => $model,
+	]); ?>
 
 </div>

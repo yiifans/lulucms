@@ -11,7 +11,8 @@ use common\models\DefineTableField;
 use backend\base\BaseBackController;
 use components\helpers\TFileHelper;
 use components\LuLu;
-use common\models\CacheDataManager;
+use common\includes\CacheDataManager;
+use common\includes\SqlData;
 
 
 /**

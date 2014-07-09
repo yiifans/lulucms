@@ -18,7 +18,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use components\LuLu;
 use common\models\DefineTableField;
-use common\contentmodels\CommonContent;
+use common\models\content\CommonContent;
 use components\helpers\TTimeHelper;
 use components\base\BaseAction;
 use backend\actions\content\ContentAction;
@@ -34,9 +34,12 @@ class UpdateAction extends ContentAction
 		
 		$this->currentTableName=$currentChannel['table'];
 		
+		$attValues = $this->findModel($id);
+		
 		$model = new CommonContent($currentChannel['table']);
 		$model->setIsNewRecord(false);
-		$model->attributes = $this->findModel($id);
+		$model->attributes = $attValues;
+	
 		
 		if ($model->load($_POST)) {
 				
@@ -44,7 +47,12 @@ class UpdateAction extends ContentAction
 				
 			return $this->redirect(['index', 'chnid' => $chnid]);
 		} else {
-			$locals=$this->initContent($model, $currentChannel);
+			
+			$locals=[];
+			$locals['model']= $model;
+			$locals['chnid']=$chnid;
+			$locals['currentChannel']=$currentChannel;
+			$locals['fields']=DefineTableField::findAll(['table'=>$currentChannel['table'],'is_sys'=>0]);
 
 			$tplName = $this->getTpl($chnid, 'update');
 			

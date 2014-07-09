@@ -34,6 +34,8 @@ class DetailAction extends ContentAction
 		
 		$this->currentTableName=$channelModel->table;
 		
+		$this->updateViews($id);
+		
 		$model=$this->findModel($id);
 		
 		$locals=[];

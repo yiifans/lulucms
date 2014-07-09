@@ -10,7 +10,7 @@ use components\helpers\TStringHelper;
 use yii\base\Object;
 use components\helpers\TFileHelper;
 
-class TreeManager extends Object
+class TreeManager 
 {
 	public static function getParents($data,$id,$parentKey='parent_id')
 	{

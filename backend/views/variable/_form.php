@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use components\LuLu;
+use common\includes\CommonData;
 
 /**
  * @var yii\web\View $this
@@ -20,7 +21,7 @@ use components\LuLu;
 	    ]); ?>
 	    <table class="table">
 
-    <?= $form->field($model, 'variable')->textInput(['maxlength' => 64]) ?>
+    <?= $form->field($model, 'id')->textInput(['maxlength' => 64]) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => 64]) ?>
 
@@ -30,7 +31,7 @@ use components\LuLu;
     
     <?= $form->field($model, 'is_cache')->checkbox([],false) ?>
 
-    <?= $form->field($model, 'data_type')->dropDownList(LuLu::getAppParam('dataType')) ?>
+    <?= $form->field($model, 'data_type')->dropDownList(CommonData::getDataType()) ?>
 
 	<?= $form->field($model, 'sort_num')->textInput() ?>
 	

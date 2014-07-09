@@ -23,13 +23,13 @@ $this->addBreadcrumb($this->title);
 				'id'=>'Content',
 				'fieldConfig' => [
 					'options' => ['tag' => 'tr','class' => 'form-group'],
-					'template' => '<td class="hAlign_right padding_r10" width="150px">{label}:</td><td>{input}</td><td>{hint}</td><td>{error}</td>',
+					'template' => '<td class="hAlign_right padding_r10" width="150px">{label}:</td><td>{input}</td><td width="150px">{hint}{error}</td>',
 		    	],
 		    ]); ?>
 		 
 		<table class="table">
 			
-			 <?php echo $this->render('//content/_include/_form_common', [
+			 <?php echo $this->render('//content/_include/_base', [
 					'model' => $model,
 					'chnid'=>$chnid,
 					'currentChannel' => $currentChannel,
@@ -45,10 +45,9 @@ $this->addBreadcrumb($this->title);
 					<?php
 						$formType = empty($field['back_form_type'])?'default':$field['back_form_type'];
 						echo '('.$formType.')';
-					 	echo $this->render('//content/_include/_formtype/_'.$formType, ['model'=>$model, 'value'=>$model->$field['name_en'], 'field' => $field,]); 
+					 	echo $this->render('//content/_include/_forms/_'.$formType, ['model'=>$model, 'value'=>$model->$field['name_en'], 'field' => $field,]); 
 					 ?>
 				</td>
-				<td></td>
 				<td><div class="help-block"></div></td>
 			</tr>
 			<?php endforeach;?>

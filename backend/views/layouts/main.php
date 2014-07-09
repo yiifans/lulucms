@@ -21,10 +21,10 @@ AppAsset::register($this);
 	<title><?= Html::encode($this->title) ?></title>
 	<?php $this->head() ?>
 </head>
-<body>
+<body >
 	<?php $this->beginBody() ?>
 
-	<div class="container" style="padding:8px;">
+	<div class="container" style="padding:8px; padding-bottom:40px;">
 		<div class="breadcrumbContainer">
 				<?= Breadcrumbs::widget([
 						'homeLink'=>false,

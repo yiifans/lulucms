@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "yii_variable".
  *
- * @property string $variable
+ * @property string $id
  * @property string $name
  * @property string $value
  * @property integer $data_type
@@ -31,12 +31,12 @@ class Variable extends \components\base\BaseActiveRecord
     public function rules()
     {
         return [
-            [['variable', 'name'], 'required'],
+            [['id', 'name'], 'required'],
             [['value'], 'string'],
-            [['variable'], 'unique'],
+            [['id'], 'unique'],
             [['is_cache'], 'boolean'],
             [['data_type', 'sort_num'], 'integer'],
-            [['variable', 'name'], 'string', 'max' => 64],
+            [['id', 'name'], 'string', 'max' => 64],
             [['description'], 'string', 'max' => 256]
         ];
     }
@@ -47,7 +47,7 @@ class Variable extends \components\base\BaseActiveRecord
     public function attributeLabels()
     {
         return [
-            'variable' => '变量名',
+            'id' => '变量名',
             'name' => '标识',
             'value' => '变量值',
             'data_type' => '数据类型',
@@ -72,9 +72,9 @@ class Variable extends \components\base\BaseActiveRecord
     
     public function checkExist()
     {
-    	if($this->isNewRecord||$this->variable!=$this->oldAttributes['variable'])
+    	if($this->isNewRecord||$this->id!=$this->oldAttributes['id'])
     	{
-    		$ret = Variable::findOne($this->variable);
+    		$ret = Variable::findOne($this->id);
     		return $ret!==null;
     	}
     	return false;

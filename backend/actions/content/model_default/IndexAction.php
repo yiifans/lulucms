@@ -23,6 +23,7 @@ use components\helpers\TTimeHelper;
 use components\base\BaseAction;
 use backend\actions\content\ContentAction;
 use common\includes\DataSource;
+use yii\db\Query;
 
 /**
  * ChannelController implements the CRUD actions for Channel model.
@@ -43,12 +44,15 @@ class IndexAction extends ContentAction
 			$rows=DataSource::getContentByChannel($chnid);
 		}
 		
-		$channelArrayTree=Channel::getChannelArrayTree();
+		$query = new Query();
+		$query->select('*')
+			->from($currentChannel['table'])
+			->where(['channel_id'=>$chnid]);
 		
-		$locals = [];
-		$locals['rows']=$rows;
+		$locals = LuLu::getPagedRows($query,['order'=>'publish_time desc']);
+		//$locals['rows']=$rows;
 		$locals['chnid']=$chnid;
-		$locals['channelArrayTree']=$channelArrayTree;
+		$locals['channelArrayTree']=Channel::getChannelArrayTree();
 		$locals['currentChannel']=$currentChannel;
 		
 		$tplName = $this->getTpl($chnid, 'index');
