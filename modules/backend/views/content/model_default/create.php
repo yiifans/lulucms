@@ -25,6 +25,9 @@ $this->addBreadcrumb($this->title);
 					'options' => ['tag' => 'tr','class' => 'form-group'],
 					'template' => '<td class="hAlign_right padding_r10" width="150px">{label}:</td><td>{input}</td><td width="150px">{hint}{error}</td>',
 		    	],
+				'options'=>[
+					'enctype'=>'multipart/form-data',
+				],
 		    ]); ?>
 		 
 		<table class="table">

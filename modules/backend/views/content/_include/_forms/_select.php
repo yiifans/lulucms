@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\includes\FieldUtility;
 
 ?>
 
-<?php echo $field->getSelectForm($value,true);?>
+<?php echo FieldUtility::selectForm($field,$value);?>

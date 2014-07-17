@@ -13,30 +13,27 @@ use components\LuLu;
 
 $this->title = $model['title'];
 $this->buildBreadcrumbs($chnid);
-$this->params['breadcrumbs'][] = $this->title;
+$this->addBreadcrumb($this->title);
 ?>
 <div class="container">
 	<div class="columnMain">
-		<div class="tbox content-detail">
+		<div class="tbox content-detail border">
 	
 			<h1><?= Html::encode($this->title) ?></h1>
 		
-			<table class="table">
-				<tr>
-					<th width="120px">名称</th>
-					<th>值</th>
-				</tr>
-			
-				<?php 
-					foreach ($model as $name=>$value)
-					{
-						echo '<tr><td>'.$name.'</td><td>'.$value.'</td></tr>';
-					}
-				?>
-			</table>
-			
-			
+			<div class="contentMeta">
+				<span><?php echo $model['publish_time']?></span>|<span>点击：<?php echo $model['views']?></span>|<span>评论：<?php echo $model['commonts']?></span>
+			</div>
+			<?php if(!empty($model['summary'])):?>
+			<div class="contentSummary border">
+				<?php echo $model['summary'];?>
+			</div>
+			<?php endif;?>
+			<div class="contentContent">
+				<?php echo $model['content'];?>
+			</div>
 		</div>
+		
 	</div>
 	<div class="columnRight">
 	    <div class="tbox border">
@@ -52,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	        <ul class="txtContent">
 	        	<?php 
 	        		$dataSource = DataSource::getContentByChannel($chnid,['order'=>'views desc']);
-	        		echo LoopData::widget(['dataSource'=>$dataSource,'params'=>['length'=>19]]);
+	        		echo LoopData::widget(['dataSource'=>$dataSource,'length'=>19]);
 	        	?>
 	        </ul>
 	    </div>	    
@@ -61,30 +58,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h2><a href="xxx">图片新闻</a></h2>
                 </div>
                 <ul class="imgContent w120">
-                    <li>
-                        <a href="2014-06/30/content_32808434.htm">
-                            <img src="http://images.china.cn/attachement/jpg/site1000/20140630/d02788e9b33e151af15f13.jpg" border="0" alt="云南举行&#8220;铁拳&#8221;反恐演习" /><br />
-                        </a>
-                        <a class="txt" href="xxx">云南举行“铁拳”反恐演习</a>
-                    </li>
-                    <li>
-                        <a href="2014-06/30/content_32808434.htm">
-                            <img src="http://images.china.cn/attachement/jpg/site1000/20140630/d02788e9b33e151af15f13.jpg" border="0" alt="云南举行&#8220;铁拳&#8221;反恐演习" /><br />
-                        </a>
-                        <a class="txt" href="xxx">云南举行“铁拳”反恐演习</a>
-                    </li>
-                    <li>
-                        <a href="2014-06/30/content_32808434.htm">
-                            <img src="http://images.china.cn/attachement/jpg/site1000/20140630/d02788e9b33e151af15f13.jpg" border="0" alt="云南举行&#8220;铁拳&#8221;反恐演习" /><br />
-                        </a>
-                        <a class="txt" href="xxx">云南举行“铁拳”反恐演习</a>
-                    </li>
-                    <li>
-                        <a href="2014-06/30/content_32808434.htm">
-                            <img src="http://images.china.cn/attachement/jpg/site1000/20140630/d02788e9b33e151af15f13.jpg" border="0" alt="云南举行&#8220;铁拳&#8221;反恐演习" /><br />
-                        </a>
-                        <a class="txt" href="xxx">云南举行“铁拳”反恐演习</a>
-                    </li>
+	                <?php 
+		        		$dataSource = DataSource::getContentByChannel(103,['is_pic'=>true,'limit'=>4]);
+		        		echo LoopData::widget(['dataSource'=>$dataSource,'item'=>'item-img', 'length'=>19]);
+		        	?>
+	        	
                 </ul>
             </div>	    
 	    <div class="tbox border dot">
@@ -94,7 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	        <ul class="txtContent">
 	        	<?php 
 	        		$dataSource = DataSource::getContentByChannel($chnid,['order'=>'commonts desc']);
-	        		echo LoopData::widget(['dataSource'=>$dataSource,'params'=>['length'=>19]]);
+	        		echo LoopData::widget(['dataSource'=>$dataSource,'length'=>19]);
 	        	?>
 	        </ul>
 	       

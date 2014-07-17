@@ -63,23 +63,26 @@ class LuLu
 	}
 	
 	private static $theme = null;
-	public static function getTheme($resource=null)
+	public static function getTheme()
 	{
 		if(self::$theme==null)
 		{
 			// todo
 			self::$theme='default';
 		}
-		if($resource==null)
-		{
-			return self::$theme;
-		}
-		return 'themes/'.self::$theme.'/'.$resource;
+		return self::$theme;
 	}
 	
-	public static function getThemeUrl()
+	public static function getThemeUrl($resource=null)
 	{
-		return self::getWebUrl().'/themes/'.self::getTheme();
+		$currentTheme = LuLu::getTheme();
+		
+		if($resource==null)
+		{
+			return self::getWebUrl().'/static/themes/'.$currentTheme.'/';
+			
+		}
+		return self::getWebUrl().'/static/themes/'.$currentTheme.'/'.$resource;
 	}
 	
 	public static function getAppParam($key, $defaultValue = null)
@@ -250,6 +253,12 @@ class LuLu
 		return $command->queryAll();
 	}
 	
+	public static function queryOne($sql)
+	{
+		$db = \Yii::$app->db;
+		$command = $db->createCommand($sql);
+		return $command->queryOne();
+	}
 	
 	public static function getPagedRows($query, $config = [])
 	{

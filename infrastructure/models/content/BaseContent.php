@@ -29,6 +29,7 @@ class BaseContent extends DynamicModel
 	public  $title;				//string
 	public  $title_format;		//string
 	public  $title_pic;			//string
+	public  $is_pic;			//integer
 	public  $redirect_url;		//string
 	public  $keywords;			//string
 	public  $sub_title;			//string
@@ -45,7 +46,7 @@ class BaseContent extends DynamicModel
     {
         $currentRules = [
             [['channel_id', 'user_id', 'user_name', 'publish_time', 'modify_time', 'status', 'title'], 'required'],
-            [['channel_id', 'user_id', 'att1', 'att2', 'att3', 'flag', 'views', 'commonts', 'status'], 'integer'],
+            [['channel_id', 'user_id', 'att1', 'att2', 'att3', 'flag', 'views', 'commonts', 'status', 'is_pic'], 'integer'],
             [['id', 'publish_time', 'modify_time'], 'safe'],
             [['user_name'], 'string', 'max' => 80],
             [['title', 'title_format', 'title_pic', 'redirect_url', 'keywords', 'sub_title'], 'string', 'max' => 128],
@@ -78,6 +79,7 @@ class BaseContent extends DynamicModel
             'title' => '标题',
             'title_format' => '标题格式',
             'title_pic' => '标题图片',
+            'is_pic' => '是否图片',
             'redirect_url' => '转向连接',
             'keywords' => '关键字',
             'sub_title' => '副标题',

@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\includes\FieldUtility;
 
 ?>
 
-<?php echo $field->getTextForm($value);?>
+<?php echo FieldUtility::textForm($field,$value);?>

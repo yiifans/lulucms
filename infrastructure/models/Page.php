@@ -4,6 +4,8 @@ namespace common\models;
 
 use Yii;
 use components\helpers\TTimeHelper;
+use common\includes\CommonUtility;
+use components\helpers\TStringHelper;
 
 /**
  * This is the model class for table "yii_page".
@@ -40,7 +42,7 @@ class Page extends \components\base\BaseActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'publish_time', 'status', 'title', 'body'], 'required'],
+            [['category_id', 'publish_time', 'status', 'title'], 'required'],
             [['category_id', 'status', 'sort_num'], 'integer'],
             [['publish_time', 'modify_time'], 'safe'],
             [['body'], 'string'],
@@ -78,6 +80,14 @@ class Page extends \components\base\BaseActiveRecord
     {
     	if(parent::beforeValidate())
     	{
+    		$this->title_format=CommonUtility::getTitleFormatValue($this->title_format);
+    
+    		$uploadedFile = CommonUtility::uploadFile('Page[title_pic]');
+    		if($uploadedFile!=null)
+    		{
+    			$this->title_pic=$uploadedFile['url'].$uploadedFile['new_name'];
+    		}
+    
     		if(!is_int($this->sort_num))
     		{
     			$this->sort_num=0;
@@ -85,18 +95,18 @@ class Page extends \components\base\BaseActiveRecord
     		$this->publish_time=TTimeHelper::getCurrentTime();
     		$this->modify_time=TTimeHelper::getCurrentTime();
     		
-    		return true;
-    	}
-    	return false;
-    }
-    public function beforeSave($insert)
-    {
-    	if(parent::beforeSave($insert))
-    	{
-    		
+    		if($this->summary==null||empty($this->summary))
+    		{
+    			$body = strip_tags($this->body);
+    			$pattern = '/\s/';//去除空白
+    			$body = preg_replace($pattern, '', $body);
+    			$this->summary=TStringHelper::subStr($body,250);
+    		}
     		
     		return true;
     	}
     	return false;
     }
+    
+  
 }

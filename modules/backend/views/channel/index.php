@@ -48,7 +48,7 @@ $this->addBreadcrumb($this->title);
 	</td>
 	<td><?php echo $row['table']?></td>
 	<td><?php if($row['is_leaf']){echo $row['list_tpl'];}else{echo $row['channel_tpl'];}?></td>
-	<td>
+	<td align="right">
 		
 		<?php
 			if($row['is_leaf'])

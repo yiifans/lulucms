@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use common\includes\UrlUtility;
 
 ?>
 <?php 
@@ -10,4 +11,4 @@ use yii\helpers\Html;
 		$boldStyle=' class="bold"';
 	}
 ?>
-<li <?php echo $boldStyle?>><?php echo $this->getContentUrl($row);?></li>
+<li <?php echo $boldStyle?>><?php echo UrlUtility::getContentLink($row);?></li>

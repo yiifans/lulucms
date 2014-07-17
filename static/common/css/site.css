@@ -1,0 +1,159 @@
+@import "global.css";
+body {
+  padding-top: 70px;
+}
+
+.footer {
+  border-top: 1px solid #ddd;
+  margin-top: 30px;
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: transparent;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after  { content: /*"\e113"*/"\e151"; }
+a.desc:after { content: /*"\e114"*/"\e152"; }
+
+.sort-numerical a.asc:after { content: "\e153"; }
+.sort-numerical a.desc:after { content: "\e154"; }
+
+.sort-ordinal a.asc:after { content: "\e155"; }
+.sort-ordinal a.desc:after { content: "\e156"; }
+
+.hline{}
+.hline li{float:left;margin-left:10px;list-style-type:none;}
+
+.table{border:1px solid #dedede;}
+.table tr{height:22px;}
+.table tr th{border-left:1px solid #dedede;}
+.table tr td{border-left:1px solid #dedede;}
+
+
+.mainchannel
+{
+	width:1000px;
+	margin-bottom:10px;
+	border-bottom:1px solid #DBDBDB;
+	color:#676767;
+	overflow:hidden;
+    background:url("http://localhost/dedecms/templets/default/images/green_skin.png") repeat-x scroll 0 -188px transparent;
+	background-position: 0 -72px;
+	background-repeat: repeat-x;
+	height: 70px;
+	line-height:70px;
+}
+.mainchannel ul li{float:left;margin-left:10px;
+font: 14px/1.5 "Microsoft YaHei","΢���ź�","Microsoft JhengHei","����";
+float: left;
+height: 22px;
+margin-right: 10px;
+margin-left: -3px;
+padding-left: 10px;
+}
+
+.mainchannel ul li a{
+	
+	color: white;
+height: 22px;
+text-decoration: none;
+display: inline-block;
+position: relative;
+}
+.container,.site-index{width:1000px;}
+.w685{width:685px;}
+.w335{width:335px;}
+.w300{width:300px;}
+
+.main-left{width:680px;}
+.main-right{width:300px;}
+
+.side-left{width:680px;}
+.side-right{width:320px;}
+
+.headLine{float:right; width:370px; margin:0px 0px 0px 5px;}
+.headLine .topData{}
+.headLine .topData .topItem{margin-bottom:10px;}
+.headLine .topData .topItem strong a{font: bold 18px/24px "微软雅黑E\8F6F\96C5\9ED1",tahoma;color: #B70000;}
+
+.headLine .topData .topItem2{}
+.headLine .topData .topItem2 a{color: #222;font-size: 12px;}
+
+.headLine .listData ul{padding-left:5px;}
+
+.focus1size, .focus1size ul.rslides{width:300px;height:320px;}
+
+.focus{max-width:1920px;margin:0 auto;position:relative;overflow:hidden;}
+.focus li.background_one .lititlebox{ width:130px;height:27px; line-height:23px; text-align:center; background:url(titlebox.png) no-repeat; position:absolute;top:508px;color:#fff;font-weight:bold;display:none}
+.focus li.background_two .lititlebox{ width:130px;height:27px; line-height:23px; text-align:center; background:url(titlebox.png) no-repeat; position:absolute;top:508px;color:#fff;font-weight:bold;display:none}
+.focus li.background_three .lititlebox{ width:130px;height:27px; line-height:23px; text-align:center; background:url(titlebox.png) no-repeat; position:absolute;top:508px;color:#fff;font-weight:bold;display:none}
+.focus li.background_four .lititlebox{ width:130px;height:27px; line-height:23px; text-align:center; background:url(titlebox.png) no-repeat; position:absolute;top:508px;color:#fff;font-weight:bold;display:none}
+
+.focus li.background_one{width:100%; background:#0093D5;}
+.focus li.background_two{width:100%;  background:#3B9621}
+.focus li.background_three{width:100%; background:#BE1213}
+.focus li.background_four{width:100%; background:#3C8BCC}
+.focus li.background_five{width:100%; background:#FF4E04}
+
+.focus li.background_one .limain .liright{margin-top:105px;}
+.focus li.background_two .limain .liright{margin-top:185px;}
+.focus li.background_three .limain .liright{margin-top:185px;}
+.focus li.background_four .limain .liright{margin-top:185px;}
+.focus li.background_five .limain .liright{margin-top:185px;}
+
+.focus .limain{auto;overflow:hidden;}
+
+.focus .limain .liright{width:600px;float:right;}
+.focus .limain .liright h1{height:50px;}
+.focus .limain .liright h2{ padding:0px; margin:0px; margin-top:30px; font-size:22px; font-family:Arial;color:#fff;text-align:left;height:40px; overflow:hidden;}
+.focus .limain .liright h3{margin-left:120px;font-size:20px; font-family:Arial;color:#fff;text-align:left;height:40px; overflow:hidden;}
+.focus .limain .liright h4{ padding:0px; margin:0px; font-size:28px;  margin-top:50px; font-family:Arial;color:#fff;text-align:center;height:60px; overflow:hidden;}
+
+.focus .limain .liright .intro{}
+.focus .limain .liright .intro ul{}
+.focus .limain .liright .intro ul.edu{width:470px; margin:0px auto; }
+.focus .limain .liright .intro ul.edu li{width:48%; float:left;}
+.focus .limain .liright .intro span{width:100px; float:right; }
+.focus .limain .liright .intro span a{ font-size:14px; font-weight:300; color:#fff;}
+.focus .limain .liright .intro li{width:300px; float:left; text-align:left; height:30px; line-height:30px; font-size:14px; font-weight:300; font-family:Arial; color:#fff;}
+
+.focus .limain .liright .xzsybtn{ float:right; display:inline;}
+.focus .limain .liright .xzsybtn a.down{background:url(tobtn.png) no-repeat 0px -144px; width:217px; height:71px;text-indent: -999em; top:300px; left:762px; position:absolute;z-index:999;}
+.focus .limain .liright .xzsybtn a.demo{background:url(tobtn.png) no-repeat 0px 0px; width:216px; height:71px;text-indent: -999em; top:300px; left:536px; position:absolute;z-index:999; }
+.focus .limain .liright .xzsybtn a.demo:hover{background:url(tobtn.png) no-repeat 0px -72px; width:216px; height:71px;}
+.focus .limain .liright .xzsybtn a.down:hover{background:url(tobtn.png) no-repeat 0px -216px; width:217px; height:71px;}
+
+.focus .rslides{position:relative;list-style:none;padding:0;overflow:hidden;}
+.focus .rslides_nav{height:36px;width:22px;position:absolute;top:55%;left:25px;text-indent:-9999px;overflow:hidden;text-decoration:none;background:url(../images/leftbtn.png) no-repeat;margin-top:-40px;}
+.focus .rslides_nav:hover{background:url(../images/leftbtn02.png) no-repeat;}
+.focus .rslides_nav.next{left:auto;background:url(../images/rightbtn.png) no-repeat;right:25px;}
+.focus .rslides_nav.next:hover{background:url(../images/rightbtn02.png) no-repeat;}
+.focus .rslides_tabs{width:180px; position:absolute;left:45%;margin-top:-35px; z-index:9999999}
+.focus .rslides_tabs li{display:inline;float:left;margin-right:5px}
+.focus .rslides_tabs a{text-indent:-9999px; float:left;width:13px;height:13px; background:url(../images/yuan.png) no-repeat;}
+.focus .rslides_tabs .rslides_here a{width:13px;height:13px; background:url(../images/yuan02.png) no-repeat;margin-top:0px}
+
+
+
+
+
+

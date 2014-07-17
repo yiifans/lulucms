@@ -29,7 +29,7 @@ class ThemeAsset extends AssetBundle
     
     public function init()
     {
-    	$this->baseUrl='@web/themes/'.LuLu::getTheme();
+    	$this->baseUrl='@web/static/themes/'.LuLu::getTheme();
     	parent::init();
     }
 }

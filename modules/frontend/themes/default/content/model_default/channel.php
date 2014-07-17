@@ -5,6 +5,9 @@ use yii\grid\GridView;
 use components\widgets\LoopData;
 use components\LuLu;
 use common\includes\DataSource;
+use common\includes\CommonUtility;
+use common\includes\UrlUtility;
+use components\helpers\TStringHelper;
 
 /**
  * @var yii\web\View $this
@@ -19,17 +22,36 @@ $this->buildBreadcrumbs($chnid);
 <div class="container">
 	<div class="columnMain">
 		<div class="tbox channelHot border">
-			<a href="2014-06/29/content_32803328.htm">
-				<img src="http://img1.gtimg.com/news/pics/hv1/57/180/1644/106947057.jpg"></a>
-			<h2><a href="2014-06/29/content_32803328.htm">两名大学生到东莞找工作被骗只剩11元</a></h2>
-			<p style="width:260px;">两人经“中介”介绍来东莞打工，5天过去不仅没找到工作，还丢失了行李、身份证和银行卡，随身携带的三四千块盘缠，只剩11元，而介绍他们来东莞搵工的“中介”，早已消失得无影无踪。
-			<a href="2014-06/29/content_32803328.htm">[详细]</a></p>				
+			<?php 
+				$channelHot = DataSource::getContentByChannel(103,['flag'=>'64','limit'=>1]);
+				if(isset($channelHot[0]))
+				{
+					$hotContent=$channelHot[0];
+			?>
+			<a href="<?php echo UrlUtility::getContentUrl($hotContent);?>">
+				<img src="<?php echo CommonUtility::getTitlePic($hotContent)?>" style="width:380px;"></a>
+			<h2><?php echo UrlUtility::getContentLink($hotContent);?></h2>
+			<p style="width:260px;"><?php echo TStringHelper::subStr($hotContent['summary'],100);?>
+				<a href="<?php echo UrlUtility::getContentUrl($hotContent);?>">[详细]</a></p>		
+			<?php }?>		
 		</div>
+		<div class="clear"></div>
 		<div class="content-channel">
 			<?php echo LoopData::widget(['dataSource'=>$dataList,'item'=>'item-subchannel']);?>
 		</div>
 	</div>
 	<div class="columnRight">
+	    <div class="tbox border dot">
+	        <div class="middleTitle3">
+	            <h2><a href="node_7183298.htm" target="_blank" class="">阅读排行</a></h2>
+	        </div>
+	        <ul class="txtContent">
+	        	<?php 
+	        		$dataSource = DataSource::getContentByChannel($chnid,['order'=>'views desc']);
+	        		echo LoopData::widget(['dataSource'=>$dataSource,'params'=>['length'=>19]]);
+	        	?>
+	        </ul>
+	    </div>
 	    <div class="tbox border">
 	        <div class="middleTitle3">
 	            <h2><a href="node_7183303.htm" target="_blank" class="">人物</a></h2>
@@ -49,21 +71,6 @@ $this->buildBreadcrumbs($chnid);
 	            <li><a href="2014-06/30/content_32807212.htm">甘肃计划生育工作者不到岗长期在外打工被通报</a></li>
 	
 	            <li><a href="shehui/2014-06/30/content_32807637.htm">河南村民修下水道挖出三尊元末明初汉白玉雕像(图)</a></li>
-	
-	            
-	        </ul>
-	        
-	    </div>
-	
-	    <div class="tbox border dot">
-	        <div class="middleTitle3">
-	            <h2><a href="node_7183298.htm" target="_blank" class="">阅读排行</a></h2>
-	        </div>
-	        <ul class="txtContent">
-	        	<?php 
-	        		$dataSource = DataSource::getContentByChannel($chnid,['order'=>'views desc']);
-	        		echo LoopData::widget(['dataSource'=>$dataSource,'params'=>['length'=>19]]);
-	        	?>
 	        </ul>
 	    </div>
 	    <div class="tbox border dot">

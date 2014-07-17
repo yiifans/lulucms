@@ -27,7 +27,6 @@ class BaseView extends View
 	public $cachedChannels;
 	public $rootChannels;
 	public $channelArrayTree;
-	public $attachAsset;
 	
 	public function init()
 	{
@@ -48,12 +47,11 @@ class BaseView extends View
 			$this->channelArrayTree=Channel::getChannelArrayTree();
 		}
 		
-		$this->attachAsset=AttachmentAsset::register($this);
 	}
 	
 	public function attachment($url)
 	{
-		echo $this->attachAsset->baseUrl.'/'.$url;
+		echo 'data/attachment/'.$url;
 	}
 	
 	public function beginInhritLayout($viewFile, $params = [],$blocks=[])

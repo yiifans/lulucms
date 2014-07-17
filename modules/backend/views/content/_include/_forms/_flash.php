@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\includes\FieldUtility;
 
 ?>
 
-<?php echo $field->getFlashForm($value);?>
+<?php echo FieldUtility::flashForm($field,$value);?>

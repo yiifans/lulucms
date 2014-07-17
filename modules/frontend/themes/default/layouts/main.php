@@ -2,10 +2,11 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
+use components\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use components\widgets\Alert;
 use frontend\assets\ThemeAsset;
+use yii\helpers\Url;
 
 /**
  * @var \yii\web\View $this
@@ -37,6 +38,7 @@ ThemeAsset::register($this);
 					} else {
 						echo Html::a('退出 (' . Yii::$app->user->identity->username .')',['/site/logout']);
 					}
+					echo Html::a('后台','@web/admin.php',['target'=>'_blank']);
 				?>
 			</div>		
 		</div>
@@ -67,6 +69,7 @@ ThemeAsset::register($this);
 							}
 						}
 					?>
+					<li><a href="<?php echo Url::to(['page/detail','id'=>1])?>">关于</a></li>
 				</ul>
 			</div>
 		</div>

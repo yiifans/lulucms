@@ -10,7 +10,7 @@ use yii\widgets\LinkPager;
  * @var app\models\search\CatalogSearch $searchModel
  */
 
-$this->title = '内容管理('.$currentChannel->name.')';
+$this->title = '内容管理('.$currentChannel->name.':'.$currentChannel->id.')';
 $this->addBreadcrumb($this->title);
 
 ?>

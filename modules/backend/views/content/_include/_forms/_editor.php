@@ -3,10 +3,11 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\web\View;
+use common\includes\FieldUtility;
 
-$this->registerCssFile('libs/kindeditor/themes/default/default.css');
-$this->registerJsFile('libs/kindeditor/kindeditor-min.js');
-$this->registerJsFile('libs/kindeditor/lang/zh_CN.js');
+$this->registerCssFile('static/common/libs/kindeditor/themes/default/default.css');
+$this->registerJsFile('static/common/libs/kindeditor/kindeditor-min.js');
+$this->registerJsFile('static/common/libs/kindeditor/lang/zh_CN.js');
 
 $js=<<<JS
 			var editor;
@@ -21,4 +22,4 @@ $this->registerJs($js,View::POS_END);
 
 ?>
 
-<?php echo $field->getEditorForm($value,true);?>
+<?php echo FieldUtility::editorForm($field,$value);?>

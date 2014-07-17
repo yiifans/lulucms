@@ -24,7 +24,9 @@ use components\base\BaseAction;
 use backend\base\BaseBacAction;
 use backend\base\BaseBackAction;
 use components\helpers\TFileHelper;
-use common\includes\ContentUtility;
+use common\includes\CommonUtility;
+use yii\web\UploadedFile;
+use components\helpers\TStringHelper;
 
 /**
  * ChannelController implements the CRUD actions for Channel model.
@@ -54,8 +56,23 @@ class ContentAction extends BaseBackAction
 		$model->user_name='admin';
 		$model->publish_time=TTimeHelper::getCurrentTime();
 		$model->modify_time=TTimeHelper::getCurrentTime();
-		$model->title_format=ContentUtility::getFormatValue($model->title_format);
-		$model->flag=ContentUtility::getFlatValue($model->flag);
+		$model->title_format=CommonUtility::getFormatValue($model->title_format);
+		$model->flag=CommonUtility::getFlatValue($model->flag);
+		
+		$uploadedFile = CommonUtility::uploadFile('Content[title_pic]');
+		if($uploadedFile!=null)
+		{
+			$model->title_pic=$uploadedFile['url'].$uploadedFile['new_name'];
+		}
+		
+		if($model->title_pic==null||empty($model->title_pic))
+		{
+			$model->is_pic=0;
+		}
+		else
+		{
+			$model->is_pic=1;
+		}
 		
 		if($model->views==null)
 		{
@@ -64,6 +81,13 @@ class ContentAction extends BaseBackAction
 		if($model->commonts==null)
 		{
 			$model->commonts=0;
+		}
+		if($model->summary==null||empty($model->summary))
+		{
+			$content = strip_tags($model->content);
+			$pattern = '/\s/';//去除空白
+			$content = preg_replace($pattern, '', $content);
+			$model->summary=TStringHelper::subStr($content,250);
 		}
 		
 		$command = LuLu::createCommand();

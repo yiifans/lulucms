@@ -43,11 +43,9 @@ class ChannelAction extends ContentAction
 	
 		$locals=[];
 		$locals['dataList']=$dataList;
-		$locals['att1DataList']=DataSource::getContentByChannel($chnid,['limit'=>10,'where'=>'att1=1']);
-		$locals['att2DataList']=DataSource::getContentByChannel($chnid,['limit'=>10,'where'=>'att2=1']);
-		$locals['att3DataList']=DataSource::getContentByChannel($chnid,['limit'=>10,'where'=>'att3=1']);
-		$locals['currentChannel']=$channelModel;
 		$locals['chnid']=$chnid;
+		$locals['currentChannel']=$channelModel;
+		$locals['currentModel']=$channelModel['table'];
 		
 		$channelTpl=$this->getTpl($chnid, 'channel');
 		

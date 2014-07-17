@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use components\helpers\TTimeHelper;
+use common\includes\UrlUtility;
 
 
 ?>
-<li><?php echo $this->getContentUrl($row);?></li>
+<li><?php echo UrlUtility::getContentLink($row);?></li>

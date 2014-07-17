@@ -9,9 +9,11 @@ $this->title = 'My Yii Application';
 	<div class="jumbotron">
 		<h1>Congratulations!</h1>
 
-		<p class="lead">You have successfully created your Yii-powered application.</p>
+		<p class="lead">Welcome to LuLu CMS</p>
 
-		<p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+		<p><a href="http://www.yiifans.com">Yii Fans</a></p>
+		
+		<p>QQ Group:308110659</p>
 	</div>
 
 </div>

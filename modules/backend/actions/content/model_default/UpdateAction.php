@@ -23,6 +23,7 @@ use components\helpers\TTimeHelper;
 use components\base\BaseAction;
 use backend\actions\content\ContentAction;
 
+
 /**
  * ChannelController implements the CRUD actions for Channel model.
  */
@@ -40,9 +41,10 @@ class UpdateAction extends ContentAction
 		$model->setIsNewRecord(false);
 		$model->attributes = $attValues;
 	
-		
 		if ($model->load($_POST)) {
 				
+
+			
 			$this->saveContent($model);
 				
 			return $this->redirect(['index', 'chnid' => $chnid]);

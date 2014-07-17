@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use components\LuLu;
-use common\includes\CommonData;
+use common\includes\CommonUtility;
 
 /**
  * @var yii\web\View $this
@@ -31,7 +31,7 @@ use common\includes\CommonData;
     
     <?= $form->field($model, 'is_cache')->checkbox([],false) ?>
 
-    <?= $form->field($model, 'data_type')->dropDownList(CommonData::getDataType()) ?>
+    <?= $form->field($model, 'data_type')->dropDownList(CommonUtility::getDataType()) ?>
 
 	<?= $form->field($model, 'sort_num')->textInput() ?>
 	

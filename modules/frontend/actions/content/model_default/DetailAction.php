@@ -40,8 +40,9 @@ class DetailAction extends ContentAction
 		
 		$locals=[];
 		$locals['model']=$model;
-		$locals['currentChannel']=$channelModel;
 		$locals['chnid']=$chnid;
+		$locals['currentChannel']=$channelModel;
+		$locals['currentModel']=$channelModel['table'];
 		
 		$detailTpl=$this->getTpl($chnid, 'detail');
 		

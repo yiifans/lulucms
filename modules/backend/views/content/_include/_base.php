@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\web\View;
 use common\models\config\Config;
-use common\includes\ContentUtility;
+use common\includes\CommonUtility;
 
 /**
  * @var yii\web\View $this
@@ -12,12 +12,12 @@ use common\includes\ContentUtility;
  * @var yii\widgets\ActiveForm $form
  */
 
+$this->registerJsFile('static/common/js/common.js');
 
+$formatArray=CommonUtility::getTitleFormat();
+$formatValueArray = CommonUtility::getTitleFormatArray($model);
 
-$formatArray=ContentUtility::$format;
-$formatValueArray = ContentUtility::getArrayFormat($model);
-
-$contentFlags=ContentUtility::getFlags();
+$contentFlags=CommonUtility::getFlag();
 
 $att1Lable=Config::getValue('content_att1_label','属性1');
 $att1Array=Config::getContentAtt('content_att1_name');
@@ -27,6 +27,7 @@ $att2Array=Config::getContentAtt('content_att2_name');
 
 $att3Lable=Config::getValue('content_att3_label','属性3');
 $att3Array=Config::getContentAtt('content_att3_name');
+
 
 ?>
     <input type="hidden" id="content-channel_id" class="form-control" name="Content[channel_id]" value="<?= $chnid ?>">
@@ -41,15 +42,19 @@ $att3Array=Config::getContentAtt('content_att3_name');
 				foreach ($formatArray as $value=>$label)
 				{
 					$checked='';
-					if(in_array($value,$formatValueArray))
+					foreach ($formatValueArray as $index=>$tempValue)
 					{
-						$checked=' checked';
-						unset($formatValueArray[$value]);
+						if($value==$tempValue)
+						{
+							$checked=' checked';
+							unset($formatValueArray[$index]);
+							break;
+						}
 					}
 			?>
-				<label><input type="checkbox" name="Content[title_format][]" id="content-title_format_<?= $value ?>" value="<?= $value ?>" <?php echo $checked?>><?= $label ?></label>
+				<label style="margin-bottom:0px;"><input type="checkbox" name="Content[title_format][]" class="form-control" style="display: inline-block; width:20px; margin:0px;" id="content-title_format_<?= $value ?>" value="<?= $value ?>" <?php echo $checked?>><?= $label ?></label>
 			<?php }?>
-			<input name="Content[title_format][]" id="content-title_format_c" style="width:40px;" value="<?php echo end($formatValueArray);?>"/>
+			<input name="Content[title_format][]" id="content-title_format_c" class="form-control" style="display: inline-block;width:40px;" value="<?php echo end($formatValueArray);?>"/>
 			<label for="content_title_format_c" class="lb">颜色</label>
 			<?php echo $model->title_format?>
 		</td>
@@ -62,13 +67,13 @@ $att3Array=Config::getContentAtt('content_att3_name');
 		</td>
 		<td>
 			<label class="control-label" for="content-att1"><?php echo $att1Lable?></label>:
-			<?= Html::dropDownList('Content[att1]',$model->att1,$att1Array) ?>
+			<?= Html::dropDownList('Content[att1]',$model->att1,$att1Array,['class'=>'form-control','style'=>'width:120px;display: inline;']) ?>
 			
 			<label class="control-label" for="content-att2"><?php echo $att2Lable?></label>:
-			<?= Html::dropDownList('Content[att2]',$model->att2,$att2Array) ?>
+			<?= Html::dropDownList('Content[att2]',$model->att2,$att2Array,['class'=>'form-control','style'=>'width:120px;display: inline;']) ?>
 			
 			<label class="control-label" for="commoncontent-att3"><?php echo $att3Lable?></label>:
-			<?= Html::dropDownList('Content[att3]',$model->att3,$att3Array) ?>
+			<?= Html::dropDownList('Content[att3]',$model->att3,$att3Array,['class'=>'form-control','style'=>'width:120px;display: inline;']) ?>
 		</td>
 		<td><div class="help-block"></div></td>
 	</tr>
@@ -79,15 +84,26 @@ $att3Array=Config::getContentAtt('content_att3_name');
 		<td>
 			<input type="hidden" name="Content[flag]" value="0" />
 			<?php foreach ($contentFlags as $flag):?>
-			<label><input type="checkbox" name="Content[flag][]" id="commoncontent-flag_<?= $flag['value'] ?>" value="<?= $flag['value'] ?>"<?php if($model->flag&$flag['value']) echo 'checked';?>><?= $flag['name'] ?></label>
+			<label style="margin-bottom:0px;"><input class="form-control" style="display: inline-block; width:20px; margin:0px;" type="checkbox" name="Content[flag][]" id="commoncontent-flag_<?= $flag['value'] ?>" value="<?= $flag['value'] ?>"<?php if($model->flag&$flag['value']) echo 'checked';?>><?= $flag['name'] ?></label>
 			<?php endforeach;?>
 		</td>
 		<td><div class="help-block"></div></td>
 	</tr>
 
-    <?= $form->field($model, 'status')->dropDownList(ContentUtility::$status) ?>
+    <?= $form->field($model, 'status')->dropDownList(CommonUtility::getStatus()) ?>
 
-    <?= $form->field($model, 'title_pic')->textInput(['maxlength' => 128]) ?>
+    <tr class="form-group field-content-title_pic">
+		<td class="hAlign_right padding_r10" width="150px"><label class="control-label" for="content-title_pic">标题图片</label>:</td>
+		<td>
+			<div class="file-box">
+			<input type="text" id="content-title_pic" class="form-control" style="display: inline-block; width:500px; " name="Content[title_pic]" value="<?php echo $model['title_pic']?>" maxlength="128">
+			<input type='button' class='form-control' style="display: inline-block;width:60px;" value='浏览...' /> 
+			<input type="file" name="Content[title_pic]" class="form-control file" onchange="document.getElementById('content-title_pic').value=getPath(this);" /> 
+			</div>
+		</td>
+		<td></td><td><div class="help-block"></div></td>
+	</tr>
+
 
     <?= $form->field($model, 'redirect_url')->textInput(['maxlength' => 128]) ?>
 

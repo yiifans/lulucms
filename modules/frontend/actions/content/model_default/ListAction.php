@@ -37,9 +37,9 @@ class ListAction extends ContentAction
 		$query =DataSource::buildContentQuery($tableName,[],'channel_id='.$chnid);
 		
 		$locals=LuLu::getPagedRows($query);
-		
-		$locals['currentChannel']=$channelModel;
 		$locals['chnid']=$chnid;
+		$locals['currentChannel']=$channelModel;
+		$locals['currentModel']=$channelModel['table'];
 		
 		$listTpl=$this->getTpl($chnid, 'list');
 		

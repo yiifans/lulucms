@@ -41,7 +41,7 @@ use yii\helpers\Url;
 				<ul>
 					<li><?= Html::a('模型管理', ['define-table/index'],['target'=>'mainFrame']) ?></li>
 					<li><?= Html::a('新建模型', ['define-table/create'],['target'=>'mainFrame']) ?></li>
-					<li><?= Html::a('属性设置', ['config/content'],['target'=>'mainFrame']) ?></li>
+					<li><?= Html::a('内容属性', ['config/content'],['target'=>'mainFrame']) ?></li>
 					<li><?= Html::a('聚合标签', ['content-flag/index'],['target'=>'mainFrame']) ?></li>
 				</ul>
 			</div>

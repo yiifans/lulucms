@@ -35,18 +35,19 @@ class SiteController extends BaseFrontController
 
 	public function actionIndex()
 	{
-		$rootChannel=Channel::findAll(['parent_id'=>0]);
+		$params=[];
+// 		$rootChannel=Channel::findAll(['parent_id'=>0]);
 		
-		$dataList=[];
-		foreach ($rootChannel as $channel)
-		{
-			$dataList[$channel->id]=DataSource::getContentByChannel($channel->id,['limit'=>10,'order'=>'publish_time desc']);
-		}
+// 		$dataList=[];
+// 		foreach ($rootChannel as $channel)
+// 		{
+// 			$dataList[$channel->id]=DataSource::getContentByChannel($channel->id,['limit'=>10,'order'=>'publish_time desc']);
+// 		}
 		
-		$params['dataList']=$dataList;
-		$params['att1DataList']=DataSource::getContent(2, 'model_news',['where'=>'att1=1']);
-		$params['att2DataList']=DataSource::getContent(2, 'model_news',['where'=>'att2=1']);
-		$params['att3DataList']=DataSource::getContent(2, 'model_news',['where'=>'att3=1']);
+// 		$params['dataList']=$dataList;
+// 		$params['att1DataList']=DataSource::getContentByTable('model_news',['where'=>'att1=1']);
+// 		$params['att2DataList']=DataSource::getContentByTable('model_news',['where'=>'att2=1']);
+// 		$params['att3DataList']=DataSource::getContentByTable('model_news',['where'=>'att3=1']);
 		
 		return $this->render('index_',$params);
 	}

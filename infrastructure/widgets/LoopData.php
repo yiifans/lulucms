@@ -25,6 +25,8 @@ class LoopData extends BaseWidget
 	public $itemsTag = '{items}';
 	public $itemsContainer = null;
 	
+	public $length=0;
+	
 	public $params = [];
 
 	/**
@@ -58,11 +60,6 @@ class LoopData extends BaseWidget
 			echo $this->header;
 		}
 		
-		if(!isset($this->params['length']))
-		{
-			$this->params['length']=0;
-		}
-		
 		$ret = '';
 		
 		if(!empty($this->item))
@@ -85,6 +82,9 @@ class LoopData extends BaseWidget
 			$index=-1;
 			$isFirst=false;
 			$isLast=false;
+			
+			$this->params['count']=$count;
+			$this->params['length']=$this->length;
 			
 			foreach ($this->dataSource as $id => $row)
 			{
@@ -109,7 +109,6 @@ class LoopData extends BaseWidget
 					
 				$this->params['id']=$id;
 				$this->params['row']=$row;
-				$this->params['count']=$count;
 				$this->params['index']=$index;
 				$this->params['isFirst']=$isFirst;
 				$this->params['isLast']=$isLast;

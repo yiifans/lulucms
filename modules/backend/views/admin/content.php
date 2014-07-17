@@ -30,7 +30,7 @@ function getBlankPrefix($count)
 							$txt='';
 							if($channel['is_leaf'])
 							{
-								$txt = '<a href="index.php?r=content/index&chnid='.$channel['id'].'" target="mainFrame">'.$channel['name'].'</a>';
+								$txt = '<a href="admin.php?r=content/index&chnid='.$channel['id'].'" target="mainFrame">'.$channel['name'].'</a>';
 							}
 							else 
 							{
@@ -45,15 +45,7 @@ function getBlankPrefix($count)
 				</ul>
 			</div>
 		</div>
-		<div class="tbox">
-			<div class="hd"><h2>页面管理</h2></div>
-			<div class="bd">
-				<ul>
-					<li><?= Html::a('增加页面', ['page/create'],['target'=>'mainFrame']) ?></li>
-					<li><?= Html::a('页面管理', ['page/index'],['target'=>'mainFrame']) ?></li>
-				</ul>
-			</div>
-		</div>
+		
 
 
 

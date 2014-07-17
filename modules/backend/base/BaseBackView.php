@@ -31,6 +31,13 @@ class BaseBackView extends BaseView
 		];
 	}
 	
+	public function getDefaultFieldConfig2()
+	{
+		return [
+		'options' => ['tag' => 'tr','class' => 'form-group'],
+		'template' => '<td class="hAlign_left padding_r10" width="150">{label}:</td><td width="750">{input}</td><td>{hint}{error}</td>',
+		];
+	}
 
 	public function echoButtons($model)
 	{

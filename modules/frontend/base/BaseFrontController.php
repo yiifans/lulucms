@@ -43,8 +43,8 @@ class BaseFrontController extends BaseController
 		
 		if(parent::beforeAction($action))
 		{
-			$this->rootChannelList=Channel::findAll(['parent_id'=>0]);
 			$this->cachedChannels=\Yii::$app->params['cachedChannels'];
+			$this->rootChannelList=Channel::getRootChannels();
 			$channelArrayTree=Channel::getChannelArrayTree();
 			
 			LuLu::setViewParam([
@@ -61,52 +61,52 @@ class BaseFrontController extends BaseController
 		return false;
 	}
 	
-	public function getTpl($chnId,$tplType)
-	{
-		$ret='';
+// 	public function getTpl($chnId,$tplType)
+// 	{
+// 		$ret='';
 		
-		$frontend = \Yii::getAlias('@frontend');
+// 		$frontend = \Yii::getAlias('@frontend');
 		
-		$channelModel=$this->cachedChannels[$chnId];
+// 		$channelModel=$this->cachedChannels[$chnId];
 	
-		$table = $channelModel['table'];
-		$tplName = $channelModel[$tplType.'_tpl'];
+// 		$table = $channelModel['table'];
+// 		$tplName = $channelModel[$tplType.'_tpl'];
 		
-		if(TFileHelper::exist([$frontend,'views','content', $table,$tplName]))
-		{
-			$ret = TFileHelper::buildPath([$table,$tplName],false);
-		}
-		else 
-		{
-			$ret = TFileHelper::buildPath(['model_default',$tplType.'_default'],false);
-		}
-		LuLu::info($table.$ret);
-		return $ret;
-	}
+// 		if(TFileHelper::exist([$frontend,'views','content', $table,$tplName]))
+// 		{
+// 			$ret = TFileHelper::buildPath([$table,$tplName],false);
+// 		}
+// 		else 
+// 		{
+// 			$ret = TFileHelper::buildPath(['model_default',$tplType.'_default'],false);
+// 		}
+// 		LuLu::info($table.$ret);
+// 		return $ret;
+// 	}
 	
-	public function getChannelTpl($chnId)
-	{
-		return $this->getTpl($chnId, 'channel');
-	}
+// 	public function getChannelTpl($chnId)
+// 	{
+// 		return $this->getTpl($chnId, 'channel');
+// 	}
 	
-	public function getListTpl($chnId)
-	{
-		return $this->getTpl($chnId, 'list');
-	}
+// 	public function getListTpl($chnId)
+// 	{
+// 		return $this->getTpl($chnId, 'list');
+// 	}
 	
-	public function getDetailTpl($chnId)
-	{
-		return $this->getTpl($chnId, 'detail');
-	}
+// 	public function getDetailTpl($chnId)
+// 	{
+// 		return $this->getTpl($chnId, 'detail');
+// 	}
 	
-	public function getFormTpl($chnId,$isCreateForm=true)
-	{
-		if($isCreateForm)
-		{
-			return $this->getTpl($chnId, 'create');
-		}
-		return $this->getTpl($chnId, 'update');
-	}
+// 	public function getFormTpl($chnId,$isCreateForm=true)
+// 	{
+// 		if($isCreateForm)
+// 		{
+// 			return $this->getTpl($chnId, 'create');
+// 		}
+// 		return $this->getTpl($chnId, 'update');
+// 	}
 	
 	
 	

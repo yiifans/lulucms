@@ -60,54 +60,17 @@ class BaseFrontView extends BaseView
 		return $cachedChannels;
 	}
 
-	public function getChannelUrl($id,$options=[])
+	public function setTitle($title,$append=true)
 	{
-		$cachedChannels = LuLu::getAppParam('cachedChannels');
-		$channel = $cachedChannels[$id];
-				
-		$actionId = $channel['is_leaf']? 'list' : 'channel';
-		
-		if($options===false)
+		$this->title=$title;
+		if($append===true)
 		{
-			return Url::to(['content/'.$actionId,'chnid'=>$id]);
+			$this->title.=' —— LuLu CMS';
 		}
-		
-		if(isset($options['title']))
+		else if(is_string($append))
 		{
-			$title = $options['title'];
-			unset($options['title']);
+			$this->title.=$append;
 		}
-		else
-		{
-			$title = $channel['name'];
-		}
-		
-		return Html::a($title,['content/'.$actionId,'chnid'=>$id],$options);
-		
-	}
-	public function getContentUrl($row,$length=0,$options=[])
-	{
-		if($options===false)
-		{
-			return Url::to(['content/detail','id'=>$row['id'],'chnid'=>$row['channel_id']]);
-		}
-		
-		if(isset($options['title']))
-		{
-			$title = $options['title'];
-			unset($options['title']);
-		}
-		else 
-		{
-			$title = $row['title'];
-		}
-		
-		if($length>1)
-		{
-			$title=TStringHelper::subStr($title,$length);
-		}
-		
-		return Html::a($title,['content/detail','id'=>$row['id'],'chnid'=>$row['channel_id']],$options);
 	}
 	public function buildBreadcrumbs($chnid)
 	{

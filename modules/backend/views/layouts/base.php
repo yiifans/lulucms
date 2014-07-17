@@ -40,10 +40,11 @@ AppAsset::register($this);
 		];
 		
 		if (Yii::$app->user->isGuest) {
-			$menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+			$menuItems[] = ['label' => '登录', 'url' => ['/site/login']];
 		} else {
-			$menuItems[] = ['label' => 'Logout (' . Yii::$app->user->identity->username .')' , 'url' => ['/site/logout']];
+			$menuItems[] = ['label' => '退出 (' . Yii::$app->user->identity->username .')' , 'url' => ['/site/logout']];
 		}
+		$menuItems[] = ['label' => '前台', 'url' => '@web/index.php'];
 		echo Nav::widget([
 				'options' => ['class' => 'navbar-nav navbar-right'],
 				'items' => $menuItems,
