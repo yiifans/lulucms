@@ -1,7 +1,7 @@
 {
-	"name": "yiisoft/yii2-app-basic",
-	"description": "Yii 2 Basic Application Template",
-	"keywords": ["yii2", "framework", "basic", "application template"],
+	"name": "yiisoft/yii2-app-advanced",
+	"description": "Yii 2 Advanced Application Template",
+	"keywords": ["yii2", "framework", "advanced", "application template"],
 	"homepage": "http://www.yiiframework.com/",
 	"type": "project",
 	"license": "BSD-3-Clause",
@@ -27,7 +27,8 @@
 	"suggest": {
 		"codeception/codeception": "Codeception, 1.8.*@dev is currently works well with Yii.",
 		"codeception/specify": "BDD style code blocks for PHPUnit and Codeception",
-		"codeception/verify": "BDD Assertions for PHPUnit and Codeception"
+		"codeception/verify": "BDD Assertions for PHPUnit and Codeception",
+		"yiisoft/yii2-faker": "Fixtures generator for Yii2 based on Faker lib"
 	},
 	"scripts": {
 		"post-create-project-cmd": [
@@ -39,11 +40,14 @@
 	},
 	"extra": {
 		"writable": [
-			"runtime",
-			"web/assets"
-		],
-		"executable": [
-			"yii"
+			"backend/runtime",
+			"backend/web/assets",
+
+			"console/runtime",
+			"console/migrations",
+
+			"frontend/runtime",
+			"frontend/web/assets"
 		]
 	}
 }
