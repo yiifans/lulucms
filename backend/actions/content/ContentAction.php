@@ -110,11 +110,7 @@ class ContentAction extends BaseBackAction
 		return LuLu::createCommand($sql)->queryOne();
 	}
 	
-	protected function updateViews($id)
-	{
-		$sql ='update '.$this->currentTableName.' set views=views+1 where id='.$id;
-		LuLu::execute($sql);
-	}
+
 	
 	public function getTpl($chnId,$tplName)
 	{

@@ -3,7 +3,6 @@
 namespace frontend\actions\content\model_default;
 
 use Yii;
-
 use common\models\search\ChannelSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -21,7 +20,7 @@ use common\models\DefineTableField;
 use common\contentmodels\CommonContent;
 use components\helpers\TTimeHelper;
 use components\base\BaseAction;
-use backend\actions\content\ContentAction;
+use frontend\actions\content\ContentAction;
 use common\includes\DataSource;
 
 /**
@@ -29,27 +28,32 @@ use common\includes\DataSource;
  */
 class ChannelAction extends ContentAction
 {
-	public function run($chnid=0)
+
+	public function run($chnid = 0)
 	{
-		$channelModel=Channel::findOne($chnid);
+		$currentChannel = $this->getChannel($chnid);
 		
-		$childChannelList=Channel::findAll(['parent_id'=>$chnid]);
+		$childChannels = $this->getChildChannels($chnid);
 		
-		$dataList=[];
-		foreach ($childChannelList as $channel)
+		$dataList = [];
+		foreach($childChannels as $channel)
 		{
-			$dataList[$channel->id]=DataSource::getContentByChannel($channel->id,['limit'=>5]);
+			$dataList[$channel['id']] = DataSource::getContentByChannel($channel['id'], ['limit' => 5]);
 		}
-	
-		$locals=[];
-		$locals['dataList']=$dataList;
-		$locals['chnid']=$chnid;
-		$locals['currentChannel']=$channelModel;
-		$locals['currentModel']=$channelModel['table'];
 		
-		$channelTpl=$this->getTpl($chnid, 'channel');
+		$locals = [];
+		$locals['dataList'] = $dataList;
+		$locals['chnid'] = $chnid;
+		$locals['currentChannel'] = $currentChannel;
+		$locals['currentModel'] = $currentChannel['table'];
+		
+		$view = LuLu::getView();
+		$view->setTitle(empty($currentChannel['seo_title']) ? $currentChannel['name'] : $currentChannel['seo_title']);
+		$view->setMetaTag('keywords', $currentChannel['seo_keywords']);
+		$view->setMetaTag('description', $currentChannel['seo_description']);
+		
+		$channelTpl = $this->getTpl($chnid, 'channel_tpl');
 		
 		return $this->render($channelTpl, $locals);
 	}
-	
 }

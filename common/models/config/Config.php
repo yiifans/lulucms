@@ -8,11 +8,10 @@ use components\helpers\TStringHelper;
 /**
  * This is the model class for table "yii_config".
  *
+ * @property string $id
  * @property string $scope
- * @property string $variable
- * @property string $name
  * @property string $value
- * @property string $description
+ * @property string $node
  */
 class Config extends \components\base\BaseActiveRecord
 {
@@ -30,11 +29,11 @@ class Config extends \components\base\BaseActiveRecord
     public function rules()
     {
         return [
-            [['scope', 'variable', 'name'], 'required'],
-            [['scope', 'variable', 'name'], 'string', 'max' => 64],
+            [['scope', 'id'], 'required'],
+            [['scope', 'id'], 'string', 'max' => 64],
             [['value'], 'string', 'max' => 1024],
-            [['description'], 'string', 'max' => 256],
-            [['variable'], 'unique']
+            [['note'], 'string', 'max' => 256],
+            [['id'], 'unique']
         ];
     }
 
@@ -45,22 +44,21 @@ class Config extends \components\base\BaseActiveRecord
     {
         return [
         	'scope' => 'Scope',
-            'variable' => '变量名',
-            'name' => '名称',
+            'id' => '变量名',
             'value' => '值',
-            'description' => '描述',
+            'note' => '备注',
         ];
     }
     
     
     public static function getModel($id)
     {
-    	return Config::findOne(['variable'=>$id]);
+    	return Config::findOne(['id'=>$id]);
     }
     
     public static function getValue($id,$defaultValue='')
     {
-    	$model = Config::findOne(['variable'=>$id]);
+    	$model = Config::findOne(['id'=>$id]);
     	
     	if($model==null||empty($model['value']))
     	{

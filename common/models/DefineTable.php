@@ -11,10 +11,9 @@ use components\LuLu;
 /**
  * This is the model class for table "yii_define_table".
  *
+ * @property string $id
  * @property string $name
- * @property string $name_en
- * @property string $description
- * @property integer $is_default
+ * @property boolean $is_default
  * @property boolean $back_action_index
  * @property boolean $back_action_create
  * @property boolean $back_action_update
@@ -49,12 +48,12 @@ class DefineTable extends BaseActiveRecord
     public function rules()
     {
         return [
-            [['name', 'name_en'], 'required'],
-            [['is_default'], 'integer'],
-            [['name', 'name_en', 'description', 'note'], 'string', 'max' => 80],
-            [['back_action_index', 'back_action_create', 'back_action_update', 'back_action_delete', 'back_action_other', 'front_action_channel', 'front_action_list', 'front_action_detail','front_action_search',  'front_action_index', 'front_action_create', 'front_action_update', 'front_action_delete', 'front_action_other'], 'boolean'],
+            [['name', 'id'], 'required'],
+            [['name', 'id'], 'string', 'max' => 64],
+            [['note'], 'string', 'max' => 80],
+            [['is_default', 'back_action_index', 'back_action_create', 'back_action_update', 'back_action_delete', 'back_action_other', 'front_action_channel', 'front_action_list', 'front_action_detail','front_action_search',  'front_action_index', 'front_action_create', 'front_action_update', 'front_action_delete', 'front_action_other'], 'boolean'],
             [['back_action_custom', 'front_action_custom'], 'string', 'max' => 512],
-            [['name_en'], 'unique']
+            [['id'], 'unique']
         ];
     }
 
@@ -64,9 +63,8 @@ class DefineTable extends BaseActiveRecord
 	public function attributeLabels()
 	{
 		return [
-			'name_en' => '标识',
+			'id' => '标识',
 			'name' => '名称',
-			'description' => '简介',
 			'is_default' => '默认表',
             'back_action_index' => '管理信息Action',
             'back_action_create' => '添加信息Action',
@@ -88,7 +86,18 @@ class DefineTable extends BaseActiveRecord
 		];
 	}
 	
-	
+	public function beforeSave($insert)
+	{
+		if(parent::beforeSave($insert))
+		{
+			if($this->is_default)
+			{
+				DefineTable::updateAll(['is_default'=>0]);
+			}
+			return true;
+		}
+		return false;
+	}
 	
 	public function getBackActions()
 	{
@@ -101,7 +110,7 @@ class DefineTable extends BaseActiveRecord
 	
 	private static function getActionItem($table,$type,$actionId,$action)
 	{
-		$tableName  =$table['name_en'];
+		$tableName  =$table['id'];
 		
 		if($table[$type.'_action_'.$actionId])
 		{
@@ -117,7 +126,7 @@ class DefineTable extends BaseActiveRecord
 	{
 		$ret = [];
 		
-		$tableName  =$table['name_en'];
+		$tableName  =$table['id'];
 		
 		$ret['index'] = DefineTable::getActionItem($table,$type,'index','IndexAction');
 		$ret['create'] = DefineTable::getActionItem($table,$type,'create','CreateAction');

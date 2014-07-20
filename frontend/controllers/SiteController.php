@@ -12,14 +12,11 @@ use yii\helpers\Security;
 use common\models\Channel;
 use components\LuLu;
 use frontend\base\BaseFrontController;
-
 use frontend\models\SignupForm;
 use common\includes\DataSource;
 
 class SiteController extends BaseFrontController
 {
-
-
 	public function actions()
 	{
 		return [
@@ -35,37 +32,26 @@ class SiteController extends BaseFrontController
 
 	public function actionIndex()
 	{
-		$params=[];
-// 		$rootChannel=Channel::findAll(['parent_id'=>0]);
+		$params = [];
 		
-// 		$dataList=[];
-// 		foreach ($rootChannel as $channel)
-// 		{
-// 			$dataList[$channel->id]=DataSource::getContentByChannel($channel->id,['limit'=>10,'order'=>'publish_time desc']);
-// 		}
-		
-// 		$params['dataList']=$dataList;
-// 		$params['att1DataList']=DataSource::getContentByTable('model_news',['where'=>'att1=1']);
-// 		$params['att2DataList']=DataSource::getContentByTable('model_news',['where'=>'att2=1']);
-// 		$params['att3DataList']=DataSource::getContentByTable('model_news',['where'=>'att3=1']);
-		
-		return $this->render('index_',$params);
+		return $this->render('index_', $params);
 	}
 
-	
 	public function actionLogin()
 	{
-		if (!\Yii::$app->user->isGuest) {
+		if(! \Yii::$app->user->isGuest)
+		{
 			$this->goHome();
 		}
-
+		
 		$model = new LoginForm();
-		if ($model->load($_POST) && $model->login()) {
+		if($model->load($_POST) && $model->login())
+		{
 			return $this->goBack();
-		} else {
-			return $this->render('login', [
-				'model' => $model,
-			]);
+		}
+		else
+		{
+			return $this->render('login', ['model' => $model]);
 		}
 	}
 
@@ -77,14 +63,15 @@ class SiteController extends BaseFrontController
 
 	public function actionContact()
 	{
-		$model = new ContactForm;
-		if ($model->load($_POST) && $model->contact(Yii::$app->params['adminEmail'])) {
+		$model = new ContactForm();
+		if($model->load($_POST) && $model->contact(Yii::$app->params['adminEmail']))
+		{
 			Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
 			return $this->refresh();
-		} else {
-			return $this->render('contact', [
-				'model' => $model,
-			]);
+		}
+		else
+		{
+			return $this->render('contact', ['model' => $model]);
 		}
 	}
 
@@ -96,83 +83,74 @@ class SiteController extends BaseFrontController
 	public function actionSignup()
 	{
 		$model = new SignupForm();
-		if ($model->load(Yii::$app->request->post()))
+		if($model->load(Yii::$app->request->post()))
 		{
 			$user = $model->signup();
-			if ($user)
+			if($user)
 			{
-				if (Yii::$app->getUser()->login($user))
+				if(Yii::$app->getUser()->login($user))
 				{
 					return $this->goHome();
 				}
 			}
 		}
 		
-		return $this->render('signup', 
-				[
-						'model' => $model
-				]);
+		return $this->render('signup', ['model' => $model]);
 	}
 
 	public function actionRequestPasswordReset()
 	{
 		$model = new User();
 		$model->scenario = 'requestPasswordResetToken';
-		if ($model->load($_POST) && $model->validate()) {
-			if ($this->sendPasswordResetEmail($model->email)) {
+		if($model->load($_POST) && $model->validate())
+		{
+			if($this->sendPasswordResetEmail($model->email))
+			{
 				Yii::$app->getSession()->setFlash('success', 'Check your email for further instructions.');
 				return $this->goHome();
-			} else {
+			}
+			else
+			{
 				Yii::$app->getSession()->setFlash('error', 'There was an error sending email.');
 			}
 		}
-		return $this->render('requestPasswordResetToken', [
-			'model' => $model,
-		]);
+		return $this->render('requestPasswordResetToken', ['model' => $model]);
 	}
 
 	public function actionResetPassword($token)
 	{
-		$model = User::find([
-			'password_reset_token' => $token,
-			'status' => User::STATUS_ACTIVE,
-		]);
-
-		if (!$model) {
+		$model = User::find(['password_reset_token' => $token, 'status' => User::STATUS_ACTIVE]);
+		
+		if(! $model)
+		{
 			throw new BadRequestHttpException('Wrong password reset token.');
 		}
-
+		
 		$model->scenario = 'resetPassword';
-		if ($model->load($_POST) && $model->save()) {
+		if($model->load($_POST) && $model->save())
+		{
 			Yii::$app->getSession()->setFlash('success', 'New password was saved.');
 			return $this->goHome();
 		}
-
-		return $this->render('resetPassword', [
-			'model' => $model,
-		]);
+		
+		return $this->render('resetPassword', ['model' => $model]);
 	}
 
 	private function sendPasswordResetEmail($email)
 	{
-		$user = User::find([
-			'status' => User::STATUS_ACTIVE,
-			'email' => $email,
-		]);
-
-		if (!$user) {
+		$user = User::find(['status' => User::STATUS_ACTIVE, 'email' => $email]);
+		
+		if(! $user)
+		{
 			return false;
 		}
-
+		
 		$user->password_reset_token = Security::generateRandomKey();
-		if ($user->save(false)) {
-			return \Yii::$app->mail->compose('passwordResetToken', ['user' => $user])
-				->setFrom([\Yii::$app->params['supportEmail'] => \Yii::$app->name . ' robot'])
-				->setTo($email)
-				->setSubject('Password reset for ' . \Yii::$app->name)
-				->send();
+		if($user->save(false))
+		{
+			return \Yii::$app->mail->compose('passwordResetToken', ['user' => $user])->setFrom([\Yii::$app->params['supportEmail'] => \Yii::$app->name . ' robot'])->setTo($email)->setSubject('Password reset for ' . \Yii::$app->name)->send();
 		}
-
+		
 		return false;
 	}
 }

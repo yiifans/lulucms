@@ -21,49 +21,49 @@ $this->addBreadcrumb($this->title);
 	<div class="define-table-form">
 
 	    <?php $form = ActiveForm::begin([
-			'fieldConfig' => $this->getDefaultFieldConfig(),
+				'fieldConfig' => $this->getDefaultFieldConfig(),
 	    ]); ?>
 			<table class="table">
-			   <?= $form->field($model, 'name_en')->textInput(['maxlength' => 80,'disabled'=>'disabled']) ?>
+			   <?= $form->field($model, 'id')->textInput(['maxlength' => 80,'disabled'=>'disabled']) ?>
 			
 				<tr>
-					<td colspan="4">后台Action设置</td>
+					<td colspan="3"><label>后台Action设置</label></td>
 				</tr>
 		
-			    <?= $form->field($model, 'back_action_index')->checkbox([],false) ?>
-			
-			    <?= $form->field($model, 'back_action_create')->checkbox([],false) ?>
-			
-			    <?= $form->field($model, 'back_action_update')->checkbox([],false) ?>
-			
-			    <?= $form->field($model, 'back_action_delete')->checkbox([],false) ?>
-			
-			    <?= $form->field($model, 'back_action_other')->checkbox([],false) ?>
+				<tr class="form-group">
+					<td class="hAlign_left padding_r10" width="120">模型Action:</td>
+					<td width="500">
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'back_action_index')?>管理</label>
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'back_action_create')?>添加</label>
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'back_action_update')?>修改</label>
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'back_action_delete')?>删除</label>
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'back_action_other')?>其它</label>
+					</td>
+					<td><div class="help-block"></div></td>
+				</tr>
 			    
 			    <?= $form->field($model, 'back_action_custom')->textarea(['rows'=>5]) ?>
 			    
 				<tr>
-					<td colspan="4">前台Action设置</td>
+					<td colspan="3"><label>前台Action设置</label></td>
 				</tr>
-			
-			    <?= $form->field($model, 'front_action_channel')->checkbox([],false) ?>
-			    
-			    <?= $form->field($model, 'front_action_list')->checkbox([],false) ?>
-			    
-			    <?= $form->field($model, 'front_action_detail')->checkbox([],false) ?>
-			    
-			    <?= $form->field($model, 'front_action_search')->checkbox([],false) ?>
-			    
-			    <?= $form->field($model, 'front_action_index')->checkbox([],false) ?>
-			
-			    <?= $form->field($model, 'front_action_create')->checkbox([],false) ?>
-			
-			    <?= $form->field($model, 'front_action_update')->checkbox([],false) ?>
-			
-			    <?= $form->field($model, 'front_action_delete')->checkbox([],false) ?>
-			
-			    <?= $form->field($model, 'front_action_other')->checkbox([],false) ?>
-			    
+			    <tr class="form-group">
+					<td class="hAlign_left padding_r10" width="120">模型Action:</td>
+					<td width="500">
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_channel')?>频道</label>
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_list')?>列表</label>
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_detail')?>内容</label>
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_search')?>搜索</label>
+						<br>
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_index')?>管理</label>
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_create')?>添加</label>
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_update')?>修改</label>
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_delete')?>删除</label>
+						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_other')?>其它</label>
+					</td>
+					<td><div class="help-block"></div></td>
+				</tr>
+				
     			<?= $form->field($model, 'front_action_custom')->textarea(['rows'=>5]) ?>
     			
     			<?php $this->echoButtons($model); ?>

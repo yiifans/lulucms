@@ -35,8 +35,8 @@ $att3Array=Config::getContentAtt('content_att3_name');
     <?= $form->field($model, 'title')->textInput(['maxlength' => 128]) ?>
   
   	<tr class="form-group field-content-title_format">
-		<td class="hAlign_right padding_r10" width="150px">
-			<label class="control-label" for="content-title_format">标题格式</label>:</td>
+		<td class="hAlign_right padding_r10">
+			<label style="font-weight:normal;" for="content-title_format">标题格式</label>:</td>
 		<td>
 			<?php 
 				foreach ($formatArray as $value=>$label)
@@ -52,39 +52,39 @@ $att3Array=Config::getContentAtt('content_att3_name');
 						}
 					}
 			?>
-				<label style="margin-bottom:0px;"><input type="checkbox" name="Content[title_format][]" class="form-control" style="display: inline-block; width:20px; margin:0px;" id="content-title_format_<?= $value ?>" value="<?= $value ?>" <?php echo $checked?>><?= $label ?></label>
+				<label class="checkbox-inline"><input type="checkbox" name="Content[title_format][]" id="content-title_format_<?= $value ?>" value="<?= $value ?>" <?php echo $checked?>><?= $label ?></label>
 			<?php }?>
-			<input name="Content[title_format][]" id="content-title_format_c" class="form-control" style="display: inline-block;width:40px;" value="<?php echo end($formatValueArray);?>"/>
-			<label for="content_title_format_c" class="lb">颜色</label>
-			<?php echo $model->title_format?>
+			<input name="Content[title_format][]" id="content-title_format_c" 
+				class="form-control" style="display: inline-block;width:80px; margin-left:10px;" value="<?php echo end($formatValueArray);?>"/>
+			<label style="font-weight:normal;" for="content_title_format_c" class="lb">颜色</label>
 		</td>
 		<td><div class="help-block"></div></td>
 	</tr>
 	
 	<tr class="form-group field-content-title_att">
-		<td class="hAlign_right padding_r10" width="150px">
-			<label class="control-label" for="content-title_pic">自定义属性</label>:
+		<td class="hAlign_right padding_r10">
+			<label style="font-weight:normal;" for="content-title_pic">自定义属性</label>:
 		</td>
 		<td>
-			<label class="control-label" for="content-att1"><?php echo $att1Lable?></label>:
+			<label style="font-weight:normal;" for="content-att1"><?php echo $att1Lable?></label>:
 			<?= Html::dropDownList('Content[att1]',$model->att1,$att1Array,['class'=>'form-control','style'=>'width:120px;display: inline;']) ?>
 			
-			<label class="control-label" for="content-att2"><?php echo $att2Lable?></label>:
+			<label style="font-weight:normal;" for="content-att2"><?php echo $att2Lable?></label>:
 			<?= Html::dropDownList('Content[att2]',$model->att2,$att2Array,['class'=>'form-control','style'=>'width:120px;display: inline;']) ?>
 			
-			<label class="control-label" for="commoncontent-att3"><?php echo $att3Lable?></label>:
+			<label style="font-weight:normal;" for="commoncontent-att3"><?php echo $att3Lable?></label>:
 			<?= Html::dropDownList('Content[att3]',$model->att3,$att3Array,['class'=>'form-control','style'=>'width:120px;display: inline;']) ?>
 		</td>
 		<td><div class="help-block"></div></td>
 	</tr>
 
 	<tr class="form-group field-content-flag">
-		<td class="hAlign_right padding_r10" width="150px">
-			<label class="control-label" for="content-flag">聚合标签</label>:</td>
+		<td class="hAlign_right padding_r10">
+			<label style="font-weight:normal;" for="content-flag">聚合标签</label>:</td>
 		<td>
 			<input type="hidden" name="Content[flag]" value="0" />
 			<?php foreach ($contentFlags as $flag):?>
-			<label style="margin-bottom:0px;"><input class="form-control" style="display: inline-block; width:20px; margin:0px;" type="checkbox" name="Content[flag][]" id="commoncontent-flag_<?= $flag['value'] ?>" value="<?= $flag['value'] ?>"<?php if($model->flag&$flag['value']) echo 'checked';?>><?= $flag['name'] ?></label>
+			<label class="checkbox-inline"><input type="checkbox" name="Content[flag][]" id="commoncontent-flag_<?= $flag['value'] ?>" value="<?= $flag['value'] ?>"<?php if($model->flag&$flag['value']) echo 'checked';?>><?= $flag['name'] ?></label>
 			<?php endforeach;?>
 		</td>
 		<td><div class="help-block"></div></td>
@@ -93,7 +93,8 @@ $att3Array=Config::getContentAtt('content_att3_name');
     <?= $form->field($model, 'status')->dropDownList(CommonUtility::getStatus()) ?>
 
     <tr class="form-group field-content-title_pic">
-		<td class="hAlign_right padding_r10" width="150px"><label class="control-label" for="content-title_pic">标题图片</label>:</td>
+		<td class="hAlign_right padding_r10" >
+			<label style="font-weight:normal;" for="content-title_pic">标题图片</label>:</td>
 		<td>
 			<div class="file-box">
 			<input type="text" id="content-title_pic" class="form-control" style="display: inline-block; width:500px; " name="Content[title_pic]" value="<?php echo $model['title_pic']?>" maxlength="128">
@@ -101,9 +102,8 @@ $att3Array=Config::getContentAtt('content_att3_name');
 			<input type="file" name="Content[title_pic]" class="form-control file" onchange="document.getElementById('content-title_pic').value=getPath(this);" /> 
 			</div>
 		</td>
-		<td></td><td><div class="help-block"></div></td>
+		<td><div class="help-block"></div></td>
 	</tr>
-
 
     <?= $form->field($model, 'redirect_url')->textInput(['maxlength' => 128]) ?>
 
@@ -111,6 +111,6 @@ $att3Array=Config::getContentAtt('content_att3_name');
 
     <?= $form->field($model, 'sub_title')->textInput(['maxlength' => 128]) ?>
 
-    <?= $form->field($model, 'summary')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'summary')->textarea(['rows' => 5]) ?>
 	
 	

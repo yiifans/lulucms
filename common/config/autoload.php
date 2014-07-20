@@ -14,6 +14,7 @@ require_once($rootDir . '/components/widgets/InhritLayout.php');
 require_once($rootDir . '/components/widgets/Alert.php');
 require_once($rootDir . '/components/widgets/LoopData.php');
 require_once($rootDir . '/components/widgets/Breadcrumbs.php');
+require_once($rootDir . '/components/widgets/KindEditor.php');
 
 require_once($rootDir . '/components/helpers/TStringHelper.php');
 require_once($rootDir . '/components/helpers/TTimeHelper.php');

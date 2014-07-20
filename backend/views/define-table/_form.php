@@ -19,13 +19,11 @@ use yii\widgets\ActiveForm;
 	    ]); ?>
 	    
 		<table class="table">
-		<?= $form->field($model, 'name_en')->textInput(['maxlength' => 80,'disabled'=>$disabled]) ?>
+		<?= $form->field($model, 'id')->textInput(['maxlength' => 80,'disabled'=>$disabled]) ?>
 
 		<?= $form->field($model, 'name')->textInput(['maxlength' => 80]) ?>
 
 		<?= $form->field($model, 'is_default')->checkBox([],false) ?>
-		
-		<?= $form->field($model, 'description')->textarea(['rows' => 3]) ?>
 		
 		<?= $form->field($model, 'note')->textarea(['rows' => 3]) ?>
 		

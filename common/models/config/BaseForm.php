@@ -8,6 +8,7 @@ use ReflectionClass;
 use components\LuLu;
 use components\base\BaseModel;
 use yii\db\Query;
+use common\includes\CacheUtility;
 
 /**
  * LoginForm is the model behind the login form.
@@ -26,46 +27,42 @@ class BaseForm extends BaseModel
 
 	public function loadModel()
 	{
-		$sql ='select * from yii_config where scope=\''.$this->scope.'\'';
-		$rows = LuLu::queryAll($sql);
+		$rows = Config::findAll(['scope'=>$this->scope]);
 		
 		foreach ($rows as $row)
 		{
-			$variable = $row['variable'];
-			$this->$variable= $row['value'];
+			$id = $row['id'];
+			$this->$id= $row['value'];
 		}
 	}
 	
-	protected function saveItem($name,$value)
+	protected function saveItem($id,$value)
 	{
-		$sql = "select * from yii_config where variable = '$name'";
-		$exist = LuLu::createCommand($sql)->queryOne();
+		$exist = Config::findOne($id);
+		
 		if($exist)
 		{
-			LuLu::createCommand()
-			->update('yii_config', ['value' => $value], ['variable'=>$name])
-			->execute();
+			Config::updateAll(['value'=>$value],['id'=>$id]);
 		}
 		else
 		{
-			$columns=[];
-			$columns['scope']=$this->scope;
-			$columns['variable']=$name;
-			$columns['value']=$value;
-			$columns['description']=$name;
-		
-			LuLu::createCommand()
-			->insert('yii_config', $columns)
-			->execute();
+			$model = new Model();
+			$model->scope=$this->scope;
+			$model->id=$id;
+			$model->value=$value;
+			$model->description=$id;
+			
+			$model->save();
 		}		
 	}
 	public function save()
 	{
 		$attributes = $this->getAttributes();
 		
-		foreach ($attributes as $name=>$value)
+		foreach ($attributes as $id=>$value)
 		{
-			$this->saveItem($name, $value);
+			$this->saveItem($id, $value);
 		}
+		CacheUtility::createConfigCache();
 	}
 }

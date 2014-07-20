@@ -4,114 +4,97 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\Page;
-use common\models\search\PageSearch;
 use frontend\base\BaseFrontController;
 use yii\web\NotFoundHttpException;
 use components\LuLu;
+use common\includes\CommonUtility;
+use components\helpers\TFileHelper;
 use common\models\PageCategory;
 
-/**
- * PageController implements the CRUD actions for Page model.
- */
 class PageController extends BaseFrontController
 {
-    /**
-     * Lists all Page models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        $query = Page::find();
+
+	public function actionIndex($catid = 0)
+	{
+		$view = LuLu::getView();
 		
-    	$locals = LuLu::getPagedRows($query);
-    	
-        return $this->render('index', $locals);
-    }
-
-    /**
-     * Displays a single Page model.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDetail($id)
-    {
-        return $this->render('detail', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
-     * Creates a new Page model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate($catid=0)
-    {
-        $model = new Page;
-		$model->category_id=$catid;
+		$category = null;
 		
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        	
-            return $this->redirect(['index']);
-        } else {
-        	$locals=[];
-        	$locals['model']=$model;
-        	$locals['categories'] = PageCategory::getAllCategories();
-        	$locals['tpls']=LuLu::getFrontViews('page', 'detail');
-        	$locals['catid']=$catid;
-        	
-            return $this->render('create', $locals);
-        }
-    }
+		$query = Page::find()->where(['status' => 1]);
+		if(intval($catid) > 0)
+		{
+			$query->andWhere(['category_id' => $catid]);
+			
+			$category = PageCategory::findOne($catid);
+			if($category!==null)
+			{
+				$view->setTitle(empty($category['seo_title']) ? $category['name'] : $category['seo_title']);
+				$view->setMetaTag('keywords', $category['seo_keywords']);
+				$view->setMetaTag('description', $category['seo_description']);
+				
+				$view->addBreadcrumb('页面',['page/index']);
+				$view->addBreadcrumb($category['name']);
+			}
+		}
+		if($category==null)
+		{
+			$view->setTitle('页面');
+			$view->addBreadcrumb('页面');
+		}
+		$locals = LuLu::getPagedRows($query);
+		$locals['catid']=$catid;
+		$locals['currentCategory']=$category;
+		
+		return $this->render('index', $locals);
+	}
 
-    /**
-     * Updates an existing Page model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
+	public function actionDetail($id)
+	{
+		$view = LuLu::getView();
+		
+		$model = $this->findModel($id);
+		
+		
+		$view->setTitle(empty($model['seo_title']) ? $model['title'] : $model['seo_title']);
+		$view->setMetaTag('keywords', $model['seo_keywords']);
+		$view->setMetaTag('description', $model['seo_description']);
+		
+		$view->addBreadcrumb('页面',['page/index']);
+		$category = PageCategory::findOne($model->category_id);
+		if($category!==null)
+		{
+			$view->addBreadcrumb($category['name'],['page/index','catid'=>$category['id']]);
+		}
+		$view->addBreadcrumb($model['title']);
+		
+		$locals = [];
+		$locals['model'] = $model;
+		$locals['catid']=$model->category_id;
+		$locals['currentCategory']=$category;
+		
+		$detailTpl = $this->getDetailTpl($model['tpl']);
+		return $this->render($detailTpl, $locals);
+	}
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
-        } else {
-        	$locals=[];
-        	$locals['model']=$model;
-        	$locals['categories'] = PageCategory::getAllCategories();
-        	$locals['tpls']=LuLu::getFrontViews('page', 'detail');
-        	
-            return $this->render('update', $locals);
-        }
-    }
+	private function getDetailTpl($tpl)
+	{
+		$tplPath = CommonUtility::getThemePath(['page', $tpl]);
+		if(TFileHelper::exist($tplPath))
+		{
+			return $tpl;
+		}
+		return 'detail_default';
+	}
 
-    /**
-     * Deletes an existing Page model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
-     * Finds the Page model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Page the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Page::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
-    }
+	protected function findModel($id)
+	{
+		if(($model = Page::findOne($id)) !== null)
+		{
+			return $model;
+		}
+		else
+		{
+			throw new NotFoundHttpException('The requested page does not exist.');
+		}
+	}
 }

@@ -3,7 +3,6 @@
 namespace frontend\actions\content\model_default;
 
 use Yii;
-
 use common\models\search\ChannelSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -21,7 +20,7 @@ use common\models\DefineTableField;
 use common\contentmodels\CommonContent;
 use components\helpers\TTimeHelper;
 use components\base\BaseAction;
-use backend\actions\content\ContentAction;
+use frontend\actions\content\ContentAction;
 use common\includes\DataSource;
 
 /**
@@ -29,21 +28,25 @@ use common\includes\DataSource;
  */
 class ListAction extends ContentAction
 {
+
 	public function run($chnid)
 	{
-		$channelModel=Channel::findOne($chnid);
-		$tableName = $channelModel['table'];
+		$currentChannel = $this->getChannel($chnid);
 		
-		$query =DataSource::buildContentQuery($tableName,[],'channel_id='.$chnid);
+		$query = DataSource::buildContentQuery($currentChannel['table'], [], 'channel_id=' . $chnid);
 		
-		$locals=LuLu::getPagedRows($query);
-		$locals['chnid']=$chnid;
-		$locals['currentChannel']=$channelModel;
-		$locals['currentModel']=$channelModel['table'];
+		$locals = LuLu::getPagedRows($query);
+		$locals['chnid'] = $chnid;
+		$locals['currentChannel'] = $currentChannel;
+		$locals['currentModel'] = $currentChannel['table'];
 		
-		$listTpl=$this->getTpl($chnid, 'list');
+		$view = LuLu::getView();
+		$view->setTitle(empty($currentChannel['seo_title']) ? $currentChannel['name'] : $currentChannel['seo_title']);
+		$view->setMetaTag('keywords', $currentChannel['seo_keywords']);
+		$view->setMetaTag('description', $currentChannel['seo_description']);
+		
+		$listTpl = $this->getTpl($chnid, 'list_tpl');
 		
 		return $this->render($listTpl, $locals);
 	}
-	
 }

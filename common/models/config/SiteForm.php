@@ -30,8 +30,6 @@ class SiteForm extends BaseForm
 	public function rules()
 	{
 		return [
-			//[['username', 'password'], 'required'],
-			// password is validated by validatePassword()
 			['site_status', 'boolean'],
 			[['site_name', 'site_url', 'site_path', 'site_logo', 'site_icp', 'site_copyright', 'site_stats', 'site_status_message', 'site_admin_email'],'string'],
 		];
@@ -50,8 +48,7 @@ class SiteForm extends BaseForm
 			'site_copyright' => '版权信息',
 			'site_stats' => '统计代码',
 			'site_status' => '站点状态',
-			'site_status_message' => '显示消息',
-			
-				];
+			'site_status_message' => '关闭消息',
+		];
 	}
 }

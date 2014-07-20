@@ -17,6 +17,8 @@ use components\helpers\TStringHelper;
  * @property string $type
  * @property integer $length
  * @property boolean $is_null
+ * @property boolean $is_index
+ * @property boolean $is_unique
  * @property boolean $is_main
  * @property boolean $is_sys
  * @property integer $sort_num
@@ -59,7 +61,8 @@ class DefineTableField extends BaseActiveRecord
     {
         return [
             [['table', 'name', 'name_en', 'type', 'front_form_type', 'back_form_type'], 'required'],
-            [['length', 'is_null', 'is_main', 'is_sys', 'sort_num', 'front_status', 'back_status'], 'integer'],
+            [['length', 'sort_num'], 'integer'],
+            [['is_null', 'is_index', 'is_unique', 'is_main', 'is_sys', 'front_status', 'back_status'], 'boolean'],
             [['table', 'name', 'name_en', 'type'], 'string', 'max' => 80],
             [['note'], 'string', 'max' => 200],
             [['front_fun_add', 'front_fun_update', 'front_fun_show', 'front_form_type', 'back_fun_add', 'back_fun_update', 'back_fun_show', 'back_form_type'], 'string', 'max' => 64],
@@ -81,6 +84,8 @@ class DefineTableField extends BaseActiveRecord
 			'type' => '类型',
 			'length' => '长度',
 			'is_null' => '为空',
+			'is_index' => '索引',
+			'is_unique' => '唯一',
 			'is_main' => '主表',
 			'is_sys' => '系统字段',
 			'sort_num' => '排序',
@@ -90,7 +95,7 @@ class DefineTableField extends BaseActiveRecord
 			'front_fun_update' => '修改信息处理函数',
 			'front_fun_show' => '显示信息处理函数',
 			'front_form_type' => '表单类型',
-			'front_form_option' => '选项',
+			'front_form_option' => '表单选项',
 			'front_form_default' => '默认值',
 			'front_form_source' => '数据源',
 			'front_form_html' => '表单代码',
@@ -100,7 +105,7 @@ class DefineTableField extends BaseActiveRecord
 			'back_fun_update' => '修改信息处理函数',
 			'back_fun_show' => '显示信息处理函数',
 			'back_form_type' => '表单类型',
-			'back_form_option' => '选项',
+			'back_form_option' => '表单选项',
 			'back_form_default' => '默认值',
 			'back_form_source' => '数据源',
 			'back_form_html' => '表单代码',

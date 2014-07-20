@@ -12,5 +12,7 @@ use yii\base\Widget;
 
 class BaseWidget extends Widget
 {
+	public $params=[];
+	
 	
 }

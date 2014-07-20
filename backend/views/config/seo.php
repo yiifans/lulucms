@@ -27,7 +27,7 @@ $this->addBreadcrumb($this->title);
 
   
     
-    <?= $form->field($model, 'seo_description')->textarea(['rows' => 3]) ?>
+    <?= $form->field($model, 'seo_description')->textarea(['rows' => 5]) ?>
     
     <?php $this->echoButtons($model); ?>
     

@@ -1,27 +1,27 @@
 <?php
+
 /**
  * @link http://www.yiiframework.com/
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
-
 namespace components\widgets;
 
 use yii\base\InvalidConfigException;
-use yii\base\Widget;
-use components\LuLu;
 
 class InhritLayout extends BaseWidget
 {
+
 	public $viewFile;
 
 	public $params = [];
 
-	public $blocks=[];
+	public $blocks = [];
 
 	public function init()
 	{
-		if ($this->viewFile === null) {
+		if($this->viewFile === null)
+		{
 			throw new InvalidConfigException('InhritLayout::viewFile must be set.');
 		}
 		ob_start();
@@ -31,16 +31,16 @@ class InhritLayout extends BaseWidget
 	public function run()
 	{
 		$params = $this->params;
-		if(!isset($params['content']))
+		if(! isset($params['content']))
 		{
 			$params['content'] = ob_get_clean();
 		}
-
-		if(count($this->blocks)>0)
+		
+		if(count($this->blocks) > 0)
 		{
-			foreach ($this->blocks as $id)
+			foreach($this->blocks as $id)
 			{
-				if(in_array($id,$this->view->blocks))
+				if(in_array($id, $this->view->blocks))
 				{
 					$params[$id] = $this->view->blocks[$id];
 					unset($this->view->blocks[$id]);
@@ -49,13 +49,13 @@ class InhritLayout extends BaseWidget
 		}
 		else
 		{
-			foreach ($this->view->blocks as $id=>$block)
+			foreach($this->view->blocks as $id => $block)
 			{
-				$params[$id]=$block;
+				$params[$id] = $block;
 				unset($this->view->blocks[$id]);
 			}
 		}
-
+		
 		echo $this->view->renderFile($this->viewFile, $params);
 	}
 }

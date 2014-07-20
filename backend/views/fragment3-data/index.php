@@ -22,7 +22,7 @@ $this->addBreadcrumb($this->title);
 	    <tr class="tb_header">
 	      <th width="50">ID</th>
 	      <th >频道ID</th>
-	      <th >内容ID</th>
+	      <th >标题</th>
 	      <th width="80px">排序</th>
 	      <th width="150">操作</th>
 	    </tr>
@@ -30,11 +30,10 @@ $this->addBreadcrumb($this->title);
 		<tr>
 		<td><?php echo $row['id']?></td>
 		<td><?php echo $row['channel_id']?></td>
-		<td><?php echo $row['content_id']?></td>
-		<td><?php echo $row['sort_num']?></td>
+		<td><?php echo $row['title']?></td>
 		<td>
-			<?= Html::a('编辑', ['update', 'id' => $row->id,'fraid'=>$row->fragment_id]) ?>
-			<?php echo Html::a('删除', ['delete', 'id' => $row->id,'fraid'=>$row->fragment_id], [
+			<?= Html::a('编辑', ['update', 'id' => $row['id'],'fraid'=>$currentFragment->id]) ?>
+			<?php echo Html::a('删除', ['delete', 'id' => $row['id'],'fraid'=>$currentFragment->id], [
 				'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
 				'data-method' => 'post',
 			]); ?>

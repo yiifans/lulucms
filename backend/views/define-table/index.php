@@ -29,16 +29,16 @@ $this->addBreadcrumb($this->title);
 		<?php foreach ($rows as $row ): ?>
 		<tr>
 		<td><?php echo $row['name']?></td>
-		<td><?php echo $row['name_en']?></td>
+		<td><?php echo $row['id']?></td>
 		<td><?php echo $row['is_default']?></td>
 		<td>
-		<?php echo Html::a('删除', ['delete', 'tb' => $row->name_en], [
+		<?php echo Html::a('删除', ['delete', 'tb' => $row->id], [
 			'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
 			'data-method' => 'post',
 		]); ?>
-		<?= Html::a('编辑', ['update', 'tb' => $row->name_en]) ?>
-		<?= Html::a('Action', ['action', 'tb' => $row->name_en]) ?>
-		<?= Html::a('字段', ['define-table-field/index', 'tb' => $row->name_en]) ?>
+		<?= Html::a('编辑', ['update', 'tb' => $row->id]) ?>
+		<?= Html::a('Action', ['action', 'tb' => $row->id]) ?>
+		<?= Html::a('字段', ['define-table-field/index', 'tb' => $row->id]) ?>
 		
 		
 		</td>

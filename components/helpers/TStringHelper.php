@@ -5,6 +5,11 @@ namespace components\helpers;
 
 class TStringHelper
 {
+	public static function blank($count)
+	{
+		$count=intval($count);
+		return str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $count);
+	}
 	public static function parse2Array($str,$itemSep="\r\n",$valueSep='=>')
 	{
 		$source = explode($itemSep, $str);

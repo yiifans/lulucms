@@ -21,17 +21,13 @@ $this->addBreadcrumb($this->title);
 	    	
 	    	$form = ActiveForm::begin([
 				'id'=>'Content',
-				'fieldConfig' => [
-					'options' => ['tag' => 'tr','class' => 'form-group'],
-					'template' => '<td class="hAlign_right padding_r10" width="150px">{label}:</td><td>{input}</td><td>{hint}</td><td>{error}</td>',
-		    	],
+				'fieldConfig' => $this->getDefaultFieldConfig2(),
 				'options'=>[
 					'enctype'=>'multipart/form-data',
 				],
 		    ]); ?>
 		 
 		<table class="table">
-			
 			 <?php echo $this->render('//content/_include/_base', [
 					'model' => $model,
 					'chnid'=>$chnid,
@@ -43,24 +39,19 @@ $this->addBreadcrumb($this->title);
 			<?php foreach ($fields as $field ):?>
 			<tr class="form-group field-content-<?= $field['name_en'] ?>">
 				<td class="hAlign_right padding_r10" width="150px">
-					<label class="control-label" for="content-<?= $field['name_en'] ?>"><?= $field['name'] ?></label>:</td>
+					<label style="font-weight:normal;" for="content-<?= $field['name_en'] ?>"><?= $field['name'] ?></label>:</td>
 				<td>
 					<?php
 						$formType = empty($field['back_form_type'])?'default':$field['back_form_type'];
-						echo '('.$formType.')';
 					 	echo $this->render('//content/_include/_forms/_'.$formType, ['model'=>$model, 'value'=>$model->$field['name_en'], 'field' => $field,]); 
 					 ?>
 				</td>
-				<td></td>
 				<td><div class="help-block"></div></td>
 			</tr>
 			<?php endforeach;?>
+			<?php $this->echoButtons($model); ?>
 		</table>
-		
-	    <div class="form-group">
-	        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-	    </div>
-	
+
 	    <?php ActiveForm::end(); ?>
 	
 	</div>

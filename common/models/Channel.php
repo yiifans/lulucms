@@ -25,6 +25,9 @@ use components\LuLu;
  * @property integer $page_size
  * @property string $note
  * @property string $note2
+ * @property string $seo_title
+ * @property string $seo_keywords
+ * @property string $seo_description
  */
 class Channel extends BaseActiveRecord
 {
@@ -48,6 +51,7 @@ class Channel extends BaseActiveRecord
 			[['name', 'name_alias', 'name_url', 'redirect_url'], 'string', 'max' => 120],
 			[['table', 'note', 'note2'], 'string', 'max' => 80],
 			[['channel_tpl', 'list_tpl', 'detail_tpl'], 'string', 'max' => 64],
+			[['seo_title', 'seo_keywords', 'seo_description'], 'string', 'max' => 256],
 		];
 	}
 
@@ -66,14 +70,14 @@ class Channel extends BaseActiveRecord
 			'is_leaf' => '叶子结点',
 			'is_nav' => '显示到导航',
 			'sort_num' => '排序',
-			'table' => '表',
+			'table' => '模型',
 			'channel_tpl' => '频道页模板',
 			'list_tpl' => '列表页模板',
 			'detail_tpl' => '内容页模板',
 			'page_size' => '每页大小',
 			'note' => 'Note',
-			'note2' => 'Note2' 
-		];
+			'note2' => 'Note2',
+			'seo_title'=> 'SEO 标题', 'seo_keywords' => 'SEO 关键字', 'seo_description' => 'SEO 描述'];
 	}
 
 	private $_level;
@@ -92,9 +96,9 @@ class Channel extends BaseActiveRecord
 	{
 		$ret = [];
 		$cachedChannels = LuLu::getAppParam('cachedChannels');
-		foreach ( $cachedChannels as $channel )
+		foreach($cachedChannels as $channel)
 		{
-			if ($channel['parent_id'] === 0)
+			if($channel['parent_id'] === 0)
 			{
 				$ret[$channel['id']] = $channel;
 			}
@@ -112,16 +116,14 @@ class Channel extends BaseActiveRecord
 	{
 		$ret = [];
 		
-		$dataList = Channel::findAll([
-				'parent_id' => $parentId 
-		], 'sort_num desc');
+		$dataList = Channel::findAll(['parent_id' => $parentId], 'sort_num desc');
 		
-		if ($dataList == null || empty($dataList))
+		if($dataList == null || empty($dataList))
 		{
 			return $ret;
 		}
 		
-		foreach ( $dataList as $key => $value )
+		foreach($dataList as $key => $value)
 		{
 			$value->level = $level;
 			$ret[] = $value;
@@ -136,20 +138,14 @@ class Channel extends BaseActiveRecord
 	{
 		$ret = [];
 		
-		$current = Channel::findOne([
-				'id' => $id 
-		]);
+		$current = Channel::findOne(['id' => $id]);
 		
-		$parent = Channel::findOne([
-				'id' => $current['parent_id'] 
-		]);
-		while ( $parent != null )
+		$parent = Channel::findOne(['id' => $current['parent_id']]);
+		while($parent != null)
 		{
 			array_unshift($ret, $parent->id);
 			
-			$parent = Channel::findOne([
-					'id' => $parent['parent_id'] 
-			]);
+			$parent = Channel::findOne(['id' => $parent['parent_id']]);
 		}
 		array_unshift($ret, 0);
 		return $ret;
@@ -159,10 +155,8 @@ class Channel extends BaseActiveRecord
 	{
 		$ret = [];
 		
-		$children = Channel::findAll([
-				'parent_id' => $id 
-		]);
-		foreach ( $children as $child )
+		$children = Channel::findAll(['parent_id' => $id]);
+		foreach($children as $child)
 		{
 			$ret[] = $child['id'];
 		}
@@ -173,22 +167,18 @@ class Channel extends BaseActiveRecord
 	{
 		$ret = [];
 		
-		$current = Channel::findOne([
-				'id' => $id 
-		]);
+		$current = Channel::findOne(['id' => $id]);
 		
-		if ($current['is_leaf'])
+		if($current['is_leaf'])
 		{
 			$ret[] = $id;
 			return $ret;
 		}
 		
-		$children = Channel::findAll([
-				'parent_id' => $id 
-		]);
-		if (count($children) > 0)
+		$children = Channel::findAll(['parent_id' => $id]);
+		if(count($children) > 0)
 		{
-			foreach ( $children as $child )
+			foreach($children as $child)
 			{
 				$temp = Channel::getLeafIds($child['id']);
 				$ret= array_merge($ret,$temp);

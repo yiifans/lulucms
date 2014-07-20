@@ -33,9 +33,9 @@ $this->addBreadcrumb($this->title);
     
     <?= $form->field($model, 'site_icp')->textInput(['maxlength' => 64]) ?>
     
-    <?= $form->field($model, 'site_copyright')->textInput(['maxlength' => 64]) ?>
+    <?= $form->field($model, 'site_copyright')->textarea(['rows' => 3]) ?>
     
-    <?= $form->field($model, 'site_stats')->textInput(['maxlength' => 64]) ?>
+    <?= $form->field($model, 'site_stats')->textarea(['rows' => 3]) ?>
     
     <?= $form->field($model, 'site_status')->dropDownList(['0'=>'关闭','1'=>'开启']) ?>
     

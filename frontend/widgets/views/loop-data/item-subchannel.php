@@ -5,12 +5,14 @@ use components\helpers\TTimeHelper;
 use components\widgets\LoopData;
 use common\includes\DataSource;
 use common\includes\UrlUtility;
+use common\includes\CommonUtility;
 
 
 ?>
 
 <?php
-	$channel=$this->getCachedChannels($id);
+	
+	$channel= $this->getChannel($id);
 
 	$style=$index%2===0?' floatLeft':' floatRight';
 ?>

@@ -25,7 +25,7 @@ $this->addBreadcrumb($this->title);
       <th width="10%">template</th>
       <th width="150">操作</th>
     </tr>
-	<?php foreach ($this->channelArrayTree as $row ): ?>
+	<?php foreach ($this->channels as $row ): ?>
 	<tr>
 	<td><?php echo $row['id']?></td>
 	<td><?php for($i=0;$i<$row['level'];$i++)

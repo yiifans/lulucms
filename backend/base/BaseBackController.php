@@ -3,7 +3,6 @@
 namespace backend\base;
 
 use Yii;
-
 use yii\web;
 use yii\web\Controller;
 use yii\helpers\VarDumper;
@@ -20,7 +19,4 @@ use components\helpers\TFileHelper;
 
 class BaseBackController extends BaseController
 {
-	
-	
-	
 }

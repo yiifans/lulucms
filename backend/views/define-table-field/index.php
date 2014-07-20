@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\includes\CommonUtility;
 
 /**
  * @var yii\web\View $this
@@ -10,7 +11,7 @@ use yii\grid\GridView;
  */
 
 $this->title = '字段管理';
-$this->addBreadcrumb('内容模型('.$table.')',['definetable/index']);
+$this->addBreadcrumb('内容模型('.$table.')',['define-table/index']);
 $this->addBreadcrumb($this->title);
 
 // $this->params['breadcrumbs'][] = $this->title;
@@ -39,8 +40,8 @@ $this->addBreadcrumb($this->title);
 		<td><?php echo $row['name']?></td>
 		<td><?php echo $row['name_en']?></td>
 		<td><?php echo $row['fieldtype']?></td>
-		<td><?php echo $row['is_null']?></td>
-		<td><?php echo $row['is_main']?></td>
+		<td><?php echo CommonUtility::getYesNo($row['is_null'])?></td>
+		<td><?php echo CommonUtility::getYesNo($row['is_main'])?></td>
 		<td>
 		<?= Html::a('编辑', ['update', 'tb' => $row->table,'id'=>$row->id]) ?>
 		<?php 

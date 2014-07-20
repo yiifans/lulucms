@@ -5,7 +5,7 @@ use components\LuLu;
 class TFileHelper
 {
 
-	public static function buildPath($pathes, $withStart = true, $withEnd = false)
+	public static function buildPath($pathes, $withStart = false, $withEnd = false)
 	{
 		$ret = '';
 		
@@ -17,7 +17,7 @@ class TFileHelper
 		{
 			$ret = DIRECTORY_SEPARATOR . $ret;
 		}
-		if (! $withEnd)
+		if (!$withEnd)
 		{
 			$ret = rtrim($ret, DIRECTORY_SEPARATOR);
 		}
@@ -32,7 +32,7 @@ class TFileHelper
 	{
 		if (is_array($path))
 		{
-			$path = self::buildPath($path,false);
+			$path = self::buildPath($path);
 		}
 		LuLu::info($path);
 		return file_exists($path);
@@ -41,7 +41,13 @@ class TFileHelper
 	{
 		if (is_array($path))
 		{
-			$path = self::buildPath($path,false);
+			$path = self::buildPath($path);
+		}
+		
+		if(!is_dir($path))
+		{
+			//var_dump($path);
+			return [];
 		}
 		
 		$files = scandir($path);
@@ -72,7 +78,7 @@ class TFileHelper
 	{
 		if (is_array($filePath))
 		{
-			$filePath = self::buildPath($filePath, false);
+			$filePath = self::buildPath($filePath);
 		}
 		
 		return file_get_contents($filePath);
@@ -82,7 +88,7 @@ class TFileHelper
 	{
 		if (is_array($filePath))
 		{
-			$filePath = self::buildPath($filePath, false);
+			$filePath = self::buildPath($filePath);
 		}
 		
 		$f = fopen($filePath, $mode);

@@ -25,17 +25,21 @@ class BaseBackView extends BaseView
 {
 	public function getDefaultFieldConfig()
 	{
+		//return [];
 		return [
 			'options' => ['tag' => 'tr','class' => 'form-group'],
-			'template' => '<td class="hAlign_left padding_r10" width="150">{label}:</td><td width="300">{input}</td><td>{hint}{error}</td>',
+			'template' => '<td class="hAlign_left padding_r10" width="120">{label}:</td><td width="600">{input}</td><td>{hint}{error}</td>',
+			'labelOptions'=>['style'=>'font-weight:normal;'],
 		];
 	}
 	
 	public function getDefaultFieldConfig2()
 	{
+		//return [];
 		return [
-		'options' => ['tag' => 'tr','class' => 'form-group'],
-		'template' => '<td class="hAlign_left padding_r10" width="150">{label}:</td><td width="750">{input}</td><td>{hint}{error}</td>',
+			'options' => ['tag' => 'tr','class' => 'form-group'],
+			'template' => '<td class="hAlign_left padding_r10" width="120">{label}:</td><td width="750">{input}</td><td>{hint}{error}</td>',
+			'labelOptions'=>['style'=>'font-weight:normal;'],
 		];
 	}
 

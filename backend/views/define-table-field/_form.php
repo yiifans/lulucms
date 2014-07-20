@@ -58,7 +58,7 @@ $formTypeArray=[
 		<table class="table">
 
 		<tr>
-			<td colspan="4">基本信息</td>
+			<td colspan="3"><label>基本信息</label></td>
 		</tr>
 		
 		<?= $form->field($model, 'name_en')->textInput(['maxlength' => 80,'disabled'=>$disabled]) ?>
@@ -71,25 +71,13 @@ $formTypeArray=[
 		
 		<?= $form->field($model, 'is_null')->checkBox(['disabled'=>$disabled],false) ?>
 		
-		<tr class="form-group field-definetablefield-is_index">
-			<td class="hAlign_right padding_r10" width="150px"><label class="control-label" for="definetablefield-is_index">加索引</label>:</td>
-			<td>
-				<input type="hidden" name="DefineTableField[is_index]" value="0">
-				<input type="checkbox" id="definetablefield-is_index" name="DefineTableField[is_index]" value="1" checked disabled="disabled"></td>
-			<td></td>
-			<td><div class="help-block"></div></td>
-		</tr>		
-
-		<tr class="form-group field-definetablefield-is_unique">
-			<td class="hAlign_right padding_r10" width="150px"><label class="control-label" for="definetablefield-is_unique">值唯一</label>:</td>
-			<td>
-				<input type="hidden" name="DefineTableField[is_unique]" value="0">
-				<input type="checkbox" id="definetablefield-is_unique" name="DefineTableField[is_unique]" value="1" checked disabled="disabled"></td>
-			<td></td><td><div class="help-block"></div></td>
-		</tr>		
+		<?= $form->field($model, 'is_index')->checkBox(['disabled'=>$disabled],false) ?>
+		
+		<?= $form->field($model, 'is_unique')->checkBox(['disabled'=>$disabled],false) ?>
+		
 
 		<tr>
-			<td colspan="4">属性设置</td>
+			<td colspan="3"><label>属性设置</label></td>
 		</tr>
 	
 		<?= $form->field($model, 'is_main')->checkBox([],false) ?>
@@ -101,7 +89,7 @@ $formTypeArray=[
 		<?= $form->field($model, 'note')->textInput(['maxlength' => 200]) ?>
 		
 		<tr>
-			<td colspan="4">前台表单</td>
+			<td colspan="3"><label>前台表单</label></td>
 		</tr>
     	<?= $form->field($model, 'front_status')->checkBox([],false) ?>
 
@@ -124,7 +112,7 @@ $formTypeArray=[
 	    <?= $form->field($model, 'front_note')->textarea(['rows' => 5]) ?>
 	     -->
 		<tr>
-			<td colspan="4">后台表单</td>
+			<td colspan="3"><label>后台表单</label></td>
 		</tr>	
 		<?= $form->field($model, 'back_status')->checkBox([],false) ?>
 		

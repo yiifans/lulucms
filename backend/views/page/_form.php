@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use common\includes\CommonUtility;
 use yii\web\View;
+use components\widgets\KindEditor;
 
 /**
  * @var yii\web\View $this
@@ -12,21 +13,21 @@ use yii\web\View;
  * @var yii\widgets\ActiveForm $form
  */
 
-$this->registerJsFile('static/common/js/common.js');
-$this->registerCssFile('static/common/libs/kindeditor/themes/default/default.css');
-$this->registerJsFile('static/common/libs/kindeditor/kindeditor-min.js');
-$this->registerJsFile('static/common/libs/kindeditor/lang/zh_CN.js');
+// $this->registerJsFile('static/common/js/common.js');
+// $this->registerCssFile('static/common/libs/kindeditor/themes/default/default.css');
+// $this->registerJsFile('static/common/libs/kindeditor/kindeditor-min.js');
+// $this->registerJsFile('static/common/libs/kindeditor/lang/zh_CN.js');
 
-$js=<<<JS
-			var editor;
-			KindEditor.ready(function(K) {
-				editor = K.create('#page-body', {
-					allowFileManager : true
-				});
-			});
-JS;
+// $js=<<<JS
+// 			var editor;
+// 			KindEditor.ready(function(K) {
+// 				editor = K.create('#page-body', {
+// 					allowFileManager : true
+// 				});
+// 			});
+// JS;
 
-$this->registerJs($js,View::POS_END);
+// $this->registerJs($js,View::POS_END);
 
 $formatArray=CommonUtility::getTitleFormat();
 $formatValueArray = CommonUtility::getTitleFormatArray($model);
@@ -46,11 +47,11 @@ $formatValueArray = CommonUtility::getTitleFormatArray($model);
 
     	<table class="table">
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => 128]) ?>
+    	<?= $form->field($model, 'title')->textInput(['maxlength' => 128]) ?>
 
       <tr class="form-group field-page-title_format">
-		<td class="hAlign_right padding_r10" width="150px">
-			<label class="control-label" for="page-title_format">标题格式</label>:</td>
+		<td class="hAlign_right padding_r10">
+			<label style="font-weight:normal;" for="page-title_format">标题格式</label>:</td>
 		<td>
 			<?php 
 				foreach ($formatArray as $value=>$label)
@@ -66,20 +67,19 @@ $formatValueArray = CommonUtility::getTitleFormatArray($model);
 						}
 					}
 			?>
-				<label style="margin-bottom:0px;"><input type="checkbox" name="Page[title_format][]" class="form-control" style="display: inline-block; width:20px; margin:0px;" 
-					id="page-title_format_<?= $value ?>" value="<?= $value ?>" <?php echo $checked?>><?= $label ?></label>
+				<label class="checkbox-inline"><input type="checkbox" name="Page[title_format][]" id="page-title_format_<?= $value ?>" 
+						value="<?= $value ?>" <?php echo $checked?>><?= $label ?></label>
 			<?php }?>
 			
 			<input name="Page[title_format][]" id="page-title_format_c" class="form-control" 
-				style="display: inline-block;width:80px;" value="<?php echo end($formatValueArray);?>"/>
-			<label for="page_title_format_c" class="lb">颜色</label>
-			
+				style="display: inline-block;width:80px; margin-left:10px;" value="<?php echo end($formatValueArray);?>"/>
+			<label style="font-weight:normal;" for="page-title_format_c" >颜色</label>
 		</td>
 		<td><div class="help-block"></div></td>
 	</tr>
     
     <tr class="form-group field-page-title_pic">
-		<td class="hAlign_right padding_r10" width="150px"><label class="control-label" for="page-title_pic">标题图片</label>:</td>
+		<td class="hAlign_right padding_r10" ><label style="font-weight:normal;" for="page-title_pic">标题图片</label>:</td>
 		<td>
 			<div class="file-box">
 			<input type="text" id="page-title_pic" class="form-control" style="display: inline-block; width:500px; " 
@@ -92,10 +92,11 @@ $formatValueArray = CommonUtility::getTitleFormatArray($model);
 		<td><div class="help-block"></div></td>
 	</tr>
     
-    <?= $form->field($model, 'summary')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'summary')->textarea(['rows' => 5]) ?>
     
     <?= $form->field($model, 'body')->textarea(['rows' => 18]) ?>
-
+    <?php KindEditor::widget(['id'=>'page-body'])?>
+    
     <?= $form->field($model, 'seo_title')->textInput(['maxlength' => 128]) ?>
 
     <?= $form->field($model, 'seo_keywords')->textInput(['maxlength' => 128]) ?>
@@ -108,7 +109,7 @@ $formatValueArray = CommonUtility::getTitleFormatArray($model);
     
     <?= $form->field($model, 'sort_num')->textInput() ?>
     
-    <?= $form->field($model, 'status')->dropDownList(['0'=>'草稿','1'=>'发布']) ?>
+    <?= $form->field($model, 'status')->dropDownList(CommonUtility::getStatus()) ?>
     
     <?php $this->echoButtons($model); ?>
 	</table>

@@ -16,24 +16,7 @@ use common\models\DictCategory;
  */
 class DictController extends BaseBackController
 {
-	public $layout='left_sys';
-	
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
 
-    /**
-     * Lists all Dict models.
-     * @return mixed
-     */
     public function actionIndex($pid)
     {
     	$query = Dict::find()->where(['parent_id'=>$pid]);
@@ -58,11 +41,7 @@ class DictController extends BaseBackController
         ]);
     }
 
-    /**
-     * Creates a new Dict model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
+
     public function actionCreate($pid)
     {
     	$parentDic = $this->findModel($pid);
@@ -83,12 +62,7 @@ class DictController extends BaseBackController
         }
     }
 
-    /**
-     * Updates an existing Dict model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
+
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);

@@ -21,7 +21,13 @@ use yii\widgets\ActiveForm;
     <table class="table">
     <?= $form->field($model, 'name')->textInput(['maxlength' => 64]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 3]) ?>
+    <?= $form->field($model, 'note')->textarea(['rows' => 3]) ?>
+    
+    <?= $form->field($model, 'seo_title')->textInput(['maxlength' => 64]) ?>
+    
+    <?= $form->field($model, 'seo_keywords')->textInput(['maxlength' => 64]) ?>
+    
+    <?= $form->field($model, 'seo_description')->textarea(['rows' => 3]) ?>
     
     <?= $form->field($model, 'sort_num')->textInput() ?>
     

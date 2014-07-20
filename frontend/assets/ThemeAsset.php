@@ -9,6 +9,7 @@ namespace frontend\assets;
 
 use yii\web\AssetBundle;
 use components\LuLu;
+use common\includes\CommonUtility;
 
 /**
  * @author Qiang Xue <qiang.xue@gmail.com>
@@ -29,7 +30,7 @@ class ThemeAsset extends AssetBundle
     
     public function init()
     {
-    	$this->baseUrl='@web/static/themes/'.LuLu::getTheme();
+    	$this->baseUrl='@web/static/themes/'.CommonUtility::getCurrentTheme();
     	parent::init();
     }
 }

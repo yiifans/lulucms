@@ -9,7 +9,10 @@ use Yii;
  *
  * @property integer $id
  * @property string $name
- * @property string $description
+ * @property string $note
+ * @property string $seo_title
+ * @property string $seo_keywords
+ * @property string $seo_description
  * @property integer $sort_num
  */
 class PageCategory extends \components\base\BaseActiveRecord
@@ -31,7 +34,7 @@ class PageCategory extends \components\base\BaseActiveRecord
             [['name'], 'required'],
             [['sort_num'], 'integer'],
             [['name'], 'string', 'max' => 64],
-            [['description'], 'string', 'max' => 128]
+            [['note', 'seo_title', 'seo_keywords', 'seo_description'], 'string', 'max' => 128]
         ];
     }
 
@@ -43,24 +46,14 @@ class PageCategory extends \components\base\BaseActiveRecord
         return [
             'id' => '编号',
             'name' => '名称',
-            'description' => '简介',
+            'note' => '备注',
+            'seo_title' => 'SEO 标题',
+            'seo_keywords' => 'SEO 关键字',
+            'seo_description' => 'SEO 描述',
             'sort_num' => '排序',
         ];
     }
-    public function beforeSave($insert)
-    {
-    	if(parent::beforeSave($insert))
-    	{
-    		if(!is_int($this->sort_num))
-    		{
-    			$this->sort_num=0;
-    		}
-    		
-    		return true;
-    	}
-    	return false;
-    }
-    
+   
     public static function getAllCategories()
     {
     	$ret = [];

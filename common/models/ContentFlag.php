@@ -10,7 +10,7 @@ use Yii;
  * @property string $id
  * @property string $name
  * @property integer $value
- * @property string $description
+ * @property string $node
  */
 class ContentFlag extends \components\base\BaseActiveRecord
 {
@@ -31,7 +31,7 @@ class ContentFlag extends \components\base\BaseActiveRecord
             [['id', 'name', 'value'], 'required'],
             [['value'], 'integer'],
             [['id', 'name'], 'string', 'max' => 64],
-            [['description'], 'string', 'max' => 256],
+            [['note'], 'string', 'max' => 256],
             [['id'], 'unique']
         ];
     }
@@ -42,10 +42,10 @@ class ContentFlag extends \components\base\BaseActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => '编号',
+            'id' => '标签',
             'name' => '名称',
             'value' => '值',            
-            'description' => '描述',
+            'note' => '备注',
         ];
     }
     

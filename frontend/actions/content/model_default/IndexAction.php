@@ -21,13 +21,13 @@ use common\models\DefineTableField;
 use common\contentmodels\CommonContent;
 use components\helpers\TTimeHelper;
 use components\base\BaseAction;
-use backend\actions\content\ContentAction;
+use frontend\actions\content\ContentAction;
 use common\includes\DataSource;
 
 /**
  * ChannelController implements the CRUD actions for Channel model.
  */
-class ListAction extends ContentAction
+class IndexAction extends ContentAction
 {
 	public function run($chnid=0)
 	{

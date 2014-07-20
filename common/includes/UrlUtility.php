@@ -2,37 +2,29 @@
 
 namespace common\includes;
 
-
 use components\helpers\TStringHelper;
 use yii\helpers\Html;
-use yii\base\InvalidParamException;
 use components\LuLu;
 use yii\helpers\Url;
 
-class UrlUtility 
+class UrlUtility
 {
-	/*
-	 * channel url
-	 */
 	public static function getChannelUrl($id)
 	{
 		$cachedChannels = LuLu::getAppParam('cachedChannels');
 		$channel = $cachedChannels[$id];
-	
-		if(!empty($channel['redirect_rul']))
+		
+		if(! empty($channel['redirect_rul']))
 		{
 			return $channel['redirect_rul'];
 		}
 		
-		$actionId = $channel['is_leaf']? 'list' : 'channel';
-	
-		return Url::to(['content/'.$actionId,'chnid'=>$id]);
+		$actionId = $channel['is_leaf'] ? 'list' : 'channel';
+		
+		return Url::to(['content/' . $actionId, 'chnid' => $id]);
 	}
 	
-	/*
-	 * channel link
-	 */
-	public static function getChannelLink($id,$options=[])
+	public static function getChannelLink($id, $options = [])
 	{
 		$cachedChannels = LuLu::getAppParam('cachedChannels');
 		$channel = $cachedChannels[$id];
@@ -46,21 +38,21 @@ class UrlUtility
 		{
 			$title = $channel['name'];
 		}
-	
+		
 		$url = self::getChannelUrl($id);
-		return Html::a($title,$url,$options);
+		return Html::a($title, $url, $options);
 	}
-	
+
 	public static function getContentUrl($row)
 	{
-		if(isset($row['redirect_rul'])&&!empty($row['redirect_rul']))
+		if(isset($row['redirect_rul']) && ! empty($row['redirect_rul']))
 		{
 			return $row['redirect_rul'];
 		}
-		return Url::to(['content/detail','id'=>$row['id'],'chnid'=>$row['channel_id']]);
+		return Url::to(['content/detail', 'id' => $row['id'], 'chnid' => $row['channel_id']]);
 	}
-	
-	public static function getContentLink($row,$length=0,$options=[])
+
+	public static function getContentLink($row, $length = 0, $options = [])
 	{
 		if(isset($options['title']))
 		{
@@ -71,22 +63,22 @@ class UrlUtility
 		{
 			$title = $row['title'];
 		}
-	
-		if(is_integer($length) && $length>0)
+		
+		if(is_integer($length) && $length > 0)
 		{
-			$title=TStringHelper::subStr($title,$length);
+			$title = TStringHelper::subStr($title, $length);
 		}
 		
 		$url = self::getContentUrl($row);
-		return Html::a($title,$url,$options);
+		return Html::a($title, $url, $options);
 	}
-	
+
 	public static function getPageUrl($row)
 	{
-		return Url::to(['page/detail','id'=>$row['id']]);
+		return Url::to(['page/detail', 'id' => $row['id']]);
 	}
-	
-	public static function getPageLink($row,$length=0,$options=[])
+
+	public static function getPageLink($row, $length = 0, $options = [])
 	{
 		if(isset($options['title']))
 		{
@@ -97,13 +89,13 @@ class UrlUtility
 		{
 			$title = $row['title'];
 		}
-	
-		if(is_integer($length) && $length>0)
+		
+		if(is_integer($length) && $length > 0)
 		{
-			$title=TStringHelper::subStr($title,$length);
+			$title = TStringHelper::subStr($title, $length);
 		}
-	
+		
 		$url = self::getPageUrl($row);
-		return Html::a($title,$url,$options);
+		return Html::a($title, $url, $options);
 	}
 }

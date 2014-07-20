@@ -3,87 +3,92 @@
 namespace components\base;
 
 use Yii;
-use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
-use yii\base\InvalidParamException;
-use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-use yii\helpers\VarDumper;
-use yii\data\Pagination;
-use common\models\Board;
+use common\includes\CommonUtility;
+use yii\web\NotFoundHttpException;
 use components\LuLu;
-use common\models\Channel;
 
 /**
  * Site controller
  */
 class BaseController extends Controller
 {
-	public $cachedChannels;
+
+	public $channels;
+
 	public $rootChannels;
-	public $channelArrayTree;
-	
+
 	public function init()
 	{
 		parent::init();
 		
-		if($this->cachedChannels==null)
+		if($this->channels == null)
 		{
-			$this->cachedChannels=LuLu::getAppParam('cachedChannels');
+			$this->channels = CommonUtility::getChannels();
 		}
 		
 		if($this->rootChannels == null)
 		{
-			$this->rootChannels = Channel::getRootChannels();
+			$this->rootChannels = CommonUtility::getRootChannels();
 		}
-		
-		if($this->channelArrayTree==null)
+	}
+
+	public function getChannel($chnid)
+	{
+		if(! isset($this->channels[$chnid]))
 		{
-			$this->channelArrayTree=Channel::getChannelArrayTree();
+			LuLu::info('channel id:' . $chnid . ' does not exist');
 		}
+		return $this->channels[$chnid];
+	}
+
+	public function getChildChannels($chnid)
+	{
+		$ret = [];
 		
+		$currentChannel = $this->getChannel($chnid);
+		$childIds = explode(',', $currentChannel['child_ids']);
+		
+		foreach($childIds as $id)
+		{
+			if(empty($id))
+			{
+				continue;
+			}
+			$ret[$id] = $this->getChannel($id);
+		}
+		return $ret;
 	}
 
 	public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
-    
+	{
+		return ['verbs' => ['class' => VerbFilter::className(), 'actions' => ['delete' => ['post']]]];
+	}
+
 	private $_cachedRoles;
 
 	public function getCachedRoles($roleName = null)
 	{
-		if ($this->_cachedRoles == null)
-		{
-			$this->_cachedRoles = YiiForum::getAppParam('cachedRoles');
-		}
-		if ($roleName !== null)
-		{
-			return $this->_cachedRoles[$roleName];
-		}
-		return $this->_cachedRoles;
+		// if($this->_cachedRoles == null)
+		// {
+		// $this->_cachedRoles = YiiForum::getAppParam('cachedRoles');
+		// }
+		// if($roleName !== null)
+		// {
+		// return $this->_cachedRoles[$roleName];
+		// }
+		// return $this->_cachedRoles;
 	}
 
 	public function getCachedRolesByGroup($groupName)
 	{
 		$groups = $this->getCachedRoleGroups();
-		if ($groupName != null && isset($groups[$groupName]))
+		if($groupName != null && isset($groups[$groupName]))
 		{
 			$items = [];
 			$roles = $groups[$groupName]['roles'];
-			foreach ( $roles as $role )
+			foreach($roles as $role)
 			{
 				$items[$role] = $this->getCachedRoles($role);
 			}
@@ -96,40 +101,40 @@ class BaseController extends Controller
 
 	public function getCachedRoleGroups($groupName = null)
 	{
-		if ($this->_cachedRoleGroups == null)
-		{
-			$this->_cachedRoleGroups = YiiForum::getAppParam('cachedRoleGroups');
-		}
-		if ($groupName !== null)
-		{
-			return $this->_cachedRoleGroups[$groupName];
-		}
-		return $this->_cachedRoleGroups;
+		// if($this->_cachedRoleGroups == null)
+		// {
+		// $this->_cachedRoleGroups = YiiForum::getAppParam('cachedRoleGroups');
+		// }
+		// if($groupName !== null)
+		// {
+		// return $this->_cachedRoleGroups[$groupName];
+		// }
+		// return $this->_cachedRoleGroups;
 	}
 
 	private $_cachedPermissions;
 
 	public function getCachedPermissions($permissionName = null)
 	{
-		if ($this->_cachedPermissions == null)
-		{
-			$this->_cachedPermissions = YiiForum::getAppParam('cachedPermissions');
-		}
-		if ($permissionName != null)
-		{
-			return $this->_cachedPermissions[$permissionName];
-		}
-		return $this->_cachedPermissions;
+		// if($this->_cachedPermissions == null)
+		// {
+		// $this->_cachedPermissions = YiiForum::getAppParam('cachedPermissions');
+		// }
+		// if($permissionName != null)
+		// {
+		// return $this->_cachedPermissions[$permissionName];
+		// }
+		// return $this->_cachedPermissions;
 	}
 
 	public function getCachedPermissionsByCategory($categoryName = null)
 	{
 		$categories = $this->getCachedPermissionCategories();
-		if ($categoryName != null && isset($categories[$categoryName]))
+		if($categoryName != null && isset($categories[$categoryName]))
 		{
 			$items = [];
 			$permissions = $categories[$categoryName]['permissions'];
-			foreach ( $permissions as $permission )
+			foreach($permissions as $permission)
 			{
 				$items[$permission] = $this->getCachedPermissions($permission);
 			}
@@ -142,17 +147,28 @@ class BaseController extends Controller
 
 	public function getCachedPermissionCategories()
 	{
-		if ($this->_cachedPermissionCategories == null)
-		{
-			$this->_cachedPermissionCategories = YiiForum::getAppParam('cachedPermissionCategories');
-		}
-		return $this->_cachedPermissionCategories;
+		// if($this->_cachedPermissionCategories == null)
+		// {
+		// $this->_cachedPermissionCategories = YiiForum::getAppParam('cachedPermissionCategories');
+		// }
+		// return $this->_cachedPermissionCategories;
 	}
-
-	
 
 	public function noPermission()
 	{
 		return 'no permission';
+	}
+
+	public function actionView($id)
+	{
+		$locals = [];
+		$locals['model'] = $this->findModel($id);
+		
+		return $this->render('view', $locals);
+	}
+
+	protected function findModel($id)
+	{
+		throw new NotFoundHttpException('The requested page does not exist.');
 	}
 }

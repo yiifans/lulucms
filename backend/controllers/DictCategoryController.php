@@ -16,24 +16,7 @@ use common\models\Dict;
  */
 class DictCategoryController extends BaseBackController
 {
-	public $layout='left_sys';
 	
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * Lists all DictCategory models.
-     * @return mixed
-     */
     public function actionIndex()
     {
     	$query = Dict::find()->where(['parent_id'=>0]);

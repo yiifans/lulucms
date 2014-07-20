@@ -29,7 +29,7 @@ class Fragment extends \components\base\BaseActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'name', 'type', 'sort_num'], 'required'],
+            [['category_id', 'name', 'type'], 'required'],
             [['category_id', 'type', 'sort_num'], 'integer'],
             [['name'], 'string', 'max' => 64]
         ];
@@ -47,5 +47,24 @@ class Fragment extends \components\base\BaseActiveRecord
             'type' => '碎片类型',
             'sort_num' => '排序',
         ];
+    }
+    
+    public static function deleteData($id,$type)
+    {
+    	Fragment::deleteAll(['id'=>$id]);
+    	
+    	if($type===1)
+    	{
+    		Fragment1Data::deleteAll(['fragment_id'=>$id]);
+    	}
+    	else if($type===2)
+    	{
+    		Fragment2Data::deleteAll(['fragment_id'=>$id]);
+    	}
+    	else if($type===3)
+    	{
+    		Fragment3Data::deleteAll(['fragment_id'=>$id]);
+    	}
+    	return true;
     }
 }

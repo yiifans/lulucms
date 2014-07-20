@@ -8,20 +8,21 @@ use components\widgets\Alert;
 use yii\helpers\Url;
 
 /**
+ *
  * @var \yii\web\View $this
  * @var string $content
  */
 AppAsset::register($this);
 ?>
-<?php $this->beginPage() ?>
+<?php $this->beginPage()?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-	<meta charset="<?= Yii::$app->charset ?>"/>
-	<title><?= Html::encode($this->title) ?></title>
+<meta charset="<?= Yii::$app->charset ?>" />
+<title><?= Html::encode($this->title) ?></title>
 	<?php $this->head() ?>
 </head>
-<body style="margin:0px; padding-top: 70px;" scroll="no">
+<body style="margin: 0px; padding-top: 51px;" scroll="no">
 	<?php $this->beginBody() ?>
 	<?php
 		NavBar::begin([
@@ -32,7 +33,6 @@ AppAsset::register($this);
 			],
 		]);
 		$menuItems = [
-			
 			['label' => '首页', 'url' => ['admin/index']],
 			['label' => '设置', 'url' => ['admin/sys']],
 			['label' => '分类', 'url' => ['admin/taxonomy']],
@@ -40,12 +40,6 @@ AppAsset::register($this);
 			['label' => '模板', 'url' => ['admin/tpl']],
 			
 		];
-// 		echo Nav::widget([
-// 			'options' => ['class' => 'navbar-nav navbar-left'],
-// 			'items' => $menuItems,
-// 		]);
-
-// 		$menuItems=[];
 		if (Yii::$app->user->isGuest) {
 			$menuItems[] = ['label' => '登录', 'url' => ['/site/login']];
 		} else {
@@ -60,19 +54,19 @@ AppAsset::register($this);
 	?>
 
 	
-	<table class="table" style="height: 99%;border:none;padding:0px;margin:0px;">
-	  <tr>
-	    <td class="leftMenu" style="vertical-align: top;pading:0px;margin:0px;">
-    		<?php echo $content ?>
-	    </td>
-	    <td class="mainContent" style="vertical-align: top;padding:0px;margin:0px;">
-	    	
-			<iframe src="<?php echo Url::to(['admin/welcome'])?>" id="mainFrame" name="mainFrame" width="100%" height="100%" frameborder="0" scrolling="yes" style="overflow: visible;display:"></iframe>
-	    </td>
-	  </tr>
+	<table class="table border" style="height: 99%; padding: 0px; margin: 0px;">
+		<tr>
+			<td class="leftMenu" style="vertical-align: top; pading: 0px; margin: 0px;">
+    			<?php echo $content ?>
+	    	</td>
+			<td class="mainContent" style="vertical-align: top; padding: 0px; margin: 0px;">
+				<iframe src="<?php echo Url::to(['admin/welcome'])?>" id="mainFrame"
+					name="mainFrame" width="100%" height="100%" frameborder="0"
+					scrolling="yes" style="overflow: visible; "></iframe>
+			</td>
+		</tr>
 	</table>
 	
-
 	<?php $this->endBody() ?>
 </body>
 </html>

@@ -21,7 +21,7 @@ use common\models\DefineTableField;
 use common\contentmodels\CommonContent;
 use components\helpers\TTimeHelper;
 use components\base\BaseAction;
-use backend\actions\content\ContentAction;
+use frontend\actions\content\ContentAction;
 
 /**
  * ChannelController implements the CRUD actions for Channel model.
@@ -30,9 +30,9 @@ class DetailAction extends ContentAction
 {
 	public function run($chnid=0,$id)
 	{
-		$channelModel = Channel::findOne($chnid);
+		$currentChannel = $this->getChannel($chnid);
 		
-		$this->currentTableName=$channelModel->table;
+		$this->currentTableName=$currentChannel['table'];
 		
 		$this->updateViews($id);
 		
@@ -41,10 +41,15 @@ class DetailAction extends ContentAction
 		$locals=[];
 		$locals['model']=$model;
 		$locals['chnid']=$chnid;
-		$locals['currentChannel']=$channelModel;
-		$locals['currentModel']=$channelModel['table'];
+		$locals['currentChannel']=$currentChannel;
+		$locals['currentModel']=$currentChannel['table'];
 		
-		$detailTpl=$this->getTpl($chnid, 'detail');
+		$view = LuLu::getView();
+		$view->setTitle($model['title']);
+		$view->setMetaTag('keywords',$model['title']);
+		$view->setMetaTag('description',$model['summary']);
+		
+		$detailTpl=$this->getTpl($chnid, 'detail_tpl');
 		
 		return $this->render($detailTpl, $locals);
 	}

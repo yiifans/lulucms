@@ -7,6 +7,7 @@ use frontend\assets\AppAsset;
 use components\widgets\Alert;
 use frontend\assets\ThemeAsset;
 use yii\helpers\Url;
+use common\includes\CommonUtility;
 
 /**
  * @var \yii\web\View $this
@@ -31,7 +32,7 @@ ThemeAsset::register($this);
 		<div class="container border" id="topbar">
 			<div class="floatRight">
 				<?php 
-					echo Html::a('git地址',['http://github.com/yiifans/lulucms']);
+					echo Html::a('git地址','http://www.github.com/yiifans/lulucms');
 					if (Yii::$app->user->isGuest) {
 						echo Html::a('注册',['/site/signup']);
 						echo Html::a('登录',['/site/login']);
@@ -54,10 +55,7 @@ ThemeAsset::register($this);
 				<ul>
 					<li class="currclass"><a href="index.php">首页</a></li>
 					<?php 
-					//rootChannelList
-					//channelTree
-					
-						foreach ($this->params['rootChannelList'] as $channel)
+						foreach ($this->rootChannels as $channel)
 						{
 							if($channel['is_leaf'])
 							{
@@ -93,6 +91,7 @@ ThemeAsset::register($this);
 		</div>
 	</footer>
 
+	<?php echo CommonUtility::getConfigValue('site_stats');?>
 	<?php $this->endBody() ?>
 </body>
 </html>

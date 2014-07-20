@@ -41,7 +41,7 @@ class FieldUtility
 	}
 
 
-	private static function getInputName($model,$options=null)
+	public static function getInputName($model,$options=null)
 	{
 		if($options!==null && isset($options['name']))
 		{

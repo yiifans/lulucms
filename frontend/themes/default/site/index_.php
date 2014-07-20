@@ -7,15 +7,22 @@ use components\helpers\TTimeHelper;
 use components\widgets\LoopData;
 use data\AttachmentAsset;
 use common\includes\UrlUtility;
+use common\includes\CommonUtility;
 
 /**
  * @var yii\web\View $this
  */
-$this->title = 'LuLu CMS';
 
-//$this->registerJsFile('js/flash.js',['yii\web\JqueryAsset']);
-
-$this->registerJsFile(LuLu::getThemeUrl('js/js.js'),['yii\web\JqueryAsset']);
+$this->setTitle(CommonUtility::getConfigValue('seo_title'));
+$this->registerMetaTag([
+		'name'=>'keywords',
+		'content'=>CommonUtility::getConfigValue('seo_keywords'),
+]);
+$this->registerMetaTag([
+		'name'=>'description',
+		'content'=>CommonUtility::getConfigValue('seo_description'),
+]);
+$this->registerJsFile(CommonUtility::getThemeUrl('js/js.js'),['yii\web\JqueryAsset']);
 
 ?>
 
@@ -128,7 +135,7 @@ $this->registerJsFile(LuLu::getThemeUrl('js/js.js'),['yii\web\JqueryAsset']);
             <div class="tbox border">
                 
                 <div class="ad">
-                	<img alt="" src="<?php echo LuLu::getThemeUrl()?>/images/ad2.png">
+                	<img alt="" src="<?php echo CommonUtility::getThemeUrl()?>/images/ad2.png">
                 </div>
                 
             </div>

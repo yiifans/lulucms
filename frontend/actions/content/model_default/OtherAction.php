@@ -21,7 +21,7 @@ use common\models\DefineTableField;
 use common\contentmodels\CommonContent;
 use components\helpers\TTimeHelper;
 use components\base\BaseAction;
-use backend\actions\content\ContentAction;
+use frontend\actions\content\ContentAction;
 
 /**
  * ChannelController implements the CRUD actions for Channel model.

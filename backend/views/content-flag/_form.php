@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'value')->textInput() ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 3]) ?>
+    <?= $form->field($model, 'note')->textarea(['rows' => 3]) ?>
 
 	<?php $this->echoButtons($model); ?>
 </table>

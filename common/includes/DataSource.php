@@ -2,13 +2,8 @@
 
 namespace common\includes;
 
-use components\base\BaseActiveRecord;
-use yii\helpers\Html;
 use components\LuLu;
-use yii\base\InvalidParamException;
-use components\helpers\TStringHelper;
 use yii\base\Object;
-use components\helpers\TFileHelper;
 use yii\db\Query;
 use common\models\Fragment1Data;
 use common\models\Fragment2Data;
@@ -18,46 +13,46 @@ use common\models\Page;
 
 class DataSource extends Object
 {
+
 	public static function queryAll($sql)
 	{
 		return LuLu::queryAll($sql);
 	}
-	
+
 	public static function queryOne($sql)
 	{
 		return LuLu::queryOne($sql);
 	}
 	
-	
 	/*
 	 * $channelsIds = 1 or '1,3,4'
-	 * 
-	 * $other
-	 * $other['fields']='*' or 'id,name,title'
-	 * $other['where']='status=1';
-	 * $other['order']='sort_num desc';
-	 * $other['offset']=0;
-	 * $other['limit']=10;
-	 * 
-	 * $other['att1']=1;
-	 * $other['att2']=2;
-	 * $other['att3']=3;
-	 * $other['flag']='a,b,c,d';
-	 * $other['is_pic']=true;
-	 */
-	public static function getContentByChannel($channelIds,$other=[])
+	*
+	* $other
+	* $other['fields']='*' or 'id,name,title'
+	* $other['where']='status=1';
+	* $other['order']='sort_num desc';
+	* $other['offset']=0;
+	* $other['limit']=10;
+	*
+	* $other['att1']=1;
+	* $other['att2']=2;
+	* $other['att3']=3;
+	* $other['flag']='a,b,c,d';
+	* $other['is_pic']=true;
+	*/
+	public static function getContentByChannel($channelIds, $other = [])
 	{
 		$tableName = '';
 		
 		$where = '';
 		
 		$cachedChannels = LuLu::getAppParam('cachedChannels');
-	
-		if(intval($channelIds)>0)
+		
+		if(intval($channelIds) > 0)
 		{
-			$channel=$cachedChannels[$channelIds];
-	
-			$tableName=$channel['table'];
+			$channel = $cachedChannels[$channelIds];
+			
+			$tableName = $channel['table'];
 			if(empty($tableName))
 			{
 				return [];
@@ -65,54 +60,54 @@ class DataSource extends Object
 			
 			if($channel['is_leaf'])
 			{
-				$where = 'channel_id='.$channelIds;
+				$where = 'channel_id=' . $channelIds;
 			}
 			else
 			{
-				$leafIds=$channel['leaf_ids'];
-				if($leafIds=='')
+				$leafIds = $channel['leaf_ids'];
+				if($leafIds == '')
 				{
 					return [];
 				}
 				
-				$where = 'channel_id in('.$leafIds.')';
+				$where = 'channel_id in(' . $leafIds . ')';
 			}
 		}
 		else
 		{
-			$channelIdArray=explode(',', $channelIds);
-			$tableName=$channel[$channelIdArray[0]];
+			$channelIdArray = explode(',', $channelIds);
+			$tableName = $channel[$channelIdArray[0]];
 			if(empty($tableName))
 			{
 				return [];
 			}
 			
-			$leafIds='';
-			foreach ($channelIdArray as $id)
+			$leafIds = '';
+			foreach($channelIdArray as $id)
 			{
-				$leafIds.=$cachedChannels[$id]['leaf_ids'].',';
+				$leafIds .= $cachedChannels[$id]['leaf_ids'] . ',';
 			}
-	
-			$leafIdsArray=explode(',', rtrim($leafIds,','));
-			$leafIdsArray=array_unique($leafIdsArray);
-			$leafIds=implode(',', $leafIdsArray);
 			
-			$where = 'channel_id in('.$leafIds.')';
+			$leafIdsArray = explode(',', rtrim($leafIds, ','));
+			$leafIdsArray = array_unique($leafIdsArray);
+			$leafIds = implode(',', $leafIdsArray);
+			
+			$where = 'channel_id in(' . $leafIds . ')';
 		}
 		
-		$query = self::buildContentQuery($tableName,$other,$where);
+		$query = self::buildContentQuery($tableName, $other, $where);
 		
 		return $query->all();
 	}
-	
-	public static function getContentByTable($tableName,$other=[])
+
+	public static function getContentByTable($tableName, $other = [])
 	{
-		$query = self::buildContentQuery($tableName,$other);
+		$query = self::buildContentQuery($tableName, $other);
 		
 		return $query->all();
 	}
-	
-	public static function buildContentQuery($tableName, $other=[],$where=null)
+
+	public static function buildContentQuery($tableName, $other = [], $where = null)
 	{
 		$query = new Query();
 		
@@ -123,47 +118,47 @@ class DataSource extends Object
 		
 		if(empty($tableName))
 		{
-			//todo
-			$tableName='model_news';
+			// todo
+			$tableName = 'model_news';
 		}
 		$query->from($tableName);
 		
-		if($where!==null)
+		if($where !== null)
 		{
-			$query -> andWhere($where);
+			$query->andWhere($where);
 		}
 		if(isset($other['where']))
 		{
 			$query->andWhere($other['where']);
 		}
 		
-		if(isset($other['att1'])&&is_integer($other['att1']))
+		if(isset($other['att1']) && is_integer($other['att1']))
 		{
-			$query->andWhere(['att1'=>$other['att1']]);
+			$query->andWhere(['att1' => $other['att1']]);
 		}
-		if(isset($other['att2'])&&is_integer($other['att2']))
+		if(isset($other['att2']) && is_integer($other['att2']))
 		{
-			$query->andWhere(['att2'=>$other['att2']]);
+			$query->andWhere(['att2' => $other['att2']]);
 		}
-		if(isset($other['att3'])&&is_integer($other['att3']))
+		if(isset($other['att3']) && is_integer($other['att3']))
 		{
-			$query->andWhere(['att3'=>$other['att3']]);
+			$query->andWhere(['att3' => $other['att3']]);
 		}
 		
 		if(isset($other['flag']))
 		{
-			$flagValue=CommonUtility::getFlagValue($other['flag']);
-			if($flagValue>0)
+			$flagValue = CommonUtility::getFlagValue($other['flag']);
+			if($flagValue > 0)
 			{
-				$query->andWhere('flag&'.$flagValue.'>0');
+				$query->andWhere('flag&' . $flagValue . '>0');
 			}
 		}
 		
-		if(isset($other['is_pic'])&&$other['is_pic'])
+		if(isset($other['is_pic']) && $other['is_pic'])
 		{
-			$query->andWhere(['is_pic'=>1]);
+			$query->andWhere(['is_pic' => 1]);
 		}
-			
+		
 		if(isset($other['order']))
 		{
 			$query->orderBy($other['order']);
@@ -177,7 +172,7 @@ class DataSource extends Object
 		{
 			$query->offset(intval($other['offset']));
 		}
-		else 
+		else
 		{
 			$query->offset(0);
 		}
@@ -201,104 +196,98 @@ class DataSource extends Object
 	{
 		return Fragment::findOne($id);
 	}
-
+	
 	/*
 	 * get fragments by category id
 	 */
 	public static function getFragmentByCategory($catid)
 	{
-		return Fragment::findAll(['category_id'=>$catid]);
+		return Fragment::findAll(['category_id' => $catid]);
 	}
-	
+
 	/*
 	 * get data of a fragment id
-	 * 
-	 * $other
-	 * $other['where]=''
-	 * $other['offset]=''
-	 * $other['limit]=''
-	 */
-	public static function getFragmentData($fraid,$other=[],$withFragment=false)
+	*
+	* $other
+	* $other['where]=''
+	* $other['offset]=''
+	* $other['limit]=''
+	*/
+	public static function getFragmentData($fraid, $other = [], $withFragment = false)
 	{
 		$query = null;
-		//$query=Fragment1Data::find();
+		// $query=Fragment1Data::find();
 		
 		$fragment = Fragment::findOne($fraid);
-		if($fragment==null)
+		if($fragment == null)
 		{
 			return [];
 		}
 		
 		$type = $fragment->type;
 		
-		if($type==1)
+		if($type == 1)
 		{
 			$query = Fragment1Data::find();
-			
 		}
-		else if($type==2)
+		else if($type == 2)
 		{
 			$query = Fragment2Data::find();
 		}
-		else if($type==3)
+		else if($type == 3)
 		{
 			$query = Fragment3Data::find();
 		}
 		
-		if($query==null)
+		if($query == null)
 		{
 			return [];
 		}
 		
-		$query->where(['fragment_id'=>$fraid]);
+		$query->where(['fragment_id' => $fraid]);
 		
 		if(isset($other['where']))
 		{
 			$query->andWhere($other['where']);
 		}
 		
-		if(isset($other['offset'])&&is_integer($other['offset']))
+		if(isset($other['offset']) && is_integer($other['offset']))
 		{
 			$query->offset($other['offset']);
 		}
 		
-		if(isset($other['limit'])&&$other['limit'])
+		if(isset($other['limit']) && $other['limit'])
 		{
 			$query->limit($other['limit']);
 		}
 		$ret = $query->all();
-		if($type==3)
+		if($type == 3)
 		{
-			$temp=[];
-			foreach ($ret as $row)
+			$temp = [];
+			foreach($ret as $row)
 			{
-				$item = self::getContentByChannel($row['channel_id'],['where'=>'id='.$row['content_id']]);
+				$item = self::getContentByChannel($row['channel_id'], ['where' => 'id=' . $row['content_id']]);
 				if(empty($item))
 				{
 					continue;
 				}
-				$temp[]=$item[0];
+				$temp[] = $item[0];
 			}
 			$ret = $temp;
 		}
 		
 		if($withFragment)
 		{
-			return [
-				$fragment,
-				$ret,
-			];
+			return [$fragment, $ret];
 		}
-		else 
+		else
 		{
 			return $ret;
 		}
 	}
-	
+
 	public static function getPageByCategory($catid)
 	{
-		return Page::findAll(['category_id'=>$catid]);
+		return Page::findAll(['category_id' => $catid]);
 	}
-
-	
 }

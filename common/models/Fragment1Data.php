@@ -29,7 +29,7 @@ class Fragment1Data extends FragmentData
     public function rules()
     {
         return [
-            [['fragment_id', 'content'], 'required'],
+            [['fragment_id', 'title', 'content'], 'required'],
             [['fragment_id', 'sort_num'], 'integer'],
             [['title'], 'string','max'=>128],
             [['content'], 'string']

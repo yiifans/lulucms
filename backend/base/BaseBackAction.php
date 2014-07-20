@@ -1,8 +1,8 @@
 <?php
+
 namespace backend\base;
 
 use Yii;
-
 use yii\web;
 use yii\web\Controller;
 use yii\helpers\VarDumper;
@@ -14,6 +14,5 @@ use components\base\BaseAction;
 
 class BaseBackAction extends BaseAction
 {
-
 }
 

@@ -31,8 +31,8 @@ $formatValueArray = CommonUtility::getTitleFormatArray($model);
     <?= $form->field($model, 'title')->textInput(['maxlength' => 120]) ?>
 
       <tr class="form-group field-fragment2data-title_format">
-		<td class="hAlign_right padding_r10" width="150px">
-			<label class="control-label" for="fragment2data-title_format">标题格式</label>:</td>
+		<td class="hAlign_right padding_r10">
+			<label style="font-weight:normal;" for="fragment2data-title_format">标题格式</label>:</td>
 		<td>
 			<?php 
 				foreach ($formatArray as $value=>$label)
@@ -48,14 +48,13 @@ $formatValueArray = CommonUtility::getTitleFormatArray($model);
 						}
 					}
 			?>
-				<label style="margin-bottom:0px;"><input type="checkbox" name="Fragment2Data[title_format][]" class="form-control" style="display: inline-block; width:20px; margin:0px;" 
-					id="fragment2data-title_format_<?= $value ?>" value="<?= $value ?>" <?php echo $checked?>><?= $label ?></label>
+				<label class="checkbox-inline"><input type="checkbox" name="Fragment2Data[title_format][]" id="fragment2data-title_format_<?= $value ?>" 
+						value="<?= $value ?>" <?php echo $checked?>><?= $label ?></label>
 			<?php }?>
 			
 			<input name="Fragment2Data[title_format][]" id="fragment2data-title_format_c" class="form-control" 
-				style="display: inline-block;width:40px;" value="<?php echo end($formatValueArray);?>"/>
-			<label for="fragment2data_title_format_c" class="lb">颜色</label>
-			
+				style="display: inline-block;width:80px;margin-left:10px;" value="<?php echo end($formatValueArray);?>"/>
+			<label style="font-weight:normal;" for="fragment2data_title_format_c">颜色</label>
 		</td>
 		<td><div class="help-block"></div></td>
 	</tr>
@@ -65,7 +64,7 @@ $formatValueArray = CommonUtility::getTitleFormatArray($model);
     <?= $form->field($model, 'sub_title')->textInput(['maxlength' => 120]) ?>
 
     <tr class="form-group field-fragment2data-title_pic">
-		<td class="hAlign_right padding_r10" width="150px"><label class="control-label" for="content-title_pic">标题图片</label>:</td>
+		<td class="hAlign_right padding_r10"><label style="font-weight:normal;" for="content-title_pic">标题图片</label>:</td>
 		<td>
 			<div class="file-box">
 			<input type="text" id="fragment2data-title_pic" class="form-control" style="display: inline-block; width:500px; " 
@@ -75,7 +74,7 @@ $formatValueArray = CommonUtility::getTitleFormatArray($model);
 				onchange="document.getElementById('fragment2data-title_pic').value=getPath(this);" /> 
 			</div>
 		</td>
-		<td></td><td><div class="help-block"></div></td>
+		<td><div class="help-block"></div></td>
 	</tr>
 
     <?= $form->field($model, 'summary')->textarea(['rows' => 5]) ?>
