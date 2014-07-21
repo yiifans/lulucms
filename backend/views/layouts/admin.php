@@ -54,15 +54,25 @@ AppAsset::register($this);
 	?>
 
 	
-	<table class="table border" style="height: 99%; padding: 0px; margin: 0px;">
+	<table id="containerTable" class="table border" style="height: 95%; padding: 0px; margin: 0px;">
 		<tr>
 			<td class="leftMenu" style="vertical-align: top; pading: 0px; margin: 0px;">
     			<?php echo $content ?>
 	    	</td>
 			<td class="mainContent" style="vertical-align: top; padding: 0px; margin: 0px;">
-				<iframe src="<?php echo Url::to(['admin/welcome'])?>" id="mainFrame"
-					name="mainFrame" width="100%" height="100%" frameborder="0"
-					scrolling="yes" style="overflow: visible; "></iframe>
+				<iframe  id="mainFrame" name="mainFrame" width="100%" frameborder="0" scrolling="yes" 
+					src="<?php echo Url::to(['admin/welcome'])?>" onLoad="iFrameHeight()"></iframe>
+<script type="text/javascript" language="javascript">
+function iFrameHeight() 
+{
+	var contentHeight = document.body.clientHeight-70;
+	
+	console.log(contentHeight);
+	
+	var ifm= document.getElementById("mainFrame");
+	ifm.height = contentHeight;
+}
+</script> 
 			</td>
 		</tr>
 	</table>

@@ -6,6 +6,7 @@ use Yii;
 use yii\web\View;
 use components\widgets\InhritLayout;
 use common\includes\CommonUtility;
+use yii\base\InvalidParamException;
 
 /**
  * Site controller
@@ -34,6 +35,11 @@ class BaseView extends View
 
 	public function getChannel($chnid)
 	{
+		if(! isset($this->channels[$chnid]))
+		{
+			LuLu::info('channel id:' . $chnid . ' does not exist');
+			throw new InvalidParamException('channel id:' . $chnid . ' does not exist');
+		}
 		return $this->channels[$chnid];
 	}
 
@@ -45,6 +51,10 @@ class BaseView extends View
 		$childIds = explode(',', $currentChannel['child_ids']);
 		foreach($childIds as $id)
 		{
+			if(empty($id))
+			{
+				continue;
+			}
 			$ret[$id] = $this->getChannel($id);
 		}
 		return $ret;

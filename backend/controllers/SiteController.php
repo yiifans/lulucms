@@ -11,27 +11,28 @@ use yii\filters\AccessControl;
 
 class SiteController extends Controller
 {
-	//public $defaultAction='login';
+
+	public $defaultAction = 'login';
 	
-	public function behaviors()
-	{
-		return [
-			'access' => [
-				'class' => AccessControl::className(),
-				'rules' => [
-					[
-						'actions' => ['login', 'error'],
-						'allow' => true,
-					],
-					[
-						'actions' => ['logout', 'index'],
-						'allow' => true,
-						'roles' => ['@'],
-					],
-				],
-			],
-		];
-	}
+// 	public function behaviors()
+// 	{
+// 		return [
+// 			'access' => [
+// 				'class' => AccessControl::className(),
+// 				'rules' => [
+// 					[
+// 						'actions' => ['login', 'error'],
+// 						'allow' => true,
+// 					],
+// 					[
+// 						'actions' => ['logout', 'index'],
+// 						'allow' => true,
+// 						'roles' => ['@'],
+// 					],
+// 				],
+// 			],
+// 		];
+// 	}
 
 	public function actions()
 	{
@@ -49,18 +50,21 @@ class SiteController extends Controller
 
 	public function actionLogin()
 	{
-		if (!\Yii::$app->user->isGuest) {
-			$this->goHome();
+		if(! \Yii::$app->user->isGuest)
+		{
+			return $this->redirect(['admin/index']);
+			// $this->goHome();
 		}
-
+		
 		$model = new LoginForm();
-		if ($model->load($_POST) && $model->login()) {
+		if($model->load($_POST) && $model->login())
+		{
 			return $this->goBack();
-		} else {
-			$this->layout='base';
-			return $this->render('login', [
-				'model' => $model,
-			]);
+		}
+		else
+		{
+			$this->layout = 'base';
+			return $this->render('login', ['model' => $model]);
 		}
 	}
 

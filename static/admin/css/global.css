@@ -146,46 +146,27 @@ white-space: normal;
 
 
 
-.pagination {
-margin: 0px auto;
-text-align: center;
+.pagination {margin: 0px auto;text-align: center;font-size: 12px;}
+
+.pagination a{}
+.pagination a:link {}
+.pagination a:visited {}
+.pagination a:hover{}
+.pagination a:hover{}
+
+.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+border-color: #DDD;
 }
 
-.pagination a{
-margin-right: 5px;
+.pagination > li > a, .pagination > li > span {
+padding: 6px 12px;
+border: 1px solid #DDD;
+margin-right:5px;
 display: inline-block;
-height: 20px;
-line-height: 20px;
-padding: 0 8px;
-font-size: 12px;
-border: 1px solid #D8DADF;}
-
-.pagination a:link {
-
+border: 1px solid #D8DADF;
 }
-.pagination a:visited {
 
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+border-color: #428BCA;
 }
-.pagination a:hover{}
-
-.pagination a.isNow {
-font-weight: bold;
-border: 1px solid #258CFF;
-background: #258CFF;
-color: white;
-}
-.pagination a.text{ width:50px;}
-
-
-
-.pagination a:hover{}
-
-.pagination a.isNow {
-font-weight: bold;
-border: 1px solid #258CFF;
-background: #258CFF;
-color: white;
-}
-.pagination a.text{ width:50px;}
-
 

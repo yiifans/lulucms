@@ -7,7 +7,7 @@ use yii\web\View;
 class KindEditor extends BaseWidget
 {
 
-	public $kindUrl = 'static/common/libs/kindeditor';
+	public $libUrl = 'static/common/libs/kindeditor';
 
 	public $input = null;
 	
@@ -25,13 +25,13 @@ class KindEditor extends BaseWidget
 	{
 		$view = $this->view;
 		
-		if(! isset($view->params['__kindeditor']))
+		if(! isset($view->params['__KindEditor']))
 		{
-			$view->registerCssFile($this->kindUrl . '/themes/default/default.css');
-			$view->registerJsFile($this->kindUrl . '/kindeditor-min.js');
-			$view->registerJsFile($this->kindUrl . '/lang/zh_CN.js');
+			$view->registerCssFile($this->libUrl . '/themes/default/default.css');
+			$view->registerJsFile($this->libUrl . '/kindeditor-min.js');
+			$view->registerJsFile($this->libUrl . '/lang/zh_CN.js');
 			
-			$view->params['__kindeditor'] = true;
+			$view->params['__KindEditor'] = true;
 		}
 		
 		if($this->input === null)
@@ -41,25 +41,25 @@ class KindEditor extends BaseWidget
 		
 		if($this->editorId === null)
 		{
-			$this->editorId = 'editor_' . str_replace('-', '_', $this->id);
+			$this->editorId = 'editor_' . str_replace(['#','-'], ['','_'], $this->input);
 		}
 		
 		$this->params = array_merge($this->defaultParams, $this->params);
 		
-		$editorParmas = '';
+		$paramsString = '';
 		foreach($this->params as $name => $value)
 		{
-			$editorParmas .= $name . ' : ' . $value . ",\r\n";
+			$paramsString .= $name . ' : ' . $value . ",\r\n";
 		}
 		
-		$js = <<<JS
-			var $this->editorId;
-			KindEditor.ready(function(K) {
-				$this->editorId = K.create('$this->input', {
-					$editorParmas
-				});
-			});
+		$jsString = <<<JS
+var $this->editorId;
+KindEditor.ready(function(K) {
+	$this->editorId = K.create('$this->input', {
+		$paramsString
+	});
+});
 JS;
-		$view->registerJs($js, View::POS_END);
+		$view->registerJs($jsString, View::POS_END);
 	}
 }

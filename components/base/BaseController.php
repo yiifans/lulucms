@@ -8,6 +8,7 @@ use yii\filters\VerbFilter;
 use common\includes\CommonUtility;
 use yii\web\NotFoundHttpException;
 use components\LuLu;
+use yii\base\InvalidParamException;
 
 /**
  * Site controller
@@ -39,6 +40,7 @@ class BaseController extends Controller
 		if(! isset($this->channels[$chnid]))
 		{
 			LuLu::info('channel id:' . $chnid . ' does not exist');
+			throw new InvalidParamException('channel id:' . $chnid . ' does not exist');
 		}
 		return $this->channels[$chnid];
 	}
@@ -49,7 +51,6 @@ class BaseController extends Controller
 		
 		$currentChannel = $this->getChannel($chnid);
 		$childIds = explode(',', $currentChannel['child_ids']);
-		
 		foreach($childIds as $id)
 		{
 			if(empty($id))
