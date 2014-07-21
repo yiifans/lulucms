@@ -20,7 +20,7 @@ $this->addBreadcrumb($this->title);
 	<div class="columnMain">
 		<div class="tbox content-detail border">
 	
-			<h1><?= Html::encode($this->title) ?></h1>
+			<h1><?= $model['title'] ?></h1>
 		
 			<div class="contentMeta">
 				<span><?php echo $model['publish_time']?></span>|<span>点击：<?php echo $model['views']?></span>|<span>评论：<?php echo $model['commonts']?></span>
