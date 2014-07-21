@@ -1,0 +1,12 @@
+{
+  "name": "pjax",
+  "version": "1.8.0",
+  "main": "./jquery.pjax.js",
+  "dependencies": {
+    "jquery": ">=1.8"
+  },
+  "ignore": [
+    ".travis.yml",
+    "test/"
+  ]
+}
