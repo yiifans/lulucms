@@ -299,28 +299,19 @@ class CommonUtility
 		return $defaultValue;
 	}
 
-	public static function getConfigValue($id, $fromCache = true, $defaultValue = '')
+	public static function getConfig($id=null)
 	{
-		if($fromCache)
+		$cached = LuLu::getAppParam('cachedConfigs');
+		if($id!==null)
 		{
-			$ret = self::getCachedValue('cachedConfigs', $id);
-			if($ret !== null && isset($ret['value']))
-			{
-				return $ret['value'];
-			}
-			return $defaultValue;
+			return $cached[$id];
 		}
-		else
-		{
-			$model = Config::findOne($id);
-			LuLu::info($model, __METHOD__);
-			
-			if($model === null)
-			{
-				return $defaultValue;
-			}
-			return $model->value;
-		}
+		return $cached;
+	}
+	public static function getConfigValue($id)
+	{
+		$cached = LuLu::getAppParam('cachedConfigs');
+		return $cached[$id]['value'];
 	}
 
 	public static function getChannels($id = null)
@@ -338,6 +329,55 @@ class CommonUtility
 		return Channel::getRootChannels();
 	}
 
+	public static function getVariable($id=null)
+	{
+		$cached = LuLu::getAppParam('cachedVariables');
+		if($id!==null)
+		{
+			return $cached[$id];
+		}
+		return $cached;
+	}
+	
+	public static function getVariableValue($id)
+	{
+		$cached = LuLu::getAppParam('cachedVariables');
+		$dataType=$cached[$id]['data_type'];
+		$value = $cached[$id]['value'];
+		return $value;
+	}
+	
+	public static function getDict($category,$id)
+	{
+		$cached = LuLu::getAppParam('cachedDicts');
+		return $cached[$category][$id];
+	}
+	public static function getDicts($category,$pid)
+	{
+		$ret = [];
+		$cached = LuLu::getAppParam('cachedDicts');
+		$dicts = $cached[$category];
+		if($pid===0)
+		{
+			foreach ($dicts as $id=>$dict)
+			{
+				if($dict['parent_id']===0)
+				{
+					$ret[$id]=$dict;
+				}
+			}
+		}
+		else 
+		{
+			$dict = $dicts[$pid];
+			$childIds=explode(',', $dict['child_ids']);
+			foreach ($childIds as $childId)
+			{
+				$ret[$childId]=$dicts[$childId];
+			}
+		}
+		return $ret;
+	}
 // 	private $_cachedRoles;
 
 // 	public function getCachedRoles()

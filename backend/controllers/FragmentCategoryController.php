@@ -18,7 +18,7 @@ class FragmentCategoryController extends BaseBackController
 	{
 		$query = FragmentCategory::find()->where(['type' => $type]);
 		
-		$locals = LuLu::getPagedRows($query);
+		$locals = LuLu::getPagedRows($query,['order'=>'id desc']);
 		$locals['type'] = $type;
 		return $this->render('index', $locals);
 	}

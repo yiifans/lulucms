@@ -29,6 +29,7 @@ $this->registerJsFile(CommonUtility::getThemeUrl('js/js.js'),['yii\web\JqueryAss
     <div class="container column">
         <div class="columnLeft">
             <div class="tbox border">
+            	
                 <div class="middleTitle1">
                     <h2>今日话题</h2>
                 </div>
@@ -64,12 +65,9 @@ $this->registerJsFile(CommonUtility::getThemeUrl('js/js.js'),['yii\web\JqueryAss
                 <div class="middleTitle1">
                     <h2>推荐新闻</h2>
                 </div>
-                <ul class="txtContent">
+                <ul class="txtContent dot">
                 	<?php 
-                	
 						$dataSource= $fragmentData = DataSource::getFragmentData(4,['limit'=>6]);
-						
-						//var_dump($dataSource);
 						
 						echo LoopData::widget(['dataSource'=>$dataSource]);
 					?>

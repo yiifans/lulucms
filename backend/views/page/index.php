@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use components\helpers\TTimeHelper;
+use yii\widgets\LinkPager;
 
 /**
  * @var yii\web\View $this
@@ -20,6 +21,7 @@ $this->addBreadcrumb($this->title);
     </p>
 	<table class="table">
 	    <tr class="tb_header">
+	      <th width="30">ID</th>
 	      <th >标题</th>
 	      <th width="120px">发布时间</th>
 	      <th width="80px">排序</th>
@@ -27,6 +29,7 @@ $this->addBreadcrumb($this->title);
 	    </tr>
 		<?php foreach ($rows as $row ): ?>
 		<tr>
+		<td><?php echo $row['id']?></td>
 		<td><?php echo $row['title']?></td>
 		<td><?php echo TTimeHelper::showTime($row['publish_time']) ?></td>
 		<td><?php echo $row['sort_num']?></td>
@@ -40,4 +43,11 @@ $this->addBreadcrumb($this->title);
 		</tr>
 		<?php endforeach;?>
 	</table>
+    <div class="tbox">
+	    <div class="floatRight">
+		    <?php echo LinkPager::widget([
+		   		'pagination' => $pages,
+		   	]);?>
+	    </div>
+    </div> 
 </div>

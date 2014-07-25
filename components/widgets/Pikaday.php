@@ -4,7 +4,7 @@ namespace components\widgets;
 
 use yii\web\View;
 
-class KindEditor extends BaseWidget
+class Pikaday extends BaseWidget
 {
 
 	public $libUrl = 'static/common/libs/pikaday';

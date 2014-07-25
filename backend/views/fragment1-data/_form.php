@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use components\widgets\KindEditor;
 
 /**
  * @var yii\web\View $this
@@ -21,7 +22,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'title')->textInput(['maxlength' => 128]) ?>
     
     <?= $form->field($model, 'content')->textarea(['rows' => 15]) ?>
-
+	<?php KindEditor::widget(['input'=>'#fragment1data-content'])?>
     <?= $form->field($model, 'sort_num')->textInput() ?>
 
     <?php $this->echoButtons($model); ?>

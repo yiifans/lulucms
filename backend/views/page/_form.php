@@ -7,27 +7,6 @@ use common\includes\CommonUtility;
 use yii\web\View;
 use components\widgets\KindEditor;
 
-/**
- * @var yii\web\View $this
- * @var common\models\Page $model
- * @var yii\widgets\ActiveForm $form
- */
-
-// $this->registerJsFile('static/common/js/common.js');
-// $this->registerCssFile('static/common/libs/kindeditor/themes/default/default.css');
-// $this->registerJsFile('static/common/libs/kindeditor/kindeditor-min.js');
-// $this->registerJsFile('static/common/libs/kindeditor/lang/zh_CN.js');
-
-// $js=<<<JS
-// 			var editor;
-// 			KindEditor.ready(function(K) {
-// 				editor = K.create('#page-body', {
-// 					allowFileManager : true
-// 				});
-// 			});
-// JS;
-
-// $this->registerJs($js,View::POS_END);
 
 $formatArray=CommonUtility::getTitleFormat();
 $formatValueArray = CommonUtility::getTitleFormatArray($model);
@@ -94,7 +73,7 @@ $formatValueArray = CommonUtility::getTitleFormatArray($model);
     
     <?= $form->field($model, 'summary')->textarea(['rows' => 5]) ?>
     
-    <?= $form->field($model, 'body')->textarea(['rows' => 18]) ?>
+    <?= $form->field($model, 'body')->textarea(['rows' => 25]) ?>
     <?php KindEditor::widget(['id'=>'page-body'])?>
     
     <?= $form->field($model, 'seo_title')->textInput(['maxlength' => 128]) ?>
@@ -108,6 +87,10 @@ $formatValueArray = CommonUtility::getTitleFormatArray($model);
     <?= $form->field($model, 'category_id')->dropDownList($categories) ?>
     
     <?= $form->field($model, 'sort_num')->textInput() ?>
+    
+    <?= $form->field($model, 'publish_time')->textInput() ?>
+    
+    <?= $form->field($model, 'modify_time')->textInput() ?>
     
     <?= $form->field($model, 'status')->dropDownList(CommonUtility::getStatus()) ?>
     

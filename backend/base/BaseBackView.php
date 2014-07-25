@@ -25,7 +25,6 @@ class BaseBackView extends BaseView
 {
 	public function getDefaultFieldConfig()
 	{
-		//return [];
 		return [
 			'options' => ['tag' => 'tr','class' => 'form-group'],
 			'template' => '<td class="hAlign_left padding_r10" width="120">{label}:</td><td width="600">{input}</td><td>{hint}{error}</td>',
@@ -35,7 +34,6 @@ class BaseBackView extends BaseView
 	
 	public function getDefaultFieldConfig2()
 	{
-		//return [];
 		return [
 			'options' => ['tag' => 'tr','class' => 'form-group'],
 			'template' => '<td class="hAlign_left padding_r10" width="120">{label}:</td><td width="750">{input}</td><td>{hint}{error}</td>',
@@ -48,7 +46,7 @@ class BaseBackView extends BaseView
 		$buttons = Html::submitButton($model->isNewRecord ? '确定' : '保存', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
 		
 		$str = '<tr class="form-group">
-					<td class="hAlign_left padding_r10" width="150">&nbsp;</td>
+					<td class="hAlign_left padding_r10">&nbsp;</td>
 					<td width="300">'.$buttons.'</td>
 					<td></td>
 				</tr>';

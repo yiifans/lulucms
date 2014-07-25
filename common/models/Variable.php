@@ -11,9 +11,8 @@ use Yii;
  * @property string $name
  * @property string $value
  * @property integer $data_type
- * @property string $description
  * @property boolean $is_cache
- * @property integer $sort_num
+ * @property string $note
  */
 class Variable extends \components\base\BaseActiveRecord
 {
@@ -31,13 +30,13 @@ class Variable extends \components\base\BaseActiveRecord
     public function rules()
     {
         return [
-            [['id', 'name'], 'required'],
+            [['id', 'name', 'value'], 'required'],
             [['value'], 'string'],
             [['id'], 'unique'],
             [['is_cache'], 'boolean'],
-            [['data_type', 'sort_num'], 'integer'],
+            [['data_type'], 'integer'],
             [['id', 'name'], 'string', 'max' => 64],
-            [['description'], 'string', 'max' => 256]
+            [['note'], 'string', 'max' => 256]
         ];
     }
 
@@ -51,18 +50,13 @@ class Variable extends \components\base\BaseActiveRecord
             'name' => '标识',
             'value' => '变量值',
             'data_type' => '数据类型',
-            'description' => '描述',
             'is_cache' => '是否缓存',
-            'sort_num' => '排序',
+            'note' => '备注',
         ];
     }
     
     public function beforeValidate()
     {
-    	if($this->sort_num==null)
-    	{
-    		$this->sort_num=0;
-    	}
     	if($this->is_cache==null)
     	{
     		$this->is_cache=true;

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\LinkPager;
 
 /**
  * @var yii\web\View $this
@@ -29,13 +30,12 @@ $this->addBreadcrumb($this->title);
 		<tr>
 		
 		<td><?php echo $row['name']?></td>
-		<td><?php echo $row['cache_key']?></td>
+		<td><?php echo $row['id']?></td>
 		<td><?php echo $row['is_sys']?></td>
 		<td>
-			<?= Html::a('查看数据', ['dict/index', 'pid' => $row->id]) ?>
-			<?= Html::a('添加数据', ['dict/create', 'pid' => $row->id]) ?>
+			<?= Html::a('查看数据', ['dict/index', 'catid' => $row->id]) ?>
+			<?= Html::a('添加数据', ['dict/create', 'catid' => $row->id]) ?>
 			<?= Html::a('编辑', ['update', 'id' => $row->id]) ?>
-			
 			<?php echo Html::a('删除', ['delete', 'id' => $row->id], [
 				'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
 				'data-method' => 'post',
@@ -44,5 +44,11 @@ $this->addBreadcrumb($this->title);
 		</tr>
 		<?php endforeach;?>
 	</table>
-    
+    <div class="tbox">
+	    <div class="floatRight">
+		    <?php echo LinkPager::widget([
+		   		'pagination' => $pages,
+		   	]);?>
+	    </div>
+    </div>     
 </div>

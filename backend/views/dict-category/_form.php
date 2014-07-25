@@ -22,15 +22,13 @@ use yii\widgets\ActiveForm;
 	
 	    <?= $form->field($model, 'name')->textInput(['maxlength' => 64]) ?>
 	
-		<?= $form->field($model, 'cache_key')->textInput(['maxlength' => 64]) ?>
+		<?= $form->field($model, 'id')->textInput(['maxlength' => 64]) ?>
 	
-	    <!-- 
-	    <?= $form->field($model, 'value')->textInput(['maxlength' => 1024]) ?>
-	    <?= $form->field($model, 'datatype')->textInput(['maxlength' => 32]) ?>
-		 -->
-	    <?= $form->field($model, 'sort_num')->textInput() ?>
+	    
 	
 	    <?= $form->field($model, 'is_sys')->checkbox([],false) ?>
+	    
+	    <?= $form->field($model, 'note')->textarea(['rows'=>3]) ?>
 	    
 	    <?php $this->echoButtons($model); ?>
 	    

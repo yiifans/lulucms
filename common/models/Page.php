@@ -42,7 +42,7 @@ class Page extends \components\base\BaseActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'publish_time', 'status', 'title'], 'required'],
+            [['category_id', 'status', 'title'], 'required'],
             [['category_id', 'status', 'sort_num'], 'integer'],
             [['publish_time', 'modify_time'], 'safe'],
             [['body'], 'string'],

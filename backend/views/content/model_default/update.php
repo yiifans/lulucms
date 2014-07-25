@@ -38,7 +38,7 @@ $this->addBreadcrumb($this->title);
 			
 			<?php foreach ($fields as $field ):?>
 			<tr class="form-group field-content-<?= $field['name_en'] ?>">
-				<td class="hAlign_right padding_r10" width="150px">
+				<td class="hAlign_right padding_r10">
 					<label style="font-weight:normal;" for="content-<?= $field['name_en'] ?>"><?= $field['name'] ?></label>:</td>
 				<td>
 					<?php

@@ -17,19 +17,22 @@ class Fragment3DataController extends BaseBackController
 	{
 		$query = Fragment3Data::find()->where(['fragment_id' => $fraid]);
 		
-		$locals = LuLu::getPagedRows($query);
+		$locals = LuLu::getPagedRows($query, ['order' => 'id desc']);
 		
 		$ret = [];
-		foreach($locals['rows'] as $id => $row)
+		foreach($locals['rows'] as $row)
 		{
+			$id = $row['id'];
+			$ret[$id] = ['id' => $row['id'], 'channel_id' => $row['channel_id'], 'content_id' => $row['content_id'], 'sort_num' => $row['sort_num']];
+			
 			$item = DataSource::getContentByChannel($row['channel_id'], ['where' => 'id=' . $row['content_id']]);
 			if($item == null || empty($item))
 			{
-				$ret[$id] = ['id' => $id, 'channel_id' => $row['channel_id'], 'title' => '没有此数据'];
+				$ret[$id]['title'] = '没有此数据';
 			}
 			else
 			{
-				$ret[$id] = $item[0];
+				$ret[$id]['title'] = $item[0]['title'];
 			}
 		}
 		$locals['rows'] = $ret;

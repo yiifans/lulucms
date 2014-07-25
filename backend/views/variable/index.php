@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\LinkPager;
+use common\includes\CommonUtility;
 
 /**
  * @var yii\web\View $this
@@ -23,18 +25,14 @@ $this->addBreadCrumb($this->title);
 	      <th width="120px">名称</th>
 	      <th >值</th>
 	      <th width="80px">数据类型</th>
-	      <th width="80px">缓存</th>
-	      <th width="80px">排序</th>
-	      <th width="200">操作</th>
+	      <th width="150">操作</th>
 	    </tr>
 		<?php foreach ($rows as $row ): ?>
 		<tr>
 		<td><?php echo $row['id']?></td>
 		<td><?php echo $row['name']?></td>
 		<td><?php echo $row['value']?></td>
-		<td><?php echo $row['data_type']?></td>
-		<td><?php echo $row['is_cache']?></td>
-		<td><?php echo $row['sort_num']?></td>
+		<td><?php echo CommonUtility::getDataType($row['data_type'])?></td>
 		<td>
 			<?= Html::a('编辑', ['update', 'id' => $row->id]) ?>
 			<?php echo Html::a('删除', ['delete', 'id' => $row->id], [
@@ -45,6 +43,11 @@ $this->addBreadCrumb($this->title);
 		</tr>
 		<?php endforeach;?>
 	</table>
-   
-
+    <div class="tbox">
+	    <div class="floatRight">
+		    <?php echo LinkPager::widget([
+		   		'pagination' => $pages,
+		   	]);?>
+	    </div>
+    </div>    
 </div>

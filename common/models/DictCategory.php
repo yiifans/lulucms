@@ -7,10 +7,10 @@ use Yii;
 /**
  * This is the model class for table "yii_dict_category".
  *
- * @property string $key
+ * @property string $id
  * @property string $name
- * @property string $description
- * @property integer $is_sys
+ * @property boolean $is_sys
+ * @property string $note
  */
 class DictCategory extends \components\base\BaseActiveRecord
 {
@@ -28,10 +28,11 @@ class DictCategory extends \components\base\BaseActiveRecord
     public function rules()
     {
         return [
-            [['key', 'name', 'is_sys'], 'required'],
-            [['is_sys'], 'integer'],
-            [['key', 'name'], 'string', 'max' => 64],
-            [['description'], 'string', 'max' => 512]
+            [['id', 'name'], 'required'],
+            [['id'], 'unique'],
+            [['is_sys'], 'boolean'],
+            [['id', 'name'], 'string', 'max' => 64],
+            [['note'], 'string', 'max' => 512]
         ];
     }
 
@@ -41,10 +42,20 @@ class DictCategory extends \components\base\BaseActiveRecord
     public function attributeLabels()
     {
         return [
-            'key' => 'Key',
+            'id' => '缓存Key',
             'name' => '名称',
-            'description' => '描述',
             'is_sys' => '系统分类',
+            'note' => '备注',
         ];
+    }
+    
+    public function checkExist()
+    {
+    	if($this->isNewRecord||$this->id!=$this->oldAttributes['id'])
+    	{
+    		$ret = DictCategory::findOne($this->id);
+    		return $ret!==null;
+    	}
+    	return false;
     }
 }

@@ -12,13 +12,13 @@ use components\LuLu;
  * @property integer $parent_id
  * @property string $name
  * @property string $value
- * @property string $datatype
- * @property string $cache_key
- * @property boolean $is_sys
+ * @property string $category_id
  * @property integer $sort_num
  */
 class Dict extends \components\base\BaseActiveRecord
 {
+	private $defaultSort='sort_num asc';
+	
     /**
      * @inheritdoc
      */
@@ -33,12 +33,10 @@ class Dict extends \components\base\BaseActiveRecord
     public function rules()
     {
         return [
-            [['parent_id', 'cache_key', 'name'], 'required'],
+            [['parent_id', 'category_id', 'name'], 'required'],
             [['parent_id', 'sort_num'], 'integer'],
-            [['cache_key', 'name'], 'string', 'max' => 64],
+            [['category_id', 'name'], 'string', 'max' => 64],
             [['value'], 'string', 'max' => 1024],
-            [['datatype'], 'string', 'max' => 32],
-            [['is_sys'], 'boolean'],
         ];
     }
 
@@ -52,95 +50,80 @@ class Dict extends \components\base\BaseActiveRecord
             'parent_id' => '父级',
             'name' => '名称',
             'value' => '值',
-            'datatype' => '数据类型',
-            'cache_key' => '缓存Key',
-            'is_sys' => '系统字典',
-            'sort_num' => '排序',
-            
-        ];
-    }
-    
-    private $_level;
-    
-    public function getLevel()
-    {
-    	return $this->_level;
-    }
-    
-    public function setLevel($value)
-    {
-    	$this->_level = $value;
-    }
-    
-    public function beforeSave($insert)
-    {
-    	if(parent::beforeSave($insert))
-    	{
-    		if(!is_int($this->sort_num))
-    		{
-    			$this->sort_num=0;
-    		}
-    		if(!is_bool($this->is_sys))
-    		{
-    			$this->is_sys=false;
-    		}
-    		
-    		return true;
-    	}
-    	return false;
-    }
-    
-    public static function getParents($id,$fromCache=true)
-    {
-    	$ret = [];
-    
-    	$current = Dict::findOne([
-    			'id' => $id
-    			]);
-    	array_unshift($ret,$current);
-    	
-    	$parent = Dict::findOne([
-    			'id' => $current['parent_id']
-    			]);
-    	while ( $parent != null )
-    	{
-    		array_unshift($ret, $parent);
-    			
-    		$parent = Dict::findOne([
-    				'id' => $parent['parent_id']
-    				]);
-    	}
-    	
-    	return $ret;
-    }
-    
-    public static function getChannelArrayTree()
-    {
-    	$cachedChannels = LuLu::getAppParam('cachedChannels');
-    	return $cachedChannels;
-    }
-    
-    public static function _getDictArrayTree($parentId = 0, $level = 0)
-    {
-    	$ret = [];
-    
-    	$dataList = Dict::findAll([
-    			'parent_id' => $parentId
-    			], 'sort_num desc');
-    
-    	if ($dataList == null || empty($dataList))
-    	{
-    		return $ret;
-    	}
-    
-    	foreach ( $dataList as $key => $value )
-    	{
-    		$value->level = $level;
-    		$ret[] = $value;
-    			
-    		$temp = self::_getDictArrayTree($value['id'], $level + 1);
-    		$ret = array_merge($ret, $temp);
-    	}
+            'category_id' => '分类Key',
+            'sort_num' => '排序'];
+	}
+
+	private $_level;
+
+	public function getLevel()
+	{
+		return $this->_level;
+	}
+
+	public function setLevel($value)
+	{
+		$this->_level = $value;
+	}
+
+	
+
+	public static function getParents($id, $fromCache = true)
+	{
+		$ret = [];
+		
+		$current = Dict::findOne(['id' => $id]);
+		if($current === null)
+		{
+			return $ret;
+		}
+		array_unshift($ret, $current);
+		
+		$parent = Dict::findOne(['id' => $current['parent_id']]);
+		while($parent != null)
+		{
+			array_unshift($ret, $parent);
+			
+			$parent = Dict::findOne(['id' => $parent['parent_id']]);
+		}
+		
+		return $ret;
+	}
+	public static function getChildren($categoryId, $id)
+	{
+		return Dict::findAll(['category_id' => $categoryId, 'parent_id' => $id], 'sort_num asc');
+	}
+	public static function getChildrenIds($id)
+	{
+		$ret = [];
+		
+		$children = Dict::findAll(['parent_id' => $id],'sort_num asc');
+		foreach($children as $child)
+		{
+			$ret[] = $child['id'];
+		}
+		return $ret;
+	}
+
+	public static function _getDictArrayTree($categoryId, $parentId = 0, $level = 0)
+	{
+		$ret = [];
+		
+		$dataList = Dict::findAll(['category_id' => $categoryId, 'parent_id' => $parentId], 'sort_num asc');
+		
+		if($dataList == null || empty($dataList))
+		{
+			return $ret;
+		}
+		
+		foreach($dataList as $key => $value)
+		{
+			$value->level = $level;
+			$ret[] = $value;
+			
+			$temp = self::_getDictArrayTree($categoryId, $value['id'], $level + 1);
+			$ret = array_merge($ret, $temp);
+		}
     	return $ret;
     }
 }

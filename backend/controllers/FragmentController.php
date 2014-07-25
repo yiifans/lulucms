@@ -22,7 +22,7 @@ class FragmentController extends BaseBackController
 		{
 			$query->andWhere(['category_id' => $catid]);
 		}
-		$locals = LuLu::getPagedRows($query);
+		$locals = LuLu::getPagedRows($query,['order'=>'id desc']);
 		$locals['type'] = $type;
 		return $this->render('index', $locals);
 	}

@@ -17,7 +17,7 @@ class PageController extends BaseBackController
 	{
 		$query = Page::find();
 		
-		$locals = LuLu::getPagedRows($query);
+		$locals = LuLu::getPagedRows($query,['order'=>'id desc']);
 		
 		return $this->render('index', $locals);
 	}

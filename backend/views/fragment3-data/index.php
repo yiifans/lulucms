@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use common\includes\CommonUtility;
+use yii\widgets\LinkPager;
 
 /**
  * @var yii\web\View $this
@@ -21,7 +22,7 @@ $this->addBreadcrumb($this->title);
 	<table class="table">
 	    <tr class="tb_header">
 	      <th width="50">ID</th>
-	      <th >频道ID</th>
+	      <th width="120px">频道、标题ID</th>
 	      <th >标题</th>
 	      <th width="80px">排序</th>
 	      <th width="150">操作</th>
@@ -29,8 +30,9 @@ $this->addBreadcrumb($this->title);
 		<?php foreach ($rows as $row ): ?>
 		<tr>
 		<td><?php echo $row['id']?></td>
-		<td><?php echo $row['channel_id']?></td>
+		<td><?php echo $row['channel_id'],'、',$row['content_id']?></td>
 		<td><?php echo $row['title']?></td>
+		<td><?php echo $row['sort_num']?></td>
 		<td>
 			<?= Html::a('编辑', ['update', 'id' => $row['id'],'fraid'=>$currentFragment->id]) ?>
 			<?php echo Html::a('删除', ['delete', 'id' => $row['id'],'fraid'=>$currentFragment->id], [
@@ -41,5 +43,11 @@ $this->addBreadcrumb($this->title);
 		</tr>
 		<?php endforeach;?>
 	</table>
-
+    <div class="tbox">
+	    <div class="floatRight">
+		    <?php echo LinkPager::widget([
+		   		'pagination' => $pages,
+		   	]);?>
+	    </div>
+    </div> 
 </div>

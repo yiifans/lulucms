@@ -210,6 +210,7 @@ class DataSource extends Object
 	*
 	* $other
 	* $other['where]=''
+	* $other['order']='sort_num asc'
 	* $other['offset]=''
 	* $other['limit]=''
 	*/
@@ -251,6 +252,15 @@ class DataSource extends Object
 			$query->andWhere($other['where']);
 		}
 		
+		if(isset($other['order']))
+		{
+			$query->orderBy($other['where']);
+		}
+		else 
+		{
+			$query->orderBy('sort_num asc');
+		}
+		
 		if(isset($other['offset']) && is_integer($other['offset']))
 		{
 			$query->offset($other['offset']);
@@ -261,7 +271,7 @@ class DataSource extends Object
 			$query->limit($other['limit']);
 		}
 		$ret = $query->all();
-		if($type == 3)
+		if($type === 3)
 		{
 			$temp = [];
 			foreach($ret as $row)

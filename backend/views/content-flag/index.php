@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\LinkPager;
 
 /**
  * @var yii\web\View $this
@@ -19,7 +20,7 @@ $this->addBreadcrumb($this->title);
     </p>
 	<table class="table">
 	    <tr class="tb_header">
-	      <th>ID</th>
+	      <th width="80px">ID</th>
 	      <th>名称</th>
 	      <th width="120px">值</th>
 	      <th width="150">操作</th>
@@ -39,5 +40,11 @@ $this->addBreadcrumb($this->title);
 		</tr>
 		<?php endforeach;?>
 	</table>
-	
+    <div class="tbox">
+	    <div class="floatRight">
+		    <?php echo LinkPager::widget([
+		   		'pagination' => $pages,
+		   	]);?>
+	    </div>
+    </div> 	
 </div>

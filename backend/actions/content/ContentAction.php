@@ -56,9 +56,9 @@ class ContentAction extends BaseBackAction
 		$model->user_name='admin';
 		$model->publish_time=TTimeHelper::getCurrentTime();
 		$model->modify_time=TTimeHelper::getCurrentTime();
-		$model->title_format=CommonUtility::getFormatValue($model->title_format);
-		$model->flag=CommonUtility::getFlatValue($model->flag);
-		
+		$model->title_format=CommonUtility::getTitleFormatValue($model->title_format);
+		$model->flag=CommonUtility::getFlagValue($model->flag);
+
 		$uploadedFile = CommonUtility::uploadFile('Content[title_pic]');
 		if($uploadedFile!=null)
 		{

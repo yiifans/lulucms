@@ -7,10 +7,8 @@ use common\models\Variable;
 use backend\base\BaseBackController;
 use yii\web\NotFoundHttpException;
 use components\LuLu;
+use common\includes\CacheUtility;
 
-/**
- * VariableController implements the CRUD actions for Variable model.
- */
 class VariableController extends BaseBackController
 {
 
@@ -35,6 +33,7 @@ class VariableController extends BaseBackController
 				return $this->refresh();
 			}
 			$model->save();
+			CacheUtility::createVariableCache();
 			return $this->redirect(['index']);
 		}
 		else
@@ -56,6 +55,7 @@ class VariableController extends BaseBackController
 				return $this->refresh();
 			}
 			$model->save();
+			CacheUtility::createVariableCache();
 			return $this->redirect(['index']);
 		}
 		else
@@ -67,6 +67,7 @@ class VariableController extends BaseBackController
 	public function actionDelete($id)
 	{
 		$this->findModel($id)->delete();
+		CacheUtility::createVariableCache();
 		
 		return $this->redirect(['index']);
 	}

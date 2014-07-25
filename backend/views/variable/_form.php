@@ -27,13 +27,12 @@ use common\includes\CommonUtility;
 
     <?= $form->field($model, 'value')->textarea(['rows' => 3]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 3]) ?>
-    
-    <?= $form->field($model, 'is_cache')->checkbox([],false) ?>
 
     <?= $form->field($model, 'data_type')->dropDownList(CommonUtility::getDataType()) ?>
 
-	<?= $form->field($model, 'sort_num')->textInput() ?>
+    
+    <?= $form->field($model, 'note')->textarea(['rows' => 3]) ?>
+    
 	
 	<?php $this->echoButtons($model); ?>
 	

@@ -16,7 +16,7 @@ class Fragment1DataController extends BaseBackController
 	{
 		$query = Fragment1Data::find()->where(['fragment_id' => $fraid]);
 		
-		$locals = LuLu::getPagedRows($query);
+		$locals = LuLu::getPagedRows($query,['order'=>'id desc']);
 		$locals['currentFragment'] = Fragment::findOne($fraid);
 		return $this->render('index', $locals);
 	}

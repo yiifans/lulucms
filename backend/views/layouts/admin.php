@@ -19,7 +19,7 @@ AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 <head>
 <meta charset="<?= Yii::$app->charset ?>" />
-<title><?= Html::encode($this->title) ?></title>
+<title>管理面板——LuLu CMS</title>
 	<?php $this->head() ?>
 </head>
 <body style="margin: 0px; padding-top: 51px;" scroll="no">

@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use components\LuLu;
 use common\models\DictCategory;
+use common\includes\CacheUtility;
 
 /**
  * DictController implements the CRUD actions for Dict model.
@@ -17,15 +18,15 @@ use common\models\DictCategory;
 class DictController extends BaseBackController
 {
 
-    public function actionIndex($pid)
+    public function actionIndex($catid,$pid=0)
     {
-    	$query = Dict::find()->where(['parent_id'=>$pid]);
+    	$query = Dict::find()->where(['parent_id'=>$pid,'category_id'=>$catid]);
        
-    	$locals = LuLu::getPagedRows($query);
+    	$locals = LuLu::getPagedRows($query,['order'=>'sort_num asc']);
     	$locals['pid']=$pid;
-    	$locals['parent'] = Dict::findOne(['id'=>$pid]);
+    	$locals['parent'] = $this->findModel($pid);
     	$locals['parents'] = Dict::getParents($pid);
-    	
+    	$locals['category']=DictCategory::findOne($catid);
         return $this->render('index', $locals);
     }
 
@@ -42,22 +43,20 @@ class DictController extends BaseBackController
     }
 
 
-    public function actionCreate($pid)
+    public function actionCreate($catid, $pid=0)
     {
-    	$parentDic = $this->findModel($pid);
-    	
         $model = new Dict;
-		$model->parent_id=$parentDic->id;
-		$model->cache_key=$parentDic->cache_key;
-		$model->is_sys=$parentDic->is_sys;
+		$model->parent_id=$pid;
+		$model->category_id=$catid;
 		
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index', 'pid' => $pid]);
+            return $this->redirect(['index', 'pid' => $pid, 'catid'=>$catid]);
         } else {
         	$locals=[];
-        	$locals['parent']=$parentDic;
         	$locals['model']=$model;
+        	$locals['parent']=$this->findModel($pid);
         	$locals['parents'] = Dict::getParents($pid);
+        	$locals['category']=DictCategory::findOne($catid);
             return $this->render('create', $locals);
         }
     }
@@ -67,16 +66,17 @@ class DictController extends BaseBackController
     {
         $model = $this->findModel($id);
 		$pid = $model->parent_id;
-		
-        $parentDic = $this->findModel($model->parent_id);
+		$catid=$model->category_id;
         
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index', 'pid' => $parentDic->id]);
+        	CacheUtility::createDictCache();
+            return $this->redirect(['index', 'pid' => $pid, 'catid'=>$catid]);
         } else {
         	$locals=[];
-        	$locals['parent']=$parentDic;
         	$locals['model']=$model;
+        	$locals['parent']=$this->findModel($pid);
         	$locals['parents'] = Dict::getParents($pid);
+        	$locals['category']=DictCategory::findOne($catid);
             return $this->render('update', $locals);
         }
     }
@@ -105,10 +105,20 @@ class DictController extends BaseBackController
      */
     protected function findModel($id)
     {
+    	$id=intval($id);
+    	
+    	if($id===0)
+    	{
+    		$model = new Dict();
+    		$model->id=0;
+    		$model->name='根字典';
+    		return $model;
+    	}
+    	
         if (($model = Dict::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            //throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
 }
