@@ -32,6 +32,16 @@ class LuLu
 		return \Yii::$app->response;
 	}
 
+	public static function getBaseUrl($url = null)
+	{
+		$baseUrl = \Yii::$app->request->getBaseUrl();
+		if($url !== null)
+		{
+			$baseUrl .= $url;
+		}
+		return $baseUrl;
+	}
+	
 	public static function getHomeUrl($url = null)
 	{
 		$homeUrl = \Yii::$app->getHomeUrl();

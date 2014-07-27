@@ -6,6 +6,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use components\widgets\Alert;
 use yii\helpers\Url;
+use components\LuLu;
 
 /**
  *
@@ -44,7 +45,7 @@ AppAsset::register($this);
 			'url' => ['/admin/logout'], 
 			'linkOptions' => ['data-method' => 'post'],
 		];
-		$menuItems[] = ['label' => '前台', 'url' => '@web/index.php'];
+		$menuItems[]='<li><a href="' . LuLu::getBaseUrl() . '/index.php" target="_blank">前台</a></li>';
 		echo Nav::widget([
 				'options' => ['class' => 'navbar-nav navbar-right'],
 				'items' => $menuItems,
