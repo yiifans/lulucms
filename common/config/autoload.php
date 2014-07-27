@@ -18,6 +18,7 @@ require_once($rootDir . '/components/widgets/Breadcrumbs.php');
 require_once($rootDir . '/components/widgets/KindEditor.php');
 require_once($rootDir . '/components/widgets/ActiveForm.php');
 require_once($rootDir . '/components/widgets/ActiveField.php');
+require_once($rootDir . '/components/widgets/Tabs.php');
 
 require_once($rootDir . '/components/helpers/TStringHelper.php');
 require_once($rootDir . '/components/helpers/TTimeHelper.php');

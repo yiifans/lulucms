@@ -52,6 +52,10 @@ class DictCategoryController extends BaseBackController
 				LuLu::setFalsh('warning', $model->id . '：已经存在');
 				return $this->refresh();
 			}
+			if($model->oldAttributes['id'] !== $model->id)
+			{
+				Dict::updateAll(['category_id' => $model->id], ['category_id' => $model->oldAttributes['id']]);
+			}
 			$model->save();
 			return $this->redirect(['index', 'id' => $model->id]);
 		}

@@ -42,7 +42,7 @@ $this->addBreadcrumb($this->title);
 					<td><div class="help-block"></div></td>
 				</tr>
 			    
-			    <?= $form->field($model, 'back_action_custom')->textarea(['rows'=>5]) ?>
+			    <?= $form->field($model, 'back_action_custom')->textarea(['rows'=>3]) ?>
 			    
 				<tr>
 					<td colspan="3"><label>前台Action设置</label></td>
@@ -64,13 +64,13 @@ $this->addBreadcrumb($this->title);
 					<td><div class="help-block"></div></td>
 				</tr>
 				
-    			<?= $form->field($model, 'front_action_custom')->textarea(['rows'=>5]) ?>
+    			<?= $form->field($model, 'front_action_custom')->textarea(['rows'=>3]) ?>
     			
-    			<?php $this->echoButtons($model); ?>
+    			
     			
 			</table>
 			
-	
+			<?php $this->echoButtons2($model); ?>
 		<?php ActiveForm::end(); ?>
 	
 	</div>

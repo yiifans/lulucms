@@ -49,9 +49,9 @@ $this->addBreadcrumb($this->title);
 				<td><div class="help-block"></div></td>
 			</tr>
 			<?php endforeach;?>
-			<?php $this->echoButtons($model); ?>
+			
 		</table>
-
+		<?php $this->echoButtons2($model); ?>
 	    <?php ActiveForm::end(); ?>
 	
 	</div>

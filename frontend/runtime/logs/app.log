@@ -8298,3 +8298,133 @@ $_SERVER = array (
   'REQUEST_TIME_FLOAT' => 1406303312.896,
   'REQUEST_TIME' => 1406303312,
 )
+2014-07-27 14:42:21 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: data' in D:\wamp\www\lulucms\frontend\views\site\close.php:17
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\View.php(245): yii\base\View->renderPhpFile()
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\View.php(147): yii\base\View->renderFile()
+#2 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(362): yii\base\View->render()
+#3 D:\wamp\www\lulucms\frontend\controllers\SiteController.php(33): yii\base\Controller->render()
+#4 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\InlineAction.php(54): frontend\controllers\SiteController->actionClose()
+#5 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\InlineAction.php(54): ::call_user_func_array()
+#6 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(147): yii\base\InlineAction->runWithParams()
+#7 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(423): yii\base\Controller->runAction()
+#8 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(82): yii\base\Module->runAction()
+#9 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(353): yii\web\Application->handleRequest()
+#10 D:\wamp\www\lulucms\index.php(26): yii\base\Application->run()
+#11 {main}
+2014-07-27 14:42:21 [::1][-][-][info][application] $_GET = array (
+  'r' => 'site/close',
+)
+
+$_COOKIE = array (
+  'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur',
+  'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889',
+  '_csrf' => 'aa4b21fe3e124c600fe6676f72a9e26195c1c06203b64716ae3028bf41ed31bes:32:"j1Oiz-xa.QZGjkN.9okt03.GwzqcTKO3";',
+  'PHPSESSID' => '59k1jgp5bpictg2f9hdpf7jnd7',
+)
+
+$_SERVER = array (
+  'HTTP_HOST' => 'localhost',
+  'HTTP_CONNECTION' => 'keep-alive',
+  'HTTP_CACHE_CONTROL' => 'no-cache',
+  'HTTP_PRAGMA' => 'no-cache',
+  'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1',
+  'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'HTTP_DNT' => '1',
+  'HTTP_ACCEPT_ENCODING' => 'gzip,deflate',
+  'HTTP_ACCEPT_LANGUAGE' => 'zh-CN',
+  'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3',
+  'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; _csrf=aa4b21fe3e124c600fe6676f72a9e26195c1c06203b64716ae3028bf41ed31bes%3A32%3A%22j1Oiz-xa.QZGjkN.9okt03.GwzqcTKO3%22%3B; PHPSESSID=59k1jgp5bpictg2f9hdpf7jnd7',
+  'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;',
+  'SystemRoot' => 'C:\\Windows',
+  'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe',
+  'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+  'WINDIR' => 'C:\\Windows',
+  'SERVER_SIGNATURE' => '',
+  'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16',
+  'SERVER_NAME' => 'localhost',
+  'SERVER_ADDR' => '::1',
+  'SERVER_PORT' => '80',
+  'REMOTE_ADDR' => '::1',
+  'DOCUMENT_ROOT' => 'D:/wamp/www',
+  'REQUEST_SCHEME' => 'http',
+  'CONTEXT_PREFIX' => '',
+  'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www',
+  'SERVER_ADMIN' => 'admin@example.com',
+  'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/index.php',
+  'REMOTE_PORT' => '23077',
+  'GATEWAY_INTERFACE' => 'CGI/1.1',
+  'SERVER_PROTOCOL' => 'HTTP/1.1',
+  'REQUEST_METHOD' => 'GET',
+  'QUERY_STRING' => 'r=site/close',
+  'REQUEST_URI' => '/lulucms/index.php?r=site/close',
+  'SCRIPT_NAME' => '/lulucms/index.php',
+  'PHP_SELF' => '/lulucms/index.php',
+  'REQUEST_TIME_FLOAT' => 1406472141.117,
+  'REQUEST_TIME' => 1406472141,
+)
+2014-07-27 14:54:39 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: data' in D:\wamp\www\lulucms\frontend\views\site\close.php:17
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\View.php(245): yii\base\View->renderPhpFile()
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\View.php(147): yii\base\View->renderFile()
+#2 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(362): yii\base\View->render()
+#3 D:\wamp\www\lulucms\frontend\controllers\SiteController.php(28): yii\base\Controller->render()
+#4 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\InlineAction.php(54): frontend\controllers\SiteController->actionClose()
+#5 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\InlineAction.php(54): ::call_user_func_array()
+#6 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(147): yii\base\InlineAction->runWithParams()
+#7 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(423): yii\base\Controller->runAction()
+#8 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(82): yii\base\Module->runAction()
+#9 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(353): yii\web\Application->handleRequest()
+#10 D:\wamp\www\lulucms\index.php(26): yii\base\Application->run()
+#11 {main}
+2014-07-27 14:54:39 [::1][-][-][info][application] $_GET = array (
+  'r' => 'site/close',
+)
+
+$_COOKIE = array (
+  'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur',
+  'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889',
+  '_csrf' => 'aa4b21fe3e124c600fe6676f72a9e26195c1c06203b64716ae3028bf41ed31bes:32:"j1Oiz-xa.QZGjkN.9okt03.GwzqcTKO3";',
+  'PHPSESSID' => '59k1jgp5bpictg2f9hdpf7jnd7',
+)
+
+$_SERVER = array (
+  'HTTP_HOST' => 'localhost',
+  'HTTP_CONNECTION' => 'keep-alive',
+  'HTTP_CACHE_CONTROL' => 'no-cache',
+  'HTTP_PRAGMA' => 'no-cache',
+  'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1',
+  'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'HTTP_DNT' => '1',
+  'HTTP_ACCEPT_ENCODING' => 'gzip,deflate',
+  'HTTP_ACCEPT_LANGUAGE' => 'zh-CN',
+  'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3',
+  'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; _csrf=aa4b21fe3e124c600fe6676f72a9e26195c1c06203b64716ae3028bf41ed31bes%3A32%3A%22j1Oiz-xa.QZGjkN.9okt03.GwzqcTKO3%22%3B; PHPSESSID=59k1jgp5bpictg2f9hdpf7jnd7',
+  'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;',
+  'SystemRoot' => 'C:\\Windows',
+  'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe',
+  'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+  'WINDIR' => 'C:\\Windows',
+  'SERVER_SIGNATURE' => '',
+  'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16',
+  'SERVER_NAME' => 'localhost',
+  'SERVER_ADDR' => '::1',
+  'SERVER_PORT' => '80',
+  'REMOTE_ADDR' => '::1',
+  'DOCUMENT_ROOT' => 'D:/wamp/www',
+  'REQUEST_SCHEME' => 'http',
+  'CONTEXT_PREFIX' => '',
+  'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www',
+  'SERVER_ADMIN' => 'admin@example.com',
+  'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/index.php',
+  'REMOTE_PORT' => '23349',
+  'GATEWAY_INTERFACE' => 'CGI/1.1',
+  'SERVER_PROTOCOL' => 'HTTP/1.1',
+  'REQUEST_METHOD' => 'GET',
+  'QUERY_STRING' => 'r=site/close',
+  'REQUEST_URI' => '/lulucms/index.php?r=site/close',
+  'SCRIPT_NAME' => '/lulucms/index.php',
+  'PHP_SELF' => '/lulucms/index.php',
+  'REQUEST_TIME_FLOAT' => 1406472879.286,
+  'REQUEST_TIME' => 1406472879,
+)

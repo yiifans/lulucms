@@ -50,9 +50,9 @@ $this->addBreadcrumb($this->title);
 			</tr>
 			<?php endforeach;?>
 			
-			<?php $this->echoButtons($model); ?>
+			
 		</table>
-		
+		<?php $this->echoButtons2($model); ?>
 	    <?php ActiveForm::end(); ?>
 	
 	</div>

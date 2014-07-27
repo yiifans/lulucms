@@ -28,13 +28,33 @@ class BaseController extends Controller
 		{
 			$this->channels = CommonUtility::getChannels();
 		}
-		
 		if($this->rootChannels == null)
 		{
 			$this->rootChannels = CommonUtility::getRootChannels();
 		}
 	}
 
+	public function behaviors()
+	{
+		return [
+			'verbs' => [
+				'class' => VerbFilter::className(),
+				'actions' => ['delete' => ['post']]
+			]
+		];
+	}
+	public function actions()
+	{
+		return [
+			'error' => [
+				'class' => 'yii\web\ErrorAction',
+			],
+			'captcha' => [
+				'class' => 'yii\captcha\CaptchaAction',
+				'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+			],
+		];
+	}	
 	public function getChannel($chnid)
 	{
 		if(! isset($this->channels[$chnid]))
@@ -61,12 +81,7 @@ class BaseController extends Controller
 		}
 		return $ret;
 	}
-
-	public function behaviors()
-	{
-		return ['verbs' => ['class' => VerbFilter::className(), 'actions' => ['delete' => ['post']]]];
-	}
-
+	
 	private $_cachedRoles;
 
 	public function getCachedRoles($roleName = null)

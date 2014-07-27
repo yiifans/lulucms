@@ -33,10 +33,8 @@ $this->addBreadcrumb($this->title);
 	
 	    <?= $form->field($model, 'content_att3_name')->textarea(['rows' => 5]) ?>
 	    
-	    <?php $this->echoButtons($model); ?>
-	    
 	</table>
- 
+ 	<?php $this->echoButtons2($model); ?>
     <?php ActiveForm::end(); ?>
 
 </div>

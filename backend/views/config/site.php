@@ -37,13 +37,13 @@ $this->addBreadcrumb($this->title);
     
     <?= $form->field($model, 'site_stats')->textarea(['rows' => 3]) ?>
     
-    <?= $form->field($model, 'site_status')->dropDownList(['0'=>'关闭','1'=>'开启']) ?>
+    <?= $form->field($model, 'site_status')->dropDownList(['1'=>'开启', '0'=>'关闭']) ?>
     
     <?= $form->field($model, 'site_status_message')->textarea(['rows' => 3]) ?>
     
-    <?php $this->echoButtons($model); ?>
+    
 </table>
-   
+   <?php $this->echoButtons2($model); ?>
     <?php ActiveForm::end(); ?>
 
 </div>

@@ -13,15 +13,7 @@ use common\includes\CommonUtility;
  * @var yii\web\View $this
  */
 
-$this->setTitle(CommonUtility::getConfigValue('seo_title'));
-$this->registerMetaTag([
-		'name'=>'keywords',
-		'content'=>CommonUtility::getConfigValue('seo_keywords'),
-]);
-$this->registerMetaTag([
-		'name'=>'description',
-		'content'=>CommonUtility::getConfigValue('seo_description'),
-]);
+
 $this->registerJsFile(CommonUtility::getThemeUrl('js/js.js'),['yii\web\JqueryAsset']);
 
 ?>

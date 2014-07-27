@@ -17,19 +17,27 @@ use yii\helpers\Url;
 				</ul>
 			</div>
 		</div>
-		<!-- 
+		
 	    <div class="tbox">
 			<div class="hd">
 				<h2>主题</h2>
 			</div>
 			<div class="bd">
 				<ul>
-					<li><?= Html::a('default', ['tpl/index','theme'=>'default'],['target'=>'mainFrame']) ?></li>
-					<li><?= Html::a('blue', ['tpl/index','theme'=>'blue'],['target'=>'mainFrame']) ?></li>
-					<li><?= Html::a('basic', ['tpl/index','theme'=>'basic'],['target'=>'mainFrame']) ?></li>
+					<?php 
+						foreach ($themes as $theme)
+						{
+							if($theme==='.'||$theme==='..')
+							{
+								continue;
+							}
+					?>
+					<li><?= Html::a($theme, ['/filemanager','currentdir'=>'\themes', 'name'=>$theme],['target'=>'mainFrame']) ?></li>
+					<?php }?>
 				</ul>
 			</div>
 		</div>
+		<!-- 
 		<div class="tbox">
 			<div class="hd">
 				<h2>模型模板</h2>

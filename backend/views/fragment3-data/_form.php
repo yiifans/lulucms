@@ -25,9 +25,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'sort_num')->textInput() ?>
 
-    <?php $this->echoButtons($model); ?>
+    
 	</table>
-
+	<?php $this->echoButtons($model); ?>
     <?php ActiveForm::end(); ?>
 
 </div>

@@ -24,7 +24,6 @@ use components\LuLu;
  * @property string $detail_tpl
  * @property integer $page_size
  * @property string $note
- * @property string $note2
  * @property string $seo_title
  * @property string $seo_keywords
  * @property string $seo_description
@@ -49,7 +48,7 @@ class Channel extends BaseActiveRecord
 			[['parent_id', 'sort_num', 'page_size'], 'integer'],
 			[['is_leaf', 'is_nav'], 'boolean'],
 			[['name', 'name_alias', 'name_url', 'redirect_url'], 'string', 'max' => 120],
-			[['table', 'note', 'note2'], 'string', 'max' => 80],
+			[['table', 'note'], 'string', 'max' => 80],
 			[['channel_tpl', 'list_tpl', 'detail_tpl'], 'string', 'max' => 64],
 			[['seo_title', 'seo_keywords', 'seo_description'], 'string', 'max' => 256],
 		];
@@ -75,8 +74,7 @@ class Channel extends BaseActiveRecord
 			'list_tpl' => '列表页模板',
 			'detail_tpl' => '内容页模板',
 			'page_size' => '每页大小',
-			'note' => 'Note',
-			'note2' => 'Note2',
+			'note' => '备注',
 			'seo_title'=> 'SEO 标题', 'seo_keywords' => 'SEO 关键字', 'seo_description' => 'SEO 描述'];
 	}
 

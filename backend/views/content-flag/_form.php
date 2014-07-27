@@ -17,17 +17,17 @@ use yii\widgets\ActiveForm;
     	$form = ActiveForm::begin([
 			'fieldConfig' => $this->getDefaultFieldConfig(),
 	    ]); ?>
-<table class="table">
-    <?= $form->field($model, 'id')->textInput(['maxlength' => 64]) ?>
-
-    <?= $form->field($model, 'name')->textInput(['maxlength' => 64]) ?>
-
-    <?= $form->field($model, 'value')->textInput() ?>
-
-    <?= $form->field($model, 'note')->textarea(['rows' => 3]) ?>
-
-	<?php $this->echoButtons($model); ?>
-</table>
+	<table class="table">
+	    <?= $form->field($model, 'id')->textInput(['maxlength' => 64]) ?>
+	
+	    <?= $form->field($model, 'name')->textInput(['maxlength' => 64]) ?>
+	
+	    <?= $form->field($model, 'value')->textInput() ?>
+	
+	    <?= $form->field($model, 'note')->textarea(['rows' => 3]) ?>
+	
+	</table>
+	<?php $this->echoButtons2($model); ?>
     <?php ActiveForm::end(); ?>
 
 </div>

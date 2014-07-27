@@ -74,4 +74,9 @@ a.desc:after { content: /*"\e114"*/"\e152"; }
 .has-error .help-block{float:left;}
 
 .file-box{ position:relative;} 
-.file{ position:absolute; top:0; left:504px; filter:alpha(opacity:0);opacity: 0;width:60px } 
+.file{ position:absolute; top:0; left:504px; filter:alpha(opacity:0);opacity: 0;width:60px }
+
+.nav-tabs{border-bottom:none;}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+border: 1px solid #dddddd;
+}

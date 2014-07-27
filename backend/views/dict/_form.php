@@ -43,10 +43,10 @@ use components\LuLu;
 	    
 	    <?= $form->field($model, 'sort_num')->textInput() ?>
 	    
-	    <?php $this->echoButtons($model); ?>
+	    
 	    
 		</table>
-	  
+	  <?php $this->echoButtons2($model); ?>
     <?php ActiveForm::end(); ?>
 
 </div>

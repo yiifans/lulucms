@@ -25,9 +25,9 @@ use components\widgets\KindEditor;
 	<?php KindEditor::widget(['input'=>'#fragment1data-content'])?>
     <?= $form->field($model, 'sort_num')->textInput() ?>
 
-    <?php $this->echoButtons($model); ?>
+    
 	</table>
-
+	<?php $this->echoButtons2($model); ?>
     <?php ActiveForm::end(); ?>
 
 </div>

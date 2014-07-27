@@ -28,24 +28,19 @@ $this->addBreadcrumb($this->title);
 	    </tr>
 		<?php foreach ($rows as $row ): ?>
 		<tr>
-		<td><?php echo $row['name']?></td>
-		<td><?php echo $row['id']?></td>
-		<td><?php echo $row['is_default']?></td>
-		<td>
-		<?php echo Html::a('删除', ['delete', 'tb' => $row->id], [
-			'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
-			'data-method' => 'post',
-		]); ?>
-		<?= Html::a('编辑', ['update', 'tb' => $row->id]) ?>
-		<?= Html::a('Action', ['action', 'tb' => $row->id]) ?>
-		<?= Html::a('字段', ['define-table-field/index', 'tb' => $row->id]) ?>
-		
-		
-		</td>
+			<td><?php echo $row['name']?></td>
+			<td><?php echo $row['id']?></td>
+			<td><?php echo $row['is_default']?></td>
+			<td>
+				<?= Html::a('编辑', ['update', 'tb' => $row->id]) ?>
+				<?= Html::a('Action', ['action', 'tb' => $row->id]) ?>
+				<?= Html::a('字段', ['define-table-field/index', 'tb' => $row->id]) ?>		
+				<?php echo Html::a('删除', ['delete', 'tb' => $row->id], [
+					'data-confirm' => Yii::t('app', 'Are you sure to delete this item?'),
+					'data-method' => 'post',
+				]); ?>
+			</td>
 		</tr>
 		<?php endforeach;?>
 	</table>
-	
-	
-
 </div>

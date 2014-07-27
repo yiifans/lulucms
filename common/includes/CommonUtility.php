@@ -256,21 +256,62 @@ class CommonUtility
 		return TFileHelper::getFiles($themePath, $prefix);
 	}
 
-	public static function getBackViews($dir, $prefix)
+	public static function getBackViews($dir=null, $prefix=null)
 	{
 		$backend = \Yii::getAlias('@backend');
-		
-		if(is_string($dir))
+		if($dir==null)
 		{
-			$pathArray = [$backend, 'views', $dir];
+			$pathArray = [$backend, 'views'];
 		}
-		else if(is_array($dir))
+		else 
 		{
-			$pathArray = array_merge([$backend, 'views'], $dir);
+			if(is_string($dir))
+			{
+				$pathArray = [$backend, 'views', $dir];
+			}
+			else if(is_array($dir))
+			{
+				$pathArray = array_merge([$backend, 'views'], $dir);
+			}
 		}
 		return TFileHelper::getFiles($pathArray, $prefix);
 	}
 
+	public static function getFiles($dir = null, $prefix = null, $isBack = null)
+	{
+		$root = '';
+		if($isBack === null)
+		{
+			$root = \Yii::getAlias('@webroot');
+		}
+		else if($isBack)
+		{
+			$root = \Yii::getAlias('@backend');
+		}
+		else
+		{
+			$root = \Yii::getAlias('@frontend');
+		}
+		
+		if($dir !== null)
+		{
+			if(is_string($dir))
+			{
+				$pathArray = [$root, $dir];
+			}
+			else if(is_array($dir))
+			{
+				$pathArray = array_merge([$root], $dir);
+			}
+		}
+		else 
+		{
+			$pathArray=[$root];
+		}
+		
+		return TFileHelper::getFiles($pathArray, $prefix);
+	}
+	
 	public static function getAttachUrl($url, $echo = true)
 	{
 		if($echo)
@@ -308,6 +349,7 @@ class CommonUtility
 		}
 		return $cached;
 	}
+	
 	public static function getConfigValue($id)
 	{
 		$cached = LuLu::getAppParam('cachedConfigs');

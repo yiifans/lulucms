@@ -8,7 +8,7 @@ use yii\helpers\Html;
 
 class BaseBackView extends BaseView
 {
-	private $labelWidth=120;
+	private $labelWidth='120px';
 	
 	public function getDefaultFieldConfig()
 	{
@@ -37,6 +37,14 @@ class BaseBackView extends BaseView
 					<td >'.$buttons.'</td>
 					<td></td>
 				</tr>';
+		echo $str;
+	}
+	
+	public function echoButtons2($model)
+	{
+		$buttons = Html::submitButton($model->isNewRecord ? '确定' : '保存', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
+	
+		$str = '<div style="margin-left:'.$this->labelWidth.'">'.$buttons.'</div>';
 		echo $str;
 	}
 }

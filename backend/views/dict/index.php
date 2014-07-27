@@ -30,8 +30,8 @@ $this->addBreadcrumb($parent['name']);
 	<table width="100%" class="table">
 	    <tr class="tb_header">
 	      <th width="50px">ID</th>
-	      <th >名称</th>
-	      <th width="80px">值</th>
+	      <th width="120px">名称</th>
+	      <th >值</th>
 	      <th width="80px">排序</th>
 	      <th width="200">操作</th>
 	    </tr>

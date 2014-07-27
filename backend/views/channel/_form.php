@@ -3,6 +3,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use components\helpers\TStringHelper;
+use components\widgets\Tabs;
 
 $options = '<option value="0">根节点</option>';
 foreach($this->channels as $row)
@@ -29,6 +30,16 @@ foreach($this->channels as $row)
 			'fieldConfig' => $this->getDefaultFieldConfig()
 		]);
 	?>
+    <?php 
+	  Tabs::begin([
+	      'items' => [
+	          ['label' => '基本信息', 'contentId' => 'tableBasic'],
+	          ['label' => '模型\模板', 'contentId' => 'tableModel'],
+	          ['label' => 'SEO设置', 'contentId' => 'tableSEO'],
+	      ],
+	  ]);
+	?>	
+	<div id="tableBasic" class="tab-pane active">
 		<table class="table">
 
 		<tr class="form-group field-channel-parent_id required">
@@ -50,35 +61,46 @@ foreach($this->channels as $row)
 		<?= $form->field($model, 'redirect_url')->textInput(['maxlength' => 80])?>
 		
 		<?= $form->field($model, 'is_leaf')->checkbox(['readonly'=>$model['is_leaf']],false)?>
-		
-		<?= $form->field($model, 'table')->dropDownList(ArrayHelper::map($tableList,'id','name'))?>
-		
-		<?= $form->field($model, 'channel_tpl')->dropDownList(ArrayHelper::map($channelTpls,'name','name','table'))?>
-
-		<?= $form->field($model, 'list_tpl')->dropDownList(ArrayHelper::map($listTpls,'name','name','table'))?>
-		
-		<?= $form->field($model, 'detail_tpl')->dropDownList(ArrayHelper::map($detailTpls,'name','name','table'))?>
-
-		<?= $form->field($model, 'page_size')->textInput()?>
-		
+	
 		<?= $form->field($model, 'is_nav')->checkbox([],false)?>
 
 		<?= $form->field($model, 'sort_num')->textInput()?>
 		
-		<?= $form->field($model, 'note')->textInput(['maxlength' => 80])?>
+		<?= $form->field($model, 'note')->textarea(['rows' => 3]) ?>
 
-		<?= $form->field($model, 'note2')->textInput(['maxlength' => 80])?>
-		
-		<?= $form->field($model, 'seo_title')->textInput(['maxlength' => 256])?>
-		
-		<?= $form->field($model, 'seo_keywords')->textInput(['maxlength' => 256])?>
-		
-		<?= $form->field($model, 'seo_description')->textInput(['maxlength' => 256])?>
-		
-		<?php $this->echoButtons($model); ?>
-		
 		</table>
+	</div>
+	
+	
+	<div id="tableModel" class="tab-pane">
+	    <table class="table">
+			<?= $form->field($model, 'table')->dropDownList(ArrayHelper::map($tableList,'id','name'))?>
+			
+			<?= $form->field($model, 'channel_tpl')->dropDownList(ArrayHelper::map($channelTpls,'name','name','table'))?>
+	
+			<?= $form->field($model, 'list_tpl')->dropDownList(ArrayHelper::map($listTpls,'name','name','table'))?>
+			
+			<?= $form->field($model, 'detail_tpl')->dropDownList(ArrayHelper::map($detailTpls,'name','name','table'))?>
+			
+			<?= $form->field($model, 'page_size')->textInput()?>
+			
+	    </table>
+    </div>
+    
+	<div id="tableSEO" class="tab-pane">
+	    <table class="table">
+		    <?= $form->field($model, 'seo_title')->textInput(['maxlength' => 128]) ?>
 		
+		    <?= $form->field($model, 'seo_keywords')->textInput(['maxlength' => 128]) ?>
+		
+		    <?= $form->field($model, 'seo_description')->textarea(['rows' => 3]) ?>
+	    </table>
+    </div>
+    
+    <?php Tabs::end();?>
+    
+    <?php $this->echoButtons2($model); ?>
+    		
 	<?php ActiveForm::end(); ?>
 
 </div>

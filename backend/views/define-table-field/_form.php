@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use components\widgets\Tabs;
 
 /**
  * @var yii\web\View $this
@@ -45,6 +46,7 @@ $formTypeArray=[
 	'linkfieldselect'=>'下拉外表关联字段(linkfieldselect)',
 	
 ];
+
 ?>
 
 <div class="define-table-field-form">
@@ -55,11 +57,19 @@ $formTypeArray=[
     	 $form = ActiveForm::begin([
 		'fieldConfig' => $this->getDefaultFieldConfig(),
     ]); ?>
+    
+    <?php 
+	  Tabs::begin([
+	      'items' => [
+	          ['label' => '基本信息', 'contentId' => 'tableBasic'],
+	          ['label' => '前台表单', 'contentId' => 'tableFrontForm'],
+	          ['label' => '后台表单', 'contentId' => 'tableBackForm'],
+	      ],
+	  ]);
+	?>
+	<div id="tableBasic" class="tab-pane active">
+	
 		<table class="table">
-
-		<tr>
-			<td colspan="3"><label>基本信息</label></td>
-		</tr>
 		
 		<?= $form->field($model, 'name_en')->textInput(['maxlength' => 80,'disabled'=>$disabled]) ?>
 
@@ -75,22 +85,20 @@ $formTypeArray=[
 		
 		<?= $form->field($model, 'is_unique')->checkBox(['disabled'=>$disabled],false) ?>
 		
-
-		<tr>
-			<td colspan="3"><label>属性设置</label></td>
-		</tr>
-	
 		<?= $form->field($model, 'is_main')->checkBox([],false) ?>
 		<!-- 
 		<?= $form->field($model, 'is_sys')->checkBox([],false) ?>
 		 -->
 		<?= $form->field($model, 'sort_num')->textInput() ?>
 
-		<?= $form->field($model, 'note')->textInput(['maxlength' => 200]) ?>
+		<?= $form->field($model, 'note')->textarea(['rows' => 3]) ?>
 		
-		<tr>
-			<td colspan="3"><label>前台表单</label></td>
-		</tr>
+		</table>
+		</div>
+		
+		<div id="tableFrontForm" class="tab-pane">
+		<table  class="table">
+		
     	<?= $form->field($model, 'front_status')->checkBox([],false) ?>
 
 	    <?= $form->field($model, 'front_fun_add')->textInput(['maxlength' => 64]) ?>
@@ -101,19 +109,24 @@ $formTypeArray=[
 	
 		<?= $form->field($model, 'front_form_type')->dropDownList($formTypeArray) ?>
 	
-	    <?= $form->field($model, 'front_form_option')->textarea(['rows' => 5]) ?>
+	    <?= $form->field($model, 'front_form_option')->textarea(['rows' => 3]) ?>
 	
 	    <?= $form->field($model, 'front_form_default')->textInput(['maxlength' => 128]) ?>
 	    
-	    <?= $form->field($model, 'front_form_source')->textarea(['rows' => 5]) ?>
+	    <?= $form->field($model, 'front_form_source')->textarea(['rows' => 3]) ?>
 		<!-- 
-	    <?= $form->field($model, 'front_form_html')->textarea(['rows' => 5]) ?>
-	
-	    <?= $form->field($model, 'front_note')->textarea(['rows' => 5]) ?>
-	     -->
-		<tr>
-			<td colspan="3"><label>后台表单</label></td>
-		</tr>	
+	    <?= $form->field($model, 'front_form_html')->textarea(['rows' => 3]) ?>
+		-->
+		
+	    <?= $form->field($model, 'front_note')->textarea(['rows' => 3]) ?>
+	     
+	     
+	     </table>
+	     </div>
+	     
+	    <div id="tableBackForm" class="tab-pane">
+	    <table  class="table ">
+		
 		<?= $form->field($model, 'back_status')->checkBox([],false) ?>
 		
 	    <?= $form->field($model, 'back_fun_add')->textInput(['maxlength' => 64]) ?>
@@ -124,20 +137,25 @@ $formTypeArray=[
 	
 		<?= $form->field($model, 'back_form_type')->dropDownList($formTypeArray) ?>
 
-	    <?= $form->field($model, 'back_form_option')->textarea(['rows' => 5]) ?>
+	    <?= $form->field($model, 'back_form_option')->textarea(['rows' => 3]) ?>
 	
 	    <?= $form->field($model, 'back_form_default')->textInput(['maxlength' => 128]) ?>
 	    
-	    <?= $form->field($model, 'back_form_source')->textarea(['rows' => 5]) ?>
+	    <?= $form->field($model, 'back_form_source')->textarea(['rows' => 3]) ?>
 		<!-- 
-	    <?= $form->field($model, 'back_form_html')->textarea(['rows' => 5]) ?>
-	
-	    <?= $form->field($model, 'back_note')->textarea(['rows' => 5]) ?>
-    	-->
+	    <?= $form->field($model, 'back_form_html')->textarea(['rows' => 3]) ?>
+		-->
+		
+	    <?= $form->field($model, 'back_note')->textarea(['rows' => 3]) ?>
     	
-    	<?php $this->echoButtons($model); ?>
+    	
 		</table>
-	
+		</div>
+		
+<?php Tabs::end();?>
+
+<?php $this->echoButtons2($model); ?>
+
 	<?php ActiveForm::end(); ?>
 
 </div>

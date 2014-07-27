@@ -1,4 +1,6 @@
 <?php
+
+use components\widgets\Tabs;
 /**
  * @var yii\web\View $this
  */

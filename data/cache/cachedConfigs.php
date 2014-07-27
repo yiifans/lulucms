@@ -122,7 +122,7 @@ $cachedConfigs['site_path']=[
 $cachedConfigs['site_stats']=[
 	'id' => 'site_stats',
 	'scope' => 'site',
-	'value' => 'hbbbbb',
+	'value' => '',
 	'note' => '',
 ];
 $cachedConfigs['site_status']=[
@@ -134,7 +134,7 @@ $cachedConfigs['site_status']=[
 $cachedConfigs['site_status_message']=[
 	'id' => 'site_status_message',
 	'scope' => 'site',
-	'value' => 'i',
+	'value' => '站点维护中。。。',
 	'note' => '',
 ];
 $cachedConfigs['site_url']=[

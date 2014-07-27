@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
  * @var yii\widgets\ActiveForm $form
  */
 
-$this->title="SEO 设置";
+$this->title="SEO设置";
 $this->addBreadcrumb($this->title);
 
 ?>
@@ -20,19 +20,17 @@ $this->addBreadcrumb($this->title);
     	$form = ActiveForm::begin([
 			'fieldConfig' => $this->getDefaultFieldConfig(),
 	    ]); ?>
-<table class="table">
-    <?= $form->field($model, 'seo_title')->textInput(['maxlength' => 64]) ?>
-
-    <?= $form->field($model, 'seo_keywords')->textInput(['maxlength' => 64]) ?>
-
-  
-    
-    <?= $form->field($model, 'seo_description')->textarea(['rows' => 5]) ?>
-    
-    <?php $this->echoButtons($model); ?>
-    
-</table>
- 
+		<table class="table">
+		    <?= $form->field($model, 'seo_title')->textInput(['maxlength' => 64]) ?>
+		
+		    <?= $form->field($model, 'seo_keywords')->textInput(['maxlength' => 64]) ?>
+		
+		    <?= $form->field($model, 'seo_description')->textarea(['rows' => 3]) ?>
+		    
+		    
+		    
+		</table>
+ 	<?php $this->echoButtons2($model); ?>
     <?php ActiveForm::end(); ?>
 
 </div>

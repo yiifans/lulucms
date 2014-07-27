@@ -7,4 +7,5 @@ use components\base\BaseController;
 
 class BaseFrontController extends BaseController
 {
+	
 }

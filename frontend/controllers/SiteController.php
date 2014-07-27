@@ -3,37 +3,30 @@
 namespace frontend\controllers;
 
 use Yii;
-use yii\web\Controller;
 use common\models\LoginForm;
 use frontend\models\ContactForm;
 use common\models\User;
 use yii\web\BadRequestHttpException;
 use yii\helpers\Security;
-use common\models\Channel;
 use components\LuLu;
 use frontend\base\BaseFrontController;
 use frontend\models\SignupForm;
-use common\includes\DataSource;
+use common\includes\CommonUtility;
 
 class SiteController extends BaseFrontController
 {
-	public function actions()
+
+	public function actionClose($message = null)
 	{
-		return [
-			'error' => [
-				'class' => 'yii\web\ErrorAction',
-			],
-			'captcha' => [
-				'class' => 'yii\captcha\CaptchaAction',
-				'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-			],
-		];
+		$this->layout = false;
+		$this->setSeo();
+		return $this->render('close');
 	}
 
 	public function actionIndex()
 	{
+		$this->setSeo();
 		$params = [];
-		
 		return $this->render('index_', $params);
 	}
 
@@ -94,7 +87,6 @@ class SiteController extends BaseFrontController
 				}
 			}
 		}
-		
 		return $this->render('signup', ['model' => $model]);
 	}
 
@@ -152,5 +144,19 @@ class SiteController extends BaseFrontController
 		}
 		
 		return false;
+	}
+
+	private function setSeo()
+	{
+		$view = LuLu::getView();
+		
+		$title = CommonUtility::getConfigValue('seo_title');
+		if(empty($title))
+		{
+			$title = '首页——' . CommonUtility::getConfigValue('seo_name');
+		}
+		$view->setTitle($title);
+		$view->registerMetaTag(['name' => 'keywords', 'content' => CommonUtility::getConfigValue('seo_keywords')]);
+		$view->registerMetaTag(['name' => 'description', 'content' => CommonUtility::getConfigValue('seo_description')]);
 	}
 }
