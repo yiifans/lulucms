@@ -30,6 +30,7 @@ AppAsset::register($this);
 		<tr>
 			
 			<td valign="top">
+			<h1>LuLu CMS 管理中心</h1>
 			<div>
 			<?php $form = ActiveForm::begin([
 					'id' => 'login-form',
@@ -40,11 +41,6 @@ AppAsset::register($this);
 					]
 			]);?>
 				<table class="table" style="border: none;">
-					<tr class="form-group">
-						<td colspan="2" style="border: none;">
-							<h1>LuLu CMS 管理中心</h1>
-						</td>
-					</tr>
 					<?= $form->field($model, 'username') ?>
 					<?= $form->field($model, 'password')->passwordInput() ?>
 					<tr class="form-group">
