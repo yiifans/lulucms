@@ -4,10 +4,8 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Dict;
-use common\models\search\DictSearch;
 use backend\base\BaseBackController;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 use components\LuLu;
 use common\models\DictCategory;
 use common\includes\CacheUtility;

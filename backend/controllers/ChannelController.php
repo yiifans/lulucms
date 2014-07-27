@@ -45,7 +45,7 @@ class ChannelController extends BaseBackController
 			$fiels = CommonUtility::getFrontViews(['content', $table['id']], $prefix);
 			foreach($fiels as $file)
 			{
-				$ret[] = ['name' => $file, 'table' =>$table['name_cn'].'('. $tableName.')'];
+				$ret[] = ['name' => $file, 'table' =>$table['name_cn'].'('. $table.')'];
 			}
 		}
 		return $ret;

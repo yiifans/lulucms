@@ -36,32 +36,6 @@ class User extends BaseActiveRecord implements IdentityInterface
 		return 'user';
 	}
 
-	/**
-	 * Creates a new user
-	 *
-	 * @param array $attributes
-	 *        	the attributes given by field => value
-	 * @return static null newly created model, or null on failure
-	 */
-	public static function create($attributes)
-	{
-		/**
-		 *
-		 * @var User $user
-		 */
-		$user = new static();
-		$user->setAttributes($attributes);
-		$user->setPassword($attributes['password']);
-		$user->generateAuthKey();
-		if ($user->save())
-		{
-			return $user;
-		}
-		else
-		{
-			return null;
-		}
-	}
 
 	/**
 	 * @inheritdoc
@@ -84,6 +58,35 @@ class User extends BaseActiveRecord implements IdentityInterface
 		];
 	}
 
+	public function attributeLabels()
+	{
+		return [
+			'username' => '用户名',
+			'password' => '密码',
+		];
+	}
+	
+
+	public static function create($attributes)
+	{
+		/**
+		 *
+		 * @var User $user
+		 */
+		$user = new static();
+		$user->setAttributes($attributes);
+		$user->setPassword($attributes['password']);
+		$user->generateAuthKey();
+		if ($user->save())
+		{
+			return $user;
+		}
+		else
+		{
+			return null;
+		}
+	}
+	
 	/**
 	 * @inheritdoc
 	 */

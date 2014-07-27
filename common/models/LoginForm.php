@@ -42,7 +42,13 @@ class LoginForm extends Model
 			$this->addError('password', 'Incorrect username or password.');
 		}
 	}
-
+	public function attributeLabels()
+	{
+		return [
+			'username' => '用户名',
+			'password' => '密码',
+		];
+	}
 	/**
 	 * Logs in a user using the provided username and password.
 	 * @return boolean whether the user is logged in successfully

@@ -19,7 +19,7 @@ AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 <head>
 <meta charset="<?= Yii::$app->charset ?>" />
-<title>管理面板——LuLu CMS</title>
+<title>管理中心——LuLu CMS</title>
 	<?php $this->head() ?>
 </head>
 <body style="margin: 0px; padding-top: 51px;" scroll="no">
@@ -40,11 +40,10 @@ AppAsset::register($this);
 			['label' => '模板', 'url' => ['admin/tpl']],
 			
 		];
-		if (Yii::$app->user->isGuest) {
-			$menuItems[] = ['label' => '登录', 'url' => ['/site/login']];
-		} else {
-			$menuItems[] = ['label' => '退出 (' . Yii::$app->user->identity->username .')' , 'url' => ['/site/logout']];
-		}
+		$menuItems[] = ['label' => '退出 (' . Yii::$app->user->identity->username .')' , 
+			'url' => ['/admin/logout'], 
+			'linkOptions' => ['data-method' => 'post'],
+		];
 		$menuItems[] = ['label' => '前台', 'url' => '@web/index.php'];
 		echo Nav::widget([
 				'options' => ['class' => 'navbar-nav navbar-right'],
@@ -65,7 +64,7 @@ AppAsset::register($this);
 <script type="text/javascript" language="javascript">
 function iFrameHeight() 
 {
-	var contentHeight = document.body.clientHeight-70;
+	var contentHeight = document.body.scrollHeight-70;
 	
 	console.log(contentHeight);
 	

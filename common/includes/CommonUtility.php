@@ -343,7 +343,38 @@ class CommonUtility
 	{
 		$cached = LuLu::getAppParam('cachedVariables');
 		$dataType=$cached[$id]['data_type'];
+		//$dataType = ['0' => '字符串', '1' => '数字', '2' => '布尔型', '3' => '日期', '4' => '数组', '5' => 'JSON'];
+		
 		$value = $cached[$id]['value'];
+		if($dataType===0)
+		{
+			return $value;
+		}
+		if($dataType===1)
+		{
+			return intval($value);
+		}
+		if($dataType===2)
+		{
+			$value = strtolower($value);
+			if($value=='true'||$value=='1')
+			{
+				return true;
+			}
+			return false;
+		}
+		if($dataType===3)
+		{
+			return $value;
+		}
+		if($dataType===4)
+		{
+			return $value;
+		}
+		if($dataType===5)
+		{
+			return $value;
+		}
 		return $value;
 	}
 	

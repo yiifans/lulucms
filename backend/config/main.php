@@ -16,6 +16,7 @@ return [
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
+            'loginUrl' => ['admin/login'],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -27,11 +28,16 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'admin/error',
         ],
         'view' => [
         	'class' => 'backend\base\BaseBackView',
         ],
+    ],
+    'modules' => [
+	    'filemanager' => [
+	    	'class' => 'backend\modules\filemanager\FileManagerModule',
+	    ],
     ],
     'params' => $params,
 ];
