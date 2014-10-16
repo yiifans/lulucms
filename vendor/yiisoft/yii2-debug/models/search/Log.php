@@ -23,16 +23,15 @@ class Log extends Base
      * @var string ip attribute input search value
      */
     public $level;
-
     /**
      * @var string method attribute input search value
      */
     public $category;
-
     /**
      * @var integer message attribute input search value
      */
     public $message;
+
 
     /**
      * @inheritdoc
@@ -59,8 +58,8 @@ class Log extends Base
     /**
      * Returns data provider with filled models. Filter applied if needed.
      *
-     * @param  array                       $params an array of parameter values indexed by parameter names
-     * @param  array                       $models data to return provider for
+     * @param array $params an array of parameter values indexed by parameter names
+     * @param array $models data to return provider for
      * @return \yii\data\ArrayDataProvider
      */
     public function search($params, $models)

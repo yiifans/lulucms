@@ -39,7 +39,7 @@ class DefineTableFieldController extends BaseBackController
 		
 		if($model->load($_POST) && $model->save())
 		{
-			$fieldName = $model->name_en;
+			$fieldName = $model->field_name;
 			$dataType = $model->getFieldType();
 			$isNull = $model->is_null;
 			
@@ -82,7 +82,7 @@ class DefineTableFieldController extends BaseBackController
 		$model = $this->findModel($id);
 		$model->delete();
 		
-		$sql = SqlData::getDropFieldSql($model->table, $model->name_en);
+		$sql = SqlData::getDropFieldSql($model->table, $model->field_name);
 		// LuLu::execute($sql);
 		CacheUtility::createFieldCache();
 		return $this->redirect(['index', 'tb' => $model->table]);

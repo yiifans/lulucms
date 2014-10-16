@@ -35,7 +35,7 @@ class ContentController extends BaseFrontController
 		
 		$channel = $this->getChannel($chnid);
 		
-		$table = DefineTable::findOne(['id' => $channel['table']]);
+		$table = DefineTable::findOne(['table_name' => $channel['table']]);
 		
 		$ret = $table->getFrontActions();
 		

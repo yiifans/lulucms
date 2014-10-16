@@ -18,7 +18,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use components\LuLu;
 use common\models\DefineTableField;
-use common\models\content\CommonContent;
+use common\models\content\DefaultContent;
 use components\helpers\TTimeHelper;
 use components\base\BaseAction;
 use backend\actions\content\ContentAction;
@@ -37,7 +37,7 @@ class UpdateAction extends ContentAction
 		
 		$attValues = $this->findModel($id);
 		
-		$model = new CommonContent($currentChannel['table']);
+		$model = new DefaultContent($currentChannel['table']);
 		$model->setIsNewRecord(false);
 		$model->attributes = $attValues;
 	

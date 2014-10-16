@@ -27,26 +27,29 @@ abstract class BasePage extends Component
      * the route and the rest of the name-value pairs are treated as GET parameters, e.g. `array('site/page', 'name' => 'about')`.
      */
     public $route;
+
     /**
-     * @var \Codeception\AbstractGuy the testing guy object
+     * @var \Codeception\Actor the testing guy object
      */
-    protected $guy;
+    protected $actor;
+
 
     /**
      * Constructor.
-     * @param \Codeception\AbstractGuy the testing guy object
+     *
+     * @param \Codeception\Actor $I the testing guy object
      */
     public function __construct($I)
     {
-        $this->guy = $I;
+        $this->actor = $I;
     }
 
     /**
      * Returns the URL to this page.
      * The URL will be returned by calling the URL manager of the application
      * with [[route]] and the provided parameters.
-     * @param  array                  $params the GET parameters for creating the URL
-     * @return string                 the URL to this page
+     * @param array $params the GET parameters for creating the URL
+     * @return string the URL to this page
      * @throws InvalidConfigException if [[route]] is not set or invalid
      */
     public function getUrl($params = [])
@@ -64,9 +67,9 @@ abstract class BasePage extends Component
 
     /**
      * Creates a page instance and sets the test guy to use [[url]].
-     * @param  \Codeception\AbstractGuy $I      the test guy instance
-     * @param  array                    $params the GET parameters to be used to generate [[url]]
-     * @return static                   the page instance
+     * @param \Codeception\Actor $I the test guy instance
+     * @param array $params the GET parameters to be used to generate [[url]]
+     * @return static the page instance
      */
     public static function openBy($I, $params = [])
     {

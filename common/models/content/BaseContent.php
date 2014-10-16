@@ -22,10 +22,10 @@ class BaseContent extends DynamicModel
 	public  $att1;				//integer
 	public  $att2;				//integer
 	public  $att3;				//integer
-	public  $views;				//integer
-	public  $commonts;			//integer
 	public  $flag;				//integer
 	public  $status;			//integer
+	public  $views;				//integer
+	public  $commonts;			//integer
 	public  $title;				//string
 	public  $title_format;		//string
 	public  $title_pic;			//string
@@ -45,7 +45,7 @@ class BaseContent extends DynamicModel
     public function rules()
     {
         $currentRules = [
-            [['channel_id', 'user_id', 'user_name', 'publish_time', 'modify_time', 'status', 'title'], 'required'],
+            [['channel_id', 'user_id', 'user_name', 'status', 'title'], 'required'],
             [['channel_id', 'user_id', 'att1', 'att2', 'att3', 'flag', 'views', 'commonts', 'status', 'is_pic'], 'integer'],
             [['id', 'publish_time', 'modify_time'], 'safe'],
             [['user_name'], 'string', 'max' => 80],

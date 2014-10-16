@@ -29,6 +29,7 @@ class Message extends BaseMessage
      */
     private $_swiftMessage;
 
+
     /**
      * @return \Swift_Message Swift message instance.
      */
@@ -191,7 +192,7 @@ class Message extends BaseMessage
      * Sets the message body.
      * If body is already set and its content type matches given one, it will
      * be overridden, if content type miss match the multipart message will be composed.
-     * @param string $body        body content.
+     * @param string $body body content.
      * @param string $contentType body content type.
      */
     protected function setBody($body, $contentType)
@@ -204,7 +205,7 @@ class Message extends BaseMessage
             $partFound = false;
             foreach ($parts as $key => $part) {
                 if (!($part instanceof \Swift_Mime_Attachment)) {
-                    /* @var \Swift_Mime_MimePart $part */
+                    /* @var $part \Swift_Mime_MimePart */
                     if ($part->getContentType() == $contentType) {
                         $charset = $part->getCharset();
                         unset($parts[$key]);

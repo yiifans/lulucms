@@ -1,10 +1,8 @@
 <?php
+/* @var $panel yii\debug\panels\RequestPanel */
+
 use yii\helpers\Html;
 use yii\web\Response;
-
-/**
- * @var yii\debug\panels\RequestPanel $panel
- */
 
 $statusCode = $panel->data['statusCode'];
 if ($statusCode === null) {
@@ -12,7 +10,7 @@ if ($statusCode === null) {
 }
 if ($statusCode >= 200 && $statusCode < 300) {
     $class = 'label-success';
-} elseif ($statusCode >= 100 && $statusCode < 200) {
+} elseif ($statusCode >= 300 && $statusCode < 400) {
     $class = 'label-info';
 } else {
     $class = 'label-important';

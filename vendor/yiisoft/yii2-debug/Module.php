@@ -31,7 +31,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
      */
     public $allowedIPs = ['127.0.0.1', '::1'];
     /**
-     * @var string the namespace that controller classes are in.
+     * @inheritdoc
      */
     public $controllerNamespace = 'yii\debug\controllers';
     /**
@@ -54,6 +54,13 @@ class Module extends \yii\base\Module implements BootstrapInterface
      * the oldest ones will be removed.
      */
     public $historySize = 50;
+    /**
+     * @var boolean whether to enable message logging for the requests about debug module actions.
+     * You normally do not want to keep these logs because they may distract you from the logs about your applications.
+     * You may want to enable the debug logs if you want to investigate how the debug module itself works.
+     */
+    public $enableDebugLogs = false;
+
 
     /**
      * Returns Yii logo ready to use in `<img src="`
@@ -111,6 +118,11 @@ class Module extends \yii\base\Module implements BootstrapInterface
         $app->on(Application::EVENT_BEFORE_REQUEST, function () use ($app) {
             $app->getView()->on(View::EVENT_END_BODY, [$this, 'renderToolbar']);
         });
+
+        $app->getUrlManager()->addRules([
+            $this->id => $this->id,
+            $this->id . '/<controller:\w+>/<action:\w+>' => $this->id . '/<controller>/<action>',
+        ], false);
     }
 
     /**
@@ -118,17 +130,36 @@ class Module extends \yii\base\Module implements BootstrapInterface
      */
     public function beforeAction($action)
     {
+        if (!$this->enableDebugLogs) {
+            foreach (Yii::$app->getLog()->targets as $target) {
+                $target->enabled = false;
+            }
+        }
+
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        // do not display debug toolbar when in debug view mode
         Yii::$app->getView()->off(View::EVENT_END_BODY, [$this, 'renderToolbar']);
-        unset(Yii::$app->getLog()->targets['debug']);
-        $this->logTarget = null;
 
         if ($this->checkAccess()) {
-            return parent::beforeAction($action);
+            $this->resetGlobalSettings();
+            return true;
         } elseif ($action->id === 'toolbar') {
+            // Accessing toolbar remotely is normal. Do not throw exception.
             return false;
         } else {
             throw new ForbiddenHttpException('You are not allowed to access this page.');
         }
+    }
+
+    /**
+     * Resets potentially incompatible global settings done in app config.
+     */
+    protected function resetGlobalSettings()
+    {
+        Yii::$app->assetManager->bundles = [];
     }
 
     /**
@@ -145,7 +176,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
             'tag' => $this->logTarget->tag,
         ]);
         echo '<div id="yii-debug-toolbar" data-url="' . $url . '" style="display:none"></div>';
-        /** @var View $view */
+        /* @var $view View */
         $view = $event->sender;
         echo '<style>' . $view->renderPhpFile(__DIR__ . '/assets/toolbar.css') . '</style>';
         echo '<script>' . $view->renderPhpFile(__DIR__ . '/assets/toolbar.js') . '</script>';
@@ -163,8 +194,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
                 return true;
             }
         }
-        Yii::warning('Access to debugger is denied due to IP address restriction. The requested IP is ' . $ip, __METHOD__);
-
+        Yii::warning('Access to debugger is denied due to IP address restriction. The requesting IP address is ' . $ip, __METHOD__);
         return false;
     }
 
@@ -179,6 +209,7 @@ class Module extends \yii\base\Module implements BootstrapInterface
             'log' => ['class' => 'yii\debug\panels\LogPanel'],
             'profiling' => ['class' => 'yii\debug\panels\ProfilingPanel'],
             'db' => ['class' => 'yii\debug\panels\DbPanel'],
+            'assets' => ['class' => 'yii\debug\panels\AssetPanel'],
             'mail' => ['class' => 'yii\debug\panels\MailPanel'],
         ];
     }

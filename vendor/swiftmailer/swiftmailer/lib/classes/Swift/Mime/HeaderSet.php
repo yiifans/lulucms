@@ -11,8 +11,6 @@
 /**
  * A collection of MIME headers.
  *
- * @package    Swift
- * @subpackage Mime
  * @author     Chris Corbyn
  */
 interface Swift_Mime_HeaderSet extends Swift_Mime_CharsetObserver
@@ -29,7 +27,7 @@ interface Swift_Mime_HeaderSet extends Swift_Mime_CharsetObserver
      * Add a new Date header using $timestamp (UNIX time).
      *
      * @param string  $name
-     * @param integer $timestamp
+     * @param int     $timestamp
      */
     public function addDateHeader($name, $timestamp = null);
 
@@ -72,9 +70,9 @@ interface Swift_Mime_HeaderSet extends Swift_Mime_CharsetObserver
      * If multiple headers match, the actual one may be specified by $index.
      *
      * @param string  $name
-     * @param integer $index
+     * @param int     $index
      *
-     * @return boolean
+     * @return bool
      */
     public function has($name, $index = 0);
 
@@ -88,7 +86,7 @@ interface Swift_Mime_HeaderSet extends Swift_Mime_CharsetObserver
      * offset.
      *
      * @param Swift_Mime_Header $header
-     * @param integer           $index
+     * @param int               $index
      */
     public function set(Swift_Mime_Header $header, $index = 0);
 
@@ -98,7 +96,7 @@ interface Swift_Mime_HeaderSet extends Swift_Mime_CharsetObserver
      * Returns NULL if none present.
      *
      * @param string  $name
-     * @param integer $index
+     * @param int     $index
      *
      * @return Swift_Mime_Header
      */
@@ -126,7 +124,7 @@ interface Swift_Mime_HeaderSet extends Swift_Mime_CharsetObserver
      * If multiple headers match, the actual one may be specified by $index.
      *
      * @param string  $name
-     * @param integer $index
+     * @param int     $index
      */
     public function remove($name, $index = 0);
 

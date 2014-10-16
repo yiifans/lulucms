@@ -1,6 +1,29 @@
 Yii Framework 2 gii extension Change Log
 ========================================
 
+2.0.0 October 12, 2014
+----------------------
+
+- Bug #5408: Gii console command incorrectly reports errors when there is actually no error (qiangxue)
+- Bug: Fixed table name regression caused by changed introduced in #4971 (samdark)
+
+
+2.0.0-rc September 27, 2014
+---------------------------
+
+- Bug #1263: Fixed the issue that Gii and Debug modules might be affected by incompatible asset manager configuration (qiangxue)
+- Bug #2314: Gii model generator does not generate correct relation type in some special case (qiangxue)
+- Bug #3265: Fixed incorrect controller class name validation (suralc)
+- Bug #3693: Fixed broken Gii preview when a file is unchanged (cebe)
+- Bug #4410: Fixed Gii to preserve database column order in generated _form.php  (kmindi)
+- Bug #4971: Fixed hardcoded table names in `viaTable` expression in model generator (stepanselyuk)
+- Enh #2018: Search model is not required anymore in CRUD generator (johonunu)
+- Enh #3088: The gii module will manage their own URL rules now (qiangxue)
+- Enh #3222: Added `useTablePrefix` option to the model generator for Gii (horizons2)
+- Enh #3811: Now Gii model generator makes autocomplete for model class field (mitalcoi)
+- New #1280: Gii can now be run from command line (schmunk42, cebe, qiangxue)
+
+
 2.0.0-beta April 13, 2014
 -------------------------
 

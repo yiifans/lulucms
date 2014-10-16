@@ -10,8 +10,6 @@
 
 /**
  * Interface for all Encoder schemes.
- * @package Swift
- * @subpackage Encoder
  * @author Chris Corbyn
  */
 interface Swift_Encoder extends Swift_Mime_CharsetObserver
@@ -20,8 +18,8 @@ interface Swift_Encoder extends Swift_Mime_CharsetObserver
      * Encode a given string to produce an encoded string.
      *
      * @param string  $string
-     * @param integer $firstLineOffset if first line needs to be shorter
-     * @param integer $maxLineLength   - 0 indicates the default length for this encoding
+     * @param int     $firstLineOffset if first line needs to be shorter
+     * @param int     $maxLineLength   - 0 indicates the default length for this encoding
      *
      * @return string
      */

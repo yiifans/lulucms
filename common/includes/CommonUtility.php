@@ -451,6 +451,15 @@ class CommonUtility
 		}
 		return $ret;
 	}
+	public static function getTables($tableName=null)
+	{
+		$cached = LuLu::getAppParam('cachedTables');
+		if($tableName!=null)
+		{
+			return $cached[$tableName];
+		}
+		return $cached;
+	}
 // 	private $_cachedRoles;
 
 // 	public function getCachedRoles()

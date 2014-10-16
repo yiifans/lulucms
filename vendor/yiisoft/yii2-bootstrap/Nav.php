@@ -93,6 +93,7 @@ class Nav extends Widget
      */
     public $params;
 
+
     /**
      * Initializes the widget.
      */
@@ -136,8 +137,8 @@ class Nav extends Widget
 
     /**
      * Renders a widget's item.
-     * @param  string|array           $item the item to render.
-     * @return string                 the rendering result.
+     * @param string|array $item the item to render.
+     * @return string the rendering result.
      * @throws InvalidConfigException
      */
     public function renderItem($item)
@@ -148,7 +149,8 @@ class Nav extends Widget
         if (!isset($item['label'])) {
             throw new InvalidConfigException("The 'label' option is required.");
         }
-        $label = $this->encodeLabels ? Html::encode($item['label']) : $item['label'];
+        $encodeLabel = isset($item['encode']) ? $item['encode'] : $this->encodeLabels;
+        $label = $encodeLabel ? Html::encode($item['label']) : $item['label'];
         $options = ArrayHelper::getValue($item, 'options', []);
         $items = ArrayHelper::getValue($item, 'items');
         $url = ArrayHelper::getValue($item, 'url', '#');
@@ -211,7 +213,7 @@ class Nav extends Widget
      * as the route for the item and the rest of the elements are the associated parameters.
      * Only when its route and parameters match [[route]] and [[params]], respectively, will a menu item
      * be considered active.
-     * @param  array   $item the menu item to be checked
+     * @param array $item the menu item to be checked
      * @return boolean whether the menu item is active
      */
     protected function isItemActive($item)

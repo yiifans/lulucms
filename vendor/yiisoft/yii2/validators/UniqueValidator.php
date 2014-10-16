@@ -23,9 +23,9 @@ use yii\db\ActiveRecordInterface;
  * ['a1', 'unique']
  * // a1 needs to be unique, but column a2 will be used to check the uniqueness of the a1 value
  * ['a1', 'unique', 'targetAttribute' => 'a2']
- * // a1 and a2 need to unique together, and they both will receive error message
+ * // a1 and a2 need to be unique together, and they both will receive error message
  * [['a1', 'a2'], 'unique', 'targetAttribute' => ['a1', 'a2']]
- * // a1 and a2 need to unique together, only a1 will receive error message
+ * // a1 and a2 need to be unique together, only a1 will receive error message
  * ['a1', 'unique', 'targetAttribute' => ['a1', 'a2']]
  * // a1 needs to be unique by checking the uniqueness of both a2 and a3 (using a1 value)
  * ['a1', 'unique', 'targetAttribute' => ['a2', 'a1' => 'a3']]
@@ -38,7 +38,7 @@ class UniqueValidator extends Validator
 {
     /**
      * @var string the name of the ActiveRecord class that should be used to validate the uniqueness
-     * of the current attribute value. It not set, it will use the ActiveRecord class of the attribute being validated.
+     * of the current attribute value. If not set, it will use the ActiveRecord class of the attribute being validated.
      * @see targetAttribute
      */
     public $targetClass;
@@ -59,6 +59,7 @@ class UniqueValidator extends Validator
      */
     public $filter;
 
+
     /**
      * @inheritdoc
      */
@@ -75,7 +76,7 @@ class UniqueValidator extends Validator
      */
     public function validateAttribute($object, $attribute)
     {
-        /** @var ActiveRecordInterface $targetClass */
+        /* @var $targetClass ActiveRecordInterface */
         $targetClass = $this->targetClass === null ? get_class($object) : $this->targetClass;
         $targetAttribute = $this->targetAttribute === null ? $attribute : $this->targetAttribute;
 
@@ -97,7 +98,7 @@ class UniqueValidator extends Validator
         }
 
         $query = $targetClass::find();
-        $query->where($params);
+        $query->andWhere($params);
 
         if ($this->filter instanceof \Closure) {
             call_user_func($this->filter, $query);
@@ -110,7 +111,7 @@ class UniqueValidator extends Validator
             $exists = $query->exists();
         } else {
             // if current $object is in the database already we can't use exists()
-            /** @var ActiveRecordInterface[] $objects */
+            /* @var $objects ActiveRecordInterface[] */
             $objects = $query->limit(2)->all();
             $n = count($objects);
             if ($n === 1) {

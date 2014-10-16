@@ -11,8 +11,6 @@
 /**
  * Wraps a standard PHP array in an iterator.
  *
- * @package    Swift
- * @subpackage Mailer
  * @author     Chris Corbyn
  */
 class Swift_Mailer_ArrayRecipientIterator implements Swift_Mailer_RecipientIterator
@@ -37,7 +35,7 @@ class Swift_Mailer_ArrayRecipientIterator implements Swift_Mailer_RecipientItera
     /**
      * Returns true only if there are more recipients to send to.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasNext()
     {

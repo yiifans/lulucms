@@ -11,8 +11,6 @@
 /**
  * The Reporter plugin sends pass/fail notification to a Reporter.
  *
- * @package    Swift
- * @subpackage Plugins
  * @author     Chris Corbyn
  */
 interface Swift_Plugins_Reporter
@@ -28,7 +26,7 @@ interface Swift_Plugins_Reporter
      *
      * @param Swift_Mime_Message $message
      * @param string             $address
-     * @param integer            $result  from {@link RESULT_PASS, RESULT_FAIL}
+     * @param int                $result  from {@link RESULT_PASS, RESULT_FAIL}
      */
     public function notify(Swift_Mime_Message $message, $address, $result);
 }

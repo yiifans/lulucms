@@ -18,9 +18,15 @@ use yii\di\Instance;
 /**
  * DbManager represents an authorization manager that stores authorization information in database.
  *
- * The database connection is specified by [[db]]. And the database schema
- * should be as described in "framework/rbac/*.sql". You may change the names of
- * the three tables used to store the authorization data by setting [[itemTable]],
+ * The database connection is specified by [[db]]. The database schema could be initialized by applying migration:
+ *
+ * ```
+ * yii migrate --migrationPath=@yii/rbac/migrations/
+ * ```
+ *
+ * If you don't want to use migration and need SQL instead, files for all databases are in migrations directory.
+ *
+ * You may change the names of the three tables used to store the authorization data by setting [[itemTable]],
  * [[itemChildTable]] and [[assignmentTable]].
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
@@ -35,22 +41,18 @@ class DbManager extends BaseManager
      * with a DB connection object.
      */
     public $db = 'db';
-
     /**
      * @var string the name of the table storing authorization items. Defaults to "auth_item".
      */
     public $itemTable = '{{%auth_item}}';
-
     /**
      * @var string the name of the table storing authorization item hierarchy. Defaults to "auth_item_child".
      */
     public $itemChildTable = '{{%auth_item_child}}';
-
     /**
      * @var string the name of the table storing authorization item assignments. Defaults to "auth_assignment".
      */
     public $assignmentTable = '{{%auth_assignment}}';
-
     /**
      * @var string the name of the table storing rules. Defaults to "auth_rule".
      */
@@ -64,7 +66,6 @@ class DbManager extends BaseManager
     public function init()
     {
         parent::init();
-
         $this->db = Instance::ensure($this->db, Connection::className());
     }
 
@@ -74,9 +75,6 @@ class DbManager extends BaseManager
     public function checkAccess($userId, $permissionName, $params = [])
     {
         $assignments = $this->getAssignments($userId);
-        if (!isset($params['user'])) {
-            $params['user'] = $userId;
-        }
         return $this->checkAccessRecursive($userId, $permissionName, $params, $assignments);
     }
 
@@ -100,11 +98,11 @@ class DbManager extends BaseManager
 
         Yii::trace($item instanceof Role ? "Checking role: $itemName" : "Checking permission: $itemName", __METHOD__);
 
-        if (!$this->executeRule($item, $params)) {
+        if (!$this->executeRule($user, $item, $params)) {
             return false;
         }
 
-        if (isset($this->defaultRoles[$itemName]) || isset($assignments[$itemName])) {
+        if (isset($assignments[$itemName]) || in_array($itemName, $this->defaultRoles)) {
             return true;
         }
 
@@ -136,7 +134,7 @@ class DbManager extends BaseManager
         }
 
         if (!isset($row['data']) || ($data = @unserialize($row['data'])) === false) {
-            $data = null;
+            $row['data'] = null;
         }
 
         return $this->populateItem($row);
@@ -344,10 +342,14 @@ class DbManager extends BaseManager
      */
     public function getRolesByUser($userId)
     {
+        if (empty($userId)) {
+            return [];
+        }
+
         $query = (new Query)->select('b.*')
             ->from(['a' => $this->assignmentTable, 'b' => $this->itemTable])
             ->where('a.item_name=b.name')
-            ->andWhere(['a.user_id' => $userId]);
+            ->andWhere(['a.user_id' => (string)$userId]);
 
         $roles = [];
         foreach ($query->all($this->db) as $row) {
@@ -368,7 +370,7 @@ class DbManager extends BaseManager
             return [];
         }
         $query = (new Query)->from($this->itemTable)->where([
-            'type' => Item::TYPE_PERMISSION, 
+            'type' => Item::TYPE_PERMISSION,
             'name' => array_keys($result),
         ]);
         $permissions = [];
@@ -377,26 +379,30 @@ class DbManager extends BaseManager
         }
         return $permissions;
     }
-    
+
     /**
      * @inheritdoc
      */
     public function getPermissionsByUser($userId)
     {
+        if (empty($userId)) {
+            return [];
+        }
+
         $query = (new Query)->select('item_name')
             ->from($this->assignmentTable)
-            ->where(['user_id' => $userId]);
+            ->where(['user_id' => (string)$userId]);
 
         $childrenList = $this->getChildrenList();
         $result = [];
         foreach ($query->column($this->db) as $roleName) {
             $this->getChildrenRecursive($roleName, $childrenList, $result);
         }
-        
+
         if (empty($result)) {
             return [];
         }
-        
+
         $query = (new Query)->from($this->itemTable)->where([
             'type' => Item::TYPE_PERMISSION,
             'name' => array_keys($result),
@@ -471,16 +477,16 @@ class DbManager extends BaseManager
      */
     public function getAssignment($roleName, $userId)
     {
+        if (empty($userId)) {
+            return null;
+        }
+
         $row = (new Query)->from($this->assignmentTable)
-            ->where(['user_id' => $userId, 'item_name' => $roleName])
+            ->where(['user_id' => (string)$userId, 'item_name' => $roleName])
             ->one($this->db);
 
         if ($row === false) {
             return null;
-        }
-
-        if (!isset($row['data']) || ($data = @unserialize($row['data'])) === false) {
-            $data = null;
         }
 
         return new Assignment([
@@ -495,15 +501,16 @@ class DbManager extends BaseManager
      */
     public function getAssignments($userId)
     {
+        if (empty($userId)) {
+            return [];
+        }
+
         $query = (new Query)
             ->from($this->assignmentTable)
-            ->where(['user_id' => $userId]);
+            ->where(['user_id' => (string)$userId]);
 
         $assignments = [];
         foreach ($query->all($this->db) as $row) {
-            if (!isset($row['data']) || ($data = @unserialize($row['data'])) === false) {
-                $data = null;
-            }
             $assignments[$row['item_name']] = new Assignment([
                 'userId' => $row['user_id'],
                 'roleName' => $row['item_name'],
@@ -551,6 +558,27 @@ class DbManager extends BaseManager
     /**
      * @inheritdoc
      */
+    public function removeChildren($parent)
+    {
+        return $this->db->createCommand()
+            ->delete($this->itemChildTable, ['parent' => $parent->name])
+            ->execute() > 0;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function hasChild($parent, $child)
+    {
+        return (new Query)
+            ->from($this->itemChildTable)
+            ->where(['parent' => $parent->name, 'child' => $child->name])
+            ->one($this->db) !== false;
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getChildren($name)
     {
         $query = (new Query)
@@ -588,7 +616,7 @@ class DbManager extends BaseManager
     /**
      * @inheritdoc
      */
-    public function assign($role, $userId, $rule = null, $data = null)
+    public function assign($role, $userId)
     {
         $assignment = new Assignment([
             'userId' => $userId,
@@ -611,8 +639,12 @@ class DbManager extends BaseManager
      */
     public function revoke($role, $userId)
     {
+        if (empty($userId)) {
+            return false;
+        }
+
         return $this->db->createCommand()
-            ->delete($this->assignmentTable, ['user_id' => $userId, 'item_name' => $role->name])
+            ->delete($this->assignmentTable, ['user_id' => (string)$userId, 'item_name' => $role->name])
             ->execute() > 0;
     }
 
@@ -621,26 +653,88 @@ class DbManager extends BaseManager
      */
     public function revokeAll($userId)
     {
+        if (empty($userId)) {
+            return false;
+        }
+
         return $this->db->createCommand()
-            ->delete($this->assignmentTable, ['user_id' => $userId])
+            ->delete($this->assignmentTable, ['user_id' => (string)$userId])
             ->execute() > 0;
     }
 
     /**
-     * Removes all authorization data.
+     * @inheritdoc
      */
-    public function clearAll()
+    public function removeAll()
     {
-        $this->clearAssignments();
+        $this->removeAllAssignments();
         $this->db->createCommand()->delete($this->itemChildTable)->execute();
         $this->db->createCommand()->delete($this->itemTable)->execute();
         $this->db->createCommand()->delete($this->ruleTable)->execute();
     }
 
     /**
-     * Removes all authorization assignments.
+     * @inheritdoc
      */
-    public function clearAssignments()
+    public function removeAllPermissions()
+    {
+        $this->removeAllItems(Item::TYPE_PERMISSION);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function removeAllRoles()
+    {
+        $this->removeAllItems(Item::TYPE_ROLE);
+    }
+
+    /**
+     * Removes all auth items of the specified type.
+     * @param integer $type the auth item type (either Item::TYPE_PERMISSION or Item::TYPE_ROLE)
+     */
+    protected function removeAllItems($type)
+    {
+        if (!$this->supportsCascadeUpdate()) {
+            $names = (new Query)
+                ->select(['name'])
+                ->from($this->itemTable)
+                ->where(['type' => $type])
+                ->column($this->db);
+            if (empty($names)) {
+                return;
+            }
+            $key = $type == Item::TYPE_PERMISSION ? 'child' : 'parent';
+            $this->db->createCommand()
+                ->delete($this->itemChildTable, [$key => $names])
+                ->execute();
+            $this->db->createCommand()
+                ->delete($this->assignmentTable, ['item_name' => $names])
+                ->execute();
+        }
+        $this->db->createCommand()
+            ->delete($this->itemTable, ['type' => $type])
+            ->execute();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function removeAllRules()
+    {
+        if (!$this->supportsCascadeUpdate()) {
+            $this->db->createCommand()
+                ->update($this->itemTable, ['ruleName' => null])
+                ->execute();
+        }
+
+        $this->db->createCommand()->delete($this->ruleTable)->execute();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function removeAllAssignments()
     {
         $this->db->createCommand()->delete($this->assignmentTable)->execute();
     }

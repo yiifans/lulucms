@@ -6,7 +6,7 @@ use Yii;
 
 use components\LuLu;
 use common\models\Channel;
-use common\models\content\CommonContent;
+use common\models\content\DefaultContent;
 use backend\actions\content\ContentAction;
 
 
@@ -17,7 +17,7 @@ class CreateAction extends ContentAction
 		$currentChannel=Channel::findOne($chnid);
 		$this->currentTableName = $currentChannel['table'];
 		
-		$model = new CommonContent($currentChannel['table']);
+		$model = new DefaultContent($currentChannel['table']);
 		$model->setIsNewRecord(true);
 		
 		if ($model->load($_POST)) {

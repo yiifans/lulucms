@@ -7,6 +7,8 @@
 
 namespace yii\helpers;
 
+use Yii;
+
 /**
  * BaseStringHelper provides concrete implementation for [[StringHelper]].
  *
@@ -34,13 +36,14 @@ class BaseStringHelper
      * This method ensures the string is treated as a byte array by using `mb_substr()`.
      * @param string $string the input string. Must be one character or longer.
      * @param integer $start the starting position
-     * @param integer $length the desired portion length
+     * @param integer $length the desired portion length. If not specified or `null`, there will be
+     * no limit on length i.e. the output will be until the end of the string.
      * @return string the extracted part of string, or FALSE on failure or an empty string.
      * @see http://www.php.net/manual/en/function.substr.php
      */
-    public static function byteSubstr($string, $start, $length)
+    public static function byteSubstr($string, $start, $length = null)
     {
-        return mb_substr($string, $start, $length, '8bit');
+        return mb_substr($string, $start, $length === null ? mb_strlen($string, '8bit') : $length, '8bit');
     }
 
     /**
@@ -85,6 +88,88 @@ class BaseStringHelper
             return mb_substr($path, 0, $pos);
         } else {
             return '';
+        }
+    }
+    
+    /**
+     * Truncates a string to the number of characters specified.
+     *
+     * @param string $string The string to truncate.
+     * @param integer $length How many characters from original string to include into truncated string.
+     * @param string $suffix String to append to the end of truncated string.
+     * @param string $encoding The charset to use, defaults to charset currently used by application.
+     * @return string the truncated string.
+     */
+    public static function truncate($string, $length, $suffix = '...', $encoding = null)
+    {
+        if (mb_strlen($string, $encoding ?: Yii::$app->charset) > $length) {
+            return trim(mb_substr($string, 0, $length, $encoding ?: Yii::$app->charset)) . $suffix;
+        } else {
+            return $string;
+        }
+    }
+    
+    /**
+     * Truncates a string to the number of words specified.
+     *
+     * @param string $string The string to truncate.
+     * @param integer $count How many words from original string to include into truncated string.
+     * @param string $suffix String to append to the end of truncated string.
+     * @return string the truncated string.
+     */
+    public static function truncateWords($string, $count, $suffix = '...')
+    {
+        $words = preg_split('/(\s+)/u', trim($string), null, PREG_SPLIT_DELIM_CAPTURE);
+        if (count($words) / 2 > $count) {
+            return implode('', array_slice($words, 0, ($count * 2) - 1)) . $suffix;
+        } else {
+            return $string;
+        }
+    }
+
+    /**
+     * Check if given string starts with specified substring.
+     * Binary and multibyte safe.
+     *
+     * @param string $string Input string
+     * @param string $with Part to search
+     * @param boolean $caseSensitive Case sensitive search. Default is true.
+     * @return boolean Returns true if first input starts with second input, false otherwise
+     */
+    public static function startsWith($string, $with, $caseSensitive = true)
+    {
+        if (!$bytes = static::byteLength($with)) {
+            return true;
+        }
+        if ($caseSensitive) {
+            return strncmp($string, $with, $bytes) === 0;
+        } else {
+            return mb_strtolower(mb_substr($string, 0, $bytes, '8bit'), Yii::$app->charset) === mb_strtolower($with, Yii::$app->charset);
+        }
+    }
+
+    /**
+     * Check if given string ends with specified substring.
+     * Binary and multibyte safe.
+     *
+     * @param string $string
+     * @param string $with
+     * @param boolean $caseSensitive Case sensitive search. Default is true.
+     * @return boolean Returns true if first input ends with second input, false otherwise
+     */
+    public static function endsWith($string, $with, $caseSensitive = true)
+    {
+        if (!$bytes = static::byteLength($with)) {
+            return true;
+        }
+        if ($caseSensitive) {
+            // Warning check, see http://php.net/manual/en/function.substr-compare.php#refsect1-function.substr-compare-returnvalues
+            if (static::byteLength($string) < $bytes) {
+                return false;
+            }
+            return substr_compare($string, $with, -$bytes, $bytes) === 0;
+        } else {
+            return mb_strtolower(mb_substr($string, -$bytes, null, '8bit'), Yii::$app->charset) === mb_strtolower($with, Yii::$app->charset);
         }
     }
 }

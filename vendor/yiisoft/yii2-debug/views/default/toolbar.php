@@ -1,10 +1,9 @@
 <?php
-/**
- * @var \yii\web\View $this
- * @var \yii\debug\Panel[] $panels
- * @var string $tag
- * @var string $position
- */
+/* @var $this \yii\web\View */
+/* @var $panels \yii\debug\Panel[] */
+/* @var $tag string */
+/* @var $position string */
+
 use yii\helpers\Url;
 
 $minJs = <<<EOD
@@ -26,7 +25,7 @@ EOD;
 $firstPanel = reset($panels);
 $url = $firstPanel->getUrl();
 ?>
-<div id="yii-debug-toolbar" class="yii-debug-toolbar-<?= $position ?>">
+<div id="yii-debug-toolbar" class="yii-debug-toolbar-<?= $position ?> hidden-print">
     <div class="yii-debug-toolbar-block title">
         <a href="<?= Url::to(['index']) ?>">
             <img width="29" height="30" alt="" src="<?= \yii\debug\Module::getYiiLogo() ?>">
@@ -39,7 +38,7 @@ $url = $firstPanel->getUrl();
     <?php endforeach; ?>
     <span class="yii-debug-toolbar-toggler" onclick="<?= $minJs ?>">›</span>
 </div>
-<div id="yii-debug-toolbar-min">
+<div id="yii-debug-toolbar-min" class="hidden-print">
     <a href="<?= $url ?>" title="Open Yii Debugger" id="yii-debug-toolbar-logo">
         <img width="29" height="30" alt="" src="<?= \yii\debug\Module::getYiiLogo() ?>">
     </a>

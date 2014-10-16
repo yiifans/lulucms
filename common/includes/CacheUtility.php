@@ -61,9 +61,9 @@ class CacheUtility
 		$dataList = DefineTable::findAll();
 		foreach($dataList as $row)
 		{
-			$content .= '$cachedTables[\'' . $row['id'] . '\']=[' . self::$newLine;
+			$content .= '$cachedTables[\'' . $row['table_name'] . '\']=[' . self::$newLine;
 			
-			$content .= self::getCacheItem('id', $row);
+			$content .= self::getCacheItem('table_name', $row);
 			$content .= self::getCacheItem('name', $row);
 			$content .= self::getCacheItem('is_default', $row, 'bool');
 			$content .= self::getCacheItem('note', $row);
@@ -102,17 +102,17 @@ class CacheUtility
 		$tables = DefineTable::findAll();
 		foreach($tables as $table)
 		{
-			$tableName = $table['id'];
+			$tableName = $table['table_name'];
 			
 			$dataList = DefineTableField::findAll(['table' => $tableName]);
 			
 			foreach($dataList as $row)
 			{
-				$content .= '$cachedFields[\'' . $tableName . '\'][\'' . $row['name_en'] . '\']=[' . self::$newLine;
+				$content .= '$cachedFields[\'' . $tableName . '\'][\'' . $row['field_name'] . '\']=[' . self::$newLine;
 				
 				$content .= self::getCacheItem('id', $row, 'int');
 				$content .= self::getCacheItem('table', $row);
-				$content .= self::getCacheItem('name_en', $row);
+				$content .= self::getCacheItem('field_name', $row);
 				$content .= self::getCacheItem('name', $row);
 				$content .= self::getCacheItem('type', $row);
 				$content .= self::getCacheItem('length', $row, 'int');

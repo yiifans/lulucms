@@ -58,13 +58,15 @@ class Tabs extends Widget
      * tab with the following structure:
      *
      * - label: string, required, the tab header label.
+     * - encode: boolean, optional, whether this label should be HTML-encoded. This param will override
+     *   global `$this->encodeLabels` param.
      * - headerOptions: array, optional, the HTML attributes of the tab header.
      * - linkOptions: array, optional, the HTML attributes of the tab header link tags.
-     * - content: array, required if `items` is not set. The content (HTML) of the tab pane.
+     * - content: string, optional, the content (HTML) of the tab pane.
      * - options: array, optional, the HTML attributes of the tab pane container.
      * - active: boolean, optional, whether the item tab header and pane should be visible or not.
-     * - items: array, optional, if not set then `content` will be required. The `items` specify a dropdown items
-     *   configuration array. Each item can hold two extra keys, besides the above ones:
+     * - items: array, optional, can be used instead of `content` to specify a dropdown items
+     *   configuration array. Each item can hold three extra keys, besides the above ones:
      *     * active: boolean, optional, whether the item tab header and pane should be visible or not.
      *     * content: string, required if `items` is not set. The content (HTML) of the tab pane.
      *     * contentOptions: optional, array, the HTML attributes of the tab content container.
@@ -100,6 +102,7 @@ class Tabs extends Widget
      */
     public $navType = 'nav-tabs';
 
+
     /**
      * Initializes the widget.
      */
@@ -120,7 +123,7 @@ class Tabs extends Widget
 
     /**
      * Renders tab items as specified on [[items]].
-     * @return string                  the rendering result.
+     * @return string the rendering result.
      * @throws InvalidConfigException.
      */
     protected function renderItems()
@@ -136,7 +139,8 @@ class Tabs extends Widget
             if (!isset($item['label'])) {
                 throw new InvalidConfigException("The 'label' option is required.");
             }
-            $label = $this->encodeLabels ? Html::encode($item['label']) : $item['label'];
+            $encodeLabel = isset($item['encode']) ? $item['encode'] : $this->encodeLabels;
+            $label = $encodeLabel ? Html::encode($item['label']) : $item['label'];
             $headerOptions = array_merge($this->headerOptions, ArrayHelper::getValue($item, 'headerOptions', []));
             $linkOptions = array_merge($this->linkOptions, ArrayHelper::getValue($item, 'linkOptions', []));
 
@@ -164,8 +168,6 @@ class Tabs extends Widget
                 $linkOptions['data-toggle'] = 'tab';
                 $header = Html::a($label, '#' . $options['id'], $linkOptions);
                 $panes[] = Html::tag('div', $item['content'], $options);
-            } else {
-                throw new InvalidConfigException("Either the 'content' or 'items' option must be set.");
             }
 
             $headers[] = Html::tag('li', $header, $headerOptions);
@@ -192,9 +194,9 @@ class Tabs extends Widget
     /**
      * Normalizes dropdown item options by removing tab specific keys `content` and `contentOptions`, and also
      * configure `panes` accordingly.
-     * @param  array                  $items the dropdown items configuration.
-     * @param  array                  $panes the panes reference array.
-     * @return boolean                whether any of the dropdown items is `active` or not.
+     * @param array $items the dropdown items configuration.
+     * @param array $panes the panes reference array.
+     * @return boolean whether any of the dropdown items is `active` or not.
      * @throws InvalidConfigException
      */
     protected function renderDropdown(&$items, &$panes)

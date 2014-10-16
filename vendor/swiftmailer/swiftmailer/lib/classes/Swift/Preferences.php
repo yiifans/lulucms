@@ -11,7 +11,6 @@
 /**
  * Changes some global preference settings in Swift Mailer.
  *
- * @package Swift
  * @author  Chris Corbyn
  */
 class Swift_Preferences
@@ -86,7 +85,7 @@ class Swift_Preferences
     /**
      * Set the QuotedPrintable dot escaper preference.
      *
-     * @param boolean $dotEscape
+     * @param bool    $dotEscape
      *
      * @return Swift_Preferences
      */

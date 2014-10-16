@@ -44,7 +44,8 @@ class CheckboxColumn extends Column
      */
     public $name = 'selection';
     /**
-     * @var array HTML attributes for the checkboxes.
+     * @var array|\Closure the HTML attributes for checkboxes. This can either be an array of
+     * attributes or an anonymous function ([[Closure]]) that returns such an array.
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
     public $checkboxOptions = [];
@@ -52,6 +53,7 @@ class CheckboxColumn extends Column
      * @var bool whether it is possible to select multiple rows. Defaults to `true`.
      */
     public $multiple = true;
+
 
     /**
      * @inheritdoc
@@ -63,7 +65,7 @@ class CheckboxColumn extends Column
         if (empty($this->name)) {
             throw new InvalidConfigException('The "name" property must be set.');
         }
-        if (substr($this->name, -2) !== '[]') {
+        if (substr_compare($this->name, '[]', -2, 2)) {
             $this->name .= '[]';
         }
     }

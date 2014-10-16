@@ -1,6 +1,43 @@
 Changelog
 =========
 
+5.3.0 (2014-10-04)
+------------------
+
+ * fixed cloning when using signers
+ * reverted removal of Swift_Encoding
+ * drop support for PHP 5.2.x
+
+5.2.2 (2014-09-20)
+------------------
+
+ * fixed Japanese support
+ * fixed the memory spool when the message changes when in the pool
+ * added support for cloning messages
+ * fixed PHP warning in the redirect plugin
+ * changed the way to and cc-ed email are sent to only use one transaction
+
+5.2.1 (2014-06-13)
+------------------
+
+ * SECURITY FIX: fixed CLI escaping when using sendmail as a transport
+
+   Prior to 5.2.1, the sendmail transport (Swift_Transport_SendmailTransport)
+   was vulnerable to an arbitrary shell execution if the "From" header came
+   from a non-trusted source and no "Return-Path" is configured.
+
+ * fixed parameter in DKIMSigner
+ * fixed compatibility with PHP < 5.4
+
+5.2.0 (2014-05-08)
+------------------
+
+ * fixed Swift_ByteStream_FileByteStream::read() to match to the specification
+ * fixed from-charset and to-charset arguments in mbstring_convert_encoding() usages
+ * fixed infinite loop in StreamBuffer
+ * fixed NullTransport to return the number of ignored emails instead of 0
+ * Use phpunit and mockery for unit testing (realityking)
+
 5.1.0 (2014-03-18)
 ------------------
 

@@ -33,6 +33,7 @@ class DefaultController extends Controller
      */
     public $summary;
 
+
     /**
      * @inheritdoc
      */
@@ -60,6 +61,7 @@ class DefaultController extends Controller
             'panels' => $this->module->panels,
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
+            'manifest' => $this->getManifest(),
         ]);
     }
 
@@ -116,7 +118,7 @@ class DefaultController extends Controller
                 clearstatcache();
             }
             $indexFile = $this->module->dataPath . '/index.data';
-            if (is_file($indexFile)) {
+            if (is_file($indexFile) && is_readable($indexFile)) {
                 $this->_manifest = array_reverse(unserialize(file_get_contents($indexFile)), true);
             } else {
                 $this->_manifest = [];

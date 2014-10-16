@@ -1,8 +1,8 @@
 {
 	"name": "cebe/markdown",
-	"description": "A super fast highly extensible markdown parser for PHP",
+	"description": "A super fast, highly extensible markdown parser for PHP",
 	"keywords": ["markdown", "gfm", "markdown-extra", "fast", "extensible"],
-	"homepage": "http://www.cebe.cc/markdown",
+	"homepage": "https://github.com/cebe/markdown#readme",
 	"type": "library",
 	"license": "MIT",
 	"authors": [
@@ -22,7 +22,9 @@
 		"lib-pcre": "*"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "3.7.*"
+		"phpunit/phpunit": "3.7.*",
+		"facebook/xhprof": "*@dev",
+		"cebe/indent": "*"
 	},
 	"autoload": {
 		"psr-4": {
@@ -31,5 +33,10 @@
 	},
 	"bin": [
 		"bin/markdown"
-	]
+	],
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
+		}
+	}
 }

@@ -22,51 +22,43 @@ class Mail extends Base
      * @var string from attribute input search value
      */
     public $from;
-
     /**
      * @var string to attribute input search value
      */
     public $to;
-
     /**
      * @var string reply attribute input search value
      */
     public $reply;
-
     /**
      * @var string cc attribute input search value
      */
     public $cc;
-
     /**
      * @var string bcc attribute input search value
      */
     public $bcc;
-
     /**
      * @var string subject attribute input search value
      */
     public $subject;
-
     /**
      * @var string body attribute input search value
      */
     public $body;
-
     /**
      * @var string charset attribute input search value
      */
     public $charset;
-
     /**
      * @var string headers attribute input search value
      */
     public $headers;
-
     /**
      * @var string file attribute input search value
      */
     public $file;
+
 
     public function rules()
     {
@@ -93,8 +85,8 @@ class Mail extends Base
 
     /**
      * Returns data provider with filled models. Filter applied if needed.
-     * @param  array                       $params
-     * @param  array                       $models
+     * @param array $params
+     * @param array $models
      * @return \yii\data\ArrayDataProvider
      */
     public function search($params, $models)

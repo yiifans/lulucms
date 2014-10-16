@@ -49,7 +49,7 @@ class FieldUtility
 		}
 	
 		$formName ='Content';
-		$attribute = $model['name_en'];
+		$attribute = $model['field_name'];
 	
 		if (!preg_match('/(^|.*\])([\w\.]+)(\[.*|$)/', $attribute, $matches)) {
 			throw new InvalidParamException('Attribute name must contain word characters only.');

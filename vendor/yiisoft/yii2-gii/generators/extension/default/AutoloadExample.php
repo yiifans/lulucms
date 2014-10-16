@@ -1,13 +1,11 @@
-<?php
-/**
- * This is just an example.
- */
-echo "<?php\n";
-?>
+<?= "<?php\n" ?>
 
 namespace <?= substr($generator->namespace, 0, -1) ?>;
 
-class AutoloadExample extends \yii\base\widget
+/**
+ * This is just an example.
+ */
+class AutoloadExample extends \yii\base\Widget
 {
     public function run()
     {

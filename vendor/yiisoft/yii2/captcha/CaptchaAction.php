@@ -11,6 +11,7 @@ use Yii;
 use yii\base\Action;
 use yii\base\InvalidConfigException;
 use yii\helpers\Url;
+use yii\web\Response;
 
 /**
  * CaptchaAction renders a CAPTCHA image.
@@ -41,6 +42,7 @@ class CaptchaAction extends Action
      * The name of the GET parameter indicating whether the CAPTCHA image should be regenerated.
      */
     const REFRESH_GET_VAR = 'refresh';
+
     /**
      * @var integer how many times should the same CAPTCHA be displayed. Defaults to 3.
      * A value less than or equal to 0 means the test is unlimited (available since version 1.1.2).
@@ -82,7 +84,7 @@ class CaptchaAction extends Action
     /**
      * @var integer the offset between characters. Defaults to -2. You can adjust this property
      * in order to decrease or increase the readability of the captcha.
-     **/
+     */
     public $offset = -2;
     /**
      * @var string the TrueType font file. This can be either a file path or path alias.
@@ -96,6 +98,7 @@ class CaptchaAction extends Action
      * If not set, it means the verification code will be randomly generated.
      */
     public $fixedVerifyCode;
+
 
     /**
      * Initializes the action.
@@ -127,7 +130,7 @@ class CaptchaAction extends Action
             ]);
         } else {
             $this->setHttpHeaders();
-
+            Yii::$app->response->format = Response::FORMAT_RAW;
             return $this->renderImage($this->getVerifyCode());
         }
     }
@@ -246,16 +249,18 @@ class CaptchaAction extends Action
     /**
      * Renders the CAPTCHA image based on the code using GD library.
      * @param string $code the verification code
-     * @return string image contents
+     * @return string image contents in PNG format.
      */
     protected function renderImageByGD($code)
     {
         $image = imagecreatetruecolor($this->width, $this->height);
 
-        $backColor = imagecolorallocate($image,
+        $backColor = imagecolorallocate(
+            $image,
             (int) ($this->backColor % 0x1000000 / 0x10000),
             (int) ($this->backColor % 0x10000 / 0x100),
-            $this->backColor % 0x100);
+            $this->backColor % 0x100
+        );
         imagefilledrectangle($image, 0, 0, $this->width, $this->height, $backColor);
         imagecolordeallocate($image, $backColor);
 
@@ -263,10 +268,12 @@ class CaptchaAction extends Action
             imagecolortransparent($image, $backColor);
         }
 
-        $foreColor = imagecolorallocate($image,
+        $foreColor = imagecolorallocate(
+            $image,
             (int) ($this->foreColor % 0x1000000 / 0x10000),
             (int) ($this->foreColor % 0x10000 / 0x100),
-            $this->foreColor % 0x100);
+            $this->foreColor % 0x100
+        );
 
         $length = strlen($code);
         $box = imagettfbbox(30, 0, $this->fontFile, $code);
@@ -295,7 +302,7 @@ class CaptchaAction extends Action
     /**
      * Renders the CAPTCHA image based on the code using ImageMagick library.
      * @param string $code the verification code
-     * @return \Imagick image instance. Can be used as string. In this case it will contain image contents.
+     * @return string image contents in PNG format.
      */
     protected function renderImageByImagick($code)
     {
@@ -327,8 +334,7 @@ class CaptchaAction extends Action
         }
 
         $image->setImageFormat('png');
-
-        return $image;
+        return $image->getImageBlob();
     }
 
     /**

@@ -11,8 +11,6 @@
 /**
  * Analyzes characters for a specific character set.
  *
- * @package    Swift
- * @subpackage Encoder
  * @author     Chris Corbyn
  * @author     Xavier De Cock <xdecock@gmail.com>
  */
@@ -26,18 +24,18 @@ interface Swift_CharacterReader
      * Returns the complete character map
      *
      * @param string  $string
-     * @param integer $startOffset
+     * @param int     $startOffset
      * @param array   $currentMap
      * @param mixed   $ignoredChars
      *
-     * @return integer
+     * @return int
      */
     public function getCharPositions($string, $startOffset, &$currentMap, &$ignoredChars);
 
     /**
      * Returns the mapType, see constants.
      *
-     * @return integer
+     * @return int
      */
     public function getMapType();
 
@@ -51,9 +49,9 @@ interface Swift_CharacterReader
      * A value of -1 means this cannot possibly be a valid character.
      *
      * @param integer[] $bytes
-     * @param integer   $size
+     * @param int       $size
      *
-     * @return integer
+     * @return int
      */
     public function validateByteSequence($bytes, $size);
 
@@ -63,7 +61,7 @@ interface Swift_CharacterReader
      * For fixed width character sets this should be the number of octets-per-character.
      * For multibyte character sets this will probably be 1.
      *
-     * @return integer
+     * @return int
      */
     public function getInitialByteSize();
 }

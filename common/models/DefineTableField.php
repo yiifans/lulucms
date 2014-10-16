@@ -12,8 +12,8 @@ use components\helpers\TStringHelper;
  *
  * @property integer $id
  * @property string $table
+ * @property string $field_name
  * @property string $name
- * @property string $name_en
  * @property string $type
  * @property integer $length
  * @property boolean $is_null
@@ -60,10 +60,10 @@ class DefineTableField extends BaseActiveRecord
     public function rules()
     {
         return [
-            [['table', 'name', 'name_en', 'type', 'front_form_type', 'back_form_type'], 'required'],
+            [['table', 'field_name', 'name', 'type', 'front_form_type', 'back_form_type'], 'required'],
             [['length', 'sort_num'], 'integer'],
             [['is_null', 'is_index', 'is_unique', 'is_main', 'is_sys', 'front_status', 'back_status'], 'boolean'],
-            [['table', 'name', 'name_en', 'type'], 'string', 'max' => 80],
+            [['table', 'field_name', 'name', 'type'], 'string', 'max' => 80],
             [['note'], 'string', 'max' => 200],
             [['front_fun_add', 'front_fun_update', 'front_fun_show', 'front_form_type', 'back_fun_add', 'back_fun_update', 'back_fun_show', 'back_form_type'], 'string', 'max' => 64],
             [['front_form_option', 'front_form_default', 'back_form_option', 'back_form_default'], 'string', 'max' => 128],
@@ -79,8 +79,8 @@ class DefineTableField extends BaseActiveRecord
 		return [
 			'id' => 'ID',
 			'table' => '所属表',
+			'field_name' => '字段名',
 			'name' => '名称',
-			'name_en' => '标识',
 			'type' => '类型',
 			'length' => '长度',
 			'is_null' => '为空',

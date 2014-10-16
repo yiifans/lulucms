@@ -71,7 +71,7 @@ $formTypeArray=[
 	
 		<table class="table">
 		
-		<?= $form->field($model, 'name_en')->textInput(['maxlength' => 80,'disabled'=>$disabled]) ?>
+		<?= $form->field($model, 'field_name')->textInput(['maxlength' => 80,'disabled'=>$disabled]) ?>
 
 		<?= $form->field($model, 'name')->textInput(['maxlength' => 80]) ?>
 
@@ -101,6 +101,18 @@ $formTypeArray=[
 		
     	<?= $form->field($model, 'front_status')->checkBox([],false) ?>
 
+    	<tr class="form-group field-definetablefield-sort_num">
+			<td class="hAlign_left padding_r10" width="120px">
+				<label style="font-weight:normal;" for="definetablefield-sort_num">必填项</label>:</td>
+			<td width="600"><input type="text" id="definetablefield-sort_num" class="form-control" value="1"></td>
+			<td><div class="help-block"></div>
+		</td>
+    	<tr class="form-group field-definetablefield-sort_num">
+			<td class="hAlign_left padding_r10" width="120px">
+				<label style="font-weight:normal;" for="definetablefield-sort_num">可修改</label>:</td>
+			<td width="600"><input type="text" id="definetablefield-sort_num" class="form-control" value="1"></td>
+			<td><div class="help-block"></div>
+		</td>
 	    <?= $form->field($model, 'front_fun_add')->textInput(['maxlength' => 64]) ?>
 	
 	    <?= $form->field($model, 'front_fun_update')->textInput(['maxlength' => 64]) ?>

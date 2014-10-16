@@ -23,46 +23,39 @@ class Debug extends Base
      * @var string tag attribute input search value
      */
     public $tag;
-
     /**
      * @var string ip attribute input search value
      */
     public $ip;
-
     /**
      * @var string method attribute input search value
      */
     public $method;
-
     /**
      * @var integer ajax attribute input search value
      */
     public $ajax;
-
     /**
      * @var string url attribute input search value
      */
     public $url;
-
     /**
      * @var string status code attribute input search value
      */
     public $statusCode;
-
     /**
      * @var integer sql count attribute input search value
      */
     public $sqlCount;
-
     /**
      * @var integer total mail count attribute input search value
      */
     public $mailCount;
-
     /**
      * @var array critical codes, used to determine grid row options.
      */
     public $criticalCodes = [400, 404, 500];
+
 
     /**
      * @inheritdoc
@@ -93,8 +86,8 @@ class Debug extends Base
 
     /**
      * Returns data provider with filled models. Filter applied if needed.
-     * @param  array                       $params an array of parameter values indexed by parameter names
-     * @param  array                       $models data to return provider for
+     * @param array $params an array of parameter values indexed by parameter names
+     * @param array $models data to return provider for
      * @return \yii\data\ArrayDataProvider
      */
     public function search($params, $models)
@@ -130,7 +123,7 @@ class Debug extends Base
     /**
      * Checks if code is critical.
      *
-     * @param  integer $code
+     * @param integer $code
      * @return boolean
      */
     public function isCodeCritical($code)

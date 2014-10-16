@@ -77,6 +77,7 @@ class ActiveDataProvider extends BaseDataProvider
      */
     public $db;
 
+
     /**
      * Initializes the DB connection component.
      * This method will initialize the [[db]] property to make sure it refers to a valid DB connection.
@@ -98,15 +99,16 @@ class ActiveDataProvider extends BaseDataProvider
         if (!$this->query instanceof QueryInterface) {
             throw new InvalidConfigException('The "query" property must be an instance of a class that implements the QueryInterface e.g. yii\db\Query or its subclasses.');
         }
+        $query = clone $this->query;
         if (($pagination = $this->getPagination()) !== false) {
             $pagination->totalCount = $this->getTotalCount();
-            $this->query->limit($pagination->getLimit())->offset($pagination->getOffset());
+            $query->limit($pagination->getLimit())->offset($pagination->getOffset());
         }
         if (($sort = $this->getSort()) !== false) {
-            $this->query->addOrderBy($sort->getOrders());
+            $query->addOrderBy($sort->getOrders());
         }
 
-        return $this->query->all($this->db);
+        return $query->all($this->db);
     }
 
     /**
@@ -126,7 +128,7 @@ class ActiveDataProvider extends BaseDataProvider
 
             return $keys;
         } elseif ($this->query instanceof ActiveQueryInterface) {
-            /** @var \yii\db\ActiveRecord $class */
+            /* @var $class \yii\db\ActiveRecord */
             $class = $this->query->modelClass;
             $pks = $class::primaryKey();
             if (count($pks) === 1) {
@@ -159,7 +161,6 @@ class ActiveDataProvider extends BaseDataProvider
             throw new InvalidConfigException('The "query" property must be an instance of a class that implements the QueryInterface e.g. yii\db\Query or its subclasses.');
         }
         $query = clone $this->query;
-
         return (int) $query->limit(-1)->offset(-1)->orderBy([])->count('*', $this->db);
     }
 
@@ -170,7 +171,7 @@ class ActiveDataProvider extends BaseDataProvider
     {
         parent::setSort($value);
         if (($sort = $this->getSort()) !== false && empty($sort->attributes) && $this->query instanceof ActiveQueryInterface) {
-            /** @var Model $model */
+            /* @var $model Model */
             $model = new $this->query->modelClass;
             foreach ($model->attributes() as $attribute) {
                 $sort->attributes[$attribute] = [

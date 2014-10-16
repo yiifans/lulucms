@@ -50,6 +50,7 @@ class Application extends \yii\base\Application
      */
     public $controller;
 
+
     /**
      * @inheritdoc
      */
@@ -123,7 +124,7 @@ class Application extends \yii\base\Application
 
     /**
      * Returns the session component.
-     * @return Session the session component
+     * @return Session the session component.
      */
     public function getSession()
     {
@@ -132,7 +133,7 @@ class Application extends \yii\base\Application
 
     /**
      * Returns the user component.
-     * @return User the user component
+     * @return User the user component.
      */
     public function getUser()
     {
@@ -149,17 +150,7 @@ class Application extends \yii\base\Application
             'response' => ['class' => 'yii\web\Response'],
             'session' => ['class' => 'yii\web\Session'],
             'user' => ['class' => 'yii\web\User'],
+            'errorHandler' => ['class' => 'yii\web\ErrorHandler'],
         ]);
-    }
-
-    /**
-     * Registers the errorHandler component as a PHP error handler.
-     */
-    protected function registerErrorHandler(&$config)
-    {
-        if (!isset($config['components']['errorHandler']['class'])) {
-            $config['components']['errorHandler']['class'] = 'yii\\web\\ErrorHandler';
-        }
-        parent::registerErrorHandler($config);
     }
 }

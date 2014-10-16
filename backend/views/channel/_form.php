@@ -74,7 +74,7 @@ foreach($this->channels as $row)
 	
 	<div id="tableModel" class="tab-pane">
 	    <table class="table">
-			<?= $form->field($model, 'table')->dropDownList(ArrayHelper::map($tableList,'id','name'))?>
+			<?= $form->field($model, 'table')->dropDownList(ArrayHelper::map($tableList,'table_name','name'))?>
 			
 			<?= $form->field($model, 'channel_tpl')->dropDownList(ArrayHelper::map($channelTpls,'name','name','table'))?>
 	

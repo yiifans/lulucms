@@ -19,7 +19,7 @@ use yii\widgets\ActiveForm;
 	    ]); ?>
 	    
 		<table class="table">
-		<?= $form->field($model, 'id')->textInput(['maxlength' => 80,'disabled'=>$disabled]) ?>
+		<?= $form->field($model, 'table_name')->textInput(['maxlength' => 80,'disabled'=>$disabled]) ?>
 
 		<?= $form->field($model, 'name')->textInput(['maxlength' => 80]) ?>
 

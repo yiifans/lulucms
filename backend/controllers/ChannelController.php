@@ -39,13 +39,13 @@ class ChannelController extends BaseBackController
 			$ret[] = ['name' => $file, 'table' => '默认模板(model_default)'];
 		}
 		
-		$tables = DefineTable::getAllTables();
+		$tables = CommonUtility::getTables();
 		foreach($tables as $table)
 		{
-			$fiels = CommonUtility::getFrontViews(['content', $table['id']], $prefix);
+			$fiels = CommonUtility::getFrontViews(['content', $table['table_name']], $prefix);
 			foreach($fiels as $file)
 			{
-				$ret[] = ['name' => $file, 'table' =>$table['name_cn'].'('. $table.')'];
+				$ret[] = ['name' => $file, 'table' =>$table['name'].'('. $table.')'];
 			}
 		}
 		return $ret;
@@ -65,7 +65,7 @@ class ChannelController extends BaseBackController
 		{
 			$locals = [];
 			$locals['model'] = $model;
-			$locals['tableList'] = DefineTable::getAllTables();
+			$locals['tableList'] = CommonUtility::getTables();
 			$locals['channelTpls'] = $this->getTpl('channel_');
 			$locals['listTpls'] = $this->getTpl('list_');
 			$locals['detailTpls'] = $this->getTpl('detail_');
@@ -98,7 +98,7 @@ class ChannelController extends BaseBackController
 		{
 			$locals = [];
 			$locals['model'] = $model;
-			$locals['tableList'] = DefineTable::getAllTables();
+			$locals['tableList'] = CommonUtility::getTables();
 			$locals['channelTpls'] = $this->getTpl('channel_');
 			$locals['listTpls'] = $this->getTpl('list_');
 			$locals['detailTpls'] = $this->getTpl('detail_');

@@ -63,6 +63,7 @@ class ActiveField extends Component
      * The following special options are recognized:
      *
      * - tag: the tag name of the container element. Defaults to "div".
+     * - encode: whether to encode the error output. Defaults to true.
      *
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
@@ -94,10 +95,15 @@ class ActiveField extends Component
      */
     public $enableAjaxValidation;
     /**
-     * @var boolean whether to perform validation when the input field loses focus and its value is found changed.
+     * @var boolean whether to perform validation when the value of the input field is changed.
      * If not set, it will take the value of [[ActiveForm::validateOnChange]].
      */
     public $validateOnChange;
+    /**
+     * @var boolean whether to perform validation when the input field loses focus.
+     * If not set, it will take the value of [[ActiveForm::validateOnBlur]].
+     */
+    public $validateOnBlur;
     /**
      * @var boolean whether to perform validation while the user is typing in the input field.
      * If not set, it will take the value of [[ActiveForm::validateOnType]].
@@ -105,8 +111,8 @@ class ActiveField extends Component
      */
     public $validateOnType;
     /**
-     * @var integer number of milliseconds that the validation should be delayed when the input field
-     * is changed or the user types in the field.
+     * @var integer number of milliseconds that the validation should be delayed when the user types in the field
+     * and [[validateOnType]] is set true.
      * If not set, it will take the value of [[ActiveForm::validationDelay]].
      */
     public $validationDelay;
@@ -120,7 +126,7 @@ class ActiveField extends Component
      *
      * You normally do not need to set this property as the default selectors should work well for most cases.
      */
-    public $selectors;
+    public $selectors = [];
     /**
      * @var array different parts of the field (e.g. input, label). This will be used together with
      * [[template]] to generate the final field HTML code. The keys are the token names in [[template]],
@@ -195,7 +201,7 @@ class ActiveField extends Component
     {
         $clientOptions = $this->getClientOptions();
         if (!empty($clientOptions)) {
-            $this->form->attributes[$this->attribute] = $clientOptions;
+            $this->form->attributes[] = $clientOptions;
         }
 
         $inputID = Html::getInputId($this->model, $this->attribute);
@@ -430,13 +436,16 @@ class ActiveField extends Component
     public function radio($options = [], $enclosedByLabel = true)
     {
         if ($enclosedByLabel) {
-            if (!isset($options['label'])) {
-                $attribute = Html::getAttributeName($this->attribute);
-                $options['label'] = Html::encode($this->model->getAttributeLabel($attribute));
-            }
             $this->parts['{input}'] = Html::activeRadio($this->model, $this->attribute, $options);
             $this->parts['{label}'] = '';
         } else {
+            if (isset($options['label']) && !isset($this->parts['{label}'])) {
+                $this->parts['{label}'] = $options['label'];
+                if (!empty($options['labelOptions'])) {
+                    $this->labelOptions = $options['labelOptions'];
+                }
+            }
+            unset($options['label'], $options['labelOptions']);
             $this->parts['{input}'] = Html::activeRadio($this->model, $this->attribute, $options);
         }
         $this->adjustLabelFor($options);
@@ -468,13 +477,17 @@ class ActiveField extends Component
     public function checkbox($options = [], $enclosedByLabel = true)
     {
         if ($enclosedByLabel) {
-            if (!isset($options['label'])) {
-                $attribute = Html::getAttributeName($this->attribute);
-                $options['label'] = Html::encode($this->model->getAttributeLabel($attribute));
-            }
             $this->parts['{input}'] = Html::activeCheckbox($this->model, $this->attribute, $options);
             $this->parts['{label}'] = '';
         } else {
+            if (isset($options['label']) && !isset($this->parts['{label}'])) {
+                $this->parts['{label}'] = $options['label'];
+                if (!empty($options['labelOptions'])) {
+                    $this->labelOptions = $options['labelOptions'];
+                }
+            }
+            unset($options['labelOptions']);
+            $options['label'] = null;
             $this->parts['{input}'] = Html::activeCheckbox($this->model, $this->attribute, $options);
         }
         $this->adjustLabelFor($options);
@@ -605,7 +618,7 @@ class ActiveField extends Component
      * A radio button list is like a checkbox list, except that it only allows single selection.
      * The selection of the radio buttons is taken from the value of the model attribute.
      * @param array $items the data item used to generate the radio buttons.
-     * The array keys are the labels, while the array values are the corresponding radio button values.
+     * The array values are the labels, while the array keys are the corresponding radio values.
      * Note that the labels will NOT be HTML-encoded, while the values will.
      * @param array $options options (name => config) for the radio button list. The following options are specially handled:
      *
@@ -641,13 +654,22 @@ class ActiveField extends Component
      * If you want to use a widget that does not have `model` and `attribute` properties,
      * please use [[render()]] instead.
      *
+     * For example to use the [[MaskedInput]] widget to get some date input, you can use
+     * the following code, assuming that `$form` is your [[ActiveForm]] instance:
+     *
+     * ```php
+     * $form->field($model, 'date')->widget(\yii\widgets\MaskedInput::className(), [
+     *     'mask' => '99/99/9999',
+     * ]);
+     * ```
+     *
      * @param string $class the widget class name
      * @param array $config name-value pairs that will be used to initialize the widget
      * @return static the field object itself
      */
     public function widget($class, $config = [])
     {
-        /** @var \yii\base\Widget $class */
+        /* @var $class \yii\base\Widget */
         $config['model'] = $this->model;
         $config['attribute'] = $this->attribute;
         $config['view'] = $this->form->getView();
@@ -678,13 +700,13 @@ class ActiveField extends Component
             return [];
         }
 
-        $options = [];
-
         $enableClientValidation = $this->enableClientValidation || $this->enableClientValidation === null && $this->form->enableClientValidation;
+        $enableAjaxValidation = $this->enableAjaxValidation || $this->enableAjaxValidation === null && $this->form->enableAjaxValidation;
+
         if ($enableClientValidation) {
             $validators = [];
             foreach ($this->model->getActiveValidators($attribute) as $validator) {
-                /** @var \yii\validators\Validator $validator */
+                /* @var $validator \yii\validators\Validator */
                 $js = $validator->clientValidateAttribute($this->model, $attribute, $this->form->getView());
                 if ($validator->enableClientValidation && $js != '') {
                     if ($validator->whenClient !== null) {
@@ -693,34 +715,48 @@ class ActiveField extends Component
                     $validators[] = $js;
                 }
             }
-            if (!empty($validators)) {
-                $options['validate'] = new JsExpression("function (attribute, value, messages) {" . implode('', $validators) . '}');
-            }
         }
 
-        $enableAjaxValidation = $this->enableAjaxValidation || $this->enableAjaxValidation === null && $this->form->enableAjaxValidation;
-        if ($enableAjaxValidation) {
-            $options['enableAjaxValidation'] = 1;
-        }
-
-        if ($enableClientValidation && !empty($options['validate']) || $enableAjaxValidation) {
-            $inputID = Html::getInputId($this->model, $this->attribute);
-            $options['id'] = $inputID;
-            $options['name'] = $this->attribute;
-            foreach (['validateOnChange', 'validateOnType', 'validationDelay'] as $name) {
-                $options[$name] = $this->$name === null ? $this->form->$name : $this->$name;
-            }
-            $options['container'] = isset($this->selectors['container']) ? $this->selectors['container'] : ".field-$inputID";
-            $options['input'] = isset($this->selectors['input']) ? $this->selectors['input'] : "#$inputID";
-            if (isset($this->errorOptions['class'])) {
-                $options['error'] = '.' . implode('.', preg_split('/\s+/', $this->errorOptions['class'], -1, PREG_SPLIT_NO_EMPTY));
-            } else {
-                $options['error'] = isset($this->errorOptions['tag']) ? $this->errorOptions['tag'] : 'span';
-            }
-
-            return $options;
-        } else {
+        if (!$enableAjaxValidation && (!$enableClientValidation || empty($validators))) {
             return [];
         }
+
+        $options = [];
+
+        $inputID = Html::getInputId($this->model, $this->attribute);
+        $options['id'] = $inputID;
+        $options['name'] = $this->attribute;
+
+        $options['container'] = isset($this->selectors['container']) ? $this->selectors['container'] : ".field-$inputID";
+        $options['input'] = isset($this->selectors['input']) ? $this->selectors['input'] : "#$inputID";
+        if (isset($this->selectors['error'])) {
+            $options['error'] = $this->selectors['error'];
+        } elseif (isset($this->errorOptions['class'])) {
+            $options['error'] = '.' . implode('.', preg_split('/\s+/', $this->errorOptions['class'], -1, PREG_SPLIT_NO_EMPTY));
+        } else {
+            $options['error'] = isset($this->errorOptions['tag']) ? $this->errorOptions['tag'] : 'span';
+        }
+
+        $options['encodeError'] = !isset($this->errorOptions['encode']) || !$this->errorOptions['encode'];
+        if ($enableAjaxValidation) {
+            $options['enableAjaxValidation'] = true;
+        }
+        foreach (['validateOnChange', 'validateOnBlur', 'validateOnType', 'validationDelay'] as $name) {
+            $options[$name] = $this->$name === null ? $this->form->$name : $this->$name;
+        }
+
+        if (!empty($validators)) {
+            $options['validate'] = new JsExpression("function (attribute, value, messages, deferred) {" . implode('', $validators) . '}');
+        }
+
+        // only get the options that are different from the default ones (set in yii.activeForm.js)
+        return array_diff_assoc($options, [
+            'validateOnChange' => true,
+            'validateOnBlur' => true,
+            'validateOnType' => false,
+            'validationDelay' => 500,
+            'encodeError' => true,
+            'error' => '.help-block',
+        ]);
     }
 }

@@ -48,6 +48,7 @@ class GettextMessageSource extends MessageSource
      */
     public $useBigEndian = false;
 
+
     /**
      * Loads the message translation for the specified language and category.
      * If translation for specific locale code such as `en-US` isn't found it
@@ -98,9 +99,9 @@ class GettextMessageSource extends MessageSource
     {
         $messageFile = Yii::getAlias($this->basePath) . '/' . $language . '/' . $this->catalog;
         if ($this->useMoFile) {
-            $messageFile .= static::MO_FILE_EXT;
+            $messageFile .= self::MO_FILE_EXT;
         } else {
-            $messageFile .= static::PO_FILE_EXT;
+            $messageFile .= self::PO_FILE_EXT;
         }
 
         return $messageFile;

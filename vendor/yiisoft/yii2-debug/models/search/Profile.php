@@ -23,11 +23,11 @@ class Profile extends Base
      * @var string method attribute input search value
      */
     public $category;
-
     /**
      * @var integer info attribute input search value
      */
     public $info;
+
 
     /**
      * @inheritdoc
@@ -53,8 +53,8 @@ class Profile extends Base
     /**
      * Returns data provider with filled models. Filter applied if needed.
      *
-     * @param  array                       $params an array of parameter values indexed by parameter names
-     * @param  array                       $models data to return provider for
+     * @param array $params an array of parameter values indexed by parameter names
+     * @param array $models data to return provider for
      * @return \yii\data\ArrayDataProvider
      */
     public function search($params, $models)

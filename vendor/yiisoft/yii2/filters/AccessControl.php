@@ -10,6 +10,7 @@ namespace yii\filters;
 use Yii;
 use yii\base\Action;
 use yii\base\ActionFilter;
+use yii\di\Instance;
 use yii\web\User;
 use yii\web\ForbiddenHttpException;
 
@@ -56,6 +57,10 @@ use yii\web\ForbiddenHttpException;
 class AccessControl extends ActionFilter
 {
     /**
+     * @var User|string the user object representing the authentication status or the ID of the user application component.
+     */
+    public $user = 'user';
+    /**
      * @var callable a callback that will be called if the access should be denied
      * to the current user. If not set, [[denyAccess()]] will be called.
      *
@@ -65,8 +70,8 @@ class AccessControl extends ActionFilter
      * function ($rule, $action)
      * ~~~
      *
-     * where `$rule` is this rule, and `$action` is the current [[Action|action]] object.
-     * `$rule` will be `null` if access is denied because none of the rules matched.
+     * where `$rule` is the rule that denies the user, and `$action` is the current [[Action|action]] object.
+     * `$rule` can be `null` if access is denied because none of the rules matched.
      */
     public $denyCallback;
     /**
@@ -89,6 +94,7 @@ class AccessControl extends ActionFilter
     public function init()
     {
         parent::init();
+        $this->user = Instance::ensure($this->user, User::className());
         foreach ($this->rules as $i => $rule) {
             if (is_array($rule)) {
                 $this->rules[$i] = Yii::createObject(array_merge($this->ruleConfig, $rule));
@@ -104,9 +110,9 @@ class AccessControl extends ActionFilter
      */
     public function beforeAction($action)
     {
-        $user = Yii::$app->getUser();
+        $user = $this->user;
         $request = Yii::$app->getRequest();
-        /** @var AccessRule $rule */
+        /* @var $rule AccessRule */
         foreach ($this->rules as $rule) {
             if ($allow = $rule->allows($action, $user, $request)) {
                 return true;

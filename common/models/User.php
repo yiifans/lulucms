@@ -2,7 +2,6 @@
 
 namespace common\models;
 
-use yii\helpers\Security;
 use yii\web\IdentityInterface;
 use components\base\BaseActiveRecord;
 use yii\base\NotSupportedException;
@@ -98,7 +97,7 @@ class User extends BaseActiveRecord implements IdentityInterface
 	/**
 	 * @inheritdoc
 	 */
-	public static function findIdentityByAccessToken($token)
+	public static function findIdentityByAccessToken($token, $type = NULL)
 	{
 		throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
 	}
@@ -174,7 +173,7 @@ class User extends BaseActiveRecord implements IdentityInterface
 	 */
 	public function validatePassword($password)
 	{
-		return Security::validatePassword($password, $this->password_hash);
+		return Yii::$app->getSecurity()->validatePassword($password, $this->password_hash);
 	}
 
 	/**
@@ -184,7 +183,7 @@ class User extends BaseActiveRecord implements IdentityInterface
 	 */
 	public function setPassword($password)
 	{
-		$this->password_hash = Security::generatePasswordHash($password);
+		$this->password_hash = Yii::$app->getSecurity()->generatePasswordHash($password);
 	}
 
 	/**
@@ -192,7 +191,7 @@ class User extends BaseActiveRecord implements IdentityInterface
 	 */
 	public function generateAuthKey()
 	{
-		$this->auth_key = Security::generateRandomKey();
+		$this->auth_key = Yii::$app->getSecurity()->generateRandomKey();
 	}
 
 	/**
@@ -200,7 +199,7 @@ class User extends BaseActiveRecord implements IdentityInterface
 	 */
 	public function generatePasswordResetToken()
 	{
-		$this->password_reset_token = Security::generateRandomKey() . '_' . time();
+		$this->password_reset_token = Yii::$app->getSecurity()->generateRandomKey() . '_' . time();
 	}
 
 	/**

@@ -54,14 +54,15 @@ class CodeFile extends Object
      */
     public $operation;
 
+
     /**
      * Constructor.
-     * @param string $path    the file path that the new code should be saved to.
+     * @param string $path the file path that the new code should be saved to.
      * @param string $content the newly generated code content.
      */
     public function __construct($path, $content)
     {
-        $this->path = strtr($path, ['/' => DIRECTORY_SEPARATOR, '\\' => DIRECTORY_SEPARATOR]);
+        $this->path = strtr($path, '/\\', DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR);
         $this->content = $content;
         $this->id = md5($this->path);
         if (is_file($path)) {
@@ -166,8 +167,8 @@ class CodeFile extends Object
     /**
      * Renders diff between two sets of lines
      *
-     * @param  mixed  $lines1
-     * @param  mixed  $lines2
+     * @param mixed $lines1
+     * @param mixed $lines2
      * @return string
      */
     private function renderDiff($lines1, $lines2)

@@ -25,23 +25,20 @@ function generateUpToDateMimeArray()
     $mime_xml   = @file_get_contents(FREEDESKTOP_XML_URL);
 
     // prepare valid mime types
-    $valid_mime_types = [];
+    $valid_mime_types = array();
 
     // split mime type and extensions eg. "video/x-matroska        mkv mk3d mks"
     if (preg_match_all('/^#?([a-z0-9\-\+\/\.]+)[\t]+(.*)$/miu', $mime_types, $matches) !== FALSE) {
         // collection of predefined mimetypes (bugfix for wrong resolved or missing mime types)
-        $valid_mime_types_preset = [
+        $valid_mime_types_preset = array(
             'php'  => 'application/x-php',
             'php3' => 'application/x-php',
             'php4' => 'application/x-php',
             'php5' => 'application/x-php',
-            'pdf'  => 'application/pdf',
             'zip'  => 'application/zip',
             'gif'  => 'image/gif',
-            'jpg'  => 'image/jpeg',
             'png'  => 'image/png',
             'css'  => 'text/css',
-            'html' => 'text/html',
             'js'   => 'text/javascript',
             'txt'  => 'text/plain',
             'xml'  => 'text/xml',
@@ -58,7 +55,6 @@ function generateUpToDateMimeArray()
             'aps'  => 'application/postscript',
             'exe'  => 'application/x-ms-dos-executable',
             'flv'  => 'video/x-flv',
-            'gif'  => 'image/gif',
             'gz'   => 'application/x-gzip',
             'hqx'  => 'application/stuffit',
             'htm'  => 'text/html',
@@ -82,7 +78,6 @@ function generateUpToDateMimeArray()
             'ods'  => 'vnd.oasis.opendocument.spreadsheet',
             'ogg'  => 'audio/ogg',
             'pdf'  => 'application/pdf',
-            'png'  => 'image/png',
             'ppt'  => 'application/vnd.ms-powerpoint',
             'pptx' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
             'ps'   => 'application/postscript',
@@ -94,7 +89,6 @@ function generateUpToDateMimeArray()
             'tif'  => 'image/tiff',
             'tiff' => 'image/tiff',
             'ttf'  => 'application/x-font-truetype',
-            'txt'  => 'text/plain',
             'vcf'  => 'text/x-vcard',
             'wav'  => 'audio/wav',
             'wma'  => 'audio/x-ms-wma',
@@ -102,8 +96,7 @@ function generateUpToDateMimeArray()
             'xls'  => 'application/excel',
             'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             'xml'  => 'application/xml',
-            'zip'  => 'application/zip'
-        ];
+        );
 
         // wrap array for generating file
         foreach ($valid_mime_types_preset as $extension => $mime_type) {
@@ -112,7 +105,7 @@ function generateUpToDateMimeArray()
         }
 
         // collect extensions
-        $valid_extensions = [];
+        $valid_extensions = array();
 
         // all extensions from second match
         foreach ($matches[2] as $i => $extensions) {

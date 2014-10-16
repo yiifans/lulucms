@@ -12,9 +12,6 @@ $this->title = '修改Action';
 $this->addBreadcrumb('内容模型('.$model->name.')',['index']);
 $this->addBreadcrumb($this->title);
 
-// $this->params['breadcrumbs'][] = ['label' => '表管理', 'url' => ['index']];
-// $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'tb' => $model->name_en]];
-// $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="define-table-action">
 
@@ -24,7 +21,7 @@ $this->addBreadcrumb($this->title);
 				'fieldConfig' => $this->getDefaultFieldConfig(),
 	    ]); ?>
 			<table class="table">
-			   <?= $form->field($model, 'id')->textInput(['maxlength' => 80,'disabled'=>'disabled']) ?>
+			   <?= $form->field($model, 'table_name')->textInput(['maxlength' => 80,'disabled'=>'disabled']) ?>
 			
 				<tr>
 					<td colspan="3"><label>后台Action设置</label></td>

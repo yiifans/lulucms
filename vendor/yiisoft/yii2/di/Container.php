@@ -263,7 +263,7 @@ class Container extends Component
      */
     public function setSingleton($class, $definition = [], array $params = [])
     {
-        $this->_definitions[$class] = $this->normalizeDefinition($class, $definition);;
+        $this->_definitions[$class] = $this->normalizeDefinition($class, $definition);
         $this->_params[$class] = $params;
         $this->_singletons[$class] = null;
         return $this;
@@ -277,7 +277,7 @@ class Container extends Component
      */
     public function has($class)
     {
-        return isset($this->_singletons[$class]);
+        return isset($this->_definitions[$class]);
     }
 
     /**
@@ -350,20 +350,20 @@ class Container extends Component
      */
     protected function build($class, $params, $config)
     {
-        /** @var ReflectionClass $reflection */
+        /* @var $reflection ReflectionClass */
         list ($reflection, $dependencies) = $this->getDependencies($class);
 
         foreach ($params as $index => $param) {
             $dependencies[$index] = $param;
         }
 
-        $dependencies = $this->resolveDependencies($dependencies, $reflection);
-
-        if (!empty($config) && !empty($dependencies) && is_a($class, 'yii\base\Object', true)) {
+        if (!empty($dependencies) && is_a($class, 'yii\base\Object', true)) {
             // set $config as the last parameter (existing one will be overwritten)
             $dependencies[count($dependencies) - 1] = $config;
+            $dependencies = $this->resolveDependencies($dependencies, $reflection);
             return $reflection->newInstanceArgs($dependencies);
         } else {
+            $dependencies = $this->resolveDependencies($dependencies, $reflection);
             $object = $reflection->newInstanceArgs($dependencies);
             foreach ($config as $name => $value) {
                 $object->$name = $value;

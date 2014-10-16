@@ -38,7 +38,7 @@ $this->addBreadcrumb($this->title);
 		<tr>
 		<td><?php echo $row['id']?></td>
 		<td><?php echo $row['name']?></td>
-		<td><?php echo $row['name_en']?></td>
+		<td><?php echo $row['field_name']?></td>
 		<td><?php echo $row['fieldtype']?></td>
 		<td><?php echo CommonUtility::getYesNo($row['is_null'])?></td>
 		<td><?php echo CommonUtility::getYesNo($row['is_main'])?></td>

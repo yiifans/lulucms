@@ -90,7 +90,6 @@ $att3Array=Config::getContentAtt('content_att3_name');
 		<td><div class="help-block"></div></td>
 	</tr>
 
-    <?= $form->field($model, 'status')->dropDownList(CommonUtility::getStatus()) ?>
 
     <tr class="form-group field-content-title_pic">
 		<td class="hAlign_right padding_r10" >
@@ -107,10 +106,6 @@ $att3Array=Config::getContentAtt('content_att3_name');
 
     <?= $form->field($model, 'redirect_url')->textInput(['maxlength' => 128]) ?>
 
-    <?= $form->field($model, 'keywords')->textInput(['maxlength' => 128]) ?>
 
-    <?= $form->field($model, 'sub_title')->textInput(['maxlength' => 128]) ?>
+	
 
-    <?= $form->field($model, 'summary')->textarea(['rows' => 5]) ?>
-	
-	

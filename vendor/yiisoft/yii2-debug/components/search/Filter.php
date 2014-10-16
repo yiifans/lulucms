@@ -23,10 +23,11 @@ class Filter extends Component
      */
     protected $rules = [];
 
+
     /**
      * Adds data filtering rule.
      *
-     * @param string           $name attribute name
+     * @param string $name attribute name
      * @param MatcherInterface $rule
      */
     public function addMatcher($name, MatcherInterface $rule)
@@ -39,7 +40,7 @@ class Filter extends Component
     /**
      * Applies filter on a given array and returns filtered data.
      *
-     * @param  array $data data to filter
+     * @param array $data data to filter
      * @return array filtered data
      */
     public function filter(array $data)
@@ -58,7 +59,7 @@ class Filter extends Component
     /**
      * Checks if the given data satisfies filters.
      *
-     * @param  array   $row data
+     * @param array $row data
      * @return boolean if data passed filtering
      */
     private function passesFilter(array $row)
@@ -67,7 +68,7 @@ class Filter extends Component
             if (isset($this->rules[$name])) {
                 // check all rules for a given attribute
                 foreach ($this->rules[$name] as $rule) {
-                    /** @var MatcherInterface $rule */
+                    /* @var $rule MatcherInterface */
                     if (!$rule->match($value)) {
                         return false;
                     }

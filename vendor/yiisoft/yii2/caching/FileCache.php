@@ -52,7 +52,7 @@ class FileCache extends Cache
      * @var integer the probability (parts per million) that garbage collection (GC) should be performed
      * when storing a piece of data in the cache. Defaults to 10, meaning 0.001% chance.
      * This number should be between 0 and 1000000. A value 0 means no GC will be performed at all.
-     **/
+     */
     public $gcProbability = 10;
     /**
      * @var integer the permission to be set for newly created cache files.
@@ -67,6 +67,7 @@ class FileCache extends Cache
      * but read-only for other users.
      */
     public $dirMode = 0775;
+
 
     /**
      * Initializes this component by ensuring the existence of the cache path.
@@ -212,7 +213,7 @@ class FileCache extends Cache
      * @param boolean $force whether to enforce the garbage collection regardless of [[gcProbability]].
      * Defaults to false, meaning the actual deletion happens with the probability as specified by [[gcProbability]].
      * @param boolean $expiredOnly whether to removed expired cache files only.
-     * If true, all cache files under [[cachePath]] will be removed.
+     * If false, all cache files under [[cachePath]] will be removed.
      */
     public function gc($force = false, $expiredOnly = true)
     {
@@ -239,10 +240,16 @@ class FileCache extends Cache
                 if (is_dir($fullPath)) {
                     $this->gcRecursive($fullPath, $expiredOnly);
                     if (!$expiredOnly) {
-                        @rmdir($fullPath);
+                        if (!@rmdir($fullPath)) {
+                            $error = error_get_last();
+                            Yii::warning("Unable to remove directory '{$fullPath}': {$error['message']}", __METHOD__);
+                        }
                     }
                 } elseif (!$expiredOnly || $expiredOnly && @filemtime($fullPath) < time()) {
-                    @unlink($fullPath);
+                    if (!@unlink($fullPath)) {
+                        $error = error_get_last();
+                        Yii::warning("Unable to remove file '{$fullPath}': {$error['message']}", __METHOD__);
+                    }
                 }
             }
             closedir($handle);
