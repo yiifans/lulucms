@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use yii;
 use yii\web\IdentityInterface;
 use components\base\BaseActiveRecord;
 use yii\base\NotSupportedException;

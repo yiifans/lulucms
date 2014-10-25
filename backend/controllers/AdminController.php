@@ -35,7 +35,7 @@ class AdminController extends BaseBackController
 	public function actionLogout()
 	{
 		Yii::$app->user->logout();
-		return $this->redirect(['admin/index']);
+		return $this->redirect(['admin/login']);
 	}
 
 	public function actionWelcome()
