@@ -66,9 +66,9 @@ class ContentController extends BaseFrontController
 		return $action->run($chnid);
 	}
 
-	public function actionIndex($chnid = 0)
+	public function actionManager($chnid = 0)
 	{
-		$action = new \frontend\actions\content\model_default\IndexAction('index', $this);
+		$action = new \frontend\actions\content\model_default\ManagerAction('manager', $this);
 		return $action->run($chnid);
 	}
 

@@ -28,7 +28,7 @@ use yii\db\Query;
 /**
  * ChannelController implements the CRUD actions for Channel model.
  */
-class IndexAction extends ContentAction
+class ManagerAction extends ContentAction
 {
 	public function run($chnid=0)
 	{
