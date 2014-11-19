@@ -320,68 +320,90 @@ class CommonUtility
 		}
 		return LuLu::getWebUrl() . '/data/attachment/' . $url;
 	}
-
-	public static function getCachedValue($cache, $id = null, $defaultValue = null)
+	
+	public static function getCachedValue($cacheItem,$cacheKey=null)
 	{
-		$cacheItem = LuLu::getAppParam($cache);
-		if($cacheItem === null)
+		$cache = LuLu::getAppParam($cacheItem);
+	
+		if($cache === null)
 		{
-			throw new InvalidParamException('cache key:' . $cache . ' does not exist');
+			throw new InvalidParamException('cache item:' . $cacheItem . ' does not exist');
+		}
+	
+		if($cacheKey === null)
+		{
+			return $cache;
 		}
 		
-		if($id === null)
+		if(array_key_exists($cacheKey,$cache))
 		{
-			return $cacheItem;
+			return $cache[$cacheKey];
 		}
-		if(isset($cacheItem[$id]))
-		{
-			return $cacheItem[$id];
-		}
-		return $defaultValue;
-	}
-
-	public static function getConfig($id=null)
-	{
-		$cached = LuLu::getAppParam('cachedConfigs');
-		if($id!==null)
-		{
-			return $cached[$id];
-		}
-		return $cached;
+	
+		throw new InvalidParamException('cache key:' . $cacheKey .'('. $cacheItem . '} does not exist');
 	}
 	
-	public static function getConfigValue($id)
+	public static function getCachedTable($tableName = null)
 	{
-		$cached = LuLu::getAppParam('cachedConfigs');
-		return $cached[$id]['value'];
+		return self::getCachedValue('cachedTables',$tableName);
 	}
-
-	public static function getChannels($id = null)
+	public static function getCachedChannel($chnid = null)
 	{
-		$cachedChannels = LuLu::getAppParam('cachedChannels');
-		if($id !== null)
-		{
-			return $cachedChannels[$id];
-		}
-		return $cachedChannels;
+		return self::getCachedValue('cachedChannels',$chnid);
 	}
-
 	public static function getRootChannels()
 	{
 		return Channel::getRootChannels();
 	}
-
-	public static function getVariable($id=null)
+	public static function getCachedConfig($id = null)
 	{
-		$cached = LuLu::getAppParam('cachedVariables');
+		return self::getCachedValue('cachedConfigs',$id);
+	}
+	public static function getCachedConfigValue($id = null)
+	{
+		$cachedData = self::getCachedValue('cachedConfigs',$id);
+		return $cachedData['value'];
+	}
+	public static function getCachedDict($category = null,$id=null)
+	{
+		$cachedData = self::getCachedValue('cachedDicts',$category);
 		if($id!==null)
 		{
-			return $cached[$id];
+			return $cachedData[$id];
 		}
-		return $cached;
+		return $cachedData;
+	}
+	public static function getDictsByPId($category,$pid)
+	{
+		$ret = [];
+		$cachedData = self::getCachedValue('cachedDicts',$category);
+		if($pid===0)
+		{
+			foreach ($cachedData as $id=>$dict)
+			{
+				if($dict['parent_id']===0)
+				{
+					$ret[$id]=$dict;
+				}
+			}
+		}
+		else
+		{
+			$dict = $cachedData[$pid];
+			$childIds=explode(',', $dict['child_ids']);
+			foreach ($childIds as $childId)
+			{
+				$ret[$childId]=$dicts[$childId];
+			}
+		}
+		return $ret;
+	}
+	public static function getCachedVariable($id = null)
+	{
+		return self::getCachedValue('cachedVariables',$id);
 	}
 	
-	public static function getVariableValue($id)
+	public static function getCachedVariableValue($id)
 	{
 		$cached = LuLu::getAppParam('cachedVariables');
 		$dataType=$cached[$id]['data_type'];
@@ -420,87 +442,4 @@ class CommonUtility
 		return $value;
 	}
 	
-	public static function getDict($category,$id)
-	{
-		$cached = LuLu::getAppParam('cachedDicts');
-		return $cached[$category][$id];
-	}
-	public static function getDicts($category,$pid)
-	{
-		$ret = [];
-		$cached = LuLu::getAppParam('cachedDicts');
-		$dicts = $cached[$category];
-		if($pid===0)
-		{
-			foreach ($dicts as $id=>$dict)
-			{
-				if($dict['parent_id']===0)
-				{
-					$ret[$id]=$dict;
-				}
-			}
-		}
-		else 
-		{
-			$dict = $dicts[$pid];
-			$childIds=explode(',', $dict['child_ids']);
-			foreach ($childIds as $childId)
-			{
-				$ret[$childId]=$dicts[$childId];
-			}
-		}
-		return $ret;
-	}
-	public static function getTables($tableName=null)
-	{
-		$cached = LuLu::getAppParam('cachedTables');
-		if($tableName!=null)
-		{
-			return $cached[$tableName];
-		}
-		return $cached;
-	}
-// 	private $_cachedRoles;
-
-// 	public function getCachedRoles()
-// 	{
-// 		if($this->_cachedRoles == null)
-// 		{
-// 			$this->_cachedRoles = YiiForum::getAppParam('cachedRoles');
-// 		}
-// 		return $this->_cachedRoles;
-// 	}
-
-// 	private $_cachedRoleGroups;
-
-// 	public function getCachedRoleGroups()
-// 	{
-// 		if($this->_cachedRoleGroups == null)
-// 		{
-// 			$this->_cachedRoleGroups = YiiForum::getAppParam('cachedRoleGroups');
-// 		}
-// 		return $this->_cachedRoleGroups;
-// 	}
-
-// 	private $_cachedPermissions;
-
-// 	public function getCachedPermissions()
-// 	{
-// 		if($this->_cachedPermissions == null)
-// 		{
-// 			$this->_cachedPermissions = YiiForum::getAppParam('cachedPermissions');
-// 		}
-// 		return $this->_cachedPermissions;
-// 	}
-
-// 	private $_cachedPermissionCategories;
-
-// 	public function getCachedPermissionCategories()
-// 	{
-// 		if($this->_cachedPermissionCategories == null)
-// 		{
-// 			$this->_cachedPermissionCategories = YiiForum::getAppParam('cachedPermissionCategories');
-// 		}
-// 		return $this->_cachedPermissionCategories;
-// 	}
 }

@@ -39,7 +39,7 @@ class ManagerAction extends ContentAction
 		$locals['dataList']=$dataList;
 		$locals['currentChannel']=$channelModel;
 		
-		$indexTpl=$this->getTpl($chnid, 'index');
+		$indexTpl=$this->getTpl($chnid, 'manager');
 		
 		return $this->render($indexTpl, $locals);
 	}

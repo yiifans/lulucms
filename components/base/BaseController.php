@@ -26,7 +26,7 @@ class BaseController extends Controller
 		
 		if($this->channels == null)
 		{
-			$this->channels = CommonUtility::getChannels();
+			$this->channels = CommonUtility::getCachedChannel();
 		}
 		if($this->rootChannels == null)
 		{

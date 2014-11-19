@@ -150,13 +150,13 @@ class SiteController extends BaseFrontController
 	{
 		$view = LuLu::getView();
 		
-		$title = CommonUtility::getConfigValue('seo_title');
+		$title = CommonUtility::getCachedConfigValue('seo_title');
 		if(empty($title))
 		{
-			$title = '首页——' . CommonUtility::getConfigValue('seo_name');
+			$title = '首页——' . CommonUtility::getCachedConfigValue('seo_name');
 		}
 		$view->setTitle($title);
-		$view->registerMetaTag(['name' => 'keywords', 'content' => CommonUtility::getConfigValue('seo_keywords')]);
-		$view->registerMetaTag(['name' => 'description', 'content' => CommonUtility::getConfigValue('seo_description')]);
+		$view->registerMetaTag(['name' => 'keywords', 'content' => CommonUtility::getCachedConfigValue('seo_keywords')]);
+		$view->registerMetaTag(['name' => 'description', 'content' => CommonUtility::getCachedConfigValue('seo_description')]);
 	}
 }

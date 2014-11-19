@@ -3372,3 +3372,2714 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1414221607.37
     'REQUEST_TIME' => 1414221607
 ]
+2014-11-19 14:02:01 [::1][][-][error][yii\web\HttpException:400] exception 'yii\web\BadRequestHttpException' with message '您提交的数据无法被验证。' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Controller.php:110
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(149): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('login', Array)
+#2 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('admin/login', Array)
+#3 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#4 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#5 {main}
+2014-11-19 14:02:00 [::1][][-][info][application] $_GET = [
+    'r' => 'admin/login'
+]
+
+$_POST = [
+    '_csrf' => 'cVBod205aTUgZwUwAH4sXjURPwEPegpyHmIQAzsJUV8YAxgNKwEZfg=='
+    'LoginForm' => [
+        'username' => 'admin888'
+        'password' => 'admin888'
+    ]
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => 'adae905951302b29416433481629be01c3aa10645fdd79fc4dab0121cce5355cs:32:\"THv6uMZpy0iS3NYczw3GHtIBxFC4kjee\";'
+    'PHPSESSID' => '7qls5g22nn67p6ara2u0r13pn3'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '132'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=adae905951302b29416433481629be01c3aa10645fdd79fc4dab0121cce5355cs%3A32%3A%22THv6uMZpy0iS3NYczw3GHtIBxFC4kjee%22%3B; PHPSESSID=7qls5g22nn67p6ara2u0r13pn3'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '3609'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=admin%2Flogin'
+    'REQUEST_URI' => '/lulucms/admin.php?r=admin%2Flogin'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416405720.714
+    'REQUEST_TIME' => 1416405720
+]
+2014-11-19 14:03:53 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\dict-category\index.php:40
+    in D:\wamp\www\lulucms\backend\controllers\DictCategoryController.php:21
+2014-11-19 14:03:52 [::1][1][-][info][application] $_GET = [
+    'r' => 'dict-category/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fsys'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '3642'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=dict-category%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=dict-category%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416405832.684
+    'REQUEST_TIME' => 1416405832
+]
+2014-11-19 14:03:56 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\variable\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\VariableController.php:21
+2014-11-19 14:03:55 [::1][1][-][info][application] $_GET = [
+    'r' => 'variable/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fsys'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '3642'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=variable%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=variable%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416405835.41
+    'REQUEST_TIME' => 1416405835
+]
+2014-11-19 14:03:59 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\define-table\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\DefineTableController.php:54
+2014-11-19 14:03:58 [::1][1][-][info][application] $_GET = [
+    'r' => 'define-table/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fsys'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '3642'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=define-table%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=define-table%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416405838.745
+    'REQUEST_TIME' => 1416405838
+]
+2014-11-19 14:04:11 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\define-table\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\DefineTableController.php:54
+2014-11-19 14:04:10 [::1][1][-][info][application] $_GET = [
+    'r' => 'define-table/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=define-table%2Fupdate&tb=model_download'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '3642'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=define-table%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=define-table%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416405850.132
+    'REQUEST_TIME' => 1416405850
+]
+2014-11-19 14:30:26 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\channel\index.php:63
+    in D:\wamp\www\lulucms\backend\controllers\ChannelController.php:24
+2014-11-19 14:30:25 [::1][1][-][info][application] $_GET = [
+    'r' => 'channel/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4103'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=channel%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=channel%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407425.377
+    'REQUEST_TIME' => 1416407425
+]
+2014-11-19 14:30:55 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\page\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\PageController.php:22
+2014-11-19 14:30:54 [::1][1][-][info][application] $_GET = [
+    'r' => 'page/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4110'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=page%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=page%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407453.98
+    'REQUEST_TIME' => 1416407453
+]
+2014-11-19 14:31:03 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\page-category\index.php:37
+    in D:\wamp\www\lulucms\backend\controllers\PageCategoryController.php:23
+2014-11-19 14:31:02 [::1][1][-][info][application] $_GET = [
+    'r' => 'page-category/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4113'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=page-category%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=page-category%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407462.555
+    'REQUEST_TIME' => 1416407462
+]
+2014-11-19 14:31:17 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\fragment\index.php:41
+    in D:\wamp\www\lulucms\backend\controllers\FragmentController.php:27
+2014-11-19 14:31:16 [::1][1][-][info][application] $_GET = [
+    'r' => 'fragment/index'
+    'type' => '1'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4113'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=fragment%2Findex&type=1'
+    'REQUEST_URI' => '/lulucms/admin.php?r=fragment%2Findex&type=1'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407476.048
+    'REQUEST_TIME' => 1416407476
+]
+2014-11-19 14:31:29 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\fragment-category\index.php:37
+    in D:\wamp\www\lulucms\backend\controllers\FragmentCategoryController.php:23
+2014-11-19 14:31:28 [::1][1][-][info][application] $_GET = [
+    'r' => 'fragment-category/index'
+    'type' => '1'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=fragment%2Findex&type=1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4124'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=fragment-category%2Findex&type=1'
+    'REQUEST_URI' => '/lulucms/admin.php?r=fragment-category%2Findex&type=1'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407488.37
+    'REQUEST_TIME' => 1416407488
+]
+2014-11-19 14:31:45 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\fragment\index.php:41
+    in D:\wamp\www\lulucms\backend\controllers\FragmentController.php:27
+2014-11-19 14:31:42 [::1][1][-][info][application] $_GET = [
+    'r' => 'fragment/index'
+    'type' => '1'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4127'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=fragment%2Findex&type=1'
+    'REQUEST_URI' => '/lulucms/admin.php?r=fragment%2Findex&type=1'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407502.154
+    'REQUEST_TIME' => 1416407502
+]
+2014-11-19 14:32:02 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\fragment\index.php:41
+    in D:\wamp\www\lulucms\backend\controllers\FragmentController.php:27
+2014-11-19 14:31:58 [::1][1][-][info][application] $_GET = [
+    'r' => 'fragment/index'
+    'type' => '1'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=fragment%2Fupdate&id=8&type=1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4132'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=fragment%2Findex&type=1'
+    'REQUEST_URI' => '/lulucms/admin.php?r=fragment%2Findex&type=1'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407518.605
+    'REQUEST_TIME' => 1416407518
+]
+2014-11-19 14:32:11 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\fragment1-data\index.php:38
+    in D:\wamp\www\lulucms\backend\controllers\Fragment1DataController.php:21
+2014-11-19 14:32:07 [::1][1][-][info][application] $_GET = [
+    'r' => 'fragment1-data/index'
+    'fraid' => '1'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=fragment%2Findex&type=1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4132'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=fragment1-data%2Findex&fraid=1'
+    'REQUEST_URI' => '/lulucms/admin.php?r=fragment1-data%2Findex&fraid=1'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407527.254
+    'REQUEST_TIME' => 1416407527
+]
+2014-11-19 14:32:41 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\fragment\index.php:41
+    in D:\wamp\www\lulucms\backend\controllers\FragmentController.php:27
+2014-11-19 14:32:40 [::1][1][-][info][application] $_GET = [
+    'r' => 'fragment/index'
+    'type' => '3'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4146'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=fragment%2Findex&type=3'
+    'REQUEST_URI' => '/lulucms/admin.php?r=fragment%2Findex&type=3'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407560.505
+    'REQUEST_TIME' => 1416407560
+]
+2014-11-19 14:32:57 [::1][-][-][error][ReflectionException] exception 'ReflectionException' with message 'Class backend\actions\content\model_default\IndexAction does not exist' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\di\Container.php:408
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\di\Container.php(408): ReflectionClass->__construct('backend\actions...')
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\di\Container.php(354): yii\di\Container->getDependencies('backend\actions...')
+#2 D:\wamp\www\lulucms\vendor\yiisoft\yii2\di\Container.php(147): yii\di\Container->build('backend\actions...', Array, Array)
+#3 D:\wamp\www\lulucms\vendor\yiisoft\yii2\BaseYii.php(340): yii\di\Container->get('backend\actions...', Array)
+#4 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(219): yii\BaseYii::createObject('backend\actions...', Array)
+#5 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(120): yii\base\Controller->createAction('index')
+#6 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('index', Array)
+#7 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('content/index', Array)
+#8 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#10 {main}
+2014-11-19 14:32:55 [::1][-][-][info][application] $_GET = [
+    'r' => 'content/index'
+    'chnid' => '106'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fcontent'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4151'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=content/index&chnid=106'
+    'REQUEST_URI' => '/lulucms/admin.php?r=content/index&chnid=106'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407575.396
+    'REQUEST_TIME' => 1416407575
+]
+2014-11-19 14:36:34 [::1][1][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: content/manager' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('manager', Array)
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('content/manager', Array)
+#2 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request: content/manager' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#2 {main}
+2014-11-19 14:36:32 [::1][1][-][info][application] $_GET = [
+    'r' => 'content/manager'
+    'chnid' => '104'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fcontent'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4325'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=content/manager&chnid=104'
+    'REQUEST_URI' => '/lulucms/admin.php?r=content/manager&chnid=104'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407791.964
+    'REQUEST_TIME' => 1416407791
+]
+2014-11-19 14:36:56 [::1][1][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: content/manager' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('manager', Array)
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('content/manager', Array)
+#2 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request: content/manager' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#2 {main}
+2014-11-19 14:36:54 [::1][1][-][info][application] $_GET = [
+    'r' => 'content/manager'
+    'chnid' => '102'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fcontent'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4327'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=content/manager&chnid=102'
+    'REQUEST_URI' => '/lulucms/admin.php?r=content/manager&chnid=102'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407814.269
+    'REQUEST_TIME' => 1416407814
+]
+2014-11-19 14:37:09 [::1][1][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: content/manager' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('manager', Array)
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('content/manager', Array)
+#2 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request: content/manager' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#2 {main}
+2014-11-19 14:37:06 [::1][1][-][info][application] $_GET = [
+    'r' => 'content/manager'
+    'chnid' => '102'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fcontent'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4335'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=content/manager&chnid=102'
+    'REQUEST_URI' => '/lulucms/admin.php?r=content/manager&chnid=102'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407825.839
+    'REQUEST_TIME' => 1416407825
+]
+2014-11-19 14:37:13 [::1][1][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: content/manager' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('manager', Array)
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('content/manager', Array)
+#2 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request: content/manager' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#2 {main}
+2014-11-19 14:37:10 [::1][1][-][info][application] $_GET = [
+    'r' => 'content/manager'
+    'chnid' => '104'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '19fj7ql6261cadgbn6psjjcs63'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Flogin'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fcontent'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=19fj7ql6261cadgbn6psjjcs63'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4342'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=content/manager&chnid=104'
+    'REQUEST_URI' => '/lulucms/admin.php?r=content/manager&chnid=104'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416407829.904
+    'REQUEST_TIME' => 1416407829
+]
+2014-11-19 14:43:08 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\define-table\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\DefineTableController.php:54
+2014-11-19 14:43:03 [::1][1][-][info][application] $_GET = [
+    'r' => 'define-table/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fsys'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4383'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=define-table%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=define-table%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416408182.995
+    'REQUEST_TIME' => 1416408182
+]
+2014-11-19 15:50:45 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\dict-category\index.php:40
+    in D:\wamp\www\lulucms\backend\controllers\DictCategoryController.php:21
+2014-11-19 15:50:44 [::1][1][-][info][application] $_GET = [
+    'r' => 'dict-category/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fsys'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4721'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=dict-category%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=dict-category%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412244.175
+    'REQUEST_TIME' => 1416412244
+]
+2014-11-19 15:50:48 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\dict\index.php:49
+    in D:\wamp\www\lulucms\backend\controllers\DictController.php:28
+2014-11-19 15:50:47 [::1][1][-][info][application] $_GET = [
+    'r' => 'dict/index'
+    'catid' => 'marital'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=dict-category%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4721'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=dict%2Findex&catid=marital'
+    'REQUEST_URI' => '/lulucms/admin.php?r=dict%2Findex&catid=marital'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412247.534
+    'REQUEST_TIME' => 1416412247
+]
+2014-11-19 15:51:02 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\dict\index.php:49
+    in D:\wamp\www\lulucms\backend\controllers\DictController.php:28
+2014-11-19 15:51:00 [::1][1][-][info][application] $_GET = [
+    'r' => 'dict/index'
+    'pid' => '28'
+    'catid' => 'marital'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=dict%2Fcreate&pid=28&catid=marital'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4727'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=dict%2Findex&pid=28&catid=marital'
+    'REQUEST_URI' => '/lulucms/admin.php?r=dict%2Findex&pid=28&catid=marital'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412260.58
+    'REQUEST_TIME' => 1416412260
+]
+2014-11-19 15:51:06 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\variable\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\VariableController.php:21
+2014-11-19 15:51:05 [::1][1][-][info][application] $_GET = [
+    'r' => 'variable/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fsys'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4727'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=variable%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=variable%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412265.026
+    'REQUEST_TIME' => 1416412265
+]
+2014-11-19 15:51:14 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\variable\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\VariableController.php:21
+2014-11-19 15:51:13 [::1][1][-][info][application] $_GET = [
+    'r' => 'variable/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=variable%2Fupdate&id=aa'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4727'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=variable%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=variable%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412273.687
+    'REQUEST_TIME' => 1416412273
+]
+2014-11-19 15:51:17 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\define-table\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\DefineTableController.php:54
+2014-11-19 15:51:16 [::1][1][-][info][application] $_GET = [
+    'r' => 'define-table/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fsys'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4727'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=define-table%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=define-table%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412276.655
+    'REQUEST_TIME' => 1416412276
+]
+2014-11-19 15:51:26 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\define-table\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\DefineTableController.php:54
+2014-11-19 15:51:25 [::1][1][-][info][application] $_GET = [
+    'r' => 'define-table/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=define-table%2Fupdate&tb=model_download'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4727'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=define-table%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=define-table%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412285.347
+    'REQUEST_TIME' => 1416412285
+]
+2014-11-19 15:51:39 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\define-table\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\DefineTableController.php:54
+2014-11-19 15:51:37 [::1][1][-][info][application] $_GET = [
+    'r' => 'define-table/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fsys'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4744'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=define-table%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=define-table%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412297.829
+    'REQUEST_TIME' => 1416412297
+]
+2014-11-19 15:52:56 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\define-table\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\DefineTableController.php:54
+2014-11-19 15:52:55 [::1][1][-][info][application] $_GET = [
+    'r' => 'define-table/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=define-table%2Faction&tb=model_download'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4761'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=define-table%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=define-table%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412375.487
+    'REQUEST_TIME' => 1416412375
+]
+2014-11-19 15:53:07 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\define-table\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\DefineTableController.php:54
+2014-11-19 15:53:05 [::1][1][-][info][application] $_GET = [
+    'r' => 'define-table/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=define-table%2Faction&tb=model_news'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4761'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=define-table%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=define-table%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412385.954
+    'REQUEST_TIME' => 1416412385
+]
+2014-11-19 15:53:23 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\content-flag\index.php:36
+    in D:\wamp\www\lulucms\backend\controllers\ContentFlagController.php:25
+2014-11-19 15:53:22 [::1][1][-][info][application] $_GET = [
+    'r' => 'content-flag/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fsys'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4761'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=content-flag%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=content-flag%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412401.999
+    'REQUEST_TIME' => 1416412401
+]
+2014-11-19 15:53:31 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\content-flag\index.php:36
+    in D:\wamp\www\lulucms\backend\controllers\ContentFlagController.php:25
+2014-11-19 15:53:30 [::1][1][-][info][application] $_GET = [
+    'r' => 'content-flag/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=content-flag%2Fupdate&id=b'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4761'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=content-flag%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=content-flag%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412410.237
+    'REQUEST_TIME' => 1416412410
+]
+2014-11-19 15:53:38 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\channel\index.php:63
+    in D:\wamp\www\lulucms\backend\controllers\ChannelController.php:24
+2014-11-19 15:53:37 [::1][1][-][info][application] $_GET = [
+    'r' => 'channel/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4761'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=channel%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=channel%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412417.169
+    'REQUEST_TIME' => 1416412417
+]
+2014-11-19 15:53:42 [::1][1][35s839f43rnv3kag5o3me2qkb1][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Call to undefined method common\includes\CommonUtility::getTables()' in D:\wamp\www\lulucms\backend\controllers\ChannelController.php:101
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\InlineAction.php(55): ::call_user_func_array('array (0 => cla...', 'array (0 => '10...')
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams('array ('r' => '...')
+#2 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction(''update'', 'array ('r' => '...')
+#3 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction(''channel/update...', 'array ('r' => '...')
+#4 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest('class yii\web\R...')
+#5 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#6 {main}
+2014-11-19 15:53:41 [::1][1][35s839f43rnv3kag5o3me2qkb1][info][application] $_GET = [
+    'r' => 'channel/update'
+    'id' => '102'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=channel%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4761'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=channel%2Fupdate&id=102'
+    'REQUEST_URI' => '/lulucms/admin.php?r=channel%2Fupdate&id=102'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412421.498
+    'REQUEST_TIME' => 1416412421
+]
+2014-11-19 15:55:07 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\channel\index.php:63
+    in D:\wamp\www\lulucms\backend\controllers\ChannelController.php:24
+2014-11-19 15:55:06 [::1][1][-][info][application] $_GET = [
+    'r' => 'channel/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=channel%2Fupdate&id=102'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4782'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=channel%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=channel%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412506.813
+    'REQUEST_TIME' => 1416412506
+]
+2014-11-19 15:55:12 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\page\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\PageController.php:22
+2014-11-19 15:55:11 [::1][1][-][info][application] $_GET = [
+    'r' => 'page/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4782'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=page%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=page%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412511.285
+    'REQUEST_TIME' => 1416412511
+]
+2014-11-19 15:55:22 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\page\index.php:39
+    in D:\wamp\www\lulucms\backend\controllers\PageController.php:22
+2014-11-19 15:55:21 [::1][1][-][info][application] $_GET = [
+    'r' => 'page/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=page%2Fupdate&id=1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4782'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=page%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=page%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412521.879
+    'REQUEST_TIME' => 1416412521
+]
+2014-11-19 15:55:26 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\page-category\index.php:37
+    in D:\wamp\www\lulucms\backend\controllers\PageCategoryController.php:23
+2014-11-19 15:55:25 [::1][1][-][info][application] $_GET = [
+    'r' => 'page-category/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4782'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=page-category%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=page-category%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412525.102
+    'REQUEST_TIME' => 1416412525
+]
+2014-11-19 15:55:33 [::1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: D:\wamp\www\lulucms\backend/messages/zh-CN/app.php Fallback file does not exist as well: D:\wamp\www\lulucms\backend/messages/zh/app.php
+    in D:\wamp\www\lulucms\backend\views\page-category\index.php:37
+    in D:\wamp\www\lulucms\backend\controllers\PageCategoryController.php:23
+2014-11-19 15:55:33 [::1][1][-][info][application] $_GET = [
+    'r' => 'page-category/index'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=page-category%2Fupdate&id=2'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4782'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=page-category%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=page-category%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412532.989
+    'REQUEST_TIME' => 1416412532
+]
+2014-11-19 15:56:05 [::1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'backend\controllers\CommonUtility' not found' in D:\wamp\www\lulucms\backend\controllers\ContentController.php:22
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(120): yii\base\Controller->createAction(''manager'')
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction(''manager'', 'array ('r' => '...')
+#2 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction(''content/manage...', 'array ('r' => '...')
+#3 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest('class yii\web\R...')
+#4 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#5 {main}
+2014-11-19 15:56:05 [::1][-][-][info][application] $_GET = [
+    'r' => 'content/manager'
+    'chnid' => '110'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fcontent'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4797'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=content/manager&chnid=110'
+    'REQUEST_URI' => '/lulucms/admin.php?r=content/manager&chnid=110'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412564.994
+    'REQUEST_TIME' => 1416412564
+]
+2014-11-19 15:56:28 [::1][1][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: D:\wamp\www\lulucms\backend\views\content\model_default\index.php' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\View.php:226
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('D:\wamp\www\lul...', Array, Object(backend\controllers\ContentController))
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(367): yii\base\View->render('model_default\i...', Array, Object(backend\controllers\ContentController))
+#2 D:\wamp\www\lulucms\components\base\BaseAction.php(38): yii\base\Controller->render('model_default\i...', Array)
+#3 D:\wamp\www\lulucms\backend\actions\content\model_default\ManagerAction.php(60): components\base\BaseAction->render('model_default\i...', Array)
+#4 D:\wamp\www\lulucms\backend\controllers\ContentController.php(30): backend\actions\content\model_default\ManagerAction->run('110')
+#5 [internal function]: backend\controllers\ContentController->actionManager('110')
+#6 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#8 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('manager', Array)
+#9 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('content/manager', Array)
+#10 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#12 {main}
+2014-11-19 15:56:27 [::1][1][-][info][application] $_GET = [
+    'r' => 'content/manager'
+    'chnid' => '110'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fcontent'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4802'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=content/manager&chnid=110'
+    'REQUEST_URI' => '/lulucms/admin.php?r=content/manager&chnid=110'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412587.084
+    'REQUEST_TIME' => 1416412587
+]
+2014-11-19 15:57:19 [::1][1][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'The view file does not exist: D:\wamp\www\lulucms\backend\views\content\model_default\index.php' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\View.php:226
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('D:\wamp\www\lul...', Array, Object(backend\controllers\ContentController))
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(367): yii\base\View->render('model_default\i...', Array, Object(backend\controllers\ContentController))
+#2 D:\wamp\www\lulucms\components\base\BaseAction.php(38): yii\base\Controller->render('model_default\i...', Array)
+#3 D:\wamp\www\lulucms\backend\actions\content\model_default\ManagerAction.php(60): components\base\BaseAction->render('model_default\i...', Array)
+#4 D:\wamp\www\lulucms\backend\controllers\ContentController.php(30): backend\actions\content\model_default\ManagerAction->run('110')
+#5 [internal function]: backend\controllers\ContentController->actionManager('110')
+#6 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#8 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('manager', Array)
+#9 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('content/manager', Array)
+#10 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#12 {main}
+2014-11-19 15:57:18 [::1][1][-][info][application] $_GET = [
+    'r' => 'content/manager'
+    'chnid' => '110'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Fcontent'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4812'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=content/manager&chnid=110'
+    'REQUEST_URI' => '/lulucms/admin.php?r=content/manager&chnid=110'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412638.549
+    'REQUEST_TIME' => 1416412638
+]
+2014-11-19 15:58:22 [::1][1][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: content/index' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('index', Array)
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('content/index', Array)
+#2 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request: content/index' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\wamp\www\lulucms\admin.php(22): yii\base\Application->run()
+#2 {main}
+2014-11-19 15:58:21 [::1][1][-][info][application] $_GET = [
+    'r' => 'content/index'
+    'chnid' => '110'
+]
+
+$_COOKIE = [
+    'csrftoken' => 'PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur'
+    'CNZZDATA3984973' => 'cnzz_eid=1792023599-1402010996-http%3A%2F%2Flocalhost%2F&ntime=1402010996&cnzz_a=0&sin=none&ltime=1402010998889'
+    'currentPark' => '7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs:104:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"qd\"}\";'
+    '_csrf' => '067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s:32:\"Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t\";'
+    'PHPSESSID' => '35s839f43rnv3kag5o3me2qkb1'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php?r=admin%2Fsys'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=content%2Fupdate&chnid=110&id=49'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'csrftoken=PGur9e20a1kFXaiISGBm7XIqUFWmp4Ur; CNZZDATA3984973=cnzz_eid%3D1792023599-1402010996-http%253A%252F%252Flocalhost%252F%26ntime%3D1402010996%26cnzz_a%3D0%26sin%3Dnone%26ltime%3D1402010998889; currentPark=7320cf5e9713539f4ac635cd75a709b6349d870cc1eeaf7cfc4b3e250397760cs%3A104%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22qd%22%7D%22%3B; _csrf=067c56518780604f193da18bf71f71bb147123520ee6aadd2ea18ce2b7043d83s%3A32%3A%22Wg6KD5JgIrP3o1PnH2g5DP43jLCNHe4t%22%3B; PHPSESSID=35s839f43rnv3kag5o3me2qkb1'
+    'PATH' => 'D:\\Python27\\;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\80\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\90\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\wamp\\bin\\php\\php5.4.16;D:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/admin.php'
+    'REMOTE_PORT' => '4823'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=content%2Findex&chnid=110'
+    'REQUEST_URI' => '/lulucms/admin.php?r=content%2Findex&chnid=110'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1416412701.963
+    'REQUEST_TIME' => 1416412701
+]

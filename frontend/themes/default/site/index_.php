@@ -15,7 +15,7 @@ use common\includes\CommonUtility;
 
 
 $this->registerJsFile(CommonUtility::getThemeUrl('js/js.js'),['yii\web\JqueryAsset']);
-
+var_dump(Yii::$app);
 ?>
 
     <div class="container column">

@@ -75,7 +75,7 @@ class LuLu
 	public static function getAppParam($key, $defaultValue = null)
 	{
 		$params = \Yii::$app->params;
-		if(isset($params[$key]))
+		if(array_key_exists($key,$params))
 		{
 			return $params[$key];
 		}

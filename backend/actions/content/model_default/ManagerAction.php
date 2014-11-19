@@ -55,7 +55,7 @@ class ManagerAction extends ContentAction
 		$locals['channelArrayTree']=Channel::getChannelArrayTree();
 		$locals['currentChannel']=$currentChannel;
 		
-		$tplName = $this->getTpl($chnid, 'index');
+		$tplName = $this->getTpl($chnid, 'manager');
 		
 		return $this->render($tplName, $locals);
 	}

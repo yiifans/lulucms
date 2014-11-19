@@ -20,7 +20,7 @@ use components\helpers\TStringHelper;
 				$txt = '';
 				if($channel['is_leaf'])
 				{
-					$txt = '<a href="admin.php?r=content/index&chnid=' . $channel['id'] . '" target="mainFrame">' . $channel['name'] . '</a>';
+					$txt = '<a href="admin.php?r=content/manager&chnid=' . $channel['id'] . '" target="mainFrame">' . $channel['name'] . '</a>';
 				}
 				else
 				{

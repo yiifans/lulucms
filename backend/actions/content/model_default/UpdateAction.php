@@ -3,7 +3,6 @@
 namespace backend\actions\content\model_default;
 
 use Yii;
-
 use common\models\search\ChannelSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -23,46 +22,41 @@ use components\helpers\TTimeHelper;
 use components\base\BaseAction;
 use backend\actions\content\ContentAction;
 
-
 /**
  * ChannelController implements the CRUD actions for Channel model.
  */
 class UpdateAction extends ContentAction
 {
-	public function run($chnid,$id)
+
+	public function run($chnid, $id)
 	{
-		$currentChannel=Channel::findOne($chnid);
+		$currentChannel = Channel::findOne($chnid);
 		
-		$this->currentTableName=$currentChannel['table'];
+		$this->currentTableName = $currentChannel['table'];
 		
 		$attValues = $this->findModel($id);
 		
 		$model = new DefaultContent($currentChannel['table']);
 		$model->setIsNewRecord(false);
 		$model->attributes = $attValues;
-	
-		if ($model->load($_POST)) {
-				
-
-			
+		
+		if($model->load($_POST))
+		{
 			$this->saveContent($model);
-				
-			return $this->redirect(['index', 'chnid' => $chnid]);
-		} else {
 			
-			$locals=[];
-			$locals['model']= $model;
-			$locals['chnid']=$chnid;
-			$locals['currentChannel']=$currentChannel;
-			$locals['fields']=DefineTableField::findAll(['table'=>$currentChannel['table'],'is_sys'=>0]);
-
+			return $this->redirect(['manager', 'chnid' => $chnid]);
+		}
+		else
+		{
+			$locals = [];
+			$locals['model'] = $model;
+			$locals['chnid'] = $chnid;
+			$locals['currentChannel'] = $currentChannel;
+			$locals['fields'] = DefineTableField::findAll(['table' => $currentChannel['table'], 'is_sys' => 0]);
+			
 			$tplName = $this->getTpl($chnid, 'update');
 			
 			return $this->render($tplName, $locals);
 		}
 	}
-	
-	
-	
-
 }

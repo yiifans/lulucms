@@ -24,7 +24,7 @@ class CreateAction extends ContentAction
 				
 			$this->saveContent($model,true);
 				
-			return $this->redirect(['index', 'chnid' => $chnid]);
+			return $this->redirect(['manager', 'chnid' => $chnid]);
 		} else {
 			$locals = $this->initContent($model,$currentChannel);
 		

@@ -23,47 +23,9 @@ $this->addBreadcrumb($this->title);
 			<table class="table">
 			   <?= $form->field($model, 'table_name')->textInput(['maxlength' => 80,'disabled'=>'disabled']) ?>
 			
-				<tr>
-					<td colspan="3"><label>后台Action设置</label></td>
-				</tr>
-		
-				<tr class="form-group">
-					<td class="hAlign_left padding_r10" width="120">模型Action:</td>
-					<td width="500">
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'back_action_index')?>管理</label>
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'back_action_create')?>添加</label>
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'back_action_update')?>修改</label>
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'back_action_delete')?>删除</label>
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'back_action_other')?>其它</label>
-					</td>
-					<td><div class="help-block"></div></td>
-				</tr>
-			    
 			    <?= $form->field($model, 'back_action_custom')->textarea(['rows'=>3]) ?>
 			    
-				<tr>
-					<td colspan="3"><label>前台Action设置</label></td>
-				</tr>
-			    <tr class="form-group">
-					<td class="hAlign_left padding_r10" width="120">模型Action:</td>
-					<td width="500">
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_channel')?>频道</label>
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_list')?>列表</label>
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_detail')?>内容</label>
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_search')?>搜索</label>
-						<br>
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_index')?>管理</label>
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_create')?>添加</label>
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_update')?>修改</label>
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_delete')?>删除</label>
-						<label class="checkbox-inline"><?php echo Html::activeCheckbox($model, 'front_action_other')?>其它</label>
-					</td>
-					<td><div class="help-block"></div></td>
-				</tr>
-				
     			<?= $form->field($model, 'front_action_custom')->textarea(['rows'=>3]) ?>
-    			
-    			
     			
 			</table>
 			

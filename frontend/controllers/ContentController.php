@@ -34,12 +34,8 @@ class ContentController extends BaseFrontController
 		$chnid = LuLu::getGetValue('chnid', '');
 		
 		$channel = $this->getChannel($chnid);
-		
-		$table = DefineTable::findOne(['table_name' => $channel['table']]);
-		
-		$ret = $table->getFrontActions();
-		
-		return $ret;
+		$table = CommonUtility::getCachedTable($channel['table']);
+		return DefineTable::getFrontActions($table);
 	}
 
 	public function actionChannel($chnid = 0)
@@ -54,10 +50,10 @@ class ContentController extends BaseFrontController
 		return $action->run($chnid);
 	}
 
-	public function actionDetail($chnid = 0)
+	public function actionDetail($chnid = 0,$id)
 	{
 		$action = new \frontend\actions\content\model_default\DetailAction('detail', $this);
-		return $action->run($chnid);
+		return $action->run($chnid,$id);
 	}
 
 	public function actionSearch($chnid = 0)

@@ -24,7 +24,7 @@ class BaseView extends View
 		
 		if($this->channels == null)
 		{
-			$this->channels = CommonUtility::getChannels();
+			$this->channels = CommonUtility::getCachedChannel();
 		}
 		
 		if($this->rootChannels == null)

@@ -35,7 +35,7 @@ class UpdateAction extends ContentAction
 		$model = [];
 
 		if (true) {
-			return $this->redirect(['index', 'cid' => $chnid]);
+			return $this->redirect(['manager', 'cid' => $chnid]);
 		} else {
 			$locals=[];
 			$locals['model']=$model;

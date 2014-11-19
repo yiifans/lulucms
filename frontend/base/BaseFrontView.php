@@ -38,7 +38,7 @@ class BaseFrontView extends BaseView
 		$this->title = $title;
 		if($append == true)
 		{
-			$this->title .= '——' . CommonUtility::getConfigValue('site_name');
+			$this->title .= '——' . CommonUtility::getCachedConfigValue('site_name');
 		}
 		else if(is_string($append))
 		{

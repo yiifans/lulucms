@@ -7,6 +7,7 @@ use common\models\DefineTable;
 use backend\base\BaseBackController;
 use components\LuLu;
 use backend;
+use common\includes\CommonUtility;
 
 /**
  * ChannelController implements the CRUD actions for Channel model.
@@ -19,17 +20,13 @@ class ContentController extends BaseBackController
 		$chnid = LuLu::getGetValue('chnid');
 		
 		$channel = $this->getChannel($chnid);
-		
-		$table = DefineTable::findOne(['table_name' => $channel['table']]);
-		
-		$ret = $table->getBackActions();
-		
-		return $ret;
+		$table = CommonUtility::getCachedTable($channel['table']);
+		return DefineTable::getBackActions($table);
 	}
 
-	public function actionIndex($chnid = 0)
+	public function actionManager($chnid = 0)
 	{
-		$action = new backend\actions\content\model_default\IndexAction('index', $this);
+		$action = new backend\actions\content\model_default\ManagerAction('manager', $this);
 		return $action->run($chnid);
 	}
 

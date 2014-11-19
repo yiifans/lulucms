@@ -19,7 +19,7 @@ $config = yii\helpers\ArrayHelper::merge(
 
 $application = new yii\web\Application($config);
 $application->language = 'zh-CN';
-$siteStatus = CommonUtility::getConfigValue('site_status');
+$siteStatus = CommonUtility::getCachedConfigValue('site_status');
 if($siteStatus === '0')
 {
 	$application->catchAll = ['site/close', 'message' => 'test'];

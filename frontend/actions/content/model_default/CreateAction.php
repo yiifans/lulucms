@@ -3,7 +3,6 @@
 namespace frontend\actions\content\model_default;
 
 use Yii;
-
 use common\models\search\ChannelSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -28,37 +27,37 @@ use frontend\actions\content\ContentAction;
  */
 class CreateAction extends ContentAction
 {
+
 	public function run($chnid)
 	{
 		$model = [];
-	
-		$channelModel=Channel::findOne($chnid);
-
-		$formName='Content';
 		
-		if ($this->hasPostValue($formName)) {
+		$channelModel = Channel::findOne($chnid);
+		
+		$formName = 'Content';
+		
+		if($this->hasPostValue($formName))
+		{
+			$items = $this->getPostValue($formName);
+			// $items['catalog_id']=$channelId;
+			$columns = $items;
 			
-			$items=$this->getPostValue($formName);
-			//$items['catalog_id']=$channelId;
-			$columns=$items;
-			
-			$db=Yii::$app->db;
+			$db = Yii::$app->db;
 			$command = $db->createCommand();
 			$command->insert($this->tableName, $columns);
 			$command->execute();
 			
-			return $this->redirect(['index', 'chnid' => $chnid]);
-		} else {
-			
+			return $this->redirect(['manager', 'chnid' => $chnid]);
+		}
+		else
+		{
 			$locals = [];
-			$locals['model']=$model;
-			$locals['chnid']=$chnid;
+			$locals['model'] = $model;
+			$locals['chnid'] = $chnid;
 			
-			$createTpl=$this->getTpl($chnid, 'create');
+			$createTpl = $this->getTpl($chnid, 'create');
 			
 			return $this->render($createTpl, $locals);
 		}
 	}
-	
-
 }
