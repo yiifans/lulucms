@@ -33,18 +33,18 @@ $this->addBreadcrumb($this->title);
 		echo '&nbsp;&nbsp;&nbsp;&nbsp;';
 	}
 	?>
-	<a href="index.php?r=content/index&catid=<?php echo $row['id']?>" target="_blank">
+	<a href="index.php?r=content/index&chnid=<?php echo $row['id']?>" target="_blank">
 	<?php 
 		if($row['is_leaf'])
 		{
-			echo '<font color="red">'.$row['name'].'</font>';
+			echo '<a href="index.php?r=content/list&chnid='.$row['id'].'" target="_blank"> <font color="red">'.$row['name'].'</font></a>';
 		}
 		else
 		{
-			echo $row['name'];
+			echo '<a href="index.php?r=content/channel&chnid='.$row['id'].'" target="_blank">'.$row['name'].'</a>';
 		}
 	
-	?></a> 
+	?> 
 	</td>
 	<td><?php echo $row['table']?></td>
 	<td><?php if($row['is_leaf']){echo $row['list_tpl'];}else{echo $row['channel_tpl'];}?></td>

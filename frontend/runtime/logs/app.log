@@ -9350,3 +9350,268 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1416412104.34
     'REQUEST_TIME' => 1416412104
 ]
+2015-02-06 23:42:46 [127.0.0.1][-][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The table does not exist: yii_fragment' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\db\ActiveRecord.php:290
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\db\ActiveRecord.php(309): yii\db\ActiveRecord::getTableSchema()
+#1 D:\wamp\www\lulucms\components\base\BaseActiveRecord.php(43): yii\db\ActiveRecord::primaryKey()
+#2 D:\wamp\www\lulucms\common\includes\DataSource.php(222): components\base\BaseActiveRecord::findOne(5)
+#3 D:\wamp\www\lulucms\frontend\themes\default\site\index_.php(29): common\includes\DataSource::getFragmentData(5, Array)
+#4 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\View.php(325): require('D:\wamp\www\lul...')
+#5 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('D:\wamp\www\lul...', Array)
+#6 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('D:\wamp\www\lul...', Array, Object(frontend\controllers\SiteController))
+#7 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(367): yii\base\View->render('index_', Array, Object(frontend\controllers\SiteController))
+#8 D:\wamp\www\lulucms\frontend\controllers\SiteController.php(30): yii\base\Controller->render('index_', Array)
+#9 [internal function]: frontend\controllers\SiteController->actionIndex()
+#10 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#11 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#12 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('', Array)
+#13 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('', Array)
+#14 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#15 D:\wamp\www\lulucms\index.php(27): yii\base\Application->run()
+#16 {main}
+2015-02-06 23:42:45 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    'SESS29af1facda0a866a687d5055f2fade2c' => '4dZkjUJ_arewC6hZFP2vzcN0DRcU52YX85NX2GggKE8'
+    'currentPark' => '9752ff6a1216649e9c52bdfbe5a7008d3c18a4ba43f1d70b8ae3bd666ddf82bes:102:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"\"}\";'
+    '_csrf' => '43f254202471b8b48812691a94059db1fc8b4ce841c8f580a21020cea7c606a3s:32:\"M-HGtmZiKVUMsYH3LkClqSKzmKeGupRs\";'
+    '_identity' => 'ff6d9e2dec004dd06ad152aa700d3900c8e961171b5163d831ab0600ac86e875s:44:\"[1,\"4PBB6MTWO0ZNhgM8da2jONmIIhapjSlu\",50000]\";'
+    'PHPSESSID' => '5q21b58ad0pfg3m3tps4ovhpl7'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'SESS29af1facda0a866a687d5055f2fade2c=4dZkjUJ_arewC6hZFP2vzcN0DRcU52YX85NX2GggKE8; currentPark=9752ff6a1216649e9c52bdfbe5a7008d3c18a4ba43f1d70b8ae3bd666ddf82bes%3A102%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22%22%7D%22%3B; _csrf=43f254202471b8b48812691a94059db1fc8b4ce841c8f580a21020cea7c606a3s%3A32%3A%22M-HGtmZiKVUMsYH3LkClqSKzmKeGupRs%22%3B; _identity=ff6d9e2dec004dd06ad152aa700d3900c8e961171b5163d831ab0600ac86e875s%3A44%3A%22%5B1%2C%224PBB6MTWO0ZNhgM8da2jONmIIhapjSlu%22%2C50000%5D%22%3B; PHPSESSID=5q21b58ad0pfg3m3tps4ovhpl7'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\Program Files\\TortoiseSVN\\bin;D:\\wamp\\bin\\php\\php5.4.16;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/index.php'
+    'REMOTE_PORT' => '1135'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/lulucms/'
+    'SCRIPT_NAME' => '/lulucms/index.php'
+    'PHP_SELF' => '/lulucms/index.php'
+    'REQUEST_TIME_FLOAT' => 1423266165.004
+    'REQUEST_TIME' => 1423266165
+]
+2015-02-06 23:46:41 [127.0.0.1][1][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "admin".' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php:461
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('admin', Array)
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\wamp\www\lulucms\index.php(27): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request "admin".' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\wamp\www\lulucms\index.php(27): yii\base\Application->run()
+#2 {main}
+2015-02-06 23:46:41 [127.0.0.1][1][-][info][application] $_GET = [
+    'r' => 'admin'
+]
+
+$_COOKIE = [
+    'SESS29af1facda0a866a687d5055f2fade2c' => '4dZkjUJ_arewC6hZFP2vzcN0DRcU52YX85NX2GggKE8'
+    'currentPark' => '9752ff6a1216649e9c52bdfbe5a7008d3c18a4ba43f1d70b8ae3bd666ddf82bes:102:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"\"}\";'
+    '_csrf' => '43f254202471b8b48812691a94059db1fc8b4ce841c8f580a21020cea7c606a3s:32:\"M-HGtmZiKVUMsYH3LkClqSKzmKeGupRs\";'
+    '_identity' => 'ff6d9e2dec004dd06ad152aa700d3900c8e961171b5163d831ab0600ac86e875s:44:\"[1,\"4PBB6MTWO0ZNhgM8da2jONmIIhapjSlu\",50000]\";'
+    'PHPSESSID' => '5q21b58ad0pfg3m3tps4ovhpl7'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'SESS29af1facda0a866a687d5055f2fade2c=4dZkjUJ_arewC6hZFP2vzcN0DRcU52YX85NX2GggKE8; currentPark=9752ff6a1216649e9c52bdfbe5a7008d3c18a4ba43f1d70b8ae3bd666ddf82bes%3A102%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22%22%7D%22%3B; _csrf=43f254202471b8b48812691a94059db1fc8b4ce841c8f580a21020cea7c606a3s%3A32%3A%22M-HGtmZiKVUMsYH3LkClqSKzmKeGupRs%22%3B; _identity=ff6d9e2dec004dd06ad152aa700d3900c8e961171b5163d831ab0600ac86e875s%3A44%3A%22%5B1%2C%224PBB6MTWO0ZNhgM8da2jONmIIhapjSlu%22%2C50000%5D%22%3B; PHPSESSID=5q21b58ad0pfg3m3tps4ovhpl7'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\Program Files\\TortoiseSVN\\bin;D:\\wamp\\bin\\php\\php5.4.16;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/index.php'
+    'REMOTE_PORT' => '1305'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=admin'
+    'REQUEST_URI' => '/lulucms/index.php?r=admin'
+    'SCRIPT_NAME' => '/lulucms/index.php'
+    'PHP_SELF' => '/lulucms/index.php'
+    'REQUEST_TIME_FLOAT' => 1423266401.66
+    'REQUEST_TIME' => 1423266401
+]
+2015-02-06 23:47:05 [127.0.0.1][-][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'channel id: does not exist' in D:\wamp\www\lulucms\components\base\BaseController.php:63
+Stack trace:
+#0 D:\wamp\www\lulucms\frontend\controllers\ContentController.php(36): components\base\BaseController->getChannel('')
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(217): frontend\controllers\ContentController->actions()
+#2 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php(120): yii\base\Controller->createAction('index')
+#3 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('index', Array)
+#4 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('content/index', Array)
+#5 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 D:\wamp\www\lulucms\index.php(27): yii\base\Application->run()
+#7 {main}
+2015-02-06 23:47:05 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'content/index'
+    'catid' => '95'
+]
+
+$_COOKIE = [
+    'SESS29af1facda0a866a687d5055f2fade2c' => '4dZkjUJ_arewC6hZFP2vzcN0DRcU52YX85NX2GggKE8'
+    'currentPark' => '9752ff6a1216649e9c52bdfbe5a7008d3c18a4ba43f1d70b8ae3bd666ddf82bes:102:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"\"}\";'
+    '_csrf' => '43f254202471b8b48812691a94059db1fc8b4ce841c8f580a21020cea7c606a3s:32:\"M-HGtmZiKVUMsYH3LkClqSKzmKeGupRs\";'
+    '_identity' => 'ff6d9e2dec004dd06ad152aa700d3900c8e961171b5163d831ab0600ac86e875s:44:\"[1,\"4PBB6MTWO0ZNhgM8da2jONmIIhapjSlu\",50000]\";'
+    'PHPSESSID' => '5q21b58ad0pfg3m3tps4ovhpl7'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=channel%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'SESS29af1facda0a866a687d5055f2fade2c=4dZkjUJ_arewC6hZFP2vzcN0DRcU52YX85NX2GggKE8; currentPark=9752ff6a1216649e9c52bdfbe5a7008d3c18a4ba43f1d70b8ae3bd666ddf82bes%3A102%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22%22%7D%22%3B; _csrf=43f254202471b8b48812691a94059db1fc8b4ce841c8f580a21020cea7c606a3s%3A32%3A%22M-HGtmZiKVUMsYH3LkClqSKzmKeGupRs%22%3B; _identity=ff6d9e2dec004dd06ad152aa700d3900c8e961171b5163d831ab0600ac86e875s%3A44%3A%22%5B1%2C%224PBB6MTWO0ZNhgM8da2jONmIIhapjSlu%22%2C50000%5D%22%3B; PHPSESSID=5q21b58ad0pfg3m3tps4ovhpl7'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\Program Files\\TortoiseSVN\\bin;D:\\wamp\\bin\\php\\php5.4.16;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/index.php'
+    'REMOTE_PORT' => '1319'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=content/index&catid=95'
+    'REQUEST_URI' => '/lulucms/index.php?r=content/index&catid=95'
+    'SCRIPT_NAME' => '/lulucms/index.php'
+    'PHP_SELF' => '/lulucms/index.php'
+    'REQUEST_TIME_FLOAT' => 1423266425.377
+    'REQUEST_TIME' => 1423266425
+]
+2015-02-06 23:48:02 [127.0.0.1][1][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: content/index' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('index', Array)
+#1 D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('content/index', Array)
+#2 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\wamp\www\lulucms\index.php(27): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request: content/index' in D:\wamp\www\lulucms\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\wamp\www\lulucms\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\wamp\www\lulucms\index.php(27): yii\base\Application->run()
+#2 {main}
+2015-02-06 23:48:02 [127.0.0.1][1][-][info][application] $_GET = [
+    'r' => 'content/index'
+    'chnid' => '95'
+]
+
+$_COOKIE = [
+    'SESS29af1facda0a866a687d5055f2fade2c' => '4dZkjUJ_arewC6hZFP2vzcN0DRcU52YX85NX2GggKE8'
+    'currentPark' => '9752ff6a1216649e9c52bdfbe5a7008d3c18a4ba43f1d70b8ae3bd666ddf82bes:102:\"{\"id\":\"1\",\"code\":\"QD1\",\"name\":\"\\u9752\\u5c9b\\u4e2d\\u5fb7\\u751f\\u6001\\u56ed\",\"shpID\":\"0\",\"workspace\":\"\"}\";'
+    '_csrf' => '43f254202471b8b48812691a94059db1fc8b4ce841c8f580a21020cea7c606a3s:32:\"M-HGtmZiKVUMsYH3LkClqSKzmKeGupRs\";'
+    '_identity' => 'ff6d9e2dec004dd06ad152aa700d3900c8e961171b5163d831ab0600ac86e875s:44:\"[1,\"4PBB6MTWO0ZNhgM8da2jONmIIhapjSlu\",50000]\";'
+    'PHPSESSID' => '5q21b58ad0pfg3m3tps4ovhpl7'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/3.0 Chrome/22.0.1229.79 Safari/537.1'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=channel%2Findex'
+    'HTTP_ACCEPT_ENCODING' => 'gzip,deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN'
+    'HTTP_ACCEPT_CHARSET' => 'GBK,utf-8;q=0.7,*;q=0.3'
+    'HTTP_COOKIE' => 'SESS29af1facda0a866a687d5055f2fade2c=4dZkjUJ_arewC6hZFP2vzcN0DRcU52YX85NX2GggKE8; currentPark=9752ff6a1216649e9c52bdfbe5a7008d3c18a4ba43f1d70b8ae3bd666ddf82bes%3A102%3A%22%7B%22id%22%3A%221%22%2C%22code%22%3A%22QD1%22%2C%22name%22%3A%22%5Cu9752%5Cu5c9b%5Cu4e2d%5Cu5fb7%5Cu751f%5Cu6001%5Cu56ed%22%2C%22shpID%22%3A%220%22%2C%22workspace%22%3A%22%22%7D%22%3B; _csrf=43f254202471b8b48812691a94059db1fc8b4ce841c8f580a21020cea7c606a3s%3A32%3A%22M-HGtmZiKVUMsYH3LkClqSKzmKeGupRs%22%3B; _identity=ff6d9e2dec004dd06ad152aa700d3900c8e961171b5163d831ab0600ac86e875s%3A44%3A%22%5B1%2C%224PBB6MTWO0ZNhgM8da2jONmIIhapjSlu%22%2C50000%5D%22%3B; PHPSESSID=5q21b58ad0pfg3m3tps4ovhpl7'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;d:\\oracle\\product\\10.2.0\\db_1\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\100\\DTS\\Binn\\;C:\\Program Files\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\Program Files\\TortoiseSVN\\bin;D:\\wamp\\bin\\php\\php5.4.16;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) PHP/5.4.16'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/wamp/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'D:/wamp/www/lulucms/index.php'
+    'REMOTE_PORT' => '1346'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=content/index&chnid=95'
+    'REQUEST_URI' => '/lulucms/index.php?r=content/index&chnid=95'
+    'SCRIPT_NAME' => '/lulucms/index.php'
+    'PHP_SELF' => '/lulucms/index.php'
+    'REQUEST_TIME_FLOAT' => 1423266482.718
+    'REQUEST_TIME' => 1423266482
+]
