@@ -7811,3 +7811,1005 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1423266704.377
     'REQUEST_TIME' => 1423266704
 ]
+2015-05-04 07:36:21 [127.0.0.1][][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The mcrypt PHP extension is not installed.' in /var/www/html/lulucms/vendor/yiisoft/yii2/base/Security.php:464
+Stack trace:
+#0 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Security.php(483): yii\base\Security->generateRandomKey(32)
+#1 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Request.php(1283): yii\base\Security->generateRandomString()
+#2 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Request.php(1251): yii\web\Request->generateCsrfToken()
+#3 /var/www/html/lulucms/vendor/yiisoft/yii2/helpers/BaseHtml.php(296): yii\web\Request->getCsrfToken()
+#4 /var/www/html/lulucms/vendor/yiisoft/yii2/widgets/ActiveForm.php(175): yii\helpers\BaseHtml::beginForm('', 'post', Array)
+#5 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Object.php(107): yii\widgets\ActiveForm->init()
+#6 [internal function]: yii\base\Object->__construct(Array)
+#7 /var/www/html/lulucms/vendor/yiisoft/yii2/di/Container.php(364): ReflectionClass->newInstanceArgs(Array)
+#8 /var/www/html/lulucms/vendor/yiisoft/yii2/di/Container.php(147): yii\di\Container->build('yii\\widgets\\Act...', Array, Array)
+#9 /var/www/html/lulucms/vendor/yiisoft/yii2/BaseYii.php(344): yii\di\Container->get('yii\\widgets\\Act...', Array, Array)
+#10 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Widget.php(56): yii\BaseYii::createObject(Array)
+#11 /var/www/html/lulucms/backend/views/admin/login.php(42): yii\base\Widget::begin(Array)
+#12 /var/www/html/lulucms/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/l...')
+#13 /var/www/html/lulucms/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/l...', Array)
+#14 /var/www/html/lulucms/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/l...', Array, Object(backend\controllers\AdminController))
+#15 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Controller.php(367): yii\base\View->render('login', Array, Object(backend\controllers\AdminController))
+#16 /var/www/html/lulucms/backend/controllers/AdminController.php(31): yii\base\Controller->render('login', Array)
+#17 [internal function]: backend\controllers\AdminController->actionLogin()
+#18 /var/www/html/lulucms/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#19 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#20 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('login', Array)
+#21 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('admin/login', Array)
+#22 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#23 /var/www/html/lulucms/admin.php(22): yii\base\Application->run()
+#24 {main}
+2015-05-04 07:36:21 [127.0.0.1][][-][info][application] $_GET = [
+    'r' => 'admin/login'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '9724056q4iq2tili31jqtj5kg2'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/'
+    'HTTP_COOKIE' => 'PHPSESSID=9724056q4iq2tili31jqtj5kg2; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '50662'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=admin%2Flogin'
+    'REQUEST_URI' => '/lulucms/admin.php?r=admin%2Flogin'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430724981.97
+    'REQUEST_TIME' => 1430724981
+]
+2015-05-04 07:38:09 [127.0.0.1][][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The mcrypt PHP extension is not installed.' in /var/www/html/lulucms/vendor/yiisoft/yii2/base/Security.php:464
+Stack trace:
+#0 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Security.php(483): yii\base\Security->generateRandomKey(32)
+#1 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Request.php(1283): yii\base\Security->generateRandomString()
+#2 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Request.php(1251): yii\web\Request->generateCsrfToken()
+#3 /var/www/html/lulucms/vendor/yiisoft/yii2/helpers/BaseHtml.php(296): yii\web\Request->getCsrfToken()
+#4 /var/www/html/lulucms/vendor/yiisoft/yii2/widgets/ActiveForm.php(175): yii\helpers\BaseHtml::beginForm('', 'post', Array)
+#5 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Object.php(107): yii\widgets\ActiveForm->init()
+#6 [internal function]: yii\base\Object->__construct(Array)
+#7 /var/www/html/lulucms/vendor/yiisoft/yii2/di/Container.php(364): ReflectionClass->newInstanceArgs(Array)
+#8 /var/www/html/lulucms/vendor/yiisoft/yii2/di/Container.php(147): yii\di\Container->build('yii\\widgets\\Act...', Array, Array)
+#9 /var/www/html/lulucms/vendor/yiisoft/yii2/BaseYii.php(344): yii\di\Container->get('yii\\widgets\\Act...', Array, Array)
+#10 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Widget.php(56): yii\BaseYii::createObject(Array)
+#11 /var/www/html/lulucms/backend/views/admin/login.php(42): yii\base\Widget::begin(Array)
+#12 /var/www/html/lulucms/vendor/yiisoft/yii2/base/View.php(325): require('/var/www/html/l...')
+#13 /var/www/html/lulucms/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/var/www/html/l...', Array)
+#14 /var/www/html/lulucms/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/var/www/html/l...', Array, Object(backend\controllers\AdminController))
+#15 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Controller.php(367): yii\base\View->render('login', Array, Object(backend\controllers\AdminController))
+#16 /var/www/html/lulucms/backend/controllers/AdminController.php(31): yii\base\Controller->render('login', Array)
+#17 [internal function]: backend\controllers\AdminController->actionLogin()
+#18 /var/www/html/lulucms/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#19 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#20 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('login', Array)
+#21 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('admin/login', Array)
+#22 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#23 /var/www/html/lulucms/admin.php(22): yii\base\Application->run()
+#24 {main}
+2015-05-04 07:38:09 [127.0.0.1][][-][info][application] $_GET = [
+    'r' => 'admin/login'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '9724056q4iq2tili31jqtj5kg2'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/'
+    'HTTP_COOKIE' => 'PHPSESSID=9724056q4iq2tili31jqtj5kg2; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '51002'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=admin%2Flogin'
+    'REQUEST_URI' => '/lulucms/admin.php?r=admin%2Flogin'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725089.42
+    'REQUEST_TIME' => 1430725089
+]
+2015-05-04 07:44:22 [127.0.0.1][1][-][error][yii\web\HttpException:400] exception 'yii\web\BadRequestHttpException' with message '您提交的数据无法被验证。' in /var/www/html/lulucms/vendor/yiisoft/yii2/web/Controller.php:110
+Stack trace:
+#0 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Controller.php(149): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('logout', Array)
+#2 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('admin/logout', Array)
+#3 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#4 /var/www/html/lulucms/admin.php(22): yii\base\Application->run()
+#5 {main}
+2015-05-04 07:44:22 [127.0.0.1][1][-][info][application] $_GET = [
+    'r' => 'admin/logout'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'mgsp31c4tum8836mtb5gh6h9b7'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Findex'
+    'HTTP_COOKIE' => 'PHPSESSID=mgsp31c4tum8836mtb5gh6h9b7; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '51934'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=admin%2Flogout'
+    'REQUEST_URI' => '/lulucms/admin.php?r=admin%2Flogout'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725462.459
+    'REQUEST_TIME' => 1430725462
+]
+2015-05-04 07:44:28 [127.0.0.1][1][-][error][yii\web\HttpException:400] exception 'yii\web\BadRequestHttpException' with message '您提交的数据无法被验证。' in /var/www/html/lulucms/vendor/yiisoft/yii2/web/Controller.php:110
+Stack trace:
+#0 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Controller.php(149): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('logout', Array)
+#2 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('admin/logout', Array)
+#3 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#4 /var/www/html/lulucms/admin.php(22): yii\base\Application->run()
+#5 {main}
+2015-05-04 07:44:28 [127.0.0.1][1][-][info][application] $_GET = [
+    'r' => 'admin/logout'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'mgsp31c4tum8836mtb5gh6h9b7'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Flogout'
+    'HTTP_COOKIE' => 'PHPSESSID=mgsp31c4tum8836mtb5gh6h9b7; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '51960'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=admin%2Flogout'
+    'REQUEST_URI' => '/lulucms/admin.php?r=admin%2Flogout'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725468.447
+    'REQUEST_TIME' => 1430725468
+]
+2015-05-04 07:44:37 [127.0.0.1][1][-][error][yii\web\HttpException:400] exception 'yii\web\BadRequestHttpException' with message '您提交的数据无法被验证。' in /var/www/html/lulucms/vendor/yiisoft/yii2/web/Controller.php:110
+Stack trace:
+#0 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Controller.php(149): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('logout', Array)
+#2 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('admin/logout', Array)
+#3 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#4 /var/www/html/lulucms/admin.php(22): yii\base\Application->run()
+#5 {main}
+2015-05-04 07:44:37 [127.0.0.1][1][-][info][application] $_GET = [
+    'r' => 'admin/logout'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'mgsp31c4tum8836mtb5gh6h9b7'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php'
+    'HTTP_COOKIE' => 'PHPSESSID=mgsp31c4tum8836mtb5gh6h9b7; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '51962'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=admin%2Flogout'
+    'REQUEST_URI' => '/lulucms/admin.php?r=admin%2Flogout'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725477.661
+    'REQUEST_TIME' => 1430725477
+]
+2015-05-04 07:44:44 [127.0.0.1][1][-][error][yii\web\HttpException:400] exception 'yii\web\BadRequestHttpException' with message '您提交的数据无法被验证。' in /var/www/html/lulucms/vendor/yiisoft/yii2/web/Controller.php:110
+Stack trace:
+#0 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Controller.php(149): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('logout', Array)
+#2 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('admin/logout', Array)
+#3 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#4 /var/www/html/lulucms/admin.php(22): yii\base\Application->run()
+#5 {main}
+2015-05-04 07:44:44 [127.0.0.1][1][-][info][application] $_GET = [
+    'r' => 'admin/logout'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'mgsp31c4tum8836mtb5gh6h9b7'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php'
+    'HTTP_COOKIE' => 'PHPSESSID=mgsp31c4tum8836mtb5gh6h9b7; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '52003'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=admin%2Flogout'
+    'REQUEST_URI' => '/lulucms/admin.php?r=admin%2Flogout'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725484.591
+    'REQUEST_TIME' => 1430725484
+]
+2015-05-04 07:44:48 [127.0.0.1][1][-][error][yii\web\HttpException:400] exception 'yii\web\BadRequestHttpException' with message '您提交的数据无法被验证。' in /var/www/html/lulucms/vendor/yiisoft/yii2/web/Controller.php:110
+Stack trace:
+#0 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Controller.php(149): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('logout', Array)
+#2 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('admin/logout', Array)
+#3 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#4 /var/www/html/lulucms/admin.php(22): yii\base\Application->run()
+#5 {main}
+2015-05-04 07:44:48 [127.0.0.1][1][-][info][application] $_GET = [
+    'r' => 'admin/logout'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'mgsp31c4tum8836mtb5gh6h9b7'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Flogout'
+    'HTTP_COOKIE' => 'PHPSESSID=mgsp31c4tum8836mtb5gh6h9b7; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '52005'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=admin%2Flogout'
+    'REQUEST_URI' => '/lulucms/admin.php?r=admin%2Flogout'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725488.001
+    'REQUEST_TIME' => 1430725488
+]
+2015-05-04 07:45:12 [127.0.0.1][2][-][error][yii\web\HttpException:400] exception 'yii\web\BadRequestHttpException' with message '您提交的数据无法被验证。' in /var/www/html/lulucms/vendor/yiisoft/yii2/web/Controller.php:110
+Stack trace:
+#0 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Controller.php(149): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('logout', Array)
+#2 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('admin/logout', Array)
+#3 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#4 /var/www/html/lulucms/admin.php(22): yii\base\Application->run()
+#5 {main}
+2015-05-04 07:45:12 [127.0.0.1][2][-][info][application] $_GET = [
+    'r' => 'admin/logout'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'h2k7ov3v928mk6u0o69ejeses1'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+    '__id' => 2
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Findex'
+    'HTTP_COOKIE' => 'PHPSESSID=h2k7ov3v928mk6u0o69ejeses1; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'CONTENT_LENGTH' => '0'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '52073'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=admin%2Flogout'
+    'REQUEST_URI' => '/lulucms/admin.php?r=admin%2Flogout'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725512.821
+    'REQUEST_TIME' => 1430725512
+]
+2015-05-04 07:47:47 [127.0.0.1][-][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: /var/www/html/lulucms/backend/messages/zh-CN/app.php Fallback file does not exist as well: /var/www/html/lulucms/backend/messages/zh/app.php
+    in /var/www/html/lulucms/backend/modules/filemanager/views/default/index.php:55
+    in /var/www/html/lulucms/backend/modules/filemanager/controllers/DefaultController.php:47
+2015-05-04 07:47:47 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'filemanager'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'kchc3aq89edvp361ksg31vbsa3'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftpl'
+    'HTTP_COOKIE' => 'PHPSESSID=kchc3aq89edvp361ksg31vbsa3; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '52419'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=filemanager'
+    'REQUEST_URI' => '/lulucms/admin.php?r=filemanager'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725667.18
+    'REQUEST_TIME' => 1430725667
+]
+2015-05-04 07:47:48 [127.0.0.1][-][-][error][yii\base\ErrorException:2] exception 'yii\base\ErrorException' with message 'scandir(/var/www/html/lulucms/frontend/\themes/basic): failed to open dir: No such file or directory' in /var/www/html/lulucms/backend/modules/filemanager/controllers/DefaultController.php:38
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'scandir(/var/ww...', '/var/www/html/l...', 38, Array)
+#1 /var/www/html/lulucms/backend/modules/filemanager/controllers/DefaultController.php(38): scandir('/var/www/html/l...')
+#2 [internal function]: backend\modules\filemanager\controllers\DefaultController->actionIndex()
+#3 /var/www/html/lulucms/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#4 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#5 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('', Array)
+#6 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('filemanager', Array)
+#7 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /var/www/html/lulucms/admin.php(22): yii\base\Application->run()
+#9 {main}
+2015-05-04 07:47:48 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'filemanager'
+    'currentdir' => '\\themes'
+    'name' => 'basic'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'kchc3aq89edvp361ksg31vbsa3'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftpl'
+    'HTTP_COOKIE' => 'PHPSESSID=kchc3aq89edvp361ksg31vbsa3; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '52419'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=filemanager&currentdir=%5Cthemes&name=basic'
+    'REQUEST_URI' => '/lulucms/admin.php?r=filemanager&currentdir=%5Cthemes&name=basic'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725668.632
+    'REQUEST_TIME' => 1430725668
+]
+2015-05-04 07:47:50 [127.0.0.1][-][-][error][yii\base\ErrorException:2] exception 'yii\base\ErrorException' with message 'scandir(/var/www/html/lulucms/frontend/\themes/default): failed to open dir: No such file or directory' in /var/www/html/lulucms/backend/modules/filemanager/controllers/DefaultController.php:38
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'scandir(/var/ww...', '/var/www/html/l...', 38, Array)
+#1 /var/www/html/lulucms/backend/modules/filemanager/controllers/DefaultController.php(38): scandir('/var/www/html/l...')
+#2 [internal function]: backend\modules\filemanager\controllers\DefaultController->actionIndex()
+#3 /var/www/html/lulucms/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#4 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#5 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Module.php(455): yii\base\Controller->runAction('', Array)
+#6 /var/www/html/lulucms/vendor/yiisoft/yii2/web/Application.php(83): yii\base\Module->runAction('filemanager', Array)
+#7 /var/www/html/lulucms/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /var/www/html/lulucms/admin.php(22): yii\base\Application->run()
+#9 {main}
+2015-05-04 07:47:50 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'filemanager'
+    'currentdir' => '\\themes'
+    'name' => 'default'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'kchc3aq89edvp361ksg31vbsa3'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftpl'
+    'HTTP_COOKIE' => 'PHPSESSID=kchc3aq89edvp361ksg31vbsa3; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '52463'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=filemanager&currentdir=%5Cthemes&name=default'
+    'REQUEST_URI' => '/lulucms/admin.php?r=filemanager&currentdir=%5Cthemes&name=default'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725670.895
+    'REQUEST_TIME' => 1430725670
+]
+2015-05-04 07:47:55 [127.0.0.1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: /var/www/html/lulucms/backend/messages/zh-CN/app.php Fallback file does not exist as well: /var/www/html/lulucms/backend/messages/zh/app.php
+    in /var/www/html/lulucms/backend/views/channel/index.php:63
+    in /var/www/html/lulucms/backend/controllers/ChannelController.php:24
+2015-05-04 07:47:55 [127.0.0.1][1][-][info][application] $_GET = [
+    'r' => 'channel/index'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'kchc3aq89edvp361ksg31vbsa3'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_COOKIE' => 'PHPSESSID=kchc3aq89edvp361ksg31vbsa3; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '52466'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=channel%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=channel%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725675.056
+    'REQUEST_TIME' => 1430725675
+]
+2015-05-04 07:47:58 [127.0.0.1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: /var/www/html/lulucms/backend/messages/zh-CN/app.php Fallback file does not exist as well: /var/www/html/lulucms/backend/messages/zh/app.php
+    in /var/www/html/lulucms/backend/views/page/index.php:39
+    in /var/www/html/lulucms/backend/controllers/PageController.php:22
+2015-05-04 07:47:58 [127.0.0.1][1][-][info][application] $_GET = [
+    'r' => 'page/index'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'kchc3aq89edvp361ksg31vbsa3'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_COOKIE' => 'PHPSESSID=kchc3aq89edvp361ksg31vbsa3; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '52466'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=page%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=page%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725678.376
+    'REQUEST_TIME' => 1430725678
+]
+2015-05-04 07:48:00 [127.0.0.1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: /var/www/html/lulucms/backend/messages/zh-CN/app.php Fallback file does not exist as well: /var/www/html/lulucms/backend/messages/zh/app.php
+    in /var/www/html/lulucms/backend/views/page-category/index.php:37
+    in /var/www/html/lulucms/backend/controllers/PageCategoryController.php:23
+2015-05-04 07:48:00 [127.0.0.1][1][-][info][application] $_GET = [
+    'r' => 'page-category/index'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'kchc3aq89edvp361ksg31vbsa3'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_COOKIE' => 'PHPSESSID=kchc3aq89edvp361ksg31vbsa3; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '52466'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=page-category%2Findex'
+    'REQUEST_URI' => '/lulucms/admin.php?r=page-category%2Findex'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725680.079
+    'REQUEST_TIME' => 1430725680
+]
+2015-05-04 07:48:01 [127.0.0.1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: /var/www/html/lulucms/backend/messages/zh-CN/app.php Fallback file does not exist as well: /var/www/html/lulucms/backend/messages/zh/app.php
+    in /var/www/html/lulucms/backend/views/fragment/index.php:41
+    in /var/www/html/lulucms/backend/controllers/FragmentController.php:27
+2015-05-04 07:48:01 [127.0.0.1][1][-][info][application] $_GET = [
+    'r' => 'fragment/index'
+    'type' => '1'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'kchc3aq89edvp361ksg31vbsa3'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_COOKIE' => 'PHPSESSID=kchc3aq89edvp361ksg31vbsa3; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '52466'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=fragment%2Findex&type=1'
+    'REQUEST_URI' => '/lulucms/admin.php?r=fragment%2Findex&type=1'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725681.865
+    'REQUEST_TIME' => 1430725681
+]
+2015-05-04 07:48:03 [127.0.0.1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: /var/www/html/lulucms/backend/messages/zh-CN/app.php Fallback file does not exist as well: /var/www/html/lulucms/backend/messages/zh/app.php
+    in /var/www/html/lulucms/backend/views/fragment/index.php:41
+    in /var/www/html/lulucms/backend/controllers/FragmentController.php:27
+2015-05-04 07:48:03 [127.0.0.1][1][-][info][application] $_GET = [
+    'r' => 'fragment/index'
+    'type' => '2'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'kchc3aq89edvp361ksg31vbsa3'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_COOKIE' => 'PHPSESSID=kchc3aq89edvp361ksg31vbsa3; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '52466'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=fragment%2Findex&type=2'
+    'REQUEST_URI' => '/lulucms/admin.php?r=fragment%2Findex&type=2'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725683.719
+    'REQUEST_TIME' => 1430725683
+]
+2015-05-04 07:48:04 [127.0.0.1][1][-][error][yii\i18n\PhpMessageSource::loadMessages] The message file for category 'app' does not exist: /var/www/html/lulucms/backend/messages/zh-CN/app.php Fallback file does not exist as well: /var/www/html/lulucms/backend/messages/zh/app.php
+    in /var/www/html/lulucms/backend/views/fragment/index.php:41
+    in /var/www/html/lulucms/backend/controllers/FragmentController.php:27
+2015-05-04 07:48:04 [127.0.0.1][1][-][info][application] $_GET = [
+    'r' => 'fragment/index'
+    'type' => '3'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'kchc3aq89edvp361ksg31vbsa3'
+    'weiphp_home___forward__' => '/weiphp2.0.1202/index.php?s=/home/index/main.html'
+    '_csrf' => '6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as:32:\"gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN\";'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lulucms/admin.php'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://localhost/lulucms/admin.php?r=admin%2Ftaxonomy'
+    'HTTP_COOKIE' => 'PHPSESSID=kchc3aq89edvp361ksg31vbsa3; weiphp_home___forward__=%2Fweiphp2.0.1202%2Findex.php%3Fs%3D%2Fhome%2Findex%2Fmain.html; _csrf=6787ecc1e01515aa22526c5dfa0685ef88b1c5b7304211c17e2e4b0463260f9as%3A32%3A%22gQdj3R3pJUi42l9yx0gUpXD-mod-hEcN%22%3B'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Ubuntu) Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Ubuntu)'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/lulucms/admin.php'
+    'REMOTE_PORT' => '52466'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=fragment%2Findex&type=3'
+    'REQUEST_URI' => '/lulucms/admin.php?r=fragment%2Findex&type=3'
+    'SCRIPT_NAME' => '/lulucms/admin.php'
+    'PHP_SELF' => '/lulucms/admin.php'
+    'REQUEST_TIME_FLOAT' => 1430725684.731
+    'REQUEST_TIME' => 1430725684
+]
