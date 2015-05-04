@@ -116,7 +116,7 @@ $cachedConfigs['site_name']=[
 $cachedConfigs['site_path']=[
 	'id' => 'site_path',
 	'scope' => 'site',
-	'value' => '/lulu',
+	'value' => 'localhost/lulucms',
 	'note' => '',
 ];
 $cachedConfigs['site_stats']=[
